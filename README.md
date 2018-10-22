@@ -5,11 +5,11 @@
 
 <p align="center">
     <a href="https://github.com/JamitLabs/Portus/releases">
-        <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg"
-             alt="Version: 1.0.0">
+        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg"
+             alt="Version: 0.1.0">
     </a>
-    <img src="https://img.shields.io/badge/Swift-4.0-FFAC45.svg"
-         alt="Swift: 4.0">
+    <img src="https://img.shields.io/badge/Swift-4.2-FFAC45.svg"
+         alt="Swift: 4.2">
     <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-FF69B4.svg"
         alt="Platforms: iOS | macOS | tvOS | watchOS">
     <a href="https://github.com/JamitLabs/Portus/blob/stable/LICENSE.md">
