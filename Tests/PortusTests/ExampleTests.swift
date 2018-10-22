@@ -1,6 +1,6 @@
 //
 //  Created by Cihat Gündüz on 27.06.17.
-//  Copyright © 2017 JamitLabs. All rights reserved.
+//  Copyright © 2017 Jamit Labs. All rights reserved.
 //
 
 @testable import Portus

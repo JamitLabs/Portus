@@ -90,7 +90,7 @@ file_header:
   required_pattern: |
                     \/\/
                     \/\/  Created by [^\(\)\d\n]+ on \S{6,10}\.
-                    \/\/  Copyright © \d{4} JamitLabs\. All rights reserved\.
+                    \/\/  Copyright © \d{4} Jamit Labs\. All rights reserved\.
                     \/\/
 
 file_name:
