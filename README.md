@@ -4,6 +4,10 @@
 </p>
 
 <p align="center">
+    <a href="https://app.bitrise.io/app/7f97045d305e8481">
+        <img src="https://app.bitrise.io/app/7f97045d305e8481/status.svg?token=jW4_Lgs5ezNb-OlbhaE11Q&branch=stable"
+             alt="Build Status">
+    </a>
     <a href="https://github.com/JamitLabs/Portus/releases">
         <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg"
              alt="Version: 0.1.0">
@@ -32,33 +36,9 @@ TODO: Summarize the project goals here.
 
 ## Installation
 
-### Carthage
+Installing via [Carthage](https://github.com/Carthage/Carthage#carthage) & [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) are both supported.
 
-Place the following line to your Cartfile:
-
-``` Swift
-github "JamitLabs/Portus" ~> 1.0
-```
-
-Now run `carthage update`. Then drag & drop the Portus.framework in the Carthage/Build folder to your project. Now you can `import Portus` in each class you want to use its features. Refer to the [Carthage README](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) for detailed / updated instructions.
-
-### CocoaPods
-
-Add the line `pod 'Portus'` to your target in your `Podfile` and make sure to include `use_frameworks!`
-at the top. The result might look similar to this:
-
-``` Ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyAppTarget' do
-    pod 'Portus', '~> 1.0'
-end
-```
-
-Now close your project and run `pod install` from the command line. Then open the `.xcworkspace` from within your project folder.
-Build your project once (with `Cmd+B`) to update the frameworks known to Xcode. Now you can `import Portus` in each class you want to use its features.
-Refer to [CocoaPods.org](https://cocoapods.org) for detailed / updates instructions.
+Support for SPM is currently not possible as this framework uses UIKit.
 
 ## Usage
 
