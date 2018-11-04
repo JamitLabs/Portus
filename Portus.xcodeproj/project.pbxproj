@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38C1805A218EE300009591B0 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C18059218EE300009591B0 /* Routable.swift */; };
+		38C1805C218EE73A009591B0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1805B218EE73A009591B0 /* Path.swift */; };
 		A102BD481F02355A000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD3E1F02355A000C6B38 /* Portus.framework */; };
 		A102BD661F023573000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD5D1F023573000C6B38 /* Portus.framework */; };
 		A102BD821F023582000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD791F023582000C6B38 /* Portus.framework */; };
@@ -91,6 +93,8 @@
 /* Begin PBXFileReference section */
 		000E616F2086425500C0638C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0085926E2046FD1B00AB529F /* beak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beak.swift; sourceTree = "<group>"; };
+		38C18059218EE300009591B0 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		38C1805B218EE73A009591B0 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		82056067217DD00800E23A81 /* .projlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .projlint.yml; sourceTree = "<group>"; };
 		820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 		82056066217DCF1700E23A81 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				38C18059218EE300009591B0 /* Routable.swift */,
+				38C1805B218EE73A009591B0 /* Path.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 				TargetAttributes = {
 					A102BD3D1F02355A000C6B38 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					A102BD461F02355A000C6B38 = {
@@ -799,6 +806,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C1805C218EE73A009591B0 /* Path.swift in Sources */,
+				38C1805A218EE300009591B0 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,9 +1009,11 @@
 		A102BD531F02355A000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1012,6 +1023,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1019,9 +1032,11 @@
 		A102BD541F02355A000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1031,6 +1046,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1038,6 +1054,7 @@
 		A102BD561F02355A000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
@@ -1053,6 +1070,7 @@
 		A102BD571F02355A000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
