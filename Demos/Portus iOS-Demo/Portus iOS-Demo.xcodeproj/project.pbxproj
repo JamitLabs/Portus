@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82056094217DE85000E23A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82056093217DE85000E23A81 /* AppDelegate.swift */; };
 		82056096217DE85000E23A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82056095217DE85000E23A81 /* ViewController.swift */; };
 		82056099217DE85000E23A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82056097217DE85000E23A81 /* Main.storyboard */; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
-		820560A7217DE88200E23A81 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		38C18057218EDD00009591B0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		82056090217DE85000E23A81 /* Portus iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portus iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820560A7217DE88200E23A81 /* Portus.framework in Frameworks */,
+				38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +100,7 @@
 				8205608C217DE85000E23A81 /* Sources */,
 				8205608D217DE85000E23A81 /* Frameworks */,
 				8205608E217DE85000E23A81 /* Resources */,
+				38C18057218EDD00009591B0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
