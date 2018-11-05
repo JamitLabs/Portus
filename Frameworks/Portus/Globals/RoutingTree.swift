@@ -8,41 +8,40 @@ import Foundation
 internal class RoutingTree {
     // MARK: - Properties
     static let shared = RoutingTree()
-    private var root: Node?
     private var routables: [RoutableID: Routable] = [:]
+    private var rootNode: Node?
 
     // MARK: - Initializers
     private init() {}
 
     // MARK: - Methods
     func add(routable: Routable, parent: Routable?) {
-        let identifier = routable.identifier
+        guard routables.keys.contains(routable.routableID) else { fatalError("A routable object with the given ID already exists.") }
 
-        guard routables.keys.contains(identifier) else { fatalError("A routable object with the given identifier already exists.") }
-
-        // NOTE: We check whether a root node already exists, otherwise we initialize the tree with the given routable
-        if root == nil && parent == nil {
-            root = Node(identifier: identifier)
+        if rootNode == nil && parent == nil {
+            // NOTE: In case that no root node exists, we initialize the tree with the given routable
+            rootNode = Node(routableID: routable.routableID)
         } else {
-            guard let parent = parent else { fatalError("The given routable can not be inserted into tree; no parent given.") }
-            guard let parentNode = root?.getNodeWith(identifier: parent.identifier) else { fatalError("No node could be found for the given parent.") }
+            // NOTE: Otherwise, we insert the given routable into the existing tree
+            guard let parent = parent else { fatalError("The given routable can not be inserted into tree: No parent given.") }
+            guard let parentNode = rootNode?.searchNodeUsingDFS(routableID: parent.routableID) else { fatalError("No node could be found for the given parent.") }
 
-            parentNode.subNodes.append(Node(identifier: identifier, subNodes: []))
+            parentNode.subNodes.append(Node(routableID: routable.routableID))
         }
 
-        routables[identifier] = routable
+        routables[routable.routableID] = routable
     }
 
     func emptyTree() {
-        self.root = nil
+        self.rootNode = nil
         self.routables = [:]
     }
 
     func removeRoutable(_ routable: Routable) {
-        guard let root = root else { return }
+        guard let rootNode = rootNode else { return }
 
-        guard root.identifier != routable.identifier else { return emptyTree() }
-        guard let nodeForRoutable = root.getNodeWith(identifier: routable.identifier) else { return }
+        guard rootNode.identifier != routable.identifier else { return emptyTree() }
+        guard let nodeForRoutable = rootNode.getNodeWith(identifier: routable.identifier) else { return }
         guard let parent = nodeForRoutable.parent else { return }
         parent.removeSubNode(with: routable.identifier)
 
