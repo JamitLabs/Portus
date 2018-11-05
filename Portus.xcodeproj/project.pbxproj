@@ -191,8 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				38C1805D218EE8B8009591B0 /* RoutingTree.swift */,
-				38B2C8CE2190C523008483CA /* Node.swift */,
-				38B2C8D22190D2E0008483CA /* RoutableID.swift */,
+				38C18059218EE300009591B0 /* Routable.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -200,8 +199,9 @@
 		82056066217DCF1700E23A81 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38C18059218EE300009591B0 /* Routable.swift */,
+				38B2C8D22190D2E0008483CA /* RoutableID.swift */,
 				38C1805B218EE73A009591B0 /* Path.swift */,
+				38B2C8CE2190C523008483CA /* Node.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

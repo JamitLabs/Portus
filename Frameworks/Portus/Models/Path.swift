@@ -6,7 +6,7 @@
 import Foundation
 
 public struct Path {
-    // MARK: - Subtypes
+    // MARK: - Properties
     var components: [RoutableID]
     var nextPathComponent: RoutableID? { return components.first }
     var remainingPath: Path { return Path(components: [RoutableID](components.dropFirst())) }
