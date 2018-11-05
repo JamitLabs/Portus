@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B52190C26B008483CA /* AppDelegate.swift */; };
+		38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B72190C26B008483CA /* FlowBViewController.swift */; };
+		38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8B82190C26B008483CA /* FlowB.storyboard */; };
+		38B2C8C62190C26B008483CA /* FlowControllerB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B92190C26B008483CA /* FlowControllerB.swift */; };
+		38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BB2190C26B008483CA /* StartupViewController.swift */; };
+		38B2C8C82190C26B008483CA /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8BC2190C26B008483CA /* Startup.storyboard */; };
+		38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BD2190C26B008483CA /* StartupFlowController.swift */; };
+		38B2C8CA2190C26B008483CA /* DelegatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BE2190C26B008483CA /* DelegatesManager.swift */; };
+		38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C02190C26B008483CA /* FlowAViewController.swift */; };
+		38B2C8CC2190C26B008483CA /* FlowControllerA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowControllerA.swift */; };
+		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
 		38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		82056094217DE85000E23A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82056093217DE85000E23A81 /* AppDelegate.swift */; };
-		82056096217DE85000E23A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82056095217DE85000E23A81 /* ViewController.swift */; };
-		82056099217DE85000E23A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82056097217DE85000E23A81 /* Main.storyboard */; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -30,10 +38,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38B2C8B52190C26B008483CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38B2C8B72190C26B008483CA /* FlowBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBViewController.swift; sourceTree = "<group>"; };
+		38B2C8B82190C26B008483CA /* FlowB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowB.storyboard; sourceTree = "<group>"; };
+		38B2C8B92190C26B008483CA /* FlowControllerB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerB.swift; sourceTree = "<group>"; };
+		38B2C8BB2190C26B008483CA /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
+		38B2C8BC2190C26B008483CA /* Startup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
+		38B2C8BD2190C26B008483CA /* StartupFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupFlowController.swift; sourceTree = "<group>"; };
+		38B2C8BE2190C26B008483CA /* DelegatesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesManager.swift; sourceTree = "<group>"; };
+		38B2C8C02190C26B008483CA /* FlowAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAViewController.swift; sourceTree = "<group>"; };
+		38B2C8C12190C26B008483CA /* FlowControllerA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerA.swift; sourceTree = "<group>"; };
+		38B2C8C22190C26B008483CA /* FlowA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowA.storyboard; sourceTree = "<group>"; };
 		82056090217DE85000E23A81 /* Portus iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portus iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82056093217DE85000E23A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82056095217DE85000E23A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		82056098217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +68,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38B2C8B62190C26B008483CA /* FlowB */ = {
+			isa = PBXGroup;
+			children = (
+				38B2C8B72190C26B008483CA /* FlowBViewController.swift */,
+				38B2C8B92190C26B008483CA /* FlowControllerB.swift */,
+				38B2C8B82190C26B008483CA /* FlowB.storyboard */,
+			);
+			path = FlowB;
+			sourceTree = "<group>";
+		};
+		38B2C8BA2190C26B008483CA /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				38B2C8BD2190C26B008483CA /* StartupFlowController.swift */,
+				38B2C8BB2190C26B008483CA /* StartupViewController.swift */,
+				38B2C8BC2190C26B008483CA /* Startup.storyboard */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		38B2C8BF2190C26B008483CA /* FlowA */ = {
+			isa = PBXGroup;
+			children = (
+				38B2C8C02190C26B008483CA /* FlowAViewController.swift */,
+				38B2C8C12190C26B008483CA /* FlowControllerA.swift */,
+				38B2C8C22190C26B008483CA /* FlowA.storyboard */,
+			);
+			path = FlowA;
+			sourceTree = "<group>";
+		};
 		82056087217DE85000E23A81 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +118,11 @@
 		82056092217DE85000E23A81 /* Portus iOS-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				82056093217DE85000E23A81 /* AppDelegate.swift */,
-				82056095217DE85000E23A81 /* ViewController.swift */,
-				82056097217DE85000E23A81 /* Main.storyboard */,
+				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
+				38B2C8BE2190C26B008483CA /* DelegatesManager.swift */,
+				38B2C8BF2190C26B008483CA /* FlowA */,
+				38B2C8B62190C26B008483CA /* FlowB */,
+				38B2C8BA2190C26B008483CA /* Startup */,
 				8205609A217DE85000E23A81 /* Assets.xcassets */,
 				8205609C217DE85000E23A81 /* LaunchScreen.storyboard */,
 				8205609F217DE85000E23A81 /* Info.plist */,
@@ -123,6 +171,7 @@
 				TargetAttributes = {
 					8205608F217DE85000E23A81 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -149,9 +198,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B2C8C82190C26B008483CA /* Startup.storyboard in Resources */,
 				8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */,
 				8205609B217DE85000E23A81 /* Assets.xcassets in Resources */,
-				82056099217DE85000E23A81 /* Main.storyboard in Resources */,
+				38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */,
+				38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,22 +213,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82056096217DE85000E23A81 /* ViewController.swift in Sources */,
-				82056094217DE85000E23A81 /* AppDelegate.swift in Sources */,
+				38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */,
+				38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */,
+				38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */,
+				38B2C8CA2190C26B008483CA /* DelegatesManager.swift in Sources */,
+				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
+				38B2C8CC2190C26B008483CA /* FlowControllerA.swift in Sources */,
+				38B2C8C62190C26B008483CA /* FlowControllerB.swift in Sources */,
+				38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		82056097217DE85000E23A81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82056098217DE85000E23A81 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8205609C217DE85000E23A81 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -309,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";
@@ -318,6 +368,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.Portus-iOS-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";
