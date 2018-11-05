@@ -21,13 +21,13 @@ class StartupFlowController: InitialFlowController {
     var parent: Routable?
     var children: [Routable] = []
 
-    private let storyboard = UIStoryboard(name: "Startup", bundle: nil)
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: startupViewCtrl)
         return navigationCtrl
     }()
 
     private lazy var startupViewCtrl: StartupViewController = {
+        let storyboard = UIStoryboard(name: "Startup", bundle: nil)
         let startupViewCtrl = storyboard.instantiateViewController(withIdentifier: "StartupViewController") as! StartupViewController
         startupViewCtrl.flowDelegate = self
         return startupViewCtrl

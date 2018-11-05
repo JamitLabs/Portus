@@ -5,7 +5,7 @@
 
 import Foundation
 
-internal class RoutingTree {
+internal final class RoutingTree {
     // MARK: - Properties
     static let shared = RoutingTree()
     private var routables: [RoutableID: Routable] = [:]
@@ -15,9 +15,8 @@ internal class RoutingTree {
     private init() {}
 
     // MARK: - Methods
-    func resetTree() {
-        self.rootNode = nil
-        self.routables = [:]
+    func getRoutableWith(identifier: RoutableID) -> Routable? {
+        return routables[identifier]
     }
 
     func add(routable: Routable, parent: Routable?) {
@@ -29,7 +28,7 @@ internal class RoutingTree {
         } else {
             // NOTE: Otherwise, we insert the given routable into the existing tree
             guard let parent = parent else { fatalError("The given routable can not be inserted into tree: No parent given.") }
-            guard let parentNode = rootNode?.searchNodeUsingDFS(routableID: parent.routableID) else { fatalError("No node could be found for the given parent.") }
+            guard let parentNode = rootNode?.nodeUsingDFS(routableID: parent.routableID) else { fatalError("No node could be found for the given parent.") }
 
             parentNode.subNodes.append(Node(routableID: routable.routableID))
         }
@@ -41,16 +40,22 @@ internal class RoutingTree {
         guard let rootNode = rootNode else { return }
 
         guard rootNode.routableID != routable.routableID else { return resetTree() }
-        guard let nodeToRemove = rootNode.searchNodeUsingDFS(routableID: routable.routableID) else { return }
+        guard let nodeToRemove = rootNode.nodeUsingDFS(routableID: routable.routableID) else { return }
         guard let parentOfNodeToRemove = nodeToRemove.parentNode else { return }
         parentOfNodeToRemove.removeSubNode(routableID: routable.routableID)
 
-        // TODO remove all parents from the given node 
+        // NOTE: Remove all routables associated to the subtree defined by the node to remove
+        func removeAllRoutables(from node: Node) {
+            routables[node.routableID] = nil
+            guard !node.subNodes.isEmpty else { return }
+            node.subNodes.forEach { removeAllRoutables(from: $0) }
+        }
 
-        routables[routable.routableID] = nil
+        removeAllRoutables(from: nodeToRemove)
     }
 
-    func getRoutableWith(identifier: RoutableID) -> Routable? {
-        return routables[identifier]
+    func resetTree() {
+        self.rootNode = nil
+        self.routables = [:]
     }
 }

@@ -26,10 +26,10 @@ public class Node {
         return true
     }
 
-    func searchNodeUsingDFS(routableID: RoutableID) -> Node? {
+    func nodeUsingDFS(routableID: RoutableID) -> Node? {
         guard self.routableID != routableID else { return self }
         for subNode in subNodes {
-            guard let node = subNode.searchNodeUsingDFS(routableID: routableID) else { continue }
+            guard let node = subNode.nodeUsingDFS(routableID: routableID) else { continue }
             return node
         }
 
