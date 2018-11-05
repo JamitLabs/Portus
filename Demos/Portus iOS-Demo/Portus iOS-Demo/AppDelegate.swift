@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        self.window = UIWindow()
+        window?.makeKeyAndVisible()
         let startupFlowCtrl = StartupFlowController()
         startupFlowCtrl.start(from: window!)
 

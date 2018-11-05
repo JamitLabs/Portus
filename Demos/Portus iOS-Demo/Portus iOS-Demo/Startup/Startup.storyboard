@@ -24,14 +24,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Flow A"/>
                                         <connections>
-                                            <action selector="flowAButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HHg-D3-Ng5"/>
+                                            <action selector="flowAButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWn-Te-Grq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doh-Qc-6DQ">
                                         <rect key="frame" x="69" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Flow B"/>
                                         <connections>
-                                            <action selector="flowBButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CCc-Md-z0b"/>
+                                            <action selector="flowBButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UwU-hg-qpf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -45,8 +45,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="flowAButton" destination="DMC-hH-Lk9" id="pg8-Cs-A62"/>
-                        <outlet property="flowBButton" destination="doh-Qc-6DQ" id="8DE-QY-oOs"/>
+                        <outlet property="flowAButton" destination="DMC-hH-Lk9" id="ppi-pg-3aR"/>
+                        <outlet property="flowBButton" destination="doh-Qc-6DQ" id="bLg-Ce-VJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -35,7 +35,6 @@ class StartupFlowController: InitialFlowController {
 
     // MARK: - Initializers
     override init() {
-        DelegatesManager.shared.router = self
         super.init()
     }
 
@@ -45,39 +44,17 @@ class StartupFlowController: InitialFlowController {
     }
 }
 
-// MARK: - Routable
-extension StartupFlowController: Routable {
-    func dismiss(animated: Bool, completion: @escaping () -> Void) {
-        return
-    }
-
-    func open(_ routable: Routable, animated: Bool, completion: @escaping () -> Void) {
-        switch routable.routingID {
-        case "A":
-            let flowAFlowCtrl = FlowControllerA()
-            add(subFlowController: flowAFlowCtrl)
-            flowAFlowCtrl.start(from: navigationCtrl)
-
-        case "B":
-            let flowBFlowCtrl = FlowControllerB()
-            add(subFlowController: flowBFlowCtrl)
-            flowBFlowCtrl.start(from: navigationCtrl)
-
-        default:
-            return
-        }
-    }
-}
-
 // MARK: - StartupFlowDelegate
 extension StartupFlowController: StartupFlowDelegate {
     func flowAButtonTapped() {
-        let origin: Path =
-        let destination: Path =
-        DelegatesManager.shared.router?.route(from: origin, to: destination)
+        let flowAFlowCtrl = FlowAFlowController()
+        add(subFlowController: flowAFlowCtrl)
+        flowAFlowCtrl.start(from: navigationCtrl)
     }
 
     func flowBButtonTapped() {
-        <#code#>
+        let flowBFlowCtrl = FlowBFlowController()
+        add(subFlowController: flowBFlowCtrl)
+        flowBFlowCtrl.start(from: navigationCtrl)
     }
 }

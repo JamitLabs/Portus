@@ -10,14 +10,15 @@
 		38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B52190C26B008483CA /* AppDelegate.swift */; };
 		38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B72190C26B008483CA /* FlowBViewController.swift */; };
 		38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8B82190C26B008483CA /* FlowB.storyboard */; };
-		38B2C8C62190C26B008483CA /* FlowControllerB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B92190C26B008483CA /* FlowControllerB.swift */; };
+		38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B92190C26B008483CA /* FlowBFlowController.swift */; };
 		38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BB2190C26B008483CA /* StartupViewController.swift */; };
 		38B2C8C82190C26B008483CA /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8BC2190C26B008483CA /* Startup.storyboard */; };
 		38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BD2190C26B008483CA /* StartupFlowController.swift */; };
-		38B2C8CA2190C26B008483CA /* DelegatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BE2190C26B008483CA /* DelegatesManager.swift */; };
 		38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C02190C26B008483CA /* FlowAViewController.swift */; };
-		38B2C8CC2190C26B008483CA /* FlowControllerA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowControllerA.swift */; };
+		38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowAFlowController.swift */; };
 		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
+		38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; };
+		38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */,
 				38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,14 +43,14 @@
 		38B2C8B52190C26B008483CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B2C8B72190C26B008483CA /* FlowBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBViewController.swift; sourceTree = "<group>"; };
 		38B2C8B82190C26B008483CA /* FlowB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowB.storyboard; sourceTree = "<group>"; };
-		38B2C8B92190C26B008483CA /* FlowControllerB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerB.swift; sourceTree = "<group>"; };
+		38B2C8B92190C26B008483CA /* FlowBFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBFlowController.swift; sourceTree = "<group>"; };
 		38B2C8BB2190C26B008483CA /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		38B2C8BC2190C26B008483CA /* Startup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
 		38B2C8BD2190C26B008483CA /* StartupFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupFlowController.swift; sourceTree = "<group>"; };
-		38B2C8BE2190C26B008483CA /* DelegatesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesManager.swift; sourceTree = "<group>"; };
 		38B2C8C02190C26B008483CA /* FlowAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAViewController.swift; sourceTree = "<group>"; };
-		38B2C8C12190C26B008483CA /* FlowControllerA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowControllerA.swift; sourceTree = "<group>"; };
+		38B2C8C12190C26B008483CA /* FlowAFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAFlowController.swift; sourceTree = "<group>"; };
 		38B2C8C22190C26B008483CA /* FlowA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowA.storyboard; sourceTree = "<group>"; };
+		38B2C8D42190E609008483CA /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
 		82056090217DE85000E23A81 /* Portus iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portus iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */,
 				38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8B72190C26B008483CA /* FlowBViewController.swift */,
-				38B2C8B92190C26B008483CA /* FlowControllerB.swift */,
+				38B2C8B92190C26B008483CA /* FlowBFlowController.swift */,
 				38B2C8B82190C26B008483CA /* FlowB.storyboard */,
 			);
 			path = FlowB;
@@ -92,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8C02190C26B008483CA /* FlowAViewController.swift */,
-				38B2C8C12190C26B008483CA /* FlowControllerA.swift */,
+				38B2C8C12190C26B008483CA /* FlowAFlowController.swift */,
 				38B2C8C22190C26B008483CA /* FlowA.storyboard */,
 			);
 			path = FlowA;
@@ -119,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
-				38B2C8BE2190C26B008483CA /* DelegatesManager.swift */,
 				38B2C8BF2190C26B008483CA /* FlowA */,
 				38B2C8B62190C26B008483CA /* FlowB */,
 				38B2C8BA2190C26B008483CA /* Startup */,
@@ -133,6 +135,7 @@
 		820560A5217DE88200E23A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38B2C8D42190E609008483CA /* Imperio.framework */,
 				820560A6217DE88200E23A81 /* Portus.framework */,
 			);
 			name = Frameworks;
@@ -216,10 +219,9 @@
 				38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */,
 				38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */,
 				38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */,
-				38B2C8CA2190C26B008483CA /* DelegatesManager.swift in Sources */,
 				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
-				38B2C8CC2190C26B008483CA /* FlowControllerA.swift in Sources */,
-				38B2C8C62190C26B008483CA /* FlowControllerB.swift in Sources */,
+				38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */,
+				38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */,
 				38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +363,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,6 +387,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB7EUU9D79;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
