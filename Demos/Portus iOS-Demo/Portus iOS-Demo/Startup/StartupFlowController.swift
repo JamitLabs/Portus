@@ -23,24 +23,20 @@ class StartupFlowController: InitialFlowController {
 
     private let storyboard = UIStoryboard(name: "Startup", bundle: nil)
     private lazy var navigationCtrl: UINavigationController = {
-        let navigationCtrl = UINavigationController(rootViewController: viewController)
+        let navigationCtrl = UINavigationController(rootViewController: startupViewCtrl)
         return navigationCtrl
     }()
 
-    private lazy var viewController: StartupViewController = {
-        let storyboViewCtrl = storyboard.instantiateViewController(withIdentifier: "StartupViewController") as! StartupViewController
-        storyboViewCtrl.flowDelegate = self
-        return storyboViewCtrl
+    private lazy var startupViewCtrl: StartupViewController = {
+        let startupViewCtrl = storyboard.instantiateViewController(withIdentifier: "StartupViewController") as! StartupViewController
+        startupViewCtrl.flowDelegate = self
+        return startupViewCtrl
     }()
 
-    // MARK: - Initializers
-    override init() {
-        super.init()
-    }
-
+    // MARK: - Methods
     override func start(from window: UIWindow) {
-        navigationCtrl = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationCtrl
+        window.makeKeyAndVisible()
     }
 }
 

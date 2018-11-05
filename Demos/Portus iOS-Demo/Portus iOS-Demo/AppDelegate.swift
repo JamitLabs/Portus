@@ -18,10 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         self.window = UIWindow()
-        window?.makeKeyAndVisible()
         let startupFlowCtrl = StartupFlowController()
         startupFlowCtrl.start(from: window!)
-
         return true
     }
 
