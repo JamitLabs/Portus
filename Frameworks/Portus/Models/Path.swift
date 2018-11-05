@@ -5,8 +5,15 @@
 
 import Foundation
 
-struct Path {
-    var routables: [Routable]
-    var currentPathComponent: Routable? { return routables.first }
-    var remainingPathComponents: [Routable] { return routables.dropFirst() }
+public struct Path {
+    // MARK: - Subtypes
+    enum Identifier: String, Equatable {
+        case startUp
+        case flowA
+        case flowB
+    }
+
+    var components: [Identifier]
+    var firstComponent: Identifier? { return components.first }
+    var remainingPath: Path { return Path(components: [Identifier](components.dropFirst())) }
 }
