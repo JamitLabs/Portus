@@ -15,6 +15,11 @@ internal class RoutingTree {
     private init() {}
 
     // MARK: - Methods
+    func resetTree() {
+        self.rootNode = nil
+        self.routables = [:]
+    }
+
     func add(routable: Routable, parent: Routable?) {
         guard routables.keys.contains(routable.routableID) else { fatalError("A routable object with the given ID already exists.") }
 
@@ -32,22 +37,17 @@ internal class RoutingTree {
         routables[routable.routableID] = routable
     }
 
-    func emptyTree() {
-        self.rootNode = nil
-        self.routables = [:]
-    }
-
     func removeRoutable(_ routable: Routable) {
         guard let rootNode = rootNode else { return }
 
-        guard rootNode.identifier != routable.identifier else { return emptyTree() }
-        guard let nodeForRoutable = rootNode.getNodeWith(identifier: routable.identifier) else { return }
-        guard let parent = nodeForRoutable.parent else { return }
-        parent.removeSubNode(with: routable.identifier)
+        guard rootNode.routableID != routable.routableID else { return resetTree() }
+        guard let nodeToRemove = rootNode.searchNodeUsingDFS(routableID: routable.routableID) else { return }
+        guard let parentOfNodeToRemove = nodeToRemove.parentNode else { return }
+        parentOfNodeToRemove.removeSubNode(routableID: routable.routableID)
 
         // TODO remove all parents from the given node 
 
-        routables[routable.identifier] = nil
+        routables[routable.routableID] = nil
     }
 
     func getRoutableWith(identifier: RoutableID) -> Routable? {
