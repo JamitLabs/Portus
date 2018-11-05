@@ -4,5 +4,4 @@
 //
 
 import Foundation
-
-public typealias RoutingID = String
+public typealias RoutableID = String
