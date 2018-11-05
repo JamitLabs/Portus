@@ -17,7 +17,7 @@ protocol StartupFlowDelegate: class {
 
 class StartupFlowController: InitialFlowController {
     // MARK: - Properties
-    var identifier: String = "A"
+    var routingID: String = "A"
     var parent: Routable?
     var children: [Routable] = []
 
@@ -52,7 +52,7 @@ extension StartupFlowController: Routable {
     }
 
     func open(_ routable: Routable, animated: Bool, completion: @escaping () -> Void) {
-        switch routable.identifier {
+        switch routable.routingID {
         case "A":
             let flowAFlowCtrl = FlowControllerA()
             add(subFlowController: flowAFlowCtrl)

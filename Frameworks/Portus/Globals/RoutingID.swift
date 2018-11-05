@@ -5,4 +5,4 @@
 
 import Foundation
 
-typealias RoutingID = String
+public typealias RoutingID = String

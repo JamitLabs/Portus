@@ -8,6 +8,6 @@ import Foundation
 public struct Path {
     // MARK: - Subtypes
     var components: [RoutingID]
-    var firstComponent: RoutingID? { return components.first }
+    var firstPathComponent: RoutingID? { return components.first }
     var remainingPath: Path { return Path(components: [RoutingID](components.dropFirst())) }
 }
