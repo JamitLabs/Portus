@@ -5,11 +5,17 @@
 
 import Foundation
 
-public class RoutingTree {
-    private static var root: Node?
-    private static var routables: [RoutingID: Routable] = [:]
+internal class RoutingTree {
+    // MARK: - Properties
+    private static let shared = RoutingTree()
+    private var root: Node?
+    private var routables: [RoutingID: Routable] = [:]
 
-    static func addRoutable(_ routable: Routable, with parent: Routable?) {
+    // MARK: - Initializers
+    private init() {}
+
+    // MARK: - Methods
+    func addRoutable(_ routable: Routable) {
         let identifier = routable.identifier
 
         guard routables.keys.contains(identifier) else { fatalError("A routable object with the given identifier already exists.") }
@@ -27,12 +33,12 @@ public class RoutingTree {
         routables[identifier] = routable
     }
 
-    static func emptyTree() {
+    func emptyTree() {
         self.root = nil
         self.routables = [:]
     }
 
-    static func removeRoutable(_ routable: Routable) {
+    func removeRoutable(_ routable: Routable) {
         guard let root = root else { return }
 
         guard root.identifier != routable.identifier else { return emptyTree() }
@@ -45,7 +51,7 @@ public class RoutingTree {
         routables[routable.identifier] = nil
     }
 
-    static func getRoutableWith(identifier: RoutingID) -> Routable? {
+    func getRoutableWith(identifier: RoutingID) -> Routable? {
         return routables[identifier]
     }
 }
