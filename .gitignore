@@ -53,6 +53,9 @@ playground.xcworkspace
 Carthage/Checkouts
 Carthage/Build
 Carthage/Cachefile
+Demos/Portus\ iOS-Demo/Carthage/Checkouts
+Demos/Portus\ iOS-Demo/Carthage/Build
+Demos/Portus\ iOS-Demo/Carthage/Cachefile
 
 # fastlane
 #
