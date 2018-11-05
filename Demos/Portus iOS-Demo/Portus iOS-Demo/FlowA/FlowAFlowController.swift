@@ -9,7 +9,7 @@
 import UIKit
 import Imperio
 
-class FlowControllerA: FlowController {
+class FlowAFlowController: FlowController {
 
     // MARK: - Properties
     private let storyboard = UIStoryboard(name: "FlowA", bundle: nil)
