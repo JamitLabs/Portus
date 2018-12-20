@@ -8,7 +8,7 @@ import UIKit
 protocol PortKeyEnterable: PortKeyLeavable {
     static var routingId: String { get }
 
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping () -> Void)
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void)
 }
 
 extension PortKeyEnterable {

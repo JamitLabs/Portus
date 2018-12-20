@@ -28,7 +28,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [RepositoriesViewController.routingId])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [RepositoriesViewController.routingId])
     }
 
     func testLinearlyLastLevelPortKeyRoutingAlwaysFromRoot() {
@@ -36,7 +36,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, enteredRoute.map { type(of: ($0 as! PortKeyEnterable)).routingId })
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, enteredRoute.map { type(of: ($0 as! PortKeyEnterable)).routingId })
     }
 
     func testLinearlyFirstLevelPortKeyRoutingMaxReusageFromRoot() {
@@ -44,7 +44,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testLinearlyLastLevelPortKeyRoutingMaxReusageFromRoot() {
@@ -52,7 +52,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testLinearlyFirstLevelPortKeyRoutingMinRouteToLeaf() {
@@ -60,7 +60,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testLinearlyLastLevelPortKeyRoutingMinRouteToLeaf() {
@@ -68,7 +68,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingAlwaysFromRoot() {
@@ -76,7 +76,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [RepositoriesViewController.routingId])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [RepositoriesViewController.routingId])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingAlwaysFromRoot() {
@@ -84,7 +84,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, EverydayEmptyObject.newComment.route.map { $0.routingId })
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.newComment.route.map { $0.enterableType.routingId })
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingMaxReusageFromRoot() {
@@ -92,7 +92,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingMaxReusageFromRoot() {
@@ -100,7 +100,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, EverydayEmptyObject.newComment.route.dropFirst().map { $0.routingId })
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.newComment.route.dropFirst().map { $0.enterableType.routingId })
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingMinRouteToLeaf() {
@@ -108,7 +108,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingMinRouteToLeaf() {
@@ -116,7 +116,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingAlwaysFromRoot() {
@@ -124,7 +124,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, EverydayEmptyObject.repository.route.map { $0.routingId })
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.repository.route.map { $0.enterableType.routingId })
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingMaxReusageFromRoot() {
@@ -132,7 +132,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, EverydayEmptyObject.repository.route.dropFirst().map { $0.routingId })
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.repository.route.dropFirst().map { $0.enterableType.routingId })
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingMinRouteToLeaf() {
@@ -140,7 +140,7 @@ class PortusTests: XCTestCase {
 
         let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst(3).map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.routingId }, [])
+        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
     }
 
     @discardableResult
@@ -167,20 +167,20 @@ enum EverydayEmptyObject: PortKey {
     var route: Route {
         switch self {
         case .repositories:
-            return [(RepositoriesViewController.routingId, nil)]
+            return [(RepositoriesViewController.self, nil)]
 
         case .repository:
             return [
-                (RepositoriesViewController.routingId, nil),
-                (RepositoryDetailViewController.routingId, nil)
+                (RepositoriesViewController.self, nil),
+                (RepositoryDetailViewController.self, nil)
             ]
 
         case .newComment:
             return [
-                (RepositoriesViewController.routingId, nil),
-                (RepositoryDetailViewController.routingId, nil),
-                (IssuesViewController.routingId, nil),
-                (IssueDetailViewController.routingId, nil)
+                (RepositoriesViewController.self, nil),
+                (RepositoryDetailViewController.self, nil),
+                (IssuesViewController.self, nil),
+                (IssueDetailViewController.self, nil)
             ]
         }
     }
@@ -194,53 +194,60 @@ enum EverydayObject: PortKey {
     var route: Route {
         switch self {
         case .repositories:
-            return [(RepositoriesViewController.routingId, nil)]
+            return [(RepositoriesViewController.self, nil)]
 
         case let .repository(name):
             return [
-                (RepositoriesViewController.routingId, nil),
-                (RepositoryDetailViewController.routingId, name)
+                (RepositoriesViewController.self, nil),
+                (RepositoryDetailViewController.self, name)
             ]
 
         case let .newComment(repositoryName, issueNum, commentId):
             return [
-                (RepositoriesViewController.routingId, nil),
-                (RepositoryDetailViewController.routingId, repositoryName),
-                (IssuesViewController.routingId, issueNum),
-                (IssueDetailViewController.routingId, commentId)
+                (RepositoriesViewController.self, nil),
+                (RepositoryDetailViewController.self, repositoryName),
+                (IssuesViewController.self, issueNum),
+                (IssueDetailViewController.self, commentId)
             ]
         }
     }
 }
 
 class RepositoriesViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping () -> Void) {
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
         let navigationCtrl = UINavigationController(rootViewController: RepositoriesViewController())
-        presentingViewController.present(navigationCtrl, animated: animated, completion: completion)
+        presentingViewController.present(navigationCtrl, animated: animated) {
+            completion(navigationCtrl)
+        }
     }
 }
 
 class RepositoryDetailViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping () -> Void) {
-        presentingViewController.navigationController?.pushViewController(RepositoryDetailViewController(), animated: animated)
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
+        let viewCtrl = RepositoryDetailViewController()
+        presentingViewController.navigationController?.pushViewController(viewCtrl, animated: animated)
 
         let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(viewCtrl) }
     }
 }
 
 class IssuesViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping () -> Void) {
-        let navigationCtrl = UINavigationController(rootViewController: IssuesViewController())
-        presentingViewController.present(navigationCtrl, animated: animated, completion: completion)
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
+        let viewCtrl = IssuesViewController()
+        let navigationCtrl = UINavigationController(rootViewController: viewCtrl)
+        presentingViewController.present(navigationCtrl, animated: animated) {
+            completion(viewCtrl)
+        }
     }
 }
 
 class IssueDetailViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping () -> Void) {
-        presentingViewController.navigationController?.pushViewController(IssueDetailViewController(), animated: animated)
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
+        let viewCtrl = IssueDetailViewController()
+        presentingViewController.navigationController?.pushViewController(viewCtrl, animated: animated)
 
         let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(viewCtrl) }
     }
 }

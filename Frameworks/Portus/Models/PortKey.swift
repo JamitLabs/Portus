@@ -5,7 +5,7 @@
 
 import Foundation
 
-typealias Route = [(routingId: String, enteringData: Any?)] // TODO: replace routingId with enterable type
+typealias Route = [(enterableType: PortKeyEnterable.Type, info: Any?)]
 
 protocol PortKey {
     var route: Route { get }
