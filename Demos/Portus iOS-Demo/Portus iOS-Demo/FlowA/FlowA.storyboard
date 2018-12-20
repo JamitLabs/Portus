@@ -92,6 +92,9 @@
                                     <segment title="destinationOnly"/>
                                     <segment title="fully"/>
                                 </segments>
+                                <connections>
+                                    <action selector="animationExtentValueChanged" destination="wTP-Wt-jdE" eventType="primaryActionTriggered" id="Aql-Qb-klW"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD7-0X-T6b">
                                 <rect key="frame" x="16" y="97" width="343" height="28"/>
@@ -103,6 +106,9 @@
                                     <segment title="maxReusageFromRoot"/>
                                     <segment title="minRouteToLeaf"/>
                                 </segments>
+                                <connections>
+                                    <action selector="routingStrategyValueChanged" destination="wTP-Wt-jdE" eventType="primaryActionTriggered" id="RHr-es-9Yx"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJN-b0-wbY">
                                 <rect key="frame" x="16" y="144" width="343" height="80"/>

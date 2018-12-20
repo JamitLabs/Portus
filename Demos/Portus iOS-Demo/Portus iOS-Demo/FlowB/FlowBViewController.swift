@@ -17,31 +17,40 @@ class FlowBViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        animationExtentSegmentedControl.selectedSegmentIndex = Globals.animationExtent.rawValue
+        routingStrategySegmentedControl.selectedSegmentIndex = Globals.routingStrategy.rawValue
         currentPathLabel.text = MaraudersMap.shared.portKeyEnterablesPath
     }
 
-    private var animationExtent: Portus.AnimationExtent {
-        return Portus.AnimationExtent.allCases[animationExtentSegmentedControl.selectedSegmentIndex]
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        animationExtentSegmentedControl.selectedSegmentIndex = Globals.animationExtent.rawValue
+        routingStrategySegmentedControl.selectedSegmentIndex = Globals.routingStrategy.rawValue
     }
 
-    private var routingStrategy: Portus.RoutingStrategy {
-        return Portus.RoutingStrategy.allCases[routingStrategySegmentedControl.selectedSegmentIndex]
+    @IBAction private func animationExtentValueChanged() {
+        Globals.animationExtent = Portus.AnimationExtent(rawValue: animationExtentSegmentedControl.selectedSegmentIndex)!
+    }
+
+    @IBAction private func routingStrategyValueChanged() {
+        Globals.routingStrategy = Portus.RoutingStrategy(rawValue: routingStrategySegmentedControl.selectedSegmentIndex)!
     }
 
     @IBAction private func usePortKeyToFlowA() {
-        Portus.use(portKey: Router.flowA, animationExtent: animationExtent, routingStrategy: routingStrategy)
+        Portus.use(portKey: Router.flowA, animationExtent: Globals.animationExtent, routingStrategy: Globals.routingStrategy)
     }
 
     @IBAction private func usePortKeyToFlowB() {
-        Portus.use(portKey: Router.flowB, animationExtent: animationExtent, routingStrategy: routingStrategy)
+        Portus.use(portKey: Router.flowB, animationExtent: Globals.animationExtent, routingStrategy: Globals.routingStrategy)
     }
 
     @IBAction private func usePortKeyToFlowAB() {
-        Portus.use(portKey: Router.flowAB, animationExtent: animationExtent, routingStrategy: routingStrategy)
+        Portus.use(portKey: Router.flowAB, animationExtent: Globals.animationExtent, routingStrategy: Globals.routingStrategy)
     }
 
     @IBAction private func usePortKeyToFlowBA() {
-        Portus.use(portKey: Router.flowBA, animationExtent: animationExtent, routingStrategy: routingStrategy)
+        Portus.use(portKey: Router.flowBA, animationExtent: Globals.animationExtent, routingStrategy: Globals.routingStrategy)
     }
 
     @IBAction func modalFlowA() {

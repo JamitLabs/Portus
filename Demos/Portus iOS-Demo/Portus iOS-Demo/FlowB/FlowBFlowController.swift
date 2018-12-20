@@ -18,16 +18,18 @@ class FlowBFlowController: FlowController {
     }()
 
     private let presentCompletion: (UIViewController) -> Void
+    private let animatePresentation: Bool
 
-    init(presentCompletion: @escaping (UIViewController) -> Void) {
+    init(presentCompletion: @escaping (UIViewController) -> Void, animatePresentation: Bool) {
         self.presentCompletion = presentCompletion
+        self.animatePresentation = animatePresentation
     }
 
-    convenience override init() { self.init(presentCompletion: { _ in }) }
+    convenience override init() { self.init(presentCompletion: { _ in }, animatePresentation: true) }
 
     override func start(from presentingViewController: UIViewController) {
         MaraudersMap.shared.didEnter(self)
-        presentingViewController.present(flowBViewCtrl, animated: true) {
+        presentingViewController.present(flowBViewCtrl, animated: animatePresentation) {
             self.presentCompletion(self.flowBViewCtrl)
         }
     }
@@ -43,7 +45,7 @@ extension FlowBFlowController: PortKeyEnterable {
     }
 
     static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        FlowBFlowController(presentCompletion: completion).start(from: presentingViewController)
+        FlowBFlowController(presentCompletion: completion, animatePresentation: animated).start(from: presentingViewController)
     }
 
     func leave(animated: Bool, completion: @escaping () -> Void) {

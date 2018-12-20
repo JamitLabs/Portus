@@ -6,7 +6,7 @@
 import UIKit
 
 public struct Portus {
-    public enum AnimationExtent: CaseIterable {
+    public enum AnimationExtent: Int {
         /// No route entrance will be animated.
         case notAtAll
 
@@ -17,7 +17,7 @@ public struct Portus {
         case fully
     }
 
-    public enum RoutingStrategy: CaseIterable {
+    public enum RoutingStrategy: Int {
         /// Routing will always start from the root – resulting in exactly the specified path.
         case alwaysFromRoot
 
@@ -33,26 +33,24 @@ public struct Portus {
     public static func use(portKey: PortKey, animationExtent: AnimationExtent = .notAtAll, routingStrategy: RoutingStrategy = .minRouteToLeaf) {
         let (routeToLeave, routeToEnter) = pathToDestination(portKey: portKey, routingStrategy: routingStrategy)
 
-        // TODO: animationExtent is ignored at the moment
-
-        recursivelyLeave(route: routeToLeave.reversed()) {
-            recursivelyEnter(route: routeToEnter, from: window!.visibleViewController!)
+        recursivelyLeave(route: routeToLeave.reversed(), animated: animationExtent == .fully) {
+            recursivelyEnter(route: routeToEnter, from: window!.visibleViewController!, animated: animationExtent == .fully)
         }
     }
 
-    private static func recursivelyLeave(route: [PortKeyLeavable], completion: @escaping () -> Void) {  // TODO: doesn't support AnimationExtent yet
+    private static func recursivelyLeave(route: [PortKeyLeavable], animated: Bool, completion: @escaping () -> Void) {
         guard let leavable = route.first else { completion(); return }
 
-        leavable.leave(animated: true) {
-            recursivelyLeave(route: Array(route.dropFirst()), completion: completion)
+        leavable.leave(animated: animated) {
+            recursivelyLeave(route: Array(route.dropFirst()), animated: animated, completion: completion)
         }
     }
 
-    private static func recursivelyEnter(route: Route, from presentingViewController: UIViewController) {
+    private static func recursivelyEnter(route: Route, from presentingViewController: UIViewController, animated: Bool) {
         guard let (enterableType, info) = route.first else { return }
 
-        enterableType.enter(from: presentingViewController, info: info, animated: false) { presentedViewCtrl in // TODO: animation ignored right now
-            recursivelyEnter(route: Array(route.dropFirst()), from: presentedViewCtrl)
+        enterableType.enter(from: presentingViewController, info: info, animated: animated) { presentedViewCtrl in
+            recursivelyEnter(route: Array(route.dropFirst()), from: presentedViewCtrl, animated: animated)
         }
     }
 
