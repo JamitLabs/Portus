@@ -10,8 +10,6 @@ import UIKit
 import Imperio
 
 class FlowBFlowController: FlowController {
-
-    // MARK: - Properties
     private let storyboard = UIStoryboard(name: "FlowB", bundle: nil)
     private lazy var flowBViewCtrl: FlowBViewController = {
         let flowBViewCtrl = storyboard.instantiateViewController(withIdentifier: "FlowBViewController") as! FlowBViewController

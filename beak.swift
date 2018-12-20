@@ -9,7 +9,7 @@ import SwiftShell
 import PathKit
 import Rainbow
 
-let supportedPlatforms = ["iOS", "tvOS", "macOS", "watchOS"]
+let supportedPlatforms = ["iOS", "tvOS"]
 
 // MARK: - Helpers
 private func deleteFile(_ fileName: String) throws {

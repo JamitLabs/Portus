@@ -7,19 +7,11 @@
 //
 
 import UIKit
-import Portus
 import Imperio
-
-protocol StartupFlowDelegate: class {
-    func flowAButtonTapped()
-    func flowBButtonTapped()
-}
 
 class StartupFlowController: InitialFlowController {
     // MARK: - Properties
     var routingID: String = "A"
-    var parent: Routable?
-    var children: [Routable] = []
 
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: startupViewCtrl)
@@ -36,7 +28,6 @@ class StartupFlowController: InitialFlowController {
     // MARK: - Methods
     override func start(from window: UIWindow) {
         window.rootViewController = navigationCtrl
-        window.makeKeyAndVisible()
     }
 }
 

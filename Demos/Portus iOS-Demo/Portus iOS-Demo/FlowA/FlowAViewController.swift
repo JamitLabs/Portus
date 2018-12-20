@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Portus
 
 class FlowAViewController: UIViewController {
-    // MARK: - Methods: - Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    @IBAction private func usePortKeyToFlowB() {
+        Portkey(to: <#T##Destination#>)
     }
 }

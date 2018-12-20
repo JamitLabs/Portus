@@ -19,10 +19,10 @@
 		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
 		38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; };
 		38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 820560A6217DE88200E23A81 /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
+		82EA969321A3179300EC7EAC /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EA969221A3179300EC7EAC /* Portus.framework */; };
+		82EA969521A3195600EC7EAC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +33,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */,
-				38C18058218EDD29009591B0 /* Portus.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +54,8 @@
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		820560A6217DE88200E23A81 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82EA969221A3179300EC7EAC /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82EA969421A3195600EC7EAC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82EA969321A3179300EC7EAC /* Portus.framework in Frameworks */,
 				38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */,
-				38C18056218EDCC6009591B0 /* Portus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
+				82EA969421A3195600EC7EAC /* Router.swift */,
 				38B2C8BF2190C26B008483CA /* FlowA */,
 				38B2C8B62190C26B008483CA /* FlowB */,
 				38B2C8BA2190C26B008483CA /* Startup */,
@@ -135,8 +136,8 @@
 		820560A5217DE88200E23A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82EA969221A3179300EC7EAC /* Portus.framework */,
 				38B2C8D42190E609008483CA /* Imperio.framework */,
-				820560A6217DE88200E23A81 /* Portus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +153,7 @@
 				8205608D217DE85000E23A81 /* Frameworks */,
 				8205608E217DE85000E23A81 /* Resources */,
 				38C18057218EDD00009591B0 /* CopyFiles */,
+				82EA969121A3174800EC7EAC /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -211,6 +213,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		82EA969121A3174800EC7EAC /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Imperio.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8205608C217DE85000E23A81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,6 +244,7 @@
 				38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */,
 				38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */,
 				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
+				82EA969521A3195600EC7EAC /* Router.swift in Sources */,
 				38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */,
 				38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */,
 				38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */,

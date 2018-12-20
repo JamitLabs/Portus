@@ -9,7 +9,6 @@
 import UIKit
 
 class FlowBViewController: UIViewController {
-    // MARK: - Methods: - Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }

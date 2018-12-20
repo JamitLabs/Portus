@@ -6,8 +6,12 @@
 //  Copyright © 2018 Jamit Labs. All rights reserved.
 //
 
-import Portus
 import UIKit
+
+protocol StartupFlowDelegate: class {
+    func flowAButtonTapped()
+    func flowBButtonTapped()
+}
 
 class StartupViewController: UIViewController {
     // MARK: - Properties
