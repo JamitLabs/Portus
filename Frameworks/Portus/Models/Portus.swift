@@ -5,19 +5,19 @@
 
 import UIKit
 
-enum Portus {
-    enum AnimationExtent {
+public struct Portus {
+    public enum AnimationExtent: CaseIterable {
         /// No route entrance will be animated.
         case notAtAll
 
-//        /// Only the destination entrance will be animated.
-//        case destinationOnly
-//
-//        /// All enterings along the route will be animated.
-//        case fully
+        /// Only the destination entrance will be animated.
+        case destinationOnly
+
+        /// All enterings along the route will be animated.
+        case fully
     }
 
-    enum RoutingStrategy {
+    public enum RoutingStrategy: CaseIterable {
         /// Routing will always start from the root – resulting in exactly the specified path.
         case alwaysFromRoot
 
@@ -28,24 +28,29 @@ enum Portus {
         case minRouteToLeaf
     }
 
-    static func use(portKey: PortKey, from presentingViewController: UIViewController, animationExtent: AnimationExtent = .notAtAll, routingStrategy: RoutingStrategy = .minRouteToLeaf) {
+    public static var window: UIWindow!
+
+    public static func use(portKey: PortKey, animationExtent: AnimationExtent = .notAtAll, routingStrategy: RoutingStrategy = .minRouteToLeaf) {
         let (routeToLeave, routeToEnter) = pathToDestination(portKey: portKey, routingStrategy: routingStrategy)
 
-        for toLeave in routeToLeave.reversed() {
-            let animated: Bool = false // animationExtent == .fully || (animationExtent == .destinationOnly && routeToEnter.isEmpty && routeToLeave.last! === toLeave)
+        // TODO: animationExtent is ignored at the moment
 
-            let group = DispatchGroup()
-            group.enter()
-            print("Leaving \(String(describing: type(of: toLeave))).")
-            toLeave.leave(animated: animated) { group.leave() }
-            group.wait() // TODO: this will probably block the main thread, fix or delete this comment
+        recursivelyLeave(route: routeToLeave.reversed()) {
+            recursivelyEnter(route: routeToEnter, from: window!.visibleViewController!)
         }
+    }
 
-        recursivelyEnter(route: routeToEnter, from: presentingViewController)
+    private static func recursivelyLeave(route: [PortKeyLeavable], completion: @escaping () -> Void) {  // TODO: doesn't support AnimationExtent yet
+        guard let leavable = route.first else { completion(); return }
+
+        leavable.leave(animated: true) {
+            recursivelyLeave(route: Array(route.dropFirst()), completion: completion)
+        }
     }
 
     private static func recursivelyEnter(route: Route, from presentingViewController: UIViewController) {
         guard let (enterableType, info) = route.first else { return }
+
         enterableType.enter(from: presentingViewController, info: info, animated: false) { presentedViewCtrl in // TODO: animation ignored right now
             recursivelyEnter(route: Array(route.dropFirst()), from: presentedViewCtrl)
         }

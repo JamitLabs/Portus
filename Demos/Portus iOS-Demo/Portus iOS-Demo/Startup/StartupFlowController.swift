@@ -10,9 +10,6 @@ import UIKit
 import Imperio
 
 class StartupFlowController: InitialFlowController {
-    // MARK: - Properties
-    var routingID: String = "A"
-
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: startupViewCtrl)
         return navigationCtrl

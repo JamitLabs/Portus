@@ -18,28 +18,128 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flow B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-BN-ycs">
-                                <rect key="frame" x="162" y="333" width="51" height="21"/>
+                                <rect key="frame" x="162" y="333.5" width="51" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBN-Wa-i3q">
-                                <rect key="frame" x="114.5" y="617" width="146" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="7g2-O8-YHT">
+                                <rect key="frame" x="130" y="557" width="115" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhN-Fk-Cbt">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Flow A"/>
+                                        <connections>
+                                            <action selector="modalFlowA" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="RBR-Gb-xnZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4u-XF-DWc">
+                                        <rect key="frame" x="69" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Flow B"/>
+                                        <connections>
+                                            <action selector="modalFlowB" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="XqE-gp-K7p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="UhM-Ph-xGg"/>
+                                    <constraint firstAttribute="height" constant="30" id="818-SA-zX5"/>
+                                    <constraint firstAttribute="width" constant="115" id="V6l-5z-uYY"/>
                                 </constraints>
-                                <state key="normal" title="Use Portkey to FlowA"/>
-                            </button>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cac-rY-sgt">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8K-vN-yNJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="30"/>
+                                        <state key="normal" title="A"/>
+                                        <connections>
+                                            <action selector="usePortKeyToFlowA" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="scB-cs-SoZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcp-1l-phI">
+                                        <rect key="frame" x="93.5" y="0.0" width="63" height="30"/>
+                                        <state key="normal" title="B"/>
+                                        <connections>
+                                            <action selector="usePortKeyToFlowB" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="iKR-jX-65a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ner-HP-lti">
+                                        <rect key="frame" x="186.5" y="0.0" width="63.5" height="30"/>
+                                        <state key="normal" title="AB"/>
+                                        <connections>
+                                            <action selector="usePortKeyToFlowAB" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="nzL-fR-nbg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvz-0b-mMf">
+                                        <rect key="frame" x="280" y="0.0" width="63" height="30"/>
+                                        <state key="normal" title="BA"/>
+                                        <connections>
+                                            <action selector="usePortKeyToFlowBA" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="hqr-Bc-me8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DBW-cm-MOM"/>
+                                </constraints>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gAC-fr-Qsz">
+                                <rect key="frame" x="16" y="87" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="sSZ-B6-hEd"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="alwaysFromRoot"/>
+                                    <segment title="maxReusageFromRoot"/>
+                                    <segment title="minRouteToLeaf"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-SA-nR1">
+                                <rect key="frame" x="16" y="40" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="R46-kn-pYy"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="notAtAll"/>
+                                    <segment title="destinationOnly"/>
+                                    <segment title="fully"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-We-NVk">
+                                <rect key="frame" x="16" y="134" width="343" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="DRB-54-bFq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cac-rY-sgt" firstAttribute="top" secondItem="7g2-O8-YHT" secondAttribute="bottom" constant="30" id="1lu-G1-2PT"/>
+                            <constraint firstItem="7g2-O8-YHT" firstAttribute="centerX" secondItem="B8Q-Je-q0k" secondAttribute="centerX" id="3Kw-DF-4yU"/>
+                            <constraint firstItem="CXa-SA-nR1" firstAttribute="top" secondItem="InI-pj-KLc" secondAttribute="top" constant="20" id="7hd-WN-pRH"/>
+                            <constraint firstItem="CXa-SA-nR1" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="Cvi-lC-cYl"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="5yD-We-NVk" secondAttribute="trailing" constant="16" id="DOk-iv-buV"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="bottom" secondItem="cac-rY-sgt" secondAttribute="bottom" constant="20" id="DhS-LE-P3Z"/>
+                            <constraint firstItem="gAC-fr-Qsz" firstAttribute="top" secondItem="CXa-SA-nR1" secondAttribute="bottom" constant="20" id="E6T-Lu-WmQ"/>
                             <constraint firstItem="HEC-BN-ycs" firstAttribute="centerX" secondItem="InI-pj-KLc" secondAttribute="centerX" id="HKL-Nf-dPX"/>
-                            <constraint firstItem="IBN-Wa-i3q" firstAttribute="centerX" secondItem="B8Q-Je-q0k" secondAttribute="centerX" id="dbg-Z1-0Rf"/>
+                            <constraint firstItem="5yD-We-NVk" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="JL3-Cc-WCB"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="cac-rY-sgt" secondAttribute="trailing" constant="16" id="QiV-Fn-XLv"/>
+                            <constraint firstItem="5yD-We-NVk" firstAttribute="top" secondItem="gAC-fr-Qsz" secondAttribute="bottom" constant="20" id="Y2r-nV-Rda"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="gAC-fr-Qsz" secondAttribute="trailing" constant="16" id="cR9-zn-SxS"/>
                             <constraint firstItem="HEC-BN-ycs" firstAttribute="centerY" secondItem="InI-pj-KLc" secondAttribute="centerY" id="g1J-gb-RGQ"/>
-                            <constraint firstItem="InI-pj-KLc" firstAttribute="bottom" secondItem="IBN-Wa-i3q" secondAttribute="bottom" constant="20" id="yrq-qb-Dwh"/>
+                            <constraint firstItem="cac-rY-sgt" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="nnL-Yr-85h"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="CXa-SA-nR1" secondAttribute="trailing" constant="16" id="oCW-Ma-402"/>
+                            <constraint firstItem="gAC-fr-Qsz" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="vmh-vg-jwT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="InI-pj-KLc"/>
                     </view>
+                    <connections>
+                        <outlet property="animationExtentSegmentedControl" destination="CXa-SA-nR1" id="gZ0-ZT-cfu"/>
+                        <outlet property="currentPathLabel" destination="5yD-We-NVk" id="L6R-vg-Y7J"/>
+                        <outlet property="routingStrategySegmentedControl" destination="gAC-fr-Qsz" id="2yk-8P-ucs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9U-b1-ABN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

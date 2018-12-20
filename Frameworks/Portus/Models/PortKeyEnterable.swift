@@ -5,12 +5,12 @@
 
 import UIKit
 
-protocol PortKeyEnterable: PortKeyLeavable {
+public protocol PortKeyEnterable: PortKeyLeavable {
     static var routingId: String { get }
 
     static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void)
 }
 
 extension PortKeyEnterable {
-    static var routingId: String { return String(describing: Self.self) }
+    public static var routingId: String { return String(describing: Self.self) }
 }

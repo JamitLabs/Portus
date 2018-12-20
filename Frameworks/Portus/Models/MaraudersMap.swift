@@ -5,18 +5,23 @@
 
 import Foundation
 
-final class MaraudersMap {
-    static let shared = MaraudersMap()
+public final class MaraudersMap {
+    public static let shared = MaraudersMap()
 
     internal var currentPath: [PortKeyLeavable] = []
 
+    public var portKeyEnterablesPath: String {
+        let enterables: [PortKeyEnterable] = currentPath.compactMap { $0 as? PortKeyEnterable }
+        return enterables.map { type(of: $0).routingId }.joined(separator: " > ")
+    }
+
     private init() {}
 
-    func didEnter(_ leavable: PortKeyLeavable) {
+    public func didEnter(_ leavable: PortKeyLeavable) {
         currentPath.append(leavable)
     }
 
-    func didLeave(_ leavable: PortKeyLeavable) {
+    public func didLeave(_ leavable: PortKeyLeavable) {
         if let lastIndex = currentPath.lastIndex(where: { $0 === leavable}) {
             currentPath.removeLast(currentPath.count - lastIndex)
         }

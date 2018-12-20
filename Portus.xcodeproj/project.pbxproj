@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821F373D21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */; };
+		821F373E21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */; };
 		82622BF721CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */; };
 		82622BF821CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */; };
 		82622BFB21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */; };
@@ -74,6 +76,7 @@
 		820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		820560AC217DE94F00E23A81 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKeyLeavable.swift; sourceTree = "<group>"; };
 		82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		82622BFD21CB9BEA00DC9C70 /* PortKeyEnterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKeyEnterable.swift; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */,
+				821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +511,7 @@
 				82622C0721CB9C3B00DC9C70 /* Portus.swift in Sources */,
 				82622BFE21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */,
 				82622C0421CB9C2500DC9C70 /* MaraudersMap.swift in Sources */,
+				821F373D21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */,
 				82622BFB21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */,
 				82622C0121CB9C1300DC9C70 /* PortKey.swift in Sources */,
 				82622BF721CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */,
@@ -528,6 +533,7 @@
 				82622C0821CB9C3B00DC9C70 /* Portus.swift in Sources */,
 				82622BFF21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */,
 				82622C0521CB9C2500DC9C70 /* MaraudersMap.swift in Sources */,
+				821F373E21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */,
 				82622BFC21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */,
 				82622C0221CB9C1300DC9C70 /* PortKey.swift in Sources */,
 				82622BF821CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */,

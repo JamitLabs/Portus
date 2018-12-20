@@ -5,8 +5,8 @@
 
 import Foundation
 
-typealias Route = [(enterableType: PortKeyEnterable.Type, info: Any?)]
+public typealias Route = [(enterableType: PortKeyEnterable.Type, info: Any?)]
 
-protocol PortKey {
+public protocol PortKey {
     var route: Route { get }
 }

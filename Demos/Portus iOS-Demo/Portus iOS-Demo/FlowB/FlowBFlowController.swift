@@ -8,6 +8,7 @@
 
 import UIKit
 import Imperio
+import Portus
 
 class FlowBFlowController: FlowController {
     private let storyboard = UIStoryboard(name: "FlowB", bundle: nil)
@@ -16,7 +17,37 @@ class FlowBFlowController: FlowController {
         return flowBViewCtrl
     }()
 
+    private let presentCompletion: (UIViewController) -> Void
+
+    init(presentCompletion: @escaping (UIViewController) -> Void) {
+        self.presentCompletion = presentCompletion
+    }
+
+    convenience override init() { self.init(presentCompletion: { _ in }) }
+
     override func start(from presentingViewController: UIViewController) {
-        presentingViewController.present(flowBViewCtrl, animated: true)
+        MaraudersMap.shared.didEnter(self)
+        presentingViewController.present(flowBViewCtrl, animated: true) {
+            self.presentCompletion(self.flowBViewCtrl)
+        }
+    }
+}
+
+extension FlowBFlowController: PortKeyEnterable {
+    var visibleViewController: UIViewController {
+        return flowBViewCtrl
+    }
+
+    static var routingId: String {
+        return "B"
+    }
+
+    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
+        FlowBFlowController(presentCompletion: completion).start(from: presentingViewController)
+    }
+
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        MaraudersMap.shared.didLeave(self)
+        flowBViewCtrl.dismiss(animated: animated, completion: completion)
     }
 }

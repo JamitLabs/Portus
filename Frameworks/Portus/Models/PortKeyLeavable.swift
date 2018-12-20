@@ -3,8 +3,10 @@
 //  Copyright © 2018 Jamit Labs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol PortKeyLeavable: class {
+public protocol PortKeyLeavable: class {
+    var visibleViewController: UIViewController { get }
+
     func leave(animated: Bool, completion: @escaping () -> Void)
 }

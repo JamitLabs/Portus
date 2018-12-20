@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
+        Portus.window = window
+
         initialFlowCtrl = StartupFlowController()
         initialFlowCtrl?.start(from: window!)
 

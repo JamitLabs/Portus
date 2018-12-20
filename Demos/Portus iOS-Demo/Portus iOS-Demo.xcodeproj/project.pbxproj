@@ -21,7 +21,7 @@
 		38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
-		82EA969321A3179300EC7EAC /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EA969221A3179300EC7EAC /* Portus.framework */; };
+		821F373B21CBF5ED00A0FA94 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F373A21CBF5ED00A0FA94 /* Portus.framework */; };
 		82EA969521A3195600EC7EAC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* Router.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82EA969221A3179300EC7EAC /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		821F373A21CBF5ED00A0FA94 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EA969421A3195600EC7EAC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82EA969321A3179300EC7EAC /* Portus.framework in Frameworks */,
+				821F373B21CBF5ED00A0FA94 /* Portus.framework in Frameworks */,
 				38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +136,7 @@
 		820560A5217DE88200E23A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82EA969221A3179300EC7EAC /* Portus.framework */,
+				821F373A21CBF5ED00A0FA94 /* Portus.framework */,
 				38B2C8D42190E609008483CA /* Imperio.framework */,
 			);
 			name = Frameworks;

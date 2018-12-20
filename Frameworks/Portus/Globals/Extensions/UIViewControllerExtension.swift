@@ -6,7 +6,9 @@
 import UIKit
 
 extension UIViewController: PortKeyLeavable {
-    func leave(animated: Bool, completion: @escaping () -> Void) {
+    public var visibleViewController: UIViewController { return self }
+
+    public func leave(animated: Bool, completion: @escaping () -> Void) {
         if let navigationStackIndex = navigationController?.viewControllers.firstIndex(of: self), navigationStackIndex > 0 {
             let previousViewCtrl = navigationController!.viewControllers[navigationStackIndex - 1]
             navigationController?.popToViewController(previousViewCtrl, animated: animated)
