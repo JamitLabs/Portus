@@ -6,7 +6,5 @@
 import UIKit
 
 public protocol PortKeyLeavable: class {
-    var visibleViewController: UIViewController { get }
-
     func leave(animated: Bool, completion: @escaping () -> Void)
 }
