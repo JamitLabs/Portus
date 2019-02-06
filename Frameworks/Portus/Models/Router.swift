@@ -48,7 +48,7 @@ public enum Router {
         guard let identifierToEnter = identifiersToEnter.first else { return }
         guard let currentNode = Map.shared.currentPath.last else { return }
 
-        currentNode.enter(routingIdentifier: identifierToEnter, info: nil, animated: true) { routable in
+        currentNode.enter(routingIdentifier: identifierToEnter, info: nil, animated: true) { _ in
             recursivelyEnter(identifiersToEnter: Array(identifiersToEnter.dropFirst()))
         }
     }
@@ -56,11 +56,11 @@ public enum Router {
     internal static func pathToDestination(targetContext: Context, routingStrategy: RoutingStrategy) -> ([Routable], Context) {
         switch routingStrategy {
         case .alwaysFromRoot:
-            return (Array(Map.shared.currentPath.dropFirst()), Array(targetContext.dropFirst()))
+            return (Map.shared.currentPathWithoutRoot, Array(targetContext.dropFirst()))
 
         case .maxReusageFromRoot:
-            var nodesToLeave = Map.shared.currentPath
-            var identifiersToEnter: Context = targetContext
+            var nodesToLeave = Map.shared.currentPathWithoutRoot
+            var identifiersToEnter: Context = Array(targetContext.dropFirst())
 
             for nodeToLeave in nodesToLeave {
                 guard let firstIdentifierToEnter = identifiersToEnter.first, type(of: nodeToLeave).routingId == firstIdentifierToEnter else {
@@ -76,18 +76,18 @@ public enum Router {
         case .minRouteToLeaf:
             var identifiersToEnter: [RoutingIdentifier] = []
 
-            for identifier in targetContext.reversed() {
-                if let lastIndex = Map.shared.currentPath.lastIndex(
+            for identifier in Array(targetContext.dropFirst()).reversed() {
+                if let lastIndex = Map.shared.currentPathWithoutRoot.lastIndex(
                     where: { type(of: $0).routingId == identifier }
                 ) {
-                    let nodesToLeave: [Routable] = Array(Map.shared.currentPath.suffix(from: lastIndex + 1))
+                    let nodesToLeave: [Routable] = Array(Map.shared.currentPathWithoutRoot.suffix(from: lastIndex + 1))
                     return (nodesToLeave, identifiersToEnter)
                 } else {
                     identifiersToEnter.insert(identifier, at: 0)
                 }
             }
 
-            return (Map.shared.currentPath, targetContext)
+            return (Map.shared.currentPathWithoutRoot, Array(targetContext.dropFirst()))
         }
     }
 }

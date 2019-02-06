@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
 		82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
-		82622C0121CB9C1300DC9C70 /* RoutesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */; };
-		82622C0221CB9C1300DC9C70 /* RoutesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */; };
 		82622C0421CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
 		82622C0521CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
 		82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
@@ -71,7 +69,6 @@
 		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		820560AC217DE94F00E23A81 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		82622BF621CB9BB000DC9C70 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
-		82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesProvider.swift; sourceTree = "<group>"; };
 		82622C0321CB9C2500DC9C70 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		82622C0621CB9C3B00DC9C70 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		82EA967921A308D200EC7EAC /* PortusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortusTests.swift; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				82622BF621CB9BB000DC9C70 /* Routable.swift */,
-				82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */,
 				82622C0321CB9C2500DC9C70 /* Map.swift */,
 				82622C0621CB9C3B00DC9C70 /* Router.swift */,
 			);
@@ -482,7 +478,6 @@
 			files = (
 				82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */,
 				82622C0421CB9C2500DC9C70 /* Map.swift in Sources */,
-				82622C0121CB9C1300DC9C70 /* RoutesProvider.swift in Sources */,
 				82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +496,6 @@
 			files = (
 				82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */,
 				82622C0521CB9C2500DC9C70 /* Map.swift in Sources */,
-				82622C0221CB9C1300DC9C70 /* RoutesProvider.swift in Sources */,
 				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

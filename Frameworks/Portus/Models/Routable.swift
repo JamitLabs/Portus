@@ -6,6 +6,7 @@
 import UIKit
 
 public typealias RoutingIdentifier = String
+public typealias Context = [RoutingIdentifier]
 
 public enum RoutingIdentifiers {}
 

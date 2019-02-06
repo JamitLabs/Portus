@@ -12,7 +12,6 @@ import Portus
 
 extension RoutingIdentifiers {
     static let B: RoutingIdentifier = "B"
-    static let containedVC: RoutingIdentifier = "NO_NAME_ViewController"
 }
 
 protocol FlowBFlowDelegate: class {
@@ -68,10 +67,6 @@ extension FlowBFlowController: Routable {
             let flowAFlowCtrl = FlowAFlowController(presentCompletion: completion, animatePresentation: true)
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: flowBViewCtrl)
-
-        case RoutingIdentifiers.containedVC:
-            // switch context to contained VC
-            break
 
         default:
             return

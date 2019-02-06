@@ -7,247 +7,295 @@
 import XCTest
 
 class PortusTests: XCTestCase {
+    override static func setUp() {
+        super.setUp()
+
+        Map.shared.didEnter(RootViewController())
+    }
+
     override func tearDown() {
         super.tearDown()
 
-        MaraudersMap.shared.currentPath.forEach { MaraudersMap.shared.didLeave($0) }
+        Map.shared.currentPathWithoutRoot.forEach { Map.shared.didLeave($0) }
     }
 
     func testEnteringAndLeaving() {
-        XCTAssertEqual(MaraudersMap.shared.currentPath.count, 0)
+        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, 0)
 
         let enteredRoute = linearlyEnterIssueDetails()
-        XCTAssertEqual(MaraudersMap.shared.currentPath.count, enteredRoute.count)
+        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, enteredRoute.count)
 
-        enteredRoute.forEach { MaraudersMap.shared.didLeave($0) }
-        XCTAssertEqual(MaraudersMap.shared.currentPath.count, 0)
+        enteredRoute.forEach { Map.shared.didLeave($0) }
+        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, 0)
     }
 
     func testLinearlyFirstLevelPortKeyRoutingAlwaysFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = linearlyEnterIssueDetails()
+        let enteredRoute: [Routable] = linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .alwaysFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [RepositoriesViewController.routingId])
+        XCTAssertEqual(routeToEnter, [RoutingIdentifiers.repositories])
     }
 
     func testLinearlyLastLevelPortKeyRoutingAlwaysFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = linearlyEnterIssueDetails()
+        let enteredRoute: [Routable] = linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .alwaysFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, enteredRoute.map { type(of: ($0 as! PortKeyEnterable)).routingId })
+        XCTAssertEqual(routeToEnter, enteredRoute.map { type(of: ($0)).routingId })
     }
 
     func testLinearlyFirstLevelPortKeyRoutingMaxReusageFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = linearlyEnterIssueDetails()
+        let enteredRoute: [Routable] = linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .maxReusageFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testLinearlyLastLevelPortKeyRoutingMaxReusageFromRoot() {
         linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .maxReusageFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testLinearlyFirstLevelPortKeyRoutingMinRouteToLeaf() {
-        let enteredRoute: [PortKeyLeavable] = linearlyEnterIssueDetails()
+        let enteredRoute: [Routable] = linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .minRouteToLeaf)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testLinearlyLastLevelPortKeyRoutingMinRouteToLeaf() {
         linearlyEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .minRouteToLeaf)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingAlwaysFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .alwaysFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [RepositoriesViewController.routingId])
+        XCTAssertEqual(routeToEnter, [RoutingIdentifiers.repositories])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingAlwaysFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .alwaysFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.newComment.route.map { $0.enterableType.routingId })
+        XCTAssertEqual(routeToEnter, Array<RoutingIdentifier>(EverydayObject.newComment.dropFirst()))
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingMaxReusageFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .maxReusageFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingMaxReusageFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .maxReusageFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.newComment.route.dropFirst().map { $0.enterableType.routingId })
+        XCTAssertEqual(routeToEnter, [RoutingIdentifiers.repositoryDetail, RoutingIdentifiers.issues, RoutingIdentifiers.issuesDetail])
     }
 
     func testRoundaboutWayFirstLevelPortKeyRoutingMinRouteToLeaf() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repositories, routingStrategy: .minRouteToLeaf)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repositories, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testRoundaboutWayLastLevelPortKeyRoutingMinRouteToLeaf() {
         roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.newComment, routingStrategy: .minRouteToLeaf)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.newComment, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, [])
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingAlwaysFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .alwaysFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repository, routingStrategy: .alwaysFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.repository.route.map { $0.enterableType.routingId })
+        XCTAssertEqual(routeToEnter, Array<RoutingIdentifier>(EverydayObject.repository.dropFirst()))
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingMaxReusageFromRoot() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .maxReusageFromRoot)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repository, routingStrategy: .maxReusageFromRoot)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst().map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, EverydayEmptyObject.repository.route.dropFirst().map { $0.enterableType.routingId })
+        XCTAssertEqual(routeToEnter, [RoutingIdentifiers.repositoryDetail])
     }
 
     func testRoundaboutWayMiddleLevelPortKeyRoutingMinRouteToLeaf() {
-        let enteredRoute: [PortKeyLeavable] = roundaboutWayEnterIssueDetails()
+        let enteredRoute: [Routable] = roundaboutWayEnterIssueDetails()
 
-        let (routeToLeave, routeToEnter) = Portus.pathToDestination(portKey: EverydayEmptyObject.repository, routingStrategy: .minRouteToLeaf)
+        let (routeToLeave, routeToEnter) = Router.pathToDestination(targetContext: EverydayObject.repository, routingStrategy: .minRouteToLeaf)
         XCTAssertEqual(routeToLeave.map { $0 as! UIViewController }, enteredRoute.dropFirst(3).map { $0 as! UIViewController })
-        XCTAssertEqual(routeToEnter.map { $0.enterableType.routingId }, [])
+        XCTAssertEqual(routeToEnter, [])
     }
 
     @discardableResult
-    private func linearlyEnterIssueDetails() -> [PortKeyLeavable] {
-        let pathToEnter = [RepositoriesViewController(), RepositoryDetailViewController(), IssuesViewController(), IssueDetailViewController()]
-        pathToEnter.forEach { MaraudersMap.shared.didEnter($0) }
+    private func linearlyEnterIssueDetails() -> [Routable] {
+        let pathToEnter: [Routable] = [RepositoriesViewController(), RepositoryDetailViewController(), IssuesViewController(), IssueDetailViewController()]
+        pathToEnter.forEach { Map.shared.didEnter($0) }
         return pathToEnter
     }
 
     @discardableResult
-    private func roundaboutWayEnterIssueDetails() -> [PortKeyLeavable] {
-        let pathToEnter = [RepositoriesViewController(), IssuesViewController(), RepositoryDetailViewController(), IssueDetailViewController()]
-        pathToEnter.forEach { MaraudersMap.shared.didEnter($0) }
+    private func roundaboutWayEnterIssueDetails() -> [Routable] {
+        let pathToEnter: [Routable] = [RepositoriesViewController(), IssuesViewController(), RepositoryDetailViewController(), IssueDetailViewController()]
+        pathToEnter.forEach { Map.shared.didEnter($0) }
         return pathToEnter
     }
 }
 
 // MARK: - Test Types
-enum EverydayEmptyObject: PortKey {
-    case repositories
-    case repository
-    case newComment
+enum EverydayObject {
+    static let repositories: Context = [
+        RoutingIdentifiers.root,
+        RoutingIdentifiers.repositories
+    ]
+    static let repository: Context = [
+        RoutingIdentifiers.root,
+        RoutingIdentifiers.repositories,
+        RoutingIdentifiers.repositoryDetail
+    ]
+    static let newComment: Context = [
+        RoutingIdentifiers.root,
+        RoutingIdentifiers.repositories,
+        RoutingIdentifiers.repositoryDetail,
+        RoutingIdentifiers.issues,
+        RoutingIdentifiers.issuesDetail
+    ]
+}
 
-    var route: Route {
-        switch self {
-        case .repositories:
-            return [(RepositoriesViewController.self, nil)]
+extension RoutingIdentifiers {
+    static let root: RoutingIdentifier = "Root"
+    static let repositories: RoutingIdentifier = "Repositories"
+    static let repositoryDetail: RoutingIdentifier = "RepositoryDetail"
+    static let issues: RoutingIdentifier = "Issues"
+    static let issuesDetail: RoutingIdentifier = "IssueDetail"
+}
 
-        case .repository:
-            return [
-                (RepositoriesViewController.self, nil),
-                (RepositoryDetailViewController.self, nil)
-            ]
+class RootViewController: UIViewController, Routable {
+    static var routingId: RoutingIdentifier { return "Root" }
 
-        case .newComment:
-            return [
-                (RepositoriesViewController.self, nil),
-                (RepositoryDetailViewController.self, nil),
-                (IssuesViewController.self, nil),
-                (IssueDetailViewController.self, nil)
-            ]
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        switch routingIdentifier {
+        case RoutingIdentifiers.repositories:
+            let repositoryViewCtrl = RepositoriesViewController()
+            let navigationCtrl = UINavigationController(rootViewController: repositoryViewCtrl)
+            present(navigationCtrl, animated: animated) {
+                completion(repositoryViewCtrl)
+            }
+
+        default:
+            return
         }
+    }
+
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        fatalError("Root Node")
     }
 }
 
-enum EverydayObject: PortKey {
-    case repositories
-    case repository(name: String)
-    case newComment(repositoryName: String, issueNum: Int, commentId: String)
+class RepositoriesViewController: UIViewController, Routable {
+    static var routingId: RoutingIdentifier { return "Repositories" }
 
-    var route: Route {
-        switch self {
-        case .repositories:
-            return [(RepositoriesViewController.self, nil)]
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        switch routingIdentifier {
+        case RoutingIdentifiers.repositoryDetail:
+            let repositoryDetailViewCtrl = RepositoryDetailViewController()
+            let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
 
-        case let .repository(name):
-            return [
-                (RepositoriesViewController.self, nil),
-                (RepositoryDetailViewController.self, name)
-            ]
+            navigationController?.pushViewController(repositoryDetailViewCtrl, animated: animated)
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(repositoryDetailViewCtrl) }
 
-        case let .newComment(repositoryName, issueNum, commentId):
-            return [
-                (RepositoriesViewController.self, nil),
-                (RepositoryDetailViewController.self, repositoryName),
-                (IssuesViewController.self, issueNum),
-                (IssueDetailViewController.self, commentId)
-            ]
+        default:
+            return
         }
+    }
+
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        dismiss(animated: animated, completion: completion)
     }
 }
 
-class RepositoriesViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        let navigationCtrl = UINavigationController(rootViewController: RepositoriesViewController())
-        presentingViewController.present(navigationCtrl, animated: animated) {
-            completion(navigationCtrl)
+class RepositoryDetailViewController: UIViewController, Routable {
+    static var routingId: RoutingIdentifier { return "RepositoryDetail" }
+
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        switch routingIdentifier {
+        case RoutingIdentifiers.issues:
+            let issuesViewCtrl = IssuesViewController()
+            let navCtrl = UINavigationController(rootViewController: issuesViewCtrl)
+            present(navCtrl, animated: animated) {
+                completion(issuesViewCtrl)
+            }
+
+        default:
+            return
         }
     }
-}
 
-class RepositoryDetailViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        let viewCtrl = RepositoryDetailViewController()
-        presentingViewController.navigationController?.pushViewController(viewCtrl, animated: animated)
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        guard let presentingViewCtrl = presentingViewController else { return completion() }
+        navigationController?.popToViewController(presentingViewCtrl, animated: animated)
 
         let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(viewCtrl) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion() }
     }
 }
 
-class IssuesViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        let viewCtrl = IssuesViewController()
-        let navigationCtrl = UINavigationController(rootViewController: viewCtrl)
-        presentingViewController.present(navigationCtrl, animated: animated) {
-            completion(viewCtrl)
+class IssuesViewController: UIViewController, Routable {
+    static var routingId: RoutingIdentifier { return "Issues" }
+
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        switch routingIdentifier {
+        case RoutingIdentifiers.issuesDetail:
+            let issueDetailViewCtrl = IssueDetailViewController()
+            navigationController?.pushViewController(issueDetailViewCtrl, animated: animated)
+
+            let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(issueDetailViewCtrl) }
+
+        default:
+            return
         }
     }
+
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        dismiss(animated: animated, completion: completion)
+    }
 }
 
-class IssueDetailViewController: UIViewController, PortKeyEnterable {
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        let viewCtrl = IssueDetailViewController()
-        presentingViewController.navigationController?.pushViewController(viewCtrl, animated: animated)
+class IssueDetailViewController: UIViewController, Routable {
+    static var routingId: RoutingIdentifier { return "IssueDetail" }
+
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        return
+    }
+
+    func leave(animated: Bool, completion: @escaping () -> Void) {
+        guard let presentingViewCtrl = presentingViewController else { return completion() }
+        navigationController?.popToViewController(presentingViewCtrl, animated: animated)
 
         let delay: DispatchTimeInterval = animated ? .milliseconds(300) : .milliseconds(50)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion(viewCtrl) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { completion() }
     }
 }

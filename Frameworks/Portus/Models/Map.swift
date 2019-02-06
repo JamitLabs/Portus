@@ -9,6 +9,9 @@ public final class Map {
     public static let shared = Map()
 
     internal var currentPath: [Routable] = []
+    internal var currentPathWithoutRoot: [Routable] {
+        return Array<Routable>(currentPath.dropFirst())
+    }
 
     public var currentPathDescription: String {
         return currentPath.map { type(of: $0).routingId }.joined(separator: " > ")
