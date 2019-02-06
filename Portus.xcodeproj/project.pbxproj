@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		821F373D21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */; };
-		821F373E21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */; };
-		82622BF721CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */; };
-		82622BF821CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */; };
-		82622BFB21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */; };
-		82622BFC21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */; };
-		82622BFE21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BFD21CB9BEA00DC9C70 /* PortKeyEnterable.swift */; };
-		82622BFF21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BFD21CB9BEA00DC9C70 /* PortKeyEnterable.swift */; };
-		82622C0121CB9C1300DC9C70 /* PortKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* PortKey.swift */; };
-		82622C0221CB9C1300DC9C70 /* PortKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* PortKey.swift */; };
-		82622C0421CB9C2500DC9C70 /* MaraudersMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* MaraudersMap.swift */; };
-		82622C0521CB9C2500DC9C70 /* MaraudersMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* MaraudersMap.swift */; };
-		82622C0721CB9C3B00DC9C70 /* Portus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Portus.swift */; };
-		82622C0821CB9C3B00DC9C70 /* Portus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Portus.swift */; };
+		82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
+		82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
+		82622C0121CB9C1300DC9C70 /* RoutesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */; };
+		82622C0221CB9C1300DC9C70 /* RoutesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */; };
+		82622C0421CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
+		82622C0521CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
+		82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
+		82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
 		82EA967A21A308D200EC7EAC /* PortusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA967921A308D200EC7EAC /* PortusTests.swift */; };
 		82EA967C21A308D200EC7EAC /* PortusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA967921A308D200EC7EAC /* PortusTests.swift */; };
 		A102BD481F02355A000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD3E1F02355A000C6B38 /* Portus.framework */; };
@@ -76,13 +70,10 @@
 		820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		820560AC217DE94F00E23A81 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
-		82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKeyLeavable.swift; sourceTree = "<group>"; };
-		82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		82622BFD21CB9BEA00DC9C70 /* PortKeyEnterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKeyEnterable.swift; sourceTree = "<group>"; };
-		82622C0021CB9C1300DC9C70 /* PortKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKey.swift; sourceTree = "<group>"; };
-		82622C0321CB9C2500DC9C70 /* MaraudersMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaraudersMap.swift; sourceTree = "<group>"; };
-		82622C0621CB9C3B00DC9C70 /* Portus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portus.swift; sourceTree = "<group>"; };
+		82622BF621CB9BB000DC9C70 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesProvider.swift; sourceTree = "<group>"; };
+		82622C0321CB9C2500DC9C70 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		82622C0621CB9C3B00DC9C70 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		82EA967921A308D200EC7EAC /* PortusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortusTests.swift; sourceTree = "<group>"; };
 		A102BD3E1F02355A000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A102BD471F02355A000C6B38 /* Portus-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Portus-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,33 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		82056065217DCF0700E23A81 /* Globals */ = {
-			isa = PBXGroup;
-			children = (
-				82622BF921CB9BC200DC9C70 /* Extensions */,
-			);
-			path = Globals;
-			sourceTree = "<group>";
-		};
 		82056066217DCF1700E23A81 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				82622BF621CB9BB000DC9C70 /* PortKeyLeavable.swift */,
-				82622BFD21CB9BEA00DC9C70 /* PortKeyEnterable.swift */,
-				82622C0021CB9C1300DC9C70 /* PortKey.swift */,
-				82622C0321CB9C2500DC9C70 /* MaraudersMap.swift */,
-				82622C0621CB9C3B00DC9C70 /* Portus.swift */,
+				82622BF621CB9BB000DC9C70 /* Routable.swift */,
+				82622C0021CB9C1300DC9C70 /* RoutesProvider.swift */,
+				82622C0321CB9C2500DC9C70 /* Map.swift */,
+				82622C0621CB9C3B00DC9C70 /* Router.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		82622BF921CB9BC200DC9C70 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				82622BFA21CB9BCF00DC9C70 /* UIViewControllerExtension.swift */,
-				821F373C21CBFA6900A0FA94 /* UIWindowExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A102BD341F02355A000C6B38 = {
@@ -195,7 +168,6 @@
 		A102BDA01F02387A000C6B38 /* Portus */ = {
 			isa = PBXGroup;
 			children = (
-				82056065217DCF0700E23A81 /* Globals */,
 				82056066217DCF1700E23A81 /* Models */,
 			);
 			path = Portus;
@@ -508,13 +480,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82622C0721CB9C3B00DC9C70 /* Portus.swift in Sources */,
-				82622BFE21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */,
-				82622C0421CB9C2500DC9C70 /* MaraudersMap.swift in Sources */,
-				821F373D21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */,
-				82622BFB21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */,
-				82622C0121CB9C1300DC9C70 /* PortKey.swift in Sources */,
-				82622BF721CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */,
+				82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */,
+				82622C0421CB9C2500DC9C70 /* Map.swift in Sources */,
+				82622C0121CB9C1300DC9C70 /* RoutesProvider.swift in Sources */,
+				82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,13 +499,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82622C0821CB9C3B00DC9C70 /* Portus.swift in Sources */,
-				82622BFF21CB9BEA00DC9C70 /* PortKeyEnterable.swift in Sources */,
-				82622C0521CB9C2500DC9C70 /* MaraudersMap.swift in Sources */,
-				821F373E21CBFA6900A0FA94 /* UIWindowExtension.swift in Sources */,
-				82622BFC21CB9BCF00DC9C70 /* UIViewControllerExtension.swift in Sources */,
-				82622C0221CB9C1300DC9C70 /* PortKey.swift in Sources */,
-				82622BF821CB9BB000DC9C70 /* PortKeyLeavable.swift in Sources */,
+				82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */,
+				82622C0521CB9C2500DC9C70 /* Map.swift in Sources */,
+				82622C0221CB9C1300DC9C70 /* RoutesProvider.swift in Sources */,
+				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

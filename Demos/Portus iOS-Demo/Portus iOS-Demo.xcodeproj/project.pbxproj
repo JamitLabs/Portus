@@ -23,7 +23,7 @@
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
 		821F373B21CBF5ED00A0FA94 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F373A21CBF5ED00A0FA94 /* Portus.framework */; };
 		821F374021CC051200A0FA94 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373F21CC051200A0FA94 /* Globals.swift */; };
-		82EA969521A3195600EC7EAC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* Router.swift */; };
+		82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* RoutingTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,7 +57,7 @@
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821F373A21CBF5ED00A0FA94 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		821F373F21CC051200A0FA94 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		82EA969421A3195600EC7EAC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		82EA969421A3195600EC7EAC /* RoutingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
-				82EA969421A3195600EC7EAC /* Router.swift */,
+				82EA969421A3195600EC7EAC /* RoutingTable.swift */,
 				821F373F21CC051200A0FA94 /* Globals.swift */,
 				38B2C8BF2190C26B008483CA /* FlowA */,
 				38B2C8B62190C26B008483CA /* FlowB */,
@@ -247,7 +247,7 @@
 				38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */,
 				38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */,
 				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
-				82EA969521A3195600EC7EAC /* Router.swift in Sources */,
+				82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */,
 				38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */,
 				38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */,
 				38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */,

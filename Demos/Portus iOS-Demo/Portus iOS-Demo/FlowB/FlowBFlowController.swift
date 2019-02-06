@@ -10,6 +10,16 @@ import UIKit
 import Imperio
 import Portus
 
+extension RoutingIdentifiers {
+    static let B: RoutingIdentifier = "B"
+    static let containedVC: RoutingIdentifier = "NO_NAME_ViewController"
+}
+
+protocol FlowBFlowDelegate: class {
+    func flowAButtonTapped()
+    func flowBButtonTapped()
+}
+
 class FlowBFlowController: FlowController {
     private let storyboard = UIStoryboard(name: "FlowB", bundle: nil)
     private lazy var flowBViewCtrl: FlowBViewController = {
@@ -17,10 +27,10 @@ class FlowBFlowController: FlowController {
         return flowBViewCtrl
     }()
 
-    private let presentCompletion: (UIViewController) -> Void
+    private let presentCompletion: (Routable) -> Void
     private let animatePresentation: Bool
 
-    init(presentCompletion: @escaping (UIViewController) -> Void, animatePresentation: Bool) {
+    init(presentCompletion: @escaping (Routable) -> Void, animatePresentation: Bool) {
         self.presentCompletion = presentCompletion
         self.animatePresentation = animatePresentation
     }
@@ -28,28 +38,52 @@ class FlowBFlowController: FlowController {
     convenience override init() { self.init(presentCompletion: { _ in }, animatePresentation: true) }
 
     override func start(from presentingViewController: UIViewController) {
-        MaraudersMap.shared.didEnter(self)
+        Map.shared.didEnter(self)
         presentingViewController.present(flowBViewCtrl, animated: animatePresentation) {
-            self.presentCompletion(self.flowBViewCtrl)
+            self.presentCompletion(self)
         }
     }
 }
 
-extension FlowBFlowController: PortKeyEnterable {
-    var visibleViewController: UIViewController {
-        return flowBViewCtrl
+extension FlowBFlowController: FlowBFlowDelegate {
+    func flowAButtonTapped() {
+        let flowAFlowCtrl = FlowAFlowController()
+        add(subFlowController: flowAFlowCtrl)
+        flowAFlowCtrl.start(from: flowBViewCtrl)
     }
 
-    static var routingId: String {
-        return "B"
+    func flowBButtonTapped() {
+        let flowBFlowCtrl = FlowBFlowController()
+        add(subFlowController: flowBFlowCtrl)
+        flowBFlowCtrl.start(from: flowBViewCtrl)
     }
+}
 
-    static func enter(from presentingViewController: UIViewController, info: Any?, animated: Bool, completion: @escaping (UIViewController) -> Void) {
-        FlowBFlowController(presentCompletion: completion, animatePresentation: animated).start(from: presentingViewController)
+extension FlowBFlowController: Routable {
+    static var routingId: RoutingIdentifier { return "B" }
+
+    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+        switch routingIdentifier {
+        case RoutingIdentifiers.A:
+            let flowAFlowCtrl = FlowAFlowController(presentCompletion: completion, animatePresentation: true)
+            add(subFlowController: flowAFlowCtrl)
+            flowAFlowCtrl.start(from: flowBViewCtrl)
+
+        case RoutingIdentifiers.containedVC:
+            // switch context to contained VC
+            break
+
+        default:
+            return
+        }
     }
 
     func leave(animated: Bool, completion: @escaping () -> Void) {
-        MaraudersMap.shared.didLeave(self)
-        flowBViewCtrl.dismiss(animated: animated, completion: completion)
+        flowBViewCtrl.dismiss(animated: animated) { [weak self] in
+            guard let self = self else { return }
+            Map.shared.didLeave(self)
+            self.removeFromSuperFlowController()
+            completion()
+        }
     }
 }
