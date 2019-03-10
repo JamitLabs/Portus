@@ -10,5 +10,6 @@ import Foundation
 import Portus
 
 enum Globals {
-    static var routingStrategy: Router.RoutingStrategy = .alwaysFromRoot
+    static var animated: Bool = true
+    static var routingStrategy: RoutingStrategy = .alwaysFromRoot
 }
