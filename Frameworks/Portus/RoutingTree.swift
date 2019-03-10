@@ -5,22 +5,22 @@
 
 import Foundation
 
-public final class Map {
-    public static let shared = Map()
+public final class RoutingTree {
+    public static let shared = RoutingTree()
 
-    internal var currentPath: [Node] = []
-    internal var currentPathWithoutRoot: [Node] {
-        return [Node](currentPath.dropFirst())
+    internal var currentPath: [RoutingEntry] = []
+    internal var currentPathWithoutRoot: [RoutingEntry] {
+        return [RoutingEntry](currentPath.dropFirst())
     }
 
     private init() {}
 
-    public func didEnter(_ node: Node) {
+    public func didEnter(_ node: RoutingEntry) {
         currentPath.append(node)
         print(description)
     }
 
-    public func didLeave(_ node: Node) {
+    public func didLeave(_ node: RoutingEntry) {
         if let lastIndex = currentPath.lastIndex(where: { $0 == node }) {
             currentPath.removeLast(currentPath.count - lastIndex)
         }
@@ -29,15 +29,15 @@ public final class Map {
     }
 }
 
-extension Map: CustomStringConvertible {
+extension RoutingTree: CustomStringConvertible {
     public var description: String {
         return currentPath.map {
             var description: String = ""
 
             description += $0.identifier.rawValue
-            let doParametersExist: Bool = $0.parameters?.isEmpty == false
+            let doParametersExist: Bool = $0.context?.isEmpty == false
             if doParametersExist { description += " [" }
-            $0.parameters?.forEach { key, value in
+            $0.context?.forEach { key, value in
                 description += "\(key):\(value),"
             }
 

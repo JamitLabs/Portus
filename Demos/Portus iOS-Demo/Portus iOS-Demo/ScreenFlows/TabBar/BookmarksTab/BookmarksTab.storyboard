@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="164" height="30"/>
                                         <state key="normal" title="ColorDetails [#87FDA9]"/>
                                         <connections>
-                                            <action selector="triggerButton:" destination="Y0M-RR-PDb" eventType="touchUpInside" id="wyS-6T-pQP"/>
+                                            <action selector="triggerColorDeeplink:" destination="Y0M-RR-PDb" eventType="touchUpInside" id="T6g-t0-gC5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-xx-RNF">

@@ -6,6 +6,6 @@
 import Foundation
 
 public struct RoutingInstruction {
-    var nodesToLeave: [Node]
-    var nodesToEnter: [Node]
+    var nodesToLeave: [RoutingEntry]
+    var nodesToEnter: [RoutingEntry]
 }

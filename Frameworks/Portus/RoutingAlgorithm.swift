@@ -13,19 +13,19 @@ internal enum RoutingAlgorithm {
         switch routingStrategy {
         case .alwaysFromRoot:
             return RoutingInstruction(
-                nodesToLeave: Map.shared.currentPathWithoutRoot,
+                nodesToLeave: RoutingTree.shared.currentPathWithoutRoot,
                 nodesToEnter: Array(destination.dropFirst())
             )
 
         case .maxReusageFromRoot:
-            var nodesToLeave = Map.shared.currentPathWithoutRoot
-            var nodesToEnter: [Node] = Array(destination.dropFirst())
+            var nodesToLeave = RoutingTree.shared.currentPathWithoutRoot
+            var nodesToEnter: [RoutingEntry] = Array(destination.dropFirst())
 
             for nodeToLeave in nodesToLeave {
                 guard
                     let nodeToEnter = nodesToEnter.first,
                     nodeToEnter.identifier == nodeToLeave.identifier,
-                    nodeToEnter.parameters == nodeToLeave.parameters
+                    nodeToEnter.context == nodeToLeave.context
                 else {
                     return RoutingInstruction(
                         nodesToLeave: nodesToLeave,
@@ -43,13 +43,13 @@ internal enum RoutingAlgorithm {
             )
 
         case .minRouteToLeaf:
-            var nodesToEnter: [Node] = []
+            var nodesToEnter: [RoutingEntry] = []
 
             for node in Array(destination.dropFirst()).reversed() {
-                if let lastIndex = Map.shared.currentPathWithoutRoot.lastIndex(
-                    where: { $0.identifier == node.identifier && $0.parameters == node.parameters }
+                if let lastIndex = RoutingTree.shared.currentPathWithoutRoot.lastIndex(
+                    where: { $0.identifier == node.identifier && $0.context == node.context }
                 ) {
-                    let nodesToLeave: [Node] = Array(Map.shared.currentPathWithoutRoot.suffix(from: lastIndex + 1))
+                    let nodesToLeave: [RoutingEntry] = Array(RoutingTree.shared.currentPathWithoutRoot.suffix(from: lastIndex + 1))
                     return RoutingInstruction(
                         nodesToLeave: nodesToLeave,
                         nodesToEnter: nodesToEnter
@@ -60,7 +60,7 @@ internal enum RoutingAlgorithm {
             }
 
             return RoutingInstruction(
-                nodesToLeave: Map.shared.currentPathWithoutRoot,
+                nodesToLeave: RoutingTree.shared.currentPathWithoutRoot,
                 nodesToEnter: Array(destination.dropFirst())
             )
         }

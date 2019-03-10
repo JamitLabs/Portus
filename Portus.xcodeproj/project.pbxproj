@@ -12,21 +12,23 @@
 		3802E83D2233DD4B00BB27A0 /* RoutingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */; };
 		3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
 		3854EA5A22341B0000BB9A0C /* RoutingId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5922341B0000BB9A0C /* RoutingId.swift */; };
-		3854EA5E22341B3500BB9A0C /* RoutingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingParameters.swift */; };
-		3854EA5F22341B3A00BB9A0C /* RoutingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingParameters.swift */; };
+		3854EA5E22341B3500BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
+		3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
 		3854EA6022341B4100BB9A0C /* RoutingId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5922341B0000BB9A0C /* RoutingId.swift */; };
 		3854EA6322341B5F00BB9A0C /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6222341B5F00BB9A0C /* Path.swift */; };
-		3854EA6622342EF300BB9A0C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* Node.swift */; };
-		3854EA6722342EFF00BB9A0C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* Node.swift */; };
+		3854EA6622342EF300BB9A0C /* RoutingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* RoutingEntry.swift */; };
+		3854EA6722342EFF00BB9A0C /* RoutingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* RoutingEntry.swift */; };
 		3854EA682234366600BB9A0C /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6222341B5F00BB9A0C /* Path.swift */; };
 		3870E6EB2230421E00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
 		3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
+		38917041223587E600E65114 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
 		38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
 		38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
+		38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
 		82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
 		82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
-		82622C0421CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
-		82622C0521CB9C2500DC9C70 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* Map.swift */; };
+		82622C0421CB9C2500DC9C70 /* RoutingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* RoutingTree.swift */; };
+		82622C0521CB9C2500DC9C70 /* RoutingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* RoutingTree.swift */; };
 		82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
 		82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
 		82EA967A21A308D200EC7EAC /* PortusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA967921A308D200EC7EAC /* PortusTests.swift */; };
@@ -83,17 +85,18 @@
 		3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingStrategy.swift; sourceTree = "<group>"; };
 		3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingInstruction.swift; sourceTree = "<group>"; };
 		3854EA5922341B0000BB9A0C /* RoutingId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingId.swift; sourceTree = "<group>"; };
-		3854EA5D22341B3500BB9A0C /* RoutingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingParameters.swift; sourceTree = "<group>"; };
+		3854EA5D22341B3500BB9A0C /* RoutingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingContext.swift; sourceTree = "<group>"; };
 		3854EA6222341B5F00BB9A0C /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		3854EA6522342EF300BB9A0C /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		3854EA6522342EF300BB9A0C /* RoutingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingEntry.swift; sourceTree = "<group>"; };
 		3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAlgorithm.swift; sourceTree = "<group>"; };
 		38ABA21C223527AE0007C133 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		38C017EC22357F2A000F8B31 /* RoutingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingNode.swift; sourceTree = "<group>"; };
 		82056067217DD00800E23A81 /* .projlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .projlint.yml; sourceTree = "<group>"; };
 		820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
 		820560AC217DE94F00E23A81 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		82622BF621CB9BB000DC9C70 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
-		82622C0321CB9C2500DC9C70 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		82622C0321CB9C2500DC9C70 /* RoutingTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTree.swift; sourceTree = "<group>"; };
 		82622C0621CB9C3B00DC9C70 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		82EA967921A308D200EC7EAC /* PortusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortusTests.swift; sourceTree = "<group>"; };
 		A102BD3E1F02355A000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,11 +167,11 @@
 		38C017EB22354391000F8B31 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3854EA6522342EF300BB9A0C /* Node.swift */,
+				3854EA6522342EF300BB9A0C /* RoutingEntry.swift */,
 				3854EA6222341B5F00BB9A0C /* Path.swift */,
 				3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */,
 				3854EA5922341B0000BB9A0C /* RoutingId.swift */,
-				3854EA5D22341B3500BB9A0C /* RoutingParameters.swift */,
+				3854EA5D22341B3500BB9A0C /* RoutingContext.swift */,
 				3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */,
 			);
 			path = Data;
@@ -209,7 +212,8 @@
 			children = (
 				82622C0621CB9C3B00DC9C70 /* Router.swift */,
 				3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */,
-				82622C0321CB9C2500DC9C70 /* Map.swift */,
+				82622C0321CB9C2500DC9C70 /* RoutingTree.swift */,
+				38C017EC22357F2A000F8B31 /* RoutingNode.swift */,
 				38C017EB22354391000F8B31 /* Data */,
 				38C017EA2235435B000F8B31 /* Protocols */,
 				38ABA21E223528130007C133 /* Extensions */,
@@ -526,14 +530,15 @@
 			files = (
 				3802E8392233DC8E00BB27A0 /* RoutingStrategy.swift in Sources */,
 				3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */,
-				3854EA6622342EF300BB9A0C /* Node.swift in Sources */,
+				3854EA6622342EF300BB9A0C /* RoutingEntry.swift in Sources */,
 				3870E6EB2230421E00BB5796 /* RoutingAlgorithm.swift in Sources */,
-				3854EA5E22341B3500BB9A0C /* RoutingParameters.swift in Sources */,
+				3854EA5E22341B3500BB9A0C /* RoutingContext.swift in Sources */,
 				3854EA6322341B5F00BB9A0C /* Path.swift in Sources */,
 				82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */,
-				82622C0421CB9C2500DC9C70 /* Map.swift in Sources */,
+				82622C0421CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
 				82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */,
 				3854EA5A22341B0000BB9A0C /* RoutingId.swift in Sources */,
+				38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */,
 				38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,16 +555,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3854EA5F22341B3A00BB9A0C /* RoutingParameters.swift in Sources */,
-				3854EA6722342EFF00BB9A0C /* Node.swift in Sources */,
+				3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */,
+				3854EA6722342EFF00BB9A0C /* RoutingEntry.swift in Sources */,
 				3802E83D2233DD4B00BB27A0 /* RoutingStrategy.swift in Sources */,
 				3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */,
 				82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */,
 				3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */,
-				82622C0521CB9C2500DC9C70 /* Map.swift in Sources */,
+				82622C0521CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
 				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
 				3854EA682234366600BB9A0C /* Path.swift in Sources */,
 				3854EA6022341B4100BB9A0C /* RoutingId.swift in Sources */,
+				38917041223587E600E65114 /* RoutingNode.swift in Sources */,
 				38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

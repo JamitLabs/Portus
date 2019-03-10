@@ -6,13 +6,13 @@
 import Foundation
 
 public protocol Routable: AnyObject {
-    func leave(_ nodeToLeave: Node, animated: Bool, completion: @escaping () -> Void)
-    func enter(_ nodeToEnter: Node, animated: Bool, completion: @escaping ((Routable) -> Void))
+    func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void)
+    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void))
     func didEnterWithInfo(_ info: Any?)
 }
 
 extension Routable {
-    public func leave(_ nodeToLeave: Node, animated: Bool, completion: @escaping () -> Void) { /* Default implementation */ }
-    public func enter(_ nodeToEnter: Node, animated: Bool, completion: @escaping ((Routable) -> Void)) { /* Default implementation */ }
+    public func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void) { /* Default implementation */ }
+    public func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) { /* Default implementation */ }
     public func didEnterWithInfo(_ info: Any?) { /* Default implementation */ }
 }

@@ -29,18 +29,18 @@ class FlowCFlowController: FlowController {
         return flowCViewCtrl
     }()
 
-    private let routingParameters: RoutingParameters?
+    private let context: RoutingContext?
     private let presentCompletion: ((Routable) -> Void)?
     private let animatePresentation: Bool
 
-    init(routingParameters: RoutingParameters? = nil, animatePresentation: Bool = true, presentCompletion: ((Routable) -> Void)? = nil) {
-        self.routingParameters = routingParameters
+    init(context: RoutingContext? = nil, animatePresentation: Bool = true, presentCompletion: ((Routable) -> Void)? = nil) {
+        self.context = context
         self.animatePresentation = animatePresentation
         self.presentCompletion = presentCompletion
     }
 
     override func start(from presentingViewController: UIViewController) {
-        Map.shared.didEnter(Node(identifier: .c, routable: self, parameters: routingParameters))
+        RoutingTree.shared.didEnter(RoutingEntry(identifier: .c, routable: self, context: context))
         presentingViewController.present(flowCViewCtrl, animated: animatePresentation) { [unowned self] in
             self.presentCompletion?(self)
         }
@@ -66,20 +66,20 @@ extension FlowCFlowController: FlowCFlowDelegate {
 }
 
 extension FlowCFlowController: Routable {
-    func enter(_ nodeToEnter: Node, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
         switch nodeToEnter.identifier {
         case .a:
-            let flowAFlowCtrl = FlowAFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowAFlowCtrl = FlowAFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: flowCViewCtrl)
 
         case .b:
-            let flowBFlowCtrl = FlowBFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowBFlowCtrl = FlowBFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowBFlowCtrl)
             flowBFlowCtrl.start(from: flowCViewCtrl)
 
         case .c:
-            let flowCFlowCtrl = FlowCFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowCFlowCtrl = FlowCFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowCFlowCtrl)
             flowCFlowCtrl.start(from: flowCViewCtrl)
 
@@ -88,11 +88,11 @@ extension FlowCFlowController: Routable {
         }
     }
 
-    func leave(_ nodeToLeave: Node, animated: Bool, completion: @escaping () -> Void) {
+    func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
         flowCViewCtrl.dismiss(animated: animated) { [weak self] in
             guard let self = self else { return }
 
-            Map.shared.didLeave(nodeToLeave)
+            RoutingTree.shared.didLeave(nodeToLeave)
             self.removeFromSuperFlowController()
             completion()
         }

@@ -21,7 +21,7 @@ class FlowBViewController: UIViewController {
 
         animationExtentSegmentedControl.selectedSegmentIndex = Globals.animated ? 0 : 1
         routingStrategySegmentedControl.selectedSegmentIndex = Globals.routingStrategy.rawValue
-        currentPathLabel.text = Map.shared.description
+        currentPathLabel.text = RoutingTree.shared.description
     }
 
     override func viewWillAppear(_ animated: Bool) {

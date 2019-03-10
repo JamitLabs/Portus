@@ -6,7 +6,7 @@
 import Foundation
 
 extension Array where Element == RoutingId {
-    public var nodes: [Node] {
-        return self.map { Node(identifier: $0) }
+    public var nodes: [RoutingEntry] {
+        return self.map { RoutingEntry(identifier: $0) }
     }
 }

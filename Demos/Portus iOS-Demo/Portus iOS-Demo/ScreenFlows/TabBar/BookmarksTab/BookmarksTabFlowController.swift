@@ -33,7 +33,7 @@ class BookmarksTabFlowController: TabFlowController {
     }
 
     override func startIfNeeded() {
-        Map.shared.didEnter(Node(identifier: .bookmarks, routable: self))
+        RoutingTree.shared.didEnter(RoutingEntry(identifier: .bookmarks, routable: self))
         super.startIfNeeded()
     }
 
@@ -42,7 +42,7 @@ class BookmarksTabFlowController: TabFlowController {
     }
 
     override func leave() {
-        Map.shared.didLeave(Node(identifier: .bookmarks, routable: self))
+        RoutingTree.shared.didLeave(RoutingEntry(identifier: .bookmarks, routable: self))
         super.leave()
     }
 }
@@ -52,25 +52,25 @@ extension BookmarksTabFlowController: BookmarksTabViewControllerDelegate {}
 
 // MARK: - Routable
 extension BookmarksTabFlowController: Routable {
-    func leave(_ nodeToLeave: Node, animated: Bool, completion: @escaping () -> Void) {
-        Map.shared.didLeave(nodeToLeave)
+    func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+        RoutingTree.shared.didLeave(nodeToLeave)
         completion()
     }
 
-    func enter(_ nodeToEnter: Node, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
         switch nodeToEnter.identifier {
         case .a:
-            let flowAFlowCtrl = FlowAFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowAFlowCtrl = FlowAFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: bookmarksTabViewCtrl)
 
         case .b:
-            let flowBFlowCtrl = FlowBFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowBFlowCtrl = FlowBFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowBFlowCtrl)
             flowBFlowCtrl.start(from: bookmarksTabViewCtrl)
 
         case .c:
-            let flowCFlowCtrl = FlowCFlowController(routingParameters: nodeToEnter.parameters, animatePresentation: animated, presentCompletion: completion)
+            let flowCFlowCtrl = FlowCFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowCFlowCtrl)
             flowCFlowCtrl.start(from: bookmarksTabViewCtrl)
 

@@ -10,23 +10,23 @@ class PortusTests: XCTestCase {
     override static func setUp() {
         super.setUp()
 
-        Map.shared.didEnter(RootViewController())
+        RoutingTree.shared.didEnter(RootViewController())
     }
 
     override func tearDown() {
         super.tearDown()
 
-        Map.shared.currentPathWithoutRoot.forEach { Map.shared.didLeave($0) }
+        RoutingTree.shared.currentPathWithoutRoot.forEach { RoutingTree.shared.didLeave($0) }
     }
 
     func testEnteringAndLeaving() {
-        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, 0)
+        XCTAssertEqual(RoutingTree.shared.currentPathWithoutRoot.count, 0)
 
         let enteredRoute = linearlyEnterIssueDetails()
-        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, enteredRoute.count)
+        XCTAssertEqual(RoutingTree.shared.currentPathWithoutRoot.count, enteredRoute.count)
 
-        enteredRoute.forEach { Map.shared.didLeave($0) }
-        XCTAssertEqual(Map.shared.currentPathWithoutRoot.count, 0)
+        enteredRoute.forEach { RoutingTree.shared.didLeave($0) }
+        XCTAssertEqual(RoutingTree.shared.currentPathWithoutRoot.count, 0)
     }
 
     func testLinearlyFirstLevelPortKeyRoutingAlwaysFromRoot() {
@@ -152,14 +152,14 @@ class PortusTests: XCTestCase {
     @discardableResult
     private func linearlyEnterIssueDetails() -> [Routable] {
         let pathToEnter: [Routable] = [RepositoriesViewController(), RepositoryDetailViewController(), IssuesViewController(), IssueDetailViewController()]
-        pathToEnter.forEach { Map.shared.didEnter($0) }
+        pathToEnter.forEach { RoutingTree.shared.didEnter($0) }
         return pathToEnter
     }
 
     @discardableResult
     private func roundaboutWayEnterIssueDetails() -> [Routable] {
         let pathToEnter: [Routable] = [RepositoriesViewController(), IssuesViewController(), RepositoryDetailViewController(), IssueDetailViewController()]
-        pathToEnter.forEach { Map.shared.didEnter($0) }
+        pathToEnter.forEach { RoutingTree.shared.didEnter($0) }
         return pathToEnter
     }
 }

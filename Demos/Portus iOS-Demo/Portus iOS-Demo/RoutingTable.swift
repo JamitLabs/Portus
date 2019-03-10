@@ -12,11 +12,11 @@ import Portus
 enum RoutingTable {
     enum Static {
         static let colorList = [.root, .colorList].nodes
-        static func colorDetail(withHexString hexString: String) -> [Node] {
+        static func colorDetail(withHexString hexString: String) -> [RoutingEntry] {
             return [
-                Node(identifier: .root),
-                Node(identifier: .colorList),
-                Node(identifier: .colorDetail, parameters: ["hex": "\(hexString)"])
+                RoutingEntry(identifier: .root),
+                RoutingEntry(identifier: .colorList),
+                RoutingEntry(identifier: .colorDetail, context: ["hex": "\(hexString)"])
             ]
         }
 
@@ -67,8 +67,8 @@ enum RoutingTable {
     }
 
     enum Dynamic {
-        static let a = Node(identifier: .a)
-        static let b = Node(identifier: .b)
-        static let c = Node(identifier: .c)
+        static let a = RoutingEntry(identifier: .a)
+        static let b = RoutingEntry(identifier: .b)
+        static let c = RoutingEntry(identifier: .c)
     }
 }

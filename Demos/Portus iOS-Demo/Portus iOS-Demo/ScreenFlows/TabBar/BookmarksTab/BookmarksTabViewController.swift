@@ -24,14 +24,14 @@ class BookmarksTabViewController: UIViewController {
     }
 
     @IBAction func modalFlowA() {
-        Router.enter(Node(identifier: .a))
+        Router.enter(RoutingEntry(identifier: .a))
     }
 
     @IBAction func modalFlowB() {
-        Router.enter(Node(identifier: .b))
+        Router.enter(RoutingEntry(identifier: .b))
     }
 
     @IBAction func modalFlowC() {
-        Router.enter(Node(identifier: .c))
+        Router.enter(RoutingEntry(identifier: .c))
     }
 }

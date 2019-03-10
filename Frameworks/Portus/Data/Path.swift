@@ -5,4 +5,4 @@
 
 import Foundation
 
-public typealias Path = [Node]
+public typealias Path = [RoutingEntry]

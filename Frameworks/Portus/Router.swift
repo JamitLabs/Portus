@@ -7,15 +7,15 @@ import UIKit
 
 public enum Router {
     public static func enter(
-        _ node: Node,
+        _ node: RoutingEntry,
         animated: Bool = true,
         info: Any? = nil,
         completion: (() -> Void)? = nil
     ) {
-        guard let currentRoutable = Map.shared.currentPath.last?.routable else { completion?(); return }
+        guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
         currentRoutable.enter(node, animated: animated) { _ in
-            guard let currentRoutable = Map.shared.currentPath.last?.routable else { completion?(); return }
+            guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
             currentRoutable.didEnterWithInfo(info)
             completion?()
@@ -33,7 +33,7 @@ public enum Router {
 
         recursivelyLeave(nodesToLeave: routingInstructions.nodesToLeave.reversed(), animated: animated) {
             recursivelyEnter(nodesToEnter: routingInstructions.nodesToEnter, animated: animated) {
-                guard let currentRoutable = Map.shared.currentPath.last?.routable else { completion?(); return }
+                guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
                 currentRoutable.didEnterWithInfo(info)
                 completion?()
@@ -43,13 +43,13 @@ public enum Router {
 }
 
 extension Router {
-    private static func recursivelyLeave(nodesToLeave: [Node], animated: Bool, completion: (() -> Void)? = nil) {
+    private static func recursivelyLeave(nodesToLeave: [RoutingEntry], animated: Bool, completion: (() -> Void)? = nil) {
         guard
             let nodeToLeave = nodesToLeave.first,
             let firstRoutableToLeave = nodeToLeave.routable
-            else {
-                completion?()
-                return
+        else {
+            completion?()
+            return
         }
 
         firstRoutableToLeave.leave(nodeToLeave, animated: animated) {
@@ -57,13 +57,13 @@ extension Router {
         }
     }
 
-    private static func recursivelyEnter(nodesToEnter: [Node], animated: Bool, completion: (() -> Void)? = nil) {
+    private static func recursivelyEnter(nodesToEnter: [RoutingEntry], animated: Bool, completion: (() -> Void)? = nil) {
         guard
             let firstNodeToEnter = nodesToEnter.first,
-            let currentRoutable = Map.shared.currentPath.last?.routable
-            else {
-                completion?()
-                return
+            let currentRoutable = RoutingTree.shared.currentPath.last?.routable
+        else {
+            completion?()
+            return
         }
 
         currentRoutable.enter(firstNodeToEnter, animated: animated) { _ in

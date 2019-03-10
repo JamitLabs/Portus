@@ -60,7 +60,7 @@ class TabBarFlowController: InitialFlowController {
 
     // MARK: - Methods
     override func start(from window: UIWindow) {
-        Map.shared.didEnter(Node(identifier: .root, routable: self))
+        RoutingTree.shared.didEnter(RoutingEntry(identifier: .root, routable: self))
         window.rootViewController = tabBarController
         tabBarTabFlowControllers = [colorListFlowCtrl, bookmarksTabFlowCtrl]
     }
@@ -80,7 +80,7 @@ extension TabBarFlowController: UITabBarControllerDelegate {
 
 // MARK: - Routable
 extension TabBarFlowController: Routable {
-    func enter(_ nodeToEnter: Node, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
         switch nodeToEnter.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController

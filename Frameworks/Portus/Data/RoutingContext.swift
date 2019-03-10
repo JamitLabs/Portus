@@ -5,4 +5,4 @@
 
 import Foundation
 
-public typealias RoutingParameters = [String: String]
+public typealias RoutingContext = [String: String]
