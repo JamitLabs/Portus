@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bookmarks Tab View Controller-->
+        <scene sceneID="bbU-PF-udd">
+            <objects>
+                <viewController storyboardIdentifier="BookmarksTabViewController" id="Y0M-RR-PDb" customClass="BookmarksTabViewController" customModule="Portus_iOS_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="73q-Uw-XY0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-2A-Qh9">
+                                <rect key="frame" x="105.5" y="234.5" width="164" height="198"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZs-Vh-rsb">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="30"/>
+                                        <state key="normal" title="ColorDetails [#87FDA9]"/>
+                                        <connections>
+                                            <action selector="triggerButton:" destination="Y0M-RR-PDb" eventType="touchUpInside" id="wyS-6T-pQP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-xx-RNF">
+                                        <rect key="frame" x="61.5" y="56" width="41" height="30"/>
+                                        <state key="normal" title="FlowA"/>
+                                        <connections>
+                                            <action selector="modalFlowA" destination="Y0M-RR-PDb" eventType="touchUpInside" id="kyf-16-uU7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4C-xR-XT6">
+                                        <rect key="frame" x="61" y="112" width="42" height="30"/>
+                                        <state key="normal" title="FlowB"/>
+                                        <connections>
+                                            <action selector="modalFlowB" destination="Y0M-RR-PDb" eventType="touchUpInside" id="oTN-Nm-o4m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-bL-nkr">
+                                        <rect key="frame" x="60.5" y="168" width="43" height="30"/>
+                                        <state key="normal" title="FlowC"/>
+                                        <connections>
+                                            <action selector="modalFlowC" destination="Y0M-RR-PDb" eventType="touchUpInside" id="A8e-TK-hdA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aLf-2A-Qh9" firstAttribute="centerX" secondItem="73q-Uw-XY0" secondAttribute="centerX" id="iPk-Pv-ZDz"/>
+                            <constraint firstItem="aLf-2A-Qh9" firstAttribute="centerY" secondItem="73q-Uw-XY0" secondAttribute="centerY" id="rjP-03-Php"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gO6-Cc-wgC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUn-TQ-VH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="93"/>
+        </scene>
+    </scenes>
+</document>
