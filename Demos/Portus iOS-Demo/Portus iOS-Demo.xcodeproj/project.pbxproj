@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38678398223444DB0056D450 /* BookmarksTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38678397223444DB0056D450 /* BookmarksTab.storyboard */; };
+		3867839A223445180056D450 /* BookmarksTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38678399223445180056D450 /* BookmarksTabViewController.swift */; };
+		3867839E223448EC0056D450 /* TabFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867839D223448EC0056D450 /* TabFlowController.swift */; };
+		386783A02234495E0056D450 /* ColorListFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867839F2234495E0056D450 /* ColorListFlowController.swift */; };
+		386783A2223449CD0056D450 /* BookmarksTabFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386783A1223449CD0056D450 /* BookmarksTabFlowController.swift */; };
 		38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B52190C26B008483CA /* AppDelegate.swift */; };
 		38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B72190C26B008483CA /* FlowBViewController.swift */; };
 		38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8B82190C26B008483CA /* FlowB.storyboard */; };
 		38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8B92190C26B008483CA /* FlowBFlowController.swift */; };
-		38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BB2190C26B008483CA /* StartupViewController.swift */; };
-		38B2C8C82190C26B008483CA /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8BC2190C26B008483CA /* Startup.storyboard */; };
-		38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BD2190C26B008483CA /* StartupFlowController.swift */; };
+		38B2C8C72190C26B008483CA /* ColorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BB2190C26B008483CA /* ColorListViewController.swift */; };
+		38B2C8C82190C26B008483CA /* ColorList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8BC2190C26B008483CA /* ColorList.storyboard */; };
+		38B2C8C92190C26B008483CA /* TabBarFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8BD2190C26B008483CA /* TabBarFlowController.swift */; };
 		38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C02190C26B008483CA /* FlowAViewController.swift */; };
 		38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowAFlowController.swift */; };
 		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
 		38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; };
 		38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38F9AA892234EF9900473C2D /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA882234EF9900473C2D /* ColorView.swift */; };
+		38F9AA8B2234EFC300473C2D /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */; };
+		38F9AA8E2234F04200473C2D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */; };
+		38F9AA902234F36000473C2D /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8F2234F36000473C2D /* ColorCell.swift */; };
+		38F9AA922234F4DA00473C2D /* ColorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA912234F4DA00473C2D /* ColorDataSource.swift */; };
+		38F9AA962235007D00473C2D /* ColorDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F9AA952235007D00473C2D /* ColorDetail.storyboard */; };
+		38F9AA982235008F00473C2D /* ColorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA972235008F00473C2D /* ColorDetailViewController.swift */; };
+		38F9AA9A2235013600473C2D /* ColorDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA992235013600473C2D /* ColorDetailViewModel.swift */; };
+		38F9AA9F2235178600473C2D /* FlowC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38F9AA9E2235178600473C2D /* FlowC.storyboard */; };
+		38F9AAA12235179500473C2D /* FlowCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AAA02235179500473C2D /* FlowCViewController.swift */; };
+		38F9AAA3223517A000473C2D /* FlowCFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AAA2223517A000473C2D /* FlowCFlowController.swift */; };
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
 		821F373B21CBF5ED00A0FA94 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F373A21CBF5ED00A0FA94 /* Portus.framework */; };
@@ -40,17 +56,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38678397223444DB0056D450 /* BookmarksTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookmarksTab.storyboard; sourceTree = "<group>"; };
+		38678399223445180056D450 /* BookmarksTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTabViewController.swift; sourceTree = "<group>"; };
+		3867839D223448EC0056D450 /* TabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlowController.swift; sourceTree = "<group>"; };
+		3867839F2234495E0056D450 /* ColorListFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListFlowController.swift; sourceTree = "<group>"; };
+		386783A1223449CD0056D450 /* BookmarksTabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTabFlowController.swift; sourceTree = "<group>"; };
 		38B2C8B52190C26B008483CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B2C8B72190C26B008483CA /* FlowBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBViewController.swift; sourceTree = "<group>"; };
 		38B2C8B82190C26B008483CA /* FlowB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowB.storyboard; sourceTree = "<group>"; };
 		38B2C8B92190C26B008483CA /* FlowBFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBFlowController.swift; sourceTree = "<group>"; };
-		38B2C8BB2190C26B008483CA /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
-		38B2C8BC2190C26B008483CA /* Startup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
-		38B2C8BD2190C26B008483CA /* StartupFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupFlowController.swift; sourceTree = "<group>"; };
+		38B2C8BB2190C26B008483CA /* ColorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorListViewController.swift; sourceTree = "<group>"; };
+		38B2C8BC2190C26B008483CA /* ColorList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ColorList.storyboard; sourceTree = "<group>"; };
+		38B2C8BD2190C26B008483CA /* TabBarFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarFlowController.swift; sourceTree = "<group>"; };
 		38B2C8C02190C26B008483CA /* FlowAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAViewController.swift; sourceTree = "<group>"; };
 		38B2C8C12190C26B008483CA /* FlowAFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAFlowController.swift; sourceTree = "<group>"; };
 		38B2C8C22190C26B008483CA /* FlowA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowA.storyboard; sourceTree = "<group>"; };
 		38B2C8D42190E609008483CA /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
+		38F9AA882234EF9900473C2D /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
+		38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		38F9AA8F2234F36000473C2D /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		38F9AA912234F4DA00473C2D /* ColorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDataSource.swift; sourceTree = "<group>"; };
+		38F9AA952235007D00473C2D /* ColorDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorDetail.storyboard; sourceTree = "<group>"; };
+		38F9AA972235008F00473C2D /* ColorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailViewController.swift; sourceTree = "<group>"; };
+		38F9AA992235013600473C2D /* ColorDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailViewModel.swift; sourceTree = "<group>"; };
+		38F9AA9E2235178600473C2D /* FlowC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowC.storyboard; sourceTree = "<group>"; };
+		38F9AAA02235179500473C2D /* FlowCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCViewController.swift; sourceTree = "<group>"; };
+		38F9AAA2223517A000473C2D /* FlowCFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCFlowController.swift; sourceTree = "<group>"; };
 		82056090217DE85000E23A81 /* Portus iOS-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Portus iOS-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,34 +105,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3867839B223445310056D450 /* ColorListTab */ = {
+			isa = PBXGroup;
+			children = (
+				3867839F2234495E0056D450 /* ColorListFlowController.swift */,
+				38F9AA912234F4DA00473C2D /* ColorDataSource.swift */,
+				38F9AA9B22350F9D00473C2D /* ColorList */,
+				38F9AA9C22350FA500473C2D /* ColorDetail */,
+			);
+			path = ColorListTab;
+			sourceTree = "<group>";
+		};
+		3867839C223445360056D450 /* BookmarksTab */ = {
+			isa = PBXGroup;
+			children = (
+				386783A1223449CD0056D450 /* BookmarksTabFlowController.swift */,
+				38678399223445180056D450 /* BookmarksTabViewController.swift */,
+				38678397223444DB0056D450 /* BookmarksTab.storyboard */,
+			);
+			path = BookmarksTab;
+			sourceTree = "<group>";
+		};
 		38B2C8B62190C26B008483CA /* FlowB */ = {
 			isa = PBXGroup;
 			children = (
-				38B2C8B72190C26B008483CA /* FlowBViewController.swift */,
 				38B2C8B92190C26B008483CA /* FlowBFlowController.swift */,
+				38B2C8B72190C26B008483CA /* FlowBViewController.swift */,
 				38B2C8B82190C26B008483CA /* FlowB.storyboard */,
 			);
 			path = FlowB;
 			sourceTree = "<group>";
 		};
-		38B2C8BA2190C26B008483CA /* Startup */ = {
+		38B2C8BA2190C26B008483CA /* ScreenFlows */ = {
 			isa = PBXGroup;
 			children = (
-				38B2C8BD2190C26B008483CA /* StartupFlowController.swift */,
-				38B2C8BB2190C26B008483CA /* StartupViewController.swift */,
-				38B2C8BC2190C26B008483CA /* Startup.storyboard */,
+				38C017E822354255000F8B31 /* TabBar */,
+				38B2C8BF2190C26B008483CA /* FlowA */,
+				38B2C8B62190C26B008483CA /* FlowB */,
+				38F9AA9D2235177700473C2D /* FlowC */,
 			);
-			path = Startup;
+			path = ScreenFlows;
 			sourceTree = "<group>";
 		};
 		38B2C8BF2190C26B008483CA /* FlowA */ = {
 			isa = PBXGroup;
 			children = (
-				38B2C8C02190C26B008483CA /* FlowAViewController.swift */,
 				38B2C8C12190C26B008483CA /* FlowAFlowController.swift */,
+				38B2C8C02190C26B008483CA /* FlowAViewController.swift */,
 				38B2C8C22190C26B008483CA /* FlowA.storyboard */,
 			);
 			path = FlowA;
+			sourceTree = "<group>";
+		};
+		38C017E822354255000F8B31 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				38B2C8BD2190C26B008483CA /* TabBarFlowController.swift */,
+				3867839D223448EC0056D450 /* TabFlowController.swift */,
+				3867839B223445310056D450 /* ColorListTab */,
+				3867839C223445360056D450 /* BookmarksTab */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		38F9AA8C2234F03200473C2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38F9AA9B22350F9D00473C2D /* ColorList */ = {
+			isa = PBXGroup;
+			children = (
+				38B2C8BC2190C26B008483CA /* ColorList.storyboard */,
+				38B2C8BB2190C26B008483CA /* ColorListViewController.swift */,
+				38F9AA882234EF9900473C2D /* ColorView.swift */,
+				38F9AA8F2234F36000473C2D /* ColorCell.swift */,
+				38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */,
+			);
+			path = ColorList;
+			sourceTree = "<group>";
+		};
+		38F9AA9C22350FA500473C2D /* ColorDetail */ = {
+			isa = PBXGroup;
+			children = (
+				38F9AA952235007D00473C2D /* ColorDetail.storyboard */,
+				38F9AA972235008F00473C2D /* ColorDetailViewController.swift */,
+				38F9AA992235013600473C2D /* ColorDetailViewModel.swift */,
+			);
+			path = ColorDetail;
+			sourceTree = "<group>";
+		};
+		38F9AA9D2235177700473C2D /* FlowC */ = {
+			isa = PBXGroup;
+			children = (
+				38F9AAA2223517A000473C2D /* FlowCFlowController.swift */,
+				38F9AAA02235179500473C2D /* FlowCViewController.swift */,
+				38F9AA9E2235178600473C2D /* FlowC.storyboard */,
+			);
+			path = FlowC;
 			sourceTree = "<group>";
 		};
 		82056087217DE85000E23A81 = {
@@ -124,11 +229,10 @@
 			isa = PBXGroup;
 			children = (
 				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
-				82EA969421A3195600EC7EAC /* RoutingTable.swift */,
 				821F373F21CC051200A0FA94 /* Globals.swift */,
-				38B2C8BF2190C26B008483CA /* FlowA */,
-				38B2C8B62190C26B008483CA /* FlowB */,
-				38B2C8BA2190C26B008483CA /* Startup */,
+				82EA969421A3195600EC7EAC /* RoutingTable.swift */,
+				38F9AA8C2234F03200473C2D /* Extensions */,
+				38B2C8BA2190C26B008483CA /* ScreenFlows */,
 				8205609A217DE85000E23A81 /* Assets.xcassets */,
 				8205609C217DE85000E23A81 /* LaunchScreen.storyboard */,
 				8205609F217DE85000E23A81 /* Info.plist */,
@@ -206,10 +310,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38B2C8C82190C26B008483CA /* Startup.storyboard in Resources */,
+				38B2C8C82190C26B008483CA /* ColorList.storyboard in Resources */,
 				8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */,
+				38F9AA9F2235178600473C2D /* FlowC.storyboard in Resources */,
 				8205609B217DE85000E23A81 /* Assets.xcassets in Resources */,
 				38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */,
+				38F9AA962235007D00473C2D /* ColorDetail.storyboard in Resources */,
+				38678398223444DB0056D450 /* BookmarksTab.storyboard in Resources */,
 				38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +351,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */,
-				38B2C8C92190C26B008483CA /* StartupFlowController.swift in Sources */,
-				38B2C8C72190C26B008483CA /* StartupViewController.swift in Sources */,
+				38B2C8C92190C26B008483CA /* TabBarFlowController.swift in Sources */,
+				38F9AA8B2234EFC300473C2D /* ColorCellModel.swift in Sources */,
+				38B2C8C72190C26B008483CA /* ColorListViewController.swift in Sources */,
+				38F9AA982235008F00473C2D /* ColorDetailViewController.swift in Sources */,
 				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
+				386783A2223449CD0056D450 /* BookmarksTabFlowController.swift in Sources */,
 				82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */,
+				3867839E223448EC0056D450 /* TabFlowController.swift in Sources */,
+				38F9AA922234F4DA00473C2D /* ColorDataSource.swift in Sources */,
 				38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */,
+				3867839A223445180056D450 /* BookmarksTabViewController.swift in Sources */,
+				38F9AA902234F36000473C2D /* ColorCell.swift in Sources */,
+				38F9AA892234EF9900473C2D /* ColorView.swift in Sources */,
 				38B2C8C62190C26B008483CA /* FlowBFlowController.swift in Sources */,
+				38F9AA9A2235013600473C2D /* ColorDetailViewModel.swift in Sources */,
+				38F9AAA12235179500473C2D /* FlowCViewController.swift in Sources */,
 				38B2C8C42190C26B008483CA /* FlowBViewController.swift in Sources */,
+				386783A02234495E0056D450 /* ColorListFlowController.swift in Sources */,
 				821F374021CC051200A0FA94 /* Globals.swift in Sources */,
+				38F9AA8E2234F04200473C2D /* UIColorExtensions.swift in Sources */,
+				38F9AAA3223517A000473C2D /* FlowCFlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

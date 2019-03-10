@@ -185,17 +185,17 @@ enum EverydayObject {
 }
 
 extension RoutingIdentifiers {
-    static let root: RoutingIdentifier = "Root"
-    static let repositories: RoutingIdentifier = "Repositories"
-    static let repositoryDetail: RoutingIdentifier = "RepositoryDetail"
-    static let issues: RoutingIdentifier = "Issues"
-    static let issuesDetail: RoutingIdentifier = "IssueDetail"
+    static let root: RoutingId = "Root"
+    static let repositories: RoutingId = "Repositories"
+    static let repositoryDetail: RoutingId = "RepositoryDetail"
+    static let issues: RoutingId = "Issues"
+    static let issuesDetail: RoutingId = "IssueDetail"
 }
 
 class RootViewController: UIViewController, Routable {
-    static var routingId: RoutingIdentifier { return "Root" }
+    static var routingId: RoutingId { return "Root" }
 
-    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+    func enter(routingIdentifier: RoutingId, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
         switch routingIdentifier {
         case RoutingIdentifiers.repositories:
             let repositoryViewCtrl = RepositoriesViewController()
@@ -215,9 +215,9 @@ class RootViewController: UIViewController, Routable {
 }
 
 class RepositoriesViewController: UIViewController, Routable {
-    static var routingId: RoutingIdentifier { return "Repositories" }
+    static var routingId: RoutingId { return "Repositories" }
 
-    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+    func enter(routingIdentifier: RoutingId, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
         switch routingIdentifier {
         case RoutingIdentifiers.repositoryDetail:
             let repositoryDetailViewCtrl = RepositoryDetailViewController()
@@ -237,9 +237,9 @@ class RepositoriesViewController: UIViewController, Routable {
 }
 
 class RepositoryDetailViewController: UIViewController, Routable {
-    static var routingId: RoutingIdentifier { return "RepositoryDetail" }
+    static var routingId: RoutingId { return "RepositoryDetail" }
 
-    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+    func enter(routingIdentifier: RoutingId, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
         switch routingIdentifier {
         case RoutingIdentifiers.issues:
             let issuesViewCtrl = IssuesViewController()
@@ -263,9 +263,9 @@ class RepositoryDetailViewController: UIViewController, Routable {
 }
 
 class IssuesViewController: UIViewController, Routable {
-    static var routingId: RoutingIdentifier { return "Issues" }
+    static var routingId: RoutingId { return "Issues" }
 
-    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+    func enter(routingIdentifier: RoutingId, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
         switch routingIdentifier {
         case RoutingIdentifiers.issuesDetail:
             let issueDetailViewCtrl = IssueDetailViewController()
@@ -285,9 +285,9 @@ class IssuesViewController: UIViewController, Routable {
 }
 
 class IssueDetailViewController: UIViewController, Routable {
-    static var routingId: RoutingIdentifier { return "IssueDetail" }
+    static var routingId: RoutingId { return "IssueDetail" }
 
-    func enter(routingIdentifier: RoutingIdentifier, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
+    func enter(routingIdentifier: RoutingId, info: Any?, animated: Bool, completion: @escaping (Routable) -> Void) {
         return
     }
 
