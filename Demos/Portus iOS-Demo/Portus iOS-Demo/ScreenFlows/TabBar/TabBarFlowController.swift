@@ -80,8 +80,8 @@ extension TabBarFlowController: UITabBarControllerDelegate {
 
 // MARK: - Routable
 extension TabBarFlowController: Routable {
-    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
-        switch nodeToEnter.identifier {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+        switch node.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
             completion(colorListFlowCtrl)

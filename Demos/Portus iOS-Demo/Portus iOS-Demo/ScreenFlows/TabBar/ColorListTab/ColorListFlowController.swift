@@ -78,7 +78,7 @@ extension ColorListFlowController: ColorListViewControllerDelegate {
 
 extension ColorListFlowController: ColorDetailViewControllerDelegate {
     func actionButtonTriggered() {
-        Router.routeTo(RoutingTable.Static.bookmarks)
+        Router.route(to: RoutingTable.Static.bookmarks)
     }
 
     func viewDidDisappear(in viewController: ColorDetailViewController) {
@@ -89,24 +89,24 @@ extension ColorListFlowController: ColorDetailViewControllerDelegate {
 
 // MARK: - Routable
 extension ColorListFlowController: Routable {
-    func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
-        switch nodeToLeave.identifier {
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+        switch node.identifier {
         case .colorDetail:
             CATransaction.begin()
-            CATransaction.setCompletionBlock { RoutingTree.shared.didLeave(nodeToLeave); completion() }
+            CATransaction.setCompletionBlock { RoutingTree.shared.didLeave(node); completion() }
             navigationCtrl.popToRootViewController(animated: animated)
             CATransaction.commit()
 
         default:
-            RoutingTree.shared.didLeave(nodeToLeave)
+            RoutingTree.shared.didLeave(node)
             completion()
         }
     }
 
-    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
-        switch nodeToEnter.identifier {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+        switch node.identifier {
         case .colorDetail:
-            if let parameters = nodeToEnter.context, let hexString = parameters["hex"] {
+            if let parameters = node.context, let hexString = parameters["hex"] {
                 showDetails(for: UIColor(hex: hexString))
             }
         default:

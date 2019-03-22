@@ -20,18 +20,18 @@ class BookmarksTabViewController: UIViewController {
 
     @IBAction
     private func triggerColorDeeplink(_ button: UIButton) {
-        Router.routeTo(RoutingTable.Static.colorDetail(withHexString: "#87FDA9"), routingStrategy: .alwaysFromRoot, animated: true)
+        Router.route(to: RoutingTable.Static.colorDetail(withHexString: "#87FDA9"), routingStrategy: .alwaysFromRoot, animated: true)
     }
 
     @IBAction func modalFlowA() {
-        Router.enter(RoutingEntry(identifier: .a))
+        Router.enter(node: RoutingEntry(identifier: .a))
     }
 
     @IBAction func modalFlowB() {
-        Router.enter(RoutingEntry(identifier: .b))
+        Router.enter(node: RoutingEntry(identifier: .b))
     }
 
     @IBAction func modalFlowC() {
-        Router.enter(RoutingEntry(identifier: .c))
+        Router.enter(node: RoutingEntry(identifier: .c))
     }
 }

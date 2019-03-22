@@ -49,37 +49,37 @@ class FlowBFlowController: FlowController {
 
 extension FlowBFlowController: FlowBFlowDelegate {
     func enterA() {
-        Router.enter(RoutingTable.Dynamic.a)
+        Router.enter(node: RoutingTable.Dynamic.a)
     }
 
     func enterB() {
-        Router.enter(RoutingTable.Dynamic.b)
+        Router.enter(node: RoutingTable.Dynamic.b)
     }
 
     func enterC() {
-        Router.enter(RoutingTable.Dynamic.c)
+        Router.enter(node: RoutingTable.Dynamic.c)
     }
 
     func routeTo(destination: Path) {
-        Router.routeTo(destination, routingStrategy: Globals.routingStrategy, animated: Globals.animated)
+        Router.route(to: destination, routingStrategy: Globals.routingStrategy, animated: Globals.animated)
     }
 }
 
 extension FlowBFlowController: Routable {
-    func enter(_ nodeToEnter: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
-        switch nodeToEnter.identifier {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+        switch node.identifier {
         case .a:
-            let flowAFlowCtrl = FlowAFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
+            let flowAFlowCtrl = FlowAFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: flowBViewCtrl)
 
         case .b:
-            let flowBFlowCtrl = FlowBFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
+            let flowBFlowCtrl = FlowBFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowBFlowCtrl)
             flowBFlowCtrl.start(from: flowBViewCtrl)
 
         case .c:
-            let flowCFlowCtrl = FlowCFlowController(context: nodeToEnter.context, animatePresentation: animated, presentCompletion: completion)
+            let flowCFlowCtrl = FlowCFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
             add(subFlowController: flowCFlowCtrl)
             flowCFlowCtrl.start(from: flowBViewCtrl)
 
@@ -88,17 +88,17 @@ extension FlowBFlowController: Routable {
         }
     }
 
-    func leave(_ nodeToLeave: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
         flowBViewCtrl.dismiss(animated: animated) { [weak self] in
             guard let self = self else { return }
 
-            RoutingTree.shared.didLeave(nodeToLeave)
+            RoutingTree.shared.didLeave(node)
             self.removeFromSuperFlowController()
             completion()
         }
     }
 
-    func didEnterWithInfo(_ info: Any?) {
+    func didEnter(withInfo info: Any?) {
         guard let info = info as? String else { return }
 
         print(info)

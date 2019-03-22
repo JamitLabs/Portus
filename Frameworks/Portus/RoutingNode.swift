@@ -6,8 +6,13 @@
 import Foundation
 
 public class RoutingNode {
+    enum TraverseOrder {
+        case preOrder
+        case postOrder
+    }
+
     public var entry: RoutingEntry
-    public var isContainedInActivePath: Bool
+    public var isActive: Bool
     public var parent: RoutingNode?
     public private(set) var children: [RoutingNode]
 
@@ -18,36 +23,36 @@ public class RoutingNode {
         children: [RoutingNode] = []
     ) {
         self.entry = entry
-        self.isContainedInActivePath = isContainedInActivePath
+        self.isActive = isContainedInActivePath
         self.parent = parent
         self.children = children
     }
 
-    public func addChild(_ child: RoutingNode) {
+    public func add(child: RoutingNode) {
         children.append(child)
         child.parent = self
     }
 
-    public func addChildren( _ children: [RoutingNode]) {
-        children.forEach { addChild($0) }
+    public func add(children: [RoutingNode]) {
+        children.forEach { add(child: $0) }
     }
 
-    public func removeChild(_ child: RoutingNode) {
+    public func remove(child: RoutingNode) {
         guard let index = children.firstIndex(where: { child == $0 }) else { return }
 
         children.remove(at: index)
     }
 
     public func removeNode() {
-        parent?.removeChild(self)
+        parent?.remove(child: self)
     }
 
     public func determineActiveChild() -> RoutingNode? {
-        return children.first { $0.isContainedInActivePath }
+        return children.first { $0.isActive }
     }
 
     public func determineActiveLeaf() -> RoutingNode? {
-        guard isContainedInActivePath else { return nil }
+        guard isActive else { return nil }
 
         var activeLeaf = self
         while let localActiveLeaf = activeLeaf.determineActiveLeaf() {
@@ -57,21 +62,21 @@ public class RoutingNode {
         return activeLeaf
     }
 
-    public func addActiveLeaf(_ activeLeaf: RoutingNode) {
+    public func add(activeLeaf: RoutingNode) {
         let currentActiveLeaf = determineActiveLeaf() ?? self
 
-        currentActiveLeaf.isContainedInActivePath = true
-        activeLeaf.isContainedInActivePath = true
+        currentActiveLeaf.isActive = true
+        activeLeaf.isActive = true
 
-        currentActiveLeaf.addChild(activeLeaf)
+        currentActiveLeaf.add(child: activeLeaf)
     }
 
-    public func traverse(postOrder: Bool, onNoteVisit: (RoutingNode) -> ()) {
-        let sortedChildren = children.sorted { first, _ in !(first.isContainedInActivePath) }
+    internal func traverse(order: TraverseOrder, onNodeVisit: (RoutingNode) -> ()) {
+        let sortedChildren = children.sorted { first, _ in !(first.isActive) }
 
-        if !postOrder { onNoteVisit(self) }
-        sortedChildren.forEach { $0.traverse(postOrder: postOrder, onNoteVisit: onNoteVisit) }
-        if postOrder { onNoteVisit(self) }
+        if order == .preOrder { onNodeVisit(self) }
+        sortedChildren.forEach { $0.traverse(order: order, onNodeVisit: onNodeVisit) }
+        if order == .postOrder { onNodeVisit(self) }
     }
 
     public func findNode(for entry: RoutingEntry) -> RoutingNode? {

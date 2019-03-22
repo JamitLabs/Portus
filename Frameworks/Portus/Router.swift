@@ -7,23 +7,23 @@ import UIKit
 
 public enum Router {
     public static func enter(
-        _ node: RoutingEntry,
+        node: RoutingEntry,
         animated: Bool = true,
         info: Any? = nil,
         completion: (() -> Void)? = nil
     ) {
         guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
-        currentRoutable.enter(node, animated: animated) { _ in
+        currentRoutable.enter(node: node, animated: animated) { _ in
             guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
-            currentRoutable.didEnterWithInfo(info)
+            currentRoutable.didEnter(withInfo: info)
             completion?()
         }
     }
 
-    public static func routeTo(
-        _ destination: Path,
+    public static func route(
+        to destination: Path,
         routingStrategy: RoutingStrategy = .minRouteToLeaf,
         animated: Bool = true,
         info: Any? = nil,
@@ -35,7 +35,7 @@ public enum Router {
             recursivelyEnter(nodesToEnter: routingInstructions.nodesToEnter, animated: animated) {
                 guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
 
-                currentRoutable.didEnterWithInfo(info)
+                currentRoutable.didEnter(withInfo: info)
                 completion?()
             }
         }
@@ -52,7 +52,7 @@ extension Router {
             return
         }
 
-        firstRoutableToLeave.leave(nodeToLeave, animated: animated) {
+        firstRoutableToLeave.leave(node: nodeToLeave, animated: animated) {
             recursivelyLeave(nodesToLeave: Array(nodesToLeave.dropFirst()), animated: animated, completion: completion)
         }
     }
@@ -66,7 +66,7 @@ extension Router {
             return
         }
 
-        currentRoutable.enter(firstNodeToEnter, animated: animated) { _ in
+        currentRoutable.enter(node: firstNodeToEnter, animated: animated) { _ in
             recursivelyEnter(nodesToEnter: Array(nodesToEnter.dropFirst()), animated: animated, completion: completion)
         }
     }
