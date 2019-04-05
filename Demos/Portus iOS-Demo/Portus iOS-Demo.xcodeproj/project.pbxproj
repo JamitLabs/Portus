@@ -22,8 +22,6 @@
 		38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C02190C26B008483CA /* FlowAViewController.swift */; };
 		38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowAFlowController.swift */; };
 		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
-		38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; };
-		38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38B2C8D42190E609008483CA /* Imperio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38F9AA892234EF9900473C2D /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA882234EF9900473C2D /* ColorView.swift */; };
 		38F9AA8B2234EFC300473C2D /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */; };
 		38F9AA8E2234F04200473C2D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */; };
@@ -42,25 +40,13 @@
 		82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* RoutingTable.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		38C18057218EDD00009591B0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				38B2C8D62190E636008483CA /* Imperio.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		38678397223444DB0056D450 /* BookmarksTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookmarksTab.storyboard; sourceTree = "<group>"; };
 		38678399223445180056D450 /* BookmarksTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTabViewController.swift; sourceTree = "<group>"; };
 		3867839D223448EC0056D450 /* TabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlowController.swift; sourceTree = "<group>"; };
 		3867839F2234495E0056D450 /* ColorListFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListFlowController.swift; sourceTree = "<group>"; };
 		386783A1223449CD0056D450 /* BookmarksTabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTabFlowController.swift; sourceTree = "<group>"; };
+		3892B9342257CF0300D3BDAA /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = ../../Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
 		38B2C8B52190C26B008483CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B2C8B72190C26B008483CA /* FlowBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBViewController.swift; sourceTree = "<group>"; };
 		38B2C8B82190C26B008483CA /* FlowB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowB.storyboard; sourceTree = "<group>"; };
@@ -98,7 +84,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				821F373B21CBF5ED00A0FA94 /* Portus.framework in Frameworks */,
-				38B2C8D52190E609008483CA /* Imperio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +228,7 @@
 		820560A5217DE88200E23A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3892B9342257CF0300D3BDAA /* Imperio.framework */,
 				821F373A21CBF5ED00A0FA94 /* Portus.framework */,
 				38B2C8D42190E609008483CA /* Imperio.framework */,
 			);
@@ -259,7 +245,6 @@
 				8205608C217DE85000E23A81 /* Sources */,
 				8205608D217DE85000E23A81 /* Frameworks */,
 				8205608E217DE85000E23A81 /* Resources */,
-				38C18057218EDD00009591B0 /* CopyFiles */,
 				82EA969121A3174800EC7EAC /* Carthage */,
 			);
 			buildRules = (
@@ -332,7 +317,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Imperio.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/Imperio.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

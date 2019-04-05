@@ -1,2 +1,2 @@
-# Handy Swift features that didn't make it into the Swift standard library.
-github "Flinesoft/Imperio" ~> 3.0
+# Keep the screen flow and data handling logic out of your view controllers – let them handle view-stuff only.
+github "Flinesoft/Imperio" "3.0.2"
