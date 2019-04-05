@@ -5,7 +5,10 @@
 
 import Foundation
 
-public struct RoutingInstruction {
-    var nodesToLeave: [RoutingEntry]
-    var nodesToEnter: [RoutingEntry]
+public typealias RoutingInstructions = [RoutingInstruction]
+
+public enum RoutingInstruction {
+    case leave(entry: RoutingEntry, animated: Bool)
+    case enter(entry: RoutingEntry, animated: Bool)
+    case switchTo(entry: RoutingEntry, animated: Bool)
 }

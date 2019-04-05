@@ -10,15 +10,15 @@ public enum Router {
         node: RoutingEntry,
         animated: Bool = true,
         info: Any? = nil,
-        completion: (() -> Void)? = nil
+        completion: ((Bool) -> Void)? = nil
     ) {
-        guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
+        guard let currentEnterable = RoutingTree.shared.currentPath.last?.routable as? Enterable else {
+            completion?(false)
+            return
+        }
 
-        currentRoutable.enter(node: node, animated: animated) { _ in
-            guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
-
-            currentRoutable.didEnter(withInfo: info)
-            completion?()
+        currentEnterable.enter(node: node, animated: animated) { _ in
+            completion?(true)
         }
     }
 
@@ -27,47 +27,54 @@ public enum Router {
         routingStrategy: RoutingStrategy = .minRouteToLeaf,
         animated: Bool = true,
         info: Any? = nil,
-        completion: (() -> Void)? = nil
+        completion: ((Bool) -> Void)? = nil
     ) {
-        let routingInstructions = RoutingAlgorithm.determineRoutingInstructions(toDestination: destination, withRoutingStrategy: routingStrategy)
+        let routingInstructions = RoutingAlgorithm.determineRoutingInstructions(
+            toDestination: destination,
+            withRoutingStrategy: routingStrategy
+        )
 
-        recursivelyLeave(nodesToLeave: routingInstructions.nodesToLeave.reversed(), animated: animated) {
-            recursivelyEnter(nodesToEnter: routingInstructions.nodesToEnter, animated: animated) {
-                guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { completion?(); return }
-
-                currentRoutable.didEnter(withInfo: info)
-                completion?()
-            }
+        execute(routingInstructions: routingInstructions) { executionSuccessful in
+            completion?(executionSuccessful)
         }
     }
 }
 
 extension Router {
-    private static func recursivelyLeave(nodesToLeave: [RoutingEntry], animated: Bool, completion: (() -> Void)? = nil) {
-        guard
-            let nodeToLeave = nodesToLeave.first,
-            let firstRoutableToLeave = nodeToLeave.routable
-        else {
-            completion?()
-            return
-        }
+    private static func execute(routingInstructions: RoutingInstructions, completion: @escaping (Bool) -> Void) {
+        guard let nextInstruction = routingInstructions.first else { return completion(true) }
 
-        firstRoutableToLeave.leave(node: nodeToLeave, animated: animated) {
-            recursivelyLeave(nodesToLeave: Array(nodesToLeave.dropFirst()), animated: animated, completion: completion)
+        execute(routingInstruction: nextInstruction) { executionSuccessful in
+            guard executionSuccessful else { return completion(true) }
+
+            execute(routingInstructions: Array(routingInstructions.dropFirst()), completion: completion)
         }
     }
 
-    private static func recursivelyEnter(nodesToEnter: [RoutingEntry], animated: Bool, completion: (() -> Void)? = nil) {
-        guard
-            let firstNodeToEnter = nodesToEnter.first,
-            let currentRoutable = RoutingTree.shared.currentPath.last?.routable
-        else {
-            completion?()
-            return
-        }
+    private static func execute(routingInstruction: RoutingInstruction, completion: @escaping (Bool) -> Void) {
+        guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { return completion(false) }
 
-        currentRoutable.enter(node: firstNodeToEnter, animated: animated) { _ in
-            recursivelyEnter(nodesToEnter: Array(nodesToEnter.dropFirst()), animated: animated, completion: completion)
+        switch routingInstruction {
+        case let .enter(entry, animated):
+            guard let enterable = currentRoutable as? Enterable else { return completion(false) }
+
+            enterable.enter(node: entry, animated: animated) { routable in
+                completion(true)
+            }
+
+        case let .leave(entry, animated):
+            guard let leavable = currentRoutable as? Leavable else { return completion(false) }
+
+            leavable.leave(node: entry, animated: animated) {
+                completion(true)
+            }
+
+        case let .switchTo(entry, animated):
+            guard let switchable = currentRoutable as? Switchable else { return completion(false) }
+
+            switchable.switchTo(node: entry, animated: animated) { routable in
+                completion(true)
+            }
         }
     }
 }

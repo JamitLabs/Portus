@@ -9,7 +9,7 @@ internal enum RoutingAlgorithm {
     internal static func determineRoutingInstructions(
         toDestination destination: Path,
         withRoutingStrategy routingStrategy: RoutingStrategy
-    ) -> RoutingInstruction {
+    ) -> RoutingInstructions {
         switch routingStrategy {
         case .alwaysFromRoot:
             return RoutingInstruction(
