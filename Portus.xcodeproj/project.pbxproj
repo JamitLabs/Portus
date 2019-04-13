@@ -11,6 +11,7 @@
 		3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
 		3802E83D2233DD4B00BB27A0 /* RoutingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */; };
 		3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
+		3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892B936225A197500D3BDAA /* CollectionExtension.swift */; };
 		3821A44C2257C90D00BDE28A /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
 		3821A44E2257C91800BDE28A /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
 		3821A4502257C92C00BDE28A /* Switchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44F2257C92C00BDE28A /* Switchable.swift */; };
@@ -25,6 +26,7 @@
 		3870E6EB2230421E00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
 		3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
 		38917041223587E600E65114 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
+		3892B937225A197500D3BDAA /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892B936225A197500D3BDAA /* CollectionExtension.swift */; };
 		38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
 		38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
 		38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
@@ -95,6 +97,7 @@
 		3854EA6222341B5F00BB9A0C /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		3854EA6522342EF300BB9A0C /* RoutingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingEntry.swift; sourceTree = "<group>"; };
 		3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAlgorithm.swift; sourceTree = "<group>"; };
+		3892B936225A197500D3BDAA /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		38ABA21C223527AE0007C133 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		38C017EC22357F2A000F8B31 /* RoutingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingNode.swift; sourceTree = "<group>"; };
 		82056067217DD00800E23A81 /* .projlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .projlint.yml; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				38ABA21C223527AE0007C133 /* ArrayExtension.swift */,
+				3892B936225A197500D3BDAA /* CollectionExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +554,7 @@
 				82622C0421CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
 				82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */,
 				3854EA5A22341B0000BB9A0C /* RoutingId.swift in Sources */,
+				3892B937225A197500D3BDAA /* CollectionExtension.swift in Sources */,
 				38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */,
 				38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */,
 			);
@@ -577,6 +582,7 @@
 				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
 				3854EA682234366600BB9A0C /* Path.swift in Sources */,
 				3854EA6022341B4100BB9A0C /* RoutingId.swift in Sources */,
+				3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */,
 				38917041223587E600E65114 /* RoutingNode.swift in Sources */,
 				38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */,
 			);
