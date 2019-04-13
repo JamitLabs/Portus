@@ -5,18 +5,18 @@
 
 import Foundation
 
-public struct RoutingEntry {
+public struct RoutingEntry: Equatable {
     public var identifier: RoutingId
-    weak var routable: Routable?
     public var context: RoutingContext?
+    weak var routable: Routable?
 
-    public init(identifier: RoutingId, routable: Routable? = nil, context: RoutingContext? = nil) {
+    public init(identifier: RoutingId, context: RoutingContext? = nil, routable: Routable? = nil) {
         self.identifier = identifier
-        self.routable = routable
         self.context = context
+        self.routable = routable
     }
 
     public static func == (lhs: RoutingEntry, rhs: RoutingEntry) -> Bool {
-        return lhs.identifier == rhs.identifier && lhs.routable === rhs.routable && lhs.context == rhs.context
+        return lhs.identifier == rhs.identifier && lhs.context == rhs.context
     }
 }

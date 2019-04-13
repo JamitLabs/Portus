@@ -18,12 +18,12 @@ public class RoutingNode {
 
     public init(
         entry: RoutingEntry,
-        isContainedInActivePath: Bool,
+        isActive: Bool,
         parent: RoutingNode? = nil,
         children: [RoutingNode] = []
     ) {
         self.entry = entry
-        self.isActive = isContainedInActivePath
+        self.isActive = isActive
         self.parent = parent
         self.children = children
     }
@@ -47,6 +47,12 @@ public class RoutingNode {
         parent?.remove(child: self)
     }
 
+    public func activePath() -> [RoutingNode] {
+        guard isActive else { return [] }
+
+        return [self] + (determineActiveChild()?.activePath() ?? [])
+    }
+
     public func determineActiveChild() -> RoutingNode? {
         return children.first { $0.isActive }
     }
@@ -54,12 +60,14 @@ public class RoutingNode {
     public func determineActiveLeaf() -> RoutingNode? {
         guard isActive else { return nil }
 
-        var activeLeaf = self
-        while let localActiveLeaf = activeLeaf.determineActiveLeaf() {
-            activeLeaf = localActiveLeaf
-        }
+        return activePath().last
+    }
 
-        return activeLeaf
+    public func changeActiveChild(toNodeWith entry: RoutingEntry) {
+        guard children.firstIndex(where: { entry == $0.entry }) != nil else {
+            fatalError("[Routing Tree] Could not change active Child of \(self.entry.identifier.rawValue) to \(entry.identifier.rawValue)") }
+
+        children.forEach { $0.isActive = entry == $0.entry }
     }
 
     public func add(activeLeaf: RoutingNode) {
@@ -86,7 +94,14 @@ public class RoutingNode {
     public func find(isResult: (RoutingNode) -> Bool) -> RoutingNode?{
         guard !isResult(self) else { return self }
 
-        return children.first { $0.find(isResult: isResult) != nil }
+        for child in children {
+            let searchResult = child.find(isResult: isResult)
+            if searchResult != nil {
+                return searchResult
+            }
+        }
+
+        return nil
     }
 
     public func contains(entry: RoutingEntry) -> Bool {
@@ -95,5 +110,38 @@ public class RoutingNode {
 
     public static func ==(lhs: RoutingNode, rhs: RoutingNode) -> Bool {
         return lhs.entry == rhs.entry
+    }
+
+    public func deepCopy() -> RoutingNode {
+        var childrenCopies: [RoutingNode] = []
+
+        let nodeCopy = RoutingNode(entry: entry, isActive: isActive, children: [])
+
+        for child in children {
+            let childCopy = child.deepCopy()
+            childCopy.parent = nodeCopy
+            childrenCopies.append(childCopy)
+        }
+
+        nodeCopy.children = childrenCopies
+
+        return nodeCopy
+    }
+}
+
+// MARK: - CustomStringConvertible
+extension RoutingNode: CustomStringConvertible {
+    public var description: String {
+        var description = "\(entry.identifier.rawValue)\(isActive ? "*" : "")"
+
+        if let context = entry.context {
+            description += " (" + context.keys.compactMap { key in "\(key):\(String(describing: context[key]))" }.joined(separator: ", ") + ")"
+        }
+
+        if !children.isEmpty {
+            description += " [" + children.map { $0.description }.joined(separator: ", ") + "] "
+        }
+
+        return description
     }
 }
