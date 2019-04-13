@@ -5,63 +5,76 @@
 
 import Foundation
 
+internal enum RoutingError: Error {
+    case destinationNotReachable
+}
+
 internal enum RoutingAlgorithm {
-    internal static func determineRoutingInstructions(
-        toDestination destination: Path,
-        withRoutingStrategy routingStrategy: RoutingStrategy
-    ) -> RoutingInstructions {
-        switch routingStrategy {
-        case .alwaysFromRoot:
-            return RoutingInstruction(
-                nodesToLeave: RoutingTree.shared.currentPathWithoutRoot,
-                nodesToEnter: Array(destination.dropFirst())
-            )
+    internal static func computeRoutingInstructions(
+        in routingTree: RoutingTree,
+        to destination: Path,
+        and instructions: RoutingInstructions = [],
+        completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
+    ) {
+        let router = Router(routingTree: routingTree)
+        let origin = Array(routingTree.root?.activePath() ?? []).map { $0.entry }
 
-        case .maxReusageFromRoot:
-            var nodesToLeave = RoutingTree.shared.currentPathWithoutRoot
-            var nodesToEnter: [RoutingEntry] = Array(destination.dropFirst())
+        guard origin != destination else {
+            completion(.success(instructions))
+            return
+        }
 
-            for nodeToLeave in nodesToLeave {
-                guard
-                    let nodeToEnter = nodesToEnter.first,
-                    nodeToEnter.identifier == nodeToLeave.identifier,
-                    nodeToEnter.context == nodeToLeave.context
-                else {
-                    return RoutingInstruction(
-                        nodesToLeave: nodesToLeave,
-                        nodesToEnter: nodesToEnter
-                    )
+        let nextChunkOfRoutingInstructions: RoutingInstructions = {
+            var nextChunkOfInstructions: RoutingInstructions = []
+
+            let maxIndex = max(origin.count, destination.count)
+            let firstMismatchIndex: Int? = {
+                for index in 0 ... maxIndex {
+                    guard
+                        let originEntry = origin[try: index],
+                        let destinationEntry = destination[try: index],
+                        originEntry == destinationEntry
+                    else {
+                        return index
+                    }
                 }
 
-                nodesToLeave.removeFirst()
-                nodesToEnter.removeFirst()
+                return nil
+            }()
+
+            guard let index = firstMismatchIndex else { return [] }
+
+            nextChunkOfInstructions += Array(origin.suffix(from: index)).reversed().compactMap { entry in
+                guard let leavable = entry.routable as? Leavable else { return nil }
+
+                return leavable.canLeave(node: entry) ? .leave(entry: entry, animated: true) : nil
             }
 
-            return RoutingInstruction(
-                nodesToLeave: nodesToLeave,
-                nodesToEnter: nodesToEnter
-            )
+            if let switchEntry = origin[try: index - 1], let switchable = switchEntry.routable as? Switchable {
+                guard switchable.canSwitchTo(node: destination[index]) else { return [] }
 
-        case .minRouteToLeaf:
-            var nodesToEnter: [RoutingEntry] = []
-
-            for node in Array(destination.dropFirst()).reversed() {
-                if let lastIndex = RoutingTree.shared.currentPathWithoutRoot.lastIndex(
-                    where: { $0.identifier == node.identifier && $0.context == node.context }
-                ) {
-                    let nodesToLeave: [RoutingEntry] = Array(RoutingTree.shared.currentPathWithoutRoot.suffix(from: lastIndex + 1))
-                    return RoutingInstruction(
-                        nodesToLeave: nodesToLeave,
-                        nodesToEnter: nodesToEnter
-                    )
-                } else {
-                    nodesToEnter.insert(node, at: 0)
-                }
+                nextChunkOfInstructions.append(
+                    .switchTo(entry: destination[index], from: switchEntry, animated: true)
+                )
+            } else if let enterEntry = destination[try: index] {
+                nextChunkOfInstructions.append(
+                    .enter(entry: enterEntry, animated: true)
+                )
             }
 
-            return RoutingInstruction(
-                nodesToLeave: RoutingTree.shared.currentPathWithoutRoot,
-                nodesToEnter: Array(destination.dropFirst())
+            return nextChunkOfInstructions
+        }()
+
+        guard !nextChunkOfRoutingInstructions.isEmpty else {
+            return completion(.failure(.destinationNotReachable))
+        }
+
+        router.simulate(routingInstructions: nextChunkOfRoutingInstructions) {
+            computeRoutingInstructions(
+                in: routingTree,
+                to: destination,
+                and: instructions + nextChunkOfRoutingInstructions,
+                completion: completion
             )
         }
     }

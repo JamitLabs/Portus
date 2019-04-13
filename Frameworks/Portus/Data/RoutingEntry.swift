@@ -17,6 +17,10 @@ public struct RoutingEntry: Equatable {
     }
 
     public static func == (lhs: RoutingEntry, rhs: RoutingEntry) -> Bool {
-        return lhs.identifier == rhs.identifier && lhs.context == rhs.context
+        if let lhsRoutable = lhs.routable, let rhsRoutable = rhs.routable {
+            return lhs.identifier == rhs.identifier && lhs.context == rhs.context && lhsRoutable === rhsRoutable
+        } else {
+            return lhs.identifier == rhs.identifier && lhs.context == rhs.context
+        }
     }
 }

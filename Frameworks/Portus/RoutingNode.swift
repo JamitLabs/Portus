@@ -91,7 +91,7 @@ public class RoutingNode {
         return find { $0.entry == entry }
     }
 
-    public func find(isResult: (RoutingNode) -> Bool) -> RoutingNode?{
+    public func find(isResult: (RoutingNode) -> Bool) -> RoutingNode? {
         guard !isResult(self) else { return self }
 
         for child in children {
