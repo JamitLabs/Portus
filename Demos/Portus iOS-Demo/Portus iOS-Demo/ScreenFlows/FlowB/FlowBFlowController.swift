@@ -22,6 +22,10 @@ protocol FlowBFlowDelegate: AnyObject {
 }
 
 class FlowBFlowController: FlowController {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .b, context: context, routable: self)
+    }
+
     private let storyboard = UIStoryboard(name: "FlowB", bundle: nil)
     private lazy var flowBViewCtrl: FlowBViewController = {
         let flowBViewCtrl = storyboard.instantiateViewController(withIdentifier: "FlowBViewController") as! FlowBViewController
@@ -40,7 +44,7 @@ class FlowBFlowController: FlowController {
     }
 
     override func start(from presentingViewController: UIViewController) {
-        RoutingTree.shared.didEnter(RoutingEntry(identifier: .b, routable: self, context: context))
+        RoutingTree.default.didEnterNode(with: entry)
         presentingViewController.present(flowBViewCtrl, animated: animatePresentation) { [unowned self] in
             self.presentCompletion?(self)
         }
@@ -49,23 +53,34 @@ class FlowBFlowController: FlowController {
 
 extension FlowBFlowController: FlowBFlowDelegate {
     func enterA() {
-        Router.enter(node: RoutingTable.Dynamic.a)
+        Router.default.enter(node: RoutingTable.Dynamic.a)
     }
 
     func enterB() {
-        Router.enter(node: RoutingTable.Dynamic.b)
+        Router.default.enter(node: RoutingTable.Dynamic.b)
     }
 
     func enterC() {
-        Router.enter(node: RoutingTable.Dynamic.c)
+        Router.default.enter(node: RoutingTable.Dynamic.c)
     }
 
     func routeTo(destination: Path) {
-        Router.route(to: destination, routingStrategy: Globals.routingStrategy, animated: Globals.animated)
+        Router.default.route(to: destination, animated: Globals.animated)
     }
 }
 
-extension FlowBFlowController: Routable {
+// MARK: - Enterable
+extension FlowBFlowController: Enterable {
+    static func canEnter(node: RoutingEntry) -> Bool {
+        switch node.identifier {
+        case .a, .b, .c:
+            return true
+
+        default:
+            return false
+        }
+    }
+
     func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
         switch node.identifier {
         case .a:
@@ -87,20 +102,33 @@ extension FlowBFlowController: Routable {
             return
         }
     }
+}
 
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
-        flowBViewCtrl.dismiss(animated: animated) { [weak self] in
-            guard let self = self else { return }
+// MARK: - Leavable
+extension FlowBFlowController: Leavable {
+    func canLeave(node: RoutingEntry) -> Bool {
+        switch node.identifier {
+        case .b:
+            return true
 
-            RoutingTree.shared.didLeave(node)
-            self.removeFromSuperFlowController()
-            completion()
+        default:
+            return false
         }
     }
 
-    func didEnter(withInfo info: Any?) {
-        guard let info = info as? String else { return }
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+        switch node.identifier {
+        case .b:
+            flowBViewCtrl.dismiss(animated: animated) { [weak self] in
+                guard let self = self else { return }
 
-        print(info)
+                RoutingTree.default.didLeaveNode(with: node)
+                self.removeFromSuperFlowController()
+                completion()
+            }
+
+        default:
+            return
+        }
     }
 }

@@ -33,7 +33,10 @@ class ColorDetailViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        delegate?.viewDidDisappear(in: self)
+
+        if isMovingFromParent {
+            delegate?.viewDidDisappear(in: self)
+        }
     }
 
     @objc

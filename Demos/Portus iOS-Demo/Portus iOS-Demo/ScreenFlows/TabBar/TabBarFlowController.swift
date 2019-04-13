@@ -17,6 +17,10 @@ extension RoutingId {
 protocol TabBarFlowDelegate: AnyObject {}
 
 class TabBarFlowController: InitialFlowController {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .root, routable: self)
+    }
+
     private var tabBarTabFlowControllers: [TabFlowController] = [] {
         didSet {
             guard tabBarTabFlowControllers != oldValue else { return }
@@ -52,15 +56,24 @@ class TabBarFlowController: InitialFlowController {
 
     private var selectedViewController: UIViewController! {
         didSet {
-            tabBarFlowController(for: oldValue)?.leave()
-            tabBarFlowController(for: selectedViewController)?.startIfNeeded()
+            RoutingTree.default.didSwitchToNode(
+                with: (tabBarFlowController(for: selectedViewController) as! Routable).entry,
+                fromNodeWith: entry
+            )
             tabBarController.selectedViewController = selectedViewController
         }
     }
 
     // MARK: - Methods
     override func start(from window: UIWindow) {
-        RoutingTree.shared.didEnter(RoutingEntry(identifier: .root, routable: self))
+        RoutingTree.default.didEnterSwitchableNode(
+            with: entry,
+            entriesOfManagedNodes: [
+                colorListFlowCtrl.entry,
+                bookmarksTabFlowCtrl.entry
+            ],
+            entryOfActiveNode: colorListFlowCtrl.entry
+        )
         window.rootViewController = tabBarController
         tabBarTabFlowControllers = [colorListFlowCtrl, bookmarksTabFlowCtrl]
     }
@@ -78,9 +91,19 @@ extension TabBarFlowController: UITabBarControllerDelegate {
     }
 }
 
-// MARK: - Routable
-extension TabBarFlowController: Routable {
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+// MARK: - Switchable
+extension TabBarFlowController: Switchable {
+    func canSwitchTo(node: RoutingEntry) -> Bool {
+        switch node.identifier {
+        case .colorList, .bookmarks:
+            return true
+
+        default:
+            return false
+        }
+    }
+
+    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
         switch node.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController

@@ -15,9 +15,14 @@ extension RoutingId {
 }
 
 class ColorListFlowController: TabFlowController {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .colorList, routable: self)
+    }
+
     weak var flowDelegate: TabBarFlowDelegate?
 
     private var context: RoutingContext?
+    private var colorDetailDismissCompletion: (() -> Void)?
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: colorListViewCtrl)
         navigationCtrl.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
@@ -43,7 +48,6 @@ class ColorListFlowController: TabFlowController {
     }
 
     override func startIfNeeded() {
-        RoutingTree.shared.didEnter(RoutingEntry(identifier: .colorList, routable: self))
         super.startIfNeeded()
     }
 
@@ -52,7 +56,6 @@ class ColorListFlowController: TabFlowController {
     }
 
     override func leave() {
-        RoutingTree.shared.didLeave(RoutingEntry(identifier: .colorList, routable: self))
         super.leave()
     }
 
@@ -61,7 +64,9 @@ class ColorListFlowController: TabFlowController {
         colorDetailViewCtrl.viewModel = ColorDetailViewModel(color: color)
         CATransaction.begin()
         CATransaction.setCompletionBlock { [unowned self] in
-            RoutingTree.shared.didEnter(RoutingEntry(identifier: .colorDetail, routable: self, context: self.context))
+            RoutingTree.default.didEnterNode(
+                with: RoutingEntry(identifier: .colorDetail, context: self.context, routable: self)
+            )
             completion?()
         }
         navigationCtrl.pushViewController(colorDetailViewCtrl, animated: true)
@@ -78,28 +83,29 @@ extension ColorListFlowController: ColorListViewControllerDelegate {
 
 extension ColorListFlowController: ColorDetailViewControllerDelegate {
     func actionButtonTriggered() {
-        Router.route(to: RoutingTable.Static.bookmarks)
+        Router.default.route(to: RoutingTable.Static.bookmarks)
     }
 
     func viewDidDisappear(in viewController: ColorDetailViewController) {
-        RoutingTree.shared.didLeave(RoutingEntry(identifier: .colorDetail, routable: self, context: context))
+        RoutingTree.default.didLeaveNode(
+            with: RoutingEntry(identifier: .colorDetail, context: context, routable: self)
+        )
         context = nil
+        colorDetailDismissCompletion?()
+        colorDetailDismissCompletion = nil
     }
 }
 
-// MARK: - Routable
-extension ColorListFlowController: Routable {
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+// MARK: - Enterable
+extension ColorListFlowController: Enterable {
+    static func canEnter(node: RoutingEntry) -> Bool {
         switch node.identifier {
         case .colorDetail:
-            CATransaction.begin()
-            CATransaction.setCompletionBlock { RoutingTree.shared.didLeave(node); completion() }
-            navigationCtrl.popToRootViewController(animated: animated)
-            CATransaction.commit()
+            guard let parameters = node.context, parameters["hex"] != nil else { return false }
 
+            return true
         default:
-            RoutingTree.shared.didLeave(node)
-            completion()
+            return false
         }
     }
 
@@ -109,6 +115,30 @@ extension ColorListFlowController: Routable {
             if let parameters = node.context, let hexString = parameters["hex"] {
                 showDetails(for: UIColor(hex: hexString))
             }
+        default:
+            return
+        }
+    }
+}
+
+// MARK: - Leavable
+extension ColorListFlowController: Leavable {
+    func canLeave(node: RoutingEntry) -> Bool {
+        switch node.identifier {
+        case .colorDetail:
+            return true
+
+        default:
+            return false
+        }
+    }
+
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+        switch node.identifier {
+        case .colorDetail:
+            colorDetailDismissCompletion = completion
+            navigationCtrl.popToRootViewController(animated: animated)
+
         default:
             return
         }

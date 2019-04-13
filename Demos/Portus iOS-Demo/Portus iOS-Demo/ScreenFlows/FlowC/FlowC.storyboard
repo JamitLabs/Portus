@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,22 +36,8 @@
                                     <action selector="animationExtentValueChanged" destination="7T0-d9-pe3" eventType="primaryActionTriggered" id="Tyl-pJ-TpB"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XcG-rg-oZa">
-                                <rect key="frame" x="16" y="97" width="343" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="Nuh-HJ-KME"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="alwaysFromRoot"/>
-                                    <segment title="maxReusageFromRoot"/>
-                                    <segment title="minRouteToLeaf"/>
-                                </segments>
-                                <connections>
-                                    <action selector="routingStrategyValueChanged" destination="7T0-d9-pe3" eventType="primaryActionTriggered" id="FGd-3n-AsM"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jww-iu-m7k">
-                                <rect key="frame" x="16" y="144" width="343" height="80"/>
+                                <rect key="frame" x="16" y="97" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Ny0-nI-7bj"/>
                                 </constraints>
@@ -404,18 +390,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yid-Vk-IgB" firstAttribute="bottom" secondItem="S5z-mJ-9nv" secondAttribute="bottom" constant="4" id="1bR-lv-XIv"/>
+                            <constraint firstItem="Jww-iu-m7k" firstAttribute="top" secondItem="unu-vr-iDQ" secondAttribute="bottom" constant="20" id="7cJ-n4-IHO"/>
                             <constraint firstItem="unu-vr-iDQ" firstAttribute="leading" secondItem="yid-Vk-IgB" secondAttribute="leading" constant="16" id="8Fz-zT-82F"/>
                             <constraint firstItem="zj7-Ma-xG7" firstAttribute="centerX" secondItem="yid-Vk-IgB" secondAttribute="centerX" id="AwG-uP-Rd9"/>
                             <constraint firstItem="unu-vr-iDQ" firstAttribute="top" secondItem="yid-Vk-IgB" secondAttribute="top" constant="30" id="Idm-N0-ASM"/>
-                            <constraint firstItem="yid-Vk-IgB" firstAttribute="trailing" secondItem="XcG-rg-oZa" secondAttribute="trailing" constant="16" id="O42-Uz-X3G"/>
-                            <constraint firstItem="Jww-iu-m7k" firstAttribute="top" secondItem="XcG-rg-oZa" secondAttribute="bottom" constant="20" id="OEM-Fb-WuT"/>
                             <constraint firstItem="yid-Vk-IgB" firstAttribute="trailing" secondItem="S5z-mJ-9nv" secondAttribute="trailing" constant="4" id="OVQ-sd-mbj"/>
                             <constraint firstItem="S5z-mJ-9nv" firstAttribute="leading" secondItem="yid-Vk-IgB" secondAttribute="leading" constant="4" id="OzL-ec-C4x"/>
                             <constraint firstItem="yid-Vk-IgB" firstAttribute="trailing" secondItem="Jww-iu-m7k" secondAttribute="trailing" constant="16" id="TWx-kU-1C3"/>
                             <constraint firstItem="Jww-iu-m7k" firstAttribute="leading" secondItem="yid-Vk-IgB" secondAttribute="leading" constant="16" id="a3t-vH-aEP"/>
-                            <constraint firstItem="XcG-rg-oZa" firstAttribute="leading" secondItem="yid-Vk-IgB" secondAttribute="leading" constant="16" id="dxf-JI-jFR"/>
                             <constraint firstItem="yid-Vk-IgB" firstAttribute="trailing" secondItem="unu-vr-iDQ" secondAttribute="trailing" constant="16" id="fjV-mF-ZsR"/>
-                            <constraint firstItem="XcG-rg-oZa" firstAttribute="top" secondItem="unu-vr-iDQ" secondAttribute="bottom" constant="20" id="gIQ-Y4-A0Q"/>
                             <constraint firstItem="zj7-Ma-xG7" firstAttribute="centerY" secondItem="yid-Vk-IgB" secondAttribute="centerY" id="q1a-Ei-Mck"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yid-Vk-IgB"/>
@@ -423,7 +406,6 @@
                     <connections>
                         <outlet property="animationExtentSegmentedControl" destination="unu-vr-iDQ" id="ZrK-fo-WoD"/>
                         <outlet property="currentPathLabel" destination="Jww-iu-m7k" id="ZJB-PQ-DEY"/>
-                        <outlet property="routingStrategySegmentedControl" destination="XcG-rg-oZa" id="j7T-c2-Xuk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAZ-Xm-htv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -364,20 +364,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gAC-fr-Qsz">
-                                <rect key="frame" x="16" y="87" width="343" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="sSZ-B6-hEd"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="alwaysFromRoot"/>
-                                    <segment title="maxReusageFromRoot"/>
-                                    <segment title="minRouteToLeaf"/>
-                                </segments>
-                                <connections>
-                                    <action selector="routingStrategyValueChanged" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="Q5g-u6-fFA"/>
-                                </connections>
-                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-SA-nR1">
                                 <rect key="frame" x="16" y="40" width="343" height="28"/>
                                 <constraints>
@@ -392,7 +378,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-We-NVk">
-                                <rect key="frame" x="16" y="134" width="343" height="80"/>
+                                <rect key="frame" x="16" y="87" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="DRB-54-bFq"/>
                                 </constraints>
@@ -406,16 +392,13 @@
                             <constraint firstItem="CXa-SA-nR1" firstAttribute="top" secondItem="InI-pj-KLc" secondAttribute="top" constant="20" id="7hd-WN-pRH"/>
                             <constraint firstItem="CXa-SA-nR1" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="Cvi-lC-cYl"/>
                             <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="5yD-We-NVk" secondAttribute="trailing" constant="16" id="DOk-iv-buV"/>
-                            <constraint firstItem="gAC-fr-Qsz" firstAttribute="top" secondItem="CXa-SA-nR1" secondAttribute="bottom" constant="20" id="E6T-Lu-WmQ"/>
                             <constraint firstItem="HEC-BN-ycs" firstAttribute="centerX" secondItem="InI-pj-KLc" secondAttribute="centerX" id="HKL-Nf-dPX"/>
                             <constraint firstItem="5yD-We-NVk" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="JL3-Cc-WCB"/>
                             <constraint firstItem="InI-pj-KLc" firstAttribute="bottom" secondItem="3gr-LJ-7Bf" secondAttribute="bottom" constant="4" id="NDG-tt-YYo"/>
-                            <constraint firstItem="5yD-We-NVk" firstAttribute="top" secondItem="gAC-fr-Qsz" secondAttribute="bottom" constant="20" id="Y2r-nV-Rda"/>
+                            <constraint firstItem="5yD-We-NVk" firstAttribute="top" secondItem="CXa-SA-nR1" secondAttribute="bottom" constant="20" id="Xyo-yV-obt"/>
                             <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="3gr-LJ-7Bf" secondAttribute="trailing" constant="4" id="YoS-v9-yfk"/>
-                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="gAC-fr-Qsz" secondAttribute="trailing" constant="16" id="cR9-zn-SxS"/>
                             <constraint firstItem="HEC-BN-ycs" firstAttribute="centerY" secondItem="InI-pj-KLc" secondAttribute="centerY" id="g1J-gb-RGQ"/>
                             <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="CXa-SA-nR1" secondAttribute="trailing" constant="16" id="oCW-Ma-402"/>
-                            <constraint firstItem="gAC-fr-Qsz" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="vmh-vg-jwT"/>
                             <constraint firstItem="3gr-LJ-7Bf" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="4" id="wtP-MT-PAE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="InI-pj-KLc"/>
@@ -423,7 +406,6 @@
                     <connections>
                         <outlet property="animationExtentSegmentedControl" destination="CXa-SA-nR1" id="gZ0-ZT-cfu"/>
                         <outlet property="currentPathLabel" destination="5yD-We-NVk" id="L6R-vg-Y7J"/>
-                        <outlet property="routingStrategySegmentedControl" destination="gAC-fr-Qsz" id="2yk-8P-ucs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9U-b1-ABN" userLabel="First Responder" sceneMemberID="firstResponder"/>

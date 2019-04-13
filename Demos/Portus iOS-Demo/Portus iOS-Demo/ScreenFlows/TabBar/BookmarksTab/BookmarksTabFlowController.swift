@@ -16,6 +16,10 @@ extension RoutingId {
 class BookmarksTabFlowController: TabFlowController {
     weak var flowDelegate: TabBarFlowDelegate?
 
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .bookmarks, routable: self)
+    }
+
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: bookmarksTabViewCtrl)
         navigationCtrl.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
@@ -33,7 +37,6 @@ class BookmarksTabFlowController: TabFlowController {
     }
 
     override func startIfNeeded() {
-        RoutingTree.shared.didEnter(RoutingEntry(identifier: .bookmarks, routable: self))
         super.startIfNeeded()
     }
 
@@ -42,7 +45,6 @@ class BookmarksTabFlowController: TabFlowController {
     }
 
     override func leave() {
-        RoutingTree.shared.didLeave(RoutingEntry(identifier: .bookmarks, routable: self))
         super.leave()
     }
 }
@@ -50,11 +52,16 @@ class BookmarksTabFlowController: TabFlowController {
 // MARK: - SecondTabViewControllerDelegate
 extension BookmarksTabFlowController: BookmarksTabViewControllerDelegate {}
 
-// MARK: - Routable
-extension BookmarksTabFlowController: Routable {
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
-        RoutingTree.shared.didLeave(node)
-        completion()
+// MARK: - Enterable
+extension BookmarksTabFlowController: Enterable {
+    static func canEnter(node: RoutingEntry) -> Bool {
+        switch node.identifier {
+        case .a, .b, .c:
+            return true
+
+        default:
+            return false
+        }
     }
 
     func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {

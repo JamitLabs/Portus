@@ -13,29 +13,17 @@ class FlowCViewController: UIViewController {
     weak var flowDelegate: FlowCFlowDelegate?
 
     @IBOutlet private var animationExtentSegmentedControl: UISegmentedControl!
-    @IBOutlet private var routingStrategySegmentedControl: UISegmentedControl!
     @IBOutlet private var currentPathLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         animationExtentSegmentedControl.selectedSegmentIndex = Globals.animated ? 0 : 1
-        routingStrategySegmentedControl.selectedSegmentIndex = Globals.routingStrategy.rawValue
-        currentPathLabel.text = RoutingTree.shared.description
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        routingStrategySegmentedControl.selectedSegmentIndex = Globals.routingStrategy.rawValue
+        currentPathLabel.text = RoutingTree.default.description
     }
 
     @IBAction private func animationExtentValueChanged() {
         Globals.animated = animationExtentSegmentedControl.selectedSegmentIndex == 0
-    }
-
-    @IBAction private func routingStrategyValueChanged() {
-        Globals.routingStrategy = RoutingStrategy(rawValue: routingStrategySegmentedControl.selectedSegmentIndex)!
     }
 
     @IBAction private func didTriggerButton(_ button: UIButton!) {
@@ -45,37 +33,37 @@ class FlowCViewController: UIViewController {
                 return RoutingTable.Static.a
 
             case "B"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.b
 
             case "C"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.c
 
             case "AA"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.aa
 
             case "AB"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.ab
 
             case "AC"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.ac
 
             case "BA"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.ba
 
             case "BB"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.bb
 
             case "BC"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.bc
 
             case "CA"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.ca
 
             case "CB"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.cb
 
             case "CC"?:
-                return RoutingTable.Static.a
+                return RoutingTable.Static.cc
 
             case "AAA"?:
                 return RoutingTable.Static.aaa

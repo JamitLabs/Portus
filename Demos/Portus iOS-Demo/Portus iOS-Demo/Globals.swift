@@ -11,5 +11,4 @@ import Portus
 
 enum Globals {
     static var animated: Bool = true
-    static var routingStrategy: RoutingStrategy = .alwaysFromRoot
 }
