@@ -5,14 +5,22 @@
 
 import UIKit
 
-public enum Router {
-    public static func enter(
+public class Router {
+    public static let `default` = Router(routingTree: RoutingTree.default)
+
+    private let routingTree: RoutingTree
+
+    init(routingTree: RoutingTree) {
+        self.routingTree = routingTree
+    }
+
+    public func enter(
         node: RoutingEntry,
         animated: Bool = true,
         info: Any? = nil,
         completion: ((Bool) -> Void)? = nil
     ) {
-        guard let currentEnterable = RoutingTree.shared.currentPath.last?.routable as? Enterable else {
+        guard let currentEnterable = routingTree.root?.determineActiveLeaf()?.entry.routable as? Enterable else {
             completion?(false)
             return
         }
@@ -22,37 +30,74 @@ public enum Router {
         }
     }
 
-    public static func route(
+    public func route(
         to destination: Path,
-        routingStrategy: RoutingStrategy = .minRouteToLeaf,
         animated: Bool = true,
         info: Any? = nil,
         completion: ((Bool) -> Void)? = nil
     ) {
-        let routingInstructions = RoutingAlgorithm.determineRoutingInstructions(
-            toDestination: destination,
-            withRoutingStrategy: routingStrategy
-        )
+        RoutingAlgorithm.computeRoutingInstructions(
+            in: RoutingTree(from: RoutingTree.default),
+            to: destination
+        ) { [weak self] result in
+            switch result {
+            case let .success(routingInstructions):
+                guard let self = self else { return }
 
-        execute(routingInstructions: routingInstructions) { executionSuccessful in
-            completion?(executionSuccessful)
+                self.execute(routingInstructions: routingInstructions) { executionSuccessful in
+                    completion?(executionSuccessful)
+                }
+
+            case let .failure(error):
+                if error == .destinationNotReachable {
+                    print("Routing failed: Destination not reachbale!")
+                }
+            }
+        }
+    }
+
+    public func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
+        guard let firstRoutingInstruction = routingInstructions.first else { return completion() }
+
+        simulate(routingInstruction: firstRoutingInstruction) { [weak self] in
+            guard let self = self else { return }
+
+            self.simulate(routingInstructions: Array(routingInstructions.dropFirst()), completion: completion)
+        }
+    }
+
+    public func simulate(routingInstruction: RoutingInstruction, completion: @escaping () -> Void) {
+        switch routingInstruction {
+        case let .enter(entry, _):
+            routingTree.didEnterNode(with: entry)
+            completion()
+
+        case let .leave(entry, _):
+            routingTree.didLeaveNode(with: entry)
+            completion()
+
+        case let .switchTo(targetEntry, originEntry, _):
+            routingTree.didSwitchToNode(with: targetEntry, fromNodeWith: originEntry)
+            completion()
         }
     }
 }
 
 extension Router {
-    private static func execute(routingInstructions: RoutingInstructions, completion: @escaping (Bool) -> Void) {
+    private func execute(routingInstructions: RoutingInstructions, completion: @escaping (Bool) -> Void) {
         guard let nextInstruction = routingInstructions.first else { return completion(true) }
 
-        execute(routingInstruction: nextInstruction) { executionSuccessful in
-            guard executionSuccessful else { return completion(true) }
+        execute(routingInstruction: nextInstruction) { [weak self] executionSuccessful in
+            guard let self = self, executionSuccessful else { return completion(true) }
 
-            execute(routingInstructions: Array(routingInstructions.dropFirst()), completion: completion)
+            self.execute(routingInstructions: Array(routingInstructions.dropFirst()), completion: completion)
         }
     }
 
-    private static func execute(routingInstruction: RoutingInstruction, completion: @escaping (Bool) -> Void) {
-        guard let currentRoutable = RoutingTree.shared.currentPath.last?.routable else { return completion(false) }
+    private func execute(routingInstruction: RoutingInstruction, completion: @escaping (Bool) -> Void) {
+        guard let currentRoutable = routingTree.root?.determineActiveLeaf()?.entry.routable else {
+            return completion(false)
+        }
 
         switch routingInstruction {
         case let .enter(entry, animated):
@@ -69,10 +114,10 @@ extension Router {
                 completion(true)
             }
 
-        case let .switchTo(entry, animated):
-            guard let switchable = currentRoutable as? Switchable else { return completion(false) }
+        case let .switchTo(entry, origin, animated):
+            guard let switchable = origin.routable as? Switchable else { return completion(false) }
 
-            switchable.switchTo(node: entry, animated: animated) { routable in
+            switchable.switchTo(node: entry, animated: animated) { _ in
                 completion(true)
             }
         }
