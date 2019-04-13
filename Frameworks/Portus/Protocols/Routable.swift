@@ -5,4 +5,6 @@
 
 import Foundation
 
-public protocol Routable: AnyObject {}
+public protocol Routable: AnyObject {
+    var entry: RoutingEntry { get }
+}

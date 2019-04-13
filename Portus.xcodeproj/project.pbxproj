@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3802E8392233DC8E00BB27A0 /* RoutingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */; };
 		3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
-		3802E83D2233DD4B00BB27A0 /* RoutingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */; };
 		3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
+		3813E3AA225BBE74004C87F5 /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
+		3813E3AB225BBE77004C87F5 /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
+		3813E3AC225BBE7A004C87F5 /* Switchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44F2257C92C00BDE28A /* Switchable.swift */; };
 		3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892B936225A197500D3BDAA /* CollectionExtension.swift */; };
 		3821A44C2257C90D00BDE28A /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
 		3821A44E2257C91800BDE28A /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
@@ -87,7 +88,6 @@
 /* Begin PBXFileReference section */
 		000E616F2086425500C0638C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0085926E2046FD1B00AB529F /* beak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beak.swift; sourceTree = "<group>"; };
-		3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingStrategy.swift; sourceTree = "<group>"; };
 		3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingInstruction.swift; sourceTree = "<group>"; };
 		3821A44B2257C90D00BDE28A /* Leavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leavable.swift; sourceTree = "<group>"; };
 		3821A44D2257C91800BDE28A /* Enterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enterable.swift; sourceTree = "<group>"; };
@@ -180,9 +180,8 @@
 		38C017EB22354391000F8B31 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3854EA6522342EF300BB9A0C /* RoutingEntry.swift */,
 				3854EA6222341B5F00BB9A0C /* Path.swift */,
-				3802E8382233DC8E00BB27A0 /* RoutingStrategy.swift */,
+				3854EA6522342EF300BB9A0C /* RoutingEntry.swift */,
 				3854EA5922341B0000BB9A0C /* RoutingId.swift */,
 				3854EA5D22341B3500BB9A0C /* RoutingContext.swift */,
 				3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */,
@@ -541,7 +540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3802E8392233DC8E00BB27A0 /* RoutingStrategy.swift in Sources */,
 				3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */,
 				3821A4502257C92C00BDE28A /* Switchable.swift in Sources */,
 				3821A44E2257C91800BDE28A /* Enterable.swift in Sources */,
@@ -574,10 +572,12 @@
 			files = (
 				3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */,
 				3854EA6722342EFF00BB9A0C /* RoutingEntry.swift in Sources */,
-				3802E83D2233DD4B00BB27A0 /* RoutingStrategy.swift in Sources */,
+				3813E3AC225BBE7A004C87F5 /* Switchable.swift in Sources */,
+				3813E3AB225BBE77004C87F5 /* Enterable.swift in Sources */,
 				3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */,
 				82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */,
 				3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */,
+				3813E3AA225BBE74004C87F5 /* Leavable.swift in Sources */,
 				82622C0521CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
 				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
 				3854EA682234366600BB9A0C /* Path.swift in Sources */,
