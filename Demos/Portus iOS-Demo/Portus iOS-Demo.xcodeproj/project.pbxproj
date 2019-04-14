@@ -22,8 +22,12 @@
 		38B2C8CB2190C26B008483CA /* FlowAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C02190C26B008483CA /* FlowAViewController.swift */; };
 		38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C8C12190C26B008483CA /* FlowAFlowController.swift */; };
 		38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B2C8C22190C26B008483CA /* FlowA.storyboard */; };
-		38EA5A732263085A00FA5FC1 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F373A21CBF5ED00A0FA94 /* Portus.framework */; };
-		38EA5A742263085A00FA5FC1 /* Portus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 821F373A21CBF5ED00A0FA94 /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38B9206A2263584F0089BE8E /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 38B920672263584F0089BE8E /* Cartfile */; };
+		38B9206B2263584F0089BE8E /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 38B920682263584F0089BE8E /* Cartfile.private */; };
+		38B9206C2263584F0089BE8E /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 38B920692263584F0089BE8E /* Cartfile.resolved */; };
+		38B92072226359640089BE8E /* Imperio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B92071226359640089BE8E /* Imperio.framework */; };
+		38B92076226359D00089BE8E /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B9205F226314BA0089BE8E /* Portus.framework */; };
+		38B92077226359D00089BE8E /* Portus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38B9205F226314BA0089BE8E /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38F9AA892234EF9900473C2D /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA882234EF9900473C2D /* ColorView.swift */; };
 		38F9AA8B2234EFC300473C2D /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */; };
 		38F9AA8E2234F04200473C2D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */; };
@@ -42,13 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		38EA5A752263085B00FA5FC1 /* Embed Frameworks */ = {
+		38B92075226359720089BE8E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38EA5A742263085A00FA5FC1 /* Portus.framework in Embed Frameworks */,
+				38B92077226359D00089BE8E /* Portus.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +65,6 @@
 		3867839D223448EC0056D450 /* TabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFlowController.swift; sourceTree = "<group>"; };
 		3867839F2234495E0056D450 /* ColorListFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListFlowController.swift; sourceTree = "<group>"; };
 		386783A1223449CD0056D450 /* BookmarksTabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTabFlowController.swift; sourceTree = "<group>"; };
-		3892B9342257CF0300D3BDAA /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = ../../Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
 		38B2C8B52190C26B008483CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B2C8B72190C26B008483CA /* FlowBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowBViewController.swift; sourceTree = "<group>"; };
 		38B2C8B82190C26B008483CA /* FlowB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowB.storyboard; sourceTree = "<group>"; };
@@ -72,8 +75,11 @@
 		38B2C8C02190C26B008483CA /* FlowAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAViewController.swift; sourceTree = "<group>"; };
 		38B2C8C12190C26B008483CA /* FlowAFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowAFlowController.swift; sourceTree = "<group>"; };
 		38B2C8C22190C26B008483CA /* FlowA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlowA.storyboard; sourceTree = "<group>"; };
-		38B2C8D42190E609008483CA /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
-		38CE8122226306370016EB0D /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38B9205F226314BA0089BE8E /* Portus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Portus.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Portus-fmflgrszeuekpfdwczxbsjsbqage/Build/Products/Debug-iphoneos/Portus.framework"; sourceTree = "<group>"; };
+		38B920672263584F0089BE8E /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		38B920682263584F0089BE8E /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
+		38B920692263584F0089BE8E /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		38B92071226359640089BE8E /* Imperio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imperio.framework; path = Carthage/Build/iOS/Imperio.framework; sourceTree = "<group>"; };
 		38F9AA882234EF9900473C2D /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		38F9AA8A2234EFC300473C2D /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
 		38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -89,7 +95,6 @@
 		8205609A217DE85000E23A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		821F373A21CBF5ED00A0FA94 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		821F373F21CC051200A0FA94 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		82EA969421A3195600EC7EAC /* RoutingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38EA5A732263085A00FA5FC1 /* Portus.framework in Frameworks */,
+				38B92072226359640089BE8E /* Imperio.framework in Frameworks */,
+				38B92076226359D00089BE8E /* Portus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +164,16 @@
 			path = FlowA;
 			sourceTree = "<group>";
 		};
+		38B920662263581F0089BE8E /* RootFiles */ = {
+			isa = PBXGroup;
+			children = (
+				38B920672263584F0089BE8E /* Cartfile */,
+				38B920682263584F0089BE8E /* Cartfile.private */,
+				38B920692263584F0089BE8E /* Cartfile.resolved */,
+			);
+			name = RootFiles;
+			sourceTree = "<group>";
+		};
 		38C017E822354255000F8B31 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				82056092217DE85000E23A81 /* Portus iOS-Demo */,
+				38B920662263581F0089BE8E /* RootFiles */,
 				82056091217DE85000E23A81 /* Products */,
 				820560A5217DE88200E23A81 /* Frameworks */,
 			);
@@ -244,10 +261,8 @@
 		820560A5217DE88200E23A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38CE8122226306370016EB0D /* Portus.framework */,
-				3892B9342257CF0300D3BDAA /* Imperio.framework */,
-				821F373A21CBF5ED00A0FA94 /* Portus.framework */,
-				38B2C8D42190E609008483CA /* Imperio.framework */,
+				38B92071226359640089BE8E /* Imperio.framework */,
+				38B9205F226314BA0089BE8E /* Portus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,7 +278,7 @@
 				8205608D217DE85000E23A81 /* Frameworks */,
 				8205608E217DE85000E23A81 /* Resources */,
 				82EA969121A3174800EC7EAC /* Carthage */,
-				38EA5A752263085B00FA5FC1 /* Embed Frameworks */,
+				38B92075226359720089BE8E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,12 +328,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B9206A2263584F0089BE8E /* Cartfile in Resources */,
 				38B2C8C82190C26B008483CA /* ColorList.storyboard in Resources */,
 				8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */,
 				38F9AA9F2235178600473C2D /* FlowC.storyboard in Resources */,
+				38B9206C2263584F0089BE8E /* Cartfile.resolved in Resources */,
 				8205609B217DE85000E23A81 /* Assets.xcassets in Resources */,
 				38B2C8CD2190C26B008483CA /* FlowA.storyboard in Resources */,
 				38F9AA962235007D00473C2D /* ColorDetail.storyboard in Resources */,
+				38B9206B2263584F0089BE8E /* Cartfile.private in Resources */,
 				38678398223444DB0056D450 /* BookmarksTab.storyboard in Resources */,
 				38B2C8C52190C26B008483CA /* FlowB.storyboard in Resources */,
 			);
@@ -443,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -498,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -517,6 +535,7 @@
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					$PROJECT_DIR/Carthage/Build/iOS,
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";
@@ -541,6 +560,7 @@
 				DEVELOPMENT_TEAM = DB7EUU9D79;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					$PROJECT_DIR/Carthage/Build/iOS,
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Portus iOS-Demo/Info.plist";

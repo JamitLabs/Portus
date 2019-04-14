@@ -108,7 +108,7 @@ public class RoutingNode {
         return find { $0.entry == entry } != nil ? true : false
     }
 
-    public static func ==(lhs: RoutingNode, rhs: RoutingNode) -> Bool {
+    public static func == (lhs: RoutingNode, rhs: RoutingNode) -> Bool {
         return lhs.entry == rhs.entry
     }
 
