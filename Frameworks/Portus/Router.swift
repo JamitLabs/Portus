@@ -6,7 +6,7 @@
 import UIKit
 
 public class Router {
-    public static let `default` = Router(routingTree: RoutingTree.default)
+    public static let `default`: Router = Router(routingTree: RoutingTree.default)
 
     private let routingTree: RoutingTree
 
@@ -55,8 +55,10 @@ public class Router {
             }
         }
     }
+}
 
-    public func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
+extension Router {
+    internal func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
         guard let firstRoutingInstruction = routingInstructions.first else { return completion() }
 
         simulate(routingInstruction: firstRoutingInstruction) { [weak self] in
@@ -66,7 +68,7 @@ public class Router {
         }
     }
 
-    public func simulate(routingInstruction: RoutingInstruction, completion: @escaping () -> Void) {
+    private func simulate(routingInstruction: RoutingInstruction, completion: @escaping () -> Void) {
         switch routingInstruction {
         case let .enter(entry, _):
             routingTree.didEnterNode(with: entry)
@@ -95,7 +97,9 @@ extension Router {
     }
 
     private func execute(routingInstruction: RoutingInstruction, completion: @escaping (Bool) -> Void) {
-        guard let currentRoutable = routingTree.root?.determineActiveLeaf()?.entry.routable else {
+        guard
+            let currentRoutable = routingTree.root?.determineActiveLeaf()?.entry.routable
+        else {
             return completion(false)
         }
 
@@ -103,7 +107,7 @@ extension Router {
         case let .enter(entry, animated):
             guard let enterable = currentRoutable as? Enterable else { return completion(false) }
 
-            enterable.enter(node: entry, animated: animated) { routable in
+            enterable.enter(node: entry, animated: animated) { _ in
                 completion(true)
             }
 

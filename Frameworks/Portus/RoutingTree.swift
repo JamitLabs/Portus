@@ -6,7 +6,7 @@
 import Foundation
 
 public class RoutingTree {
-    public static let `default` = RoutingTree()
+    public static let `default`: RoutingTree = RoutingTree()
 
     internal var root: RoutingNode?
 

@@ -79,7 +79,7 @@ public class RoutingNode {
         currentActiveLeaf.add(child: activeLeaf)
     }
 
-    internal func traverse(order: TraverseOrder, onNodeVisit: (RoutingNode) -> ()) {
+    internal func traverse(order: TraverseOrder, onNodeVisit: (RoutingNode) -> Void) {
         let sortedChildren = children.sorted { first, _ in !(first.isActive) }
 
         if order == .preOrder { onNodeVisit(self) }
