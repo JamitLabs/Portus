@@ -6,6 +6,6 @@
 import Foundation
 
 public protocol Enterable: Routable {
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void))
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
     static func canEnter(node: RoutingEntry) -> Bool
 }

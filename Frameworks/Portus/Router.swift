@@ -14,27 +14,21 @@ public class Router {
         self.routingTree = routingTree
     }
 
-    public func enter(
-        node: RoutingEntry,
-        animated: Bool = true,
-        info: Any? = nil,
-        completion: ((Bool) -> Void)? = nil
-    ) {
+    public func enter(node: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         guard let currentEnterable = routingTree.root?.determineActiveLeaf()?.entry.routable as? Enterable else {
             completion?(false)
             return
         }
 
-        currentEnterable.enter(node: node, animated: animated) { _ in
-            completion?(true)
+        currentEnterable.enter(node: node, animated: animated) { success in
+            completion?(success)
         }
     }
 
     public func route(
         to destination: Path,
         animated: Bool = true,
-        info: Any? = nil,
-        completion: ((Bool) -> Void)? = nil
+        completion: ((Result<Void, RoutingError>) -> Void)? = nil
     ) {
         RoutingAlgorithm.computeRoutingInstructions(
             in: RoutingTree(from: RoutingTree.default),
@@ -45,18 +39,17 @@ public class Router {
                 guard let self = self else { return }
 
                 self.execute(routingInstructions: routingInstructions) { executionSuccessful in
-                    completion?(executionSuccessful)
+                    completion?(executionSuccessful ? .success(()) : .failure(.destinationNotReachable))
                 }
 
             case let .failure(error):
-                if error == .destinationNotReachable {
-                    print("Routing failed: Destination not reachbale!")
-                }
+                completion?(.failure(error))
             }
         }
     }
 }
 
+// MARK: - Routing Instruction Simulation
 extension Router {
     internal func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
         guard let firstRoutingInstruction = routingInstructions.first else { return completion() }
@@ -85,12 +78,13 @@ extension Router {
     }
 }
 
+// MARK: - Routing Instruction Execution
 extension Router {
     private func execute(routingInstructions: RoutingInstructions, completion: @escaping (Bool) -> Void) {
         guard let nextInstruction = routingInstructions.first else { return completion(true) }
 
         execute(routingInstruction: nextInstruction) { [weak self] executionSuccessful in
-            guard let self = self, executionSuccessful else { return completion(true) }
+            guard let self = self, executionSuccessful else { return completion(false) }
 
             self.execute(routingInstructions: Array(routingInstructions.dropFirst()), completion: completion)
         }
@@ -114,7 +108,7 @@ extension Router {
         case let .leave(entry, animated):
             guard let leavable = currentRoutable as? Leavable else { return completion(false) }
 
-            leavable.leave(node: entry, animated: animated) {
+            leavable.leave(node: entry, animated: animated) { _ in
                 completion(true)
             }
 

@@ -16,6 +16,8 @@
 		3821A44C2257C90D00BDE28A /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
 		3821A44E2257C91800BDE28A /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
 		3821A4502257C92C00BDE28A /* Switchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44F2257C92C00BDE28A /* Switchable.swift */; };
+		382F893A2268C1D900B9DCE3 /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F89392268C1D900B9DCE3 /* RoutingError.swift */; };
+		382F893B2268C1E700B9DCE3 /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F89392268C1D900B9DCE3 /* RoutingError.swift */; };
 		3854EA5A22341B0000BB9A0C /* RoutingId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5922341B0000BB9A0C /* RoutingId.swift */; };
 		3854EA5E22341B3500BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
 		3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
@@ -69,6 +71,7 @@
 		3821A44B2257C90D00BDE28A /* Leavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leavable.swift; sourceTree = "<group>"; };
 		3821A44D2257C91800BDE28A /* Enterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enterable.swift; sourceTree = "<group>"; };
 		3821A44F2257C92C00BDE28A /* Switchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switchable.swift; sourceTree = "<group>"; };
+		382F89392268C1D900B9DCE3 /* RoutingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingError.swift; sourceTree = "<group>"; };
 		3854EA5922341B0000BB9A0C /* RoutingId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingId.swift; sourceTree = "<group>"; };
 		3854EA5D22341B3500BB9A0C /* RoutingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingContext.swift; sourceTree = "<group>"; };
 		3854EA6222341B5F00BB9A0C /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
@@ -144,9 +147,9 @@
 		38C017EA2235435B000F8B31 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				82622BF621CB9BB000DC9C70 /* Routable.swift */,
 				3821A44D2257C91800BDE28A /* Enterable.swift */,
 				3821A44B2257C90D00BDE28A /* Leavable.swift */,
-				82622BF621CB9BB000DC9C70 /* Routable.swift */,
 				3821A44F2257C92C00BDE28A /* Switchable.swift */,
 			);
 			path = Protocols;
@@ -197,13 +200,14 @@
 		A102BDA01F02387A000C6B38 /* Portus */ = {
 			isa = PBXGroup;
 			children = (
-				38C017EB22354391000F8B31 /* Data */,
-				38ABA21E223528130007C133 /* Extensions */,
-				38C017EA2235435B000F8B31 /* Protocols */,
 				82622C0621CB9C3B00DC9C70 /* Router.swift */,
+				382F89392268C1D900B9DCE3 /* RoutingError.swift */,
 				3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */,
 				38C017EC22357F2A000F8B31 /* RoutingNode.swift */,
 				82622C0321CB9C2500DC9C70 /* RoutingTree.swift */,
+				38C017EA2235435B000F8B31 /* Protocols */,
+				38C017EB22354391000F8B31 /* Data */,
+				38ABA21E223528130007C133 /* Extensions */,
 			);
 			path = Portus;
 			sourceTree = "<group>";
@@ -526,6 +530,7 @@
 				3892B937225A197500D3BDAA /* CollectionExtension.swift in Sources */,
 				38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */,
 				38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */,
+				382F893A2268C1D900B9DCE3 /* RoutingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +561,7 @@
 				3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */,
 				38917041223587E600E65114 /* RoutingNode.swift in Sources */,
 				38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */,
+				382F893B2268C1E700B9DCE3 /* RoutingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

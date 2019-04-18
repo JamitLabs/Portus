@@ -6,6 +6,6 @@
 import Foundation
 
 public protocol Switchable: Routable {
-    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void))
+    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
     func canSwitchTo(node: RoutingEntry) -> Bool
 }

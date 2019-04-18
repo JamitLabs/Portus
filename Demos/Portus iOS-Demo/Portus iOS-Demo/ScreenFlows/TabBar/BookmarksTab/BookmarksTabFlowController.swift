@@ -55,29 +55,35 @@ extension BookmarksTabFlowController: BookmarksTabViewControllerDelegate {}
 // MARK: - Enterable
 extension BookmarksTabFlowController: Enterable {
     static func canEnter(node: RoutingEntry) -> Bool {
-        switch node.identifier {
-        case .a, .b, .c:
-            return true
-
-        default:
-            return false
-        }
+        return node.identifier ~= .a || node.identifier ~= .b || node.identifier ~= .c
     }
 
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch node.identifier {
         case .a:
-            let flowAFlowCtrl = FlowAFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowAFlowCtrl = FlowAFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: bookmarksTabViewCtrl)
 
         case .b:
-            let flowBFlowCtrl = FlowBFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowBFlowCtrl = FlowBFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowBFlowCtrl)
             flowBFlowCtrl.start(from: bookmarksTabViewCtrl)
 
         case .c:
-            let flowCFlowCtrl = FlowCFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowCFlowCtrl = FlowCFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowCFlowCtrl)
             flowCFlowCtrl.start(from: bookmarksTabViewCtrl)
 

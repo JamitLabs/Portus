@@ -34,10 +34,10 @@ class FlowAFlowController: FlowController {
     }()
 
     private let context: RoutingContext?
-    private let presentCompletion: ((Routable) -> Void)?
+    private let presentCompletion: ((Bool) -> Void)?
     private let animatePresentation: Bool
 
-    init(context: RoutingContext? = nil, animatePresentation: Bool = true, presentCompletion: ((Routable) -> Void)? = nil) {
+    init(context: RoutingContext? = nil, animatePresentation: Bool = true, presentCompletion: ((Bool) -> Void)? = nil) {
         self.context = context
         self.animatePresentation = animatePresentation
         self.presentCompletion = presentCompletion
@@ -46,7 +46,7 @@ class FlowAFlowController: FlowController {
     override func start(from presentingViewController: UIViewController) {
         RoutingTree.default.didEnterNode(with: entry)
         presentingViewController.present(flowAViewCtrl, animated: animatePresentation) { [unowned self] in
-            self.presentCompletion?(self)
+            self.presentCompletion?(true)
         }
     }
 }
@@ -72,34 +72,40 @@ extension FlowAFlowController: FlowAFlowDelegate {
 // MARK: - Enterable
 extension FlowAFlowController: Enterable {
     static func canEnter(node: RoutingEntry) -> Bool {
-        switch node.identifier {
-        case .a, .b, .c:
-            return true
-
-        default:
-            return false
-        }
+        return node.identifier ~= .a || node.identifier ~= .b || node.identifier ~= .c
     }
 
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch node.identifier {
         case .a:
-            let flowAFlowCtrl = FlowAFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowAFlowCtrl = FlowAFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowAFlowCtrl)
             flowAFlowCtrl.start(from: flowAViewCtrl)
 
         case .b:
-            let flowBFlowCtrl = FlowBFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowBFlowCtrl = FlowBFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowBFlowCtrl)
             flowBFlowCtrl.start(from: flowAViewCtrl)
 
         case .c:
-            let flowCFlowCtrl = FlowCFlowController(context: node.context, animatePresentation: animated, presentCompletion: completion)
+            let flowCFlowCtrl = FlowCFlowController(
+                context: node.context,
+                animatePresentation: animated,
+                presentCompletion: completion
+            )
             add(subFlowController: flowCFlowCtrl)
             flowCFlowCtrl.start(from: flowAViewCtrl)
 
         default:
-            return
+            completion(false)
         }
     }
 }
@@ -107,16 +113,10 @@ extension FlowAFlowController: Enterable {
 // MARK: - Leavable
 extension FlowAFlowController: Leavable {
     func canLeave(node: RoutingEntry) -> Bool {
-        switch node.identifier {
-        case .a:
-            return true
-
-        default:
-            return false
-        }
+        return node.identifier ~= .a
     }
 
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
         switch node.identifier {
         case .a:
             flowAViewCtrl.dismiss(animated: animated) { [weak self] in
@@ -124,11 +124,11 @@ extension FlowAFlowController: Leavable {
 
                 RoutingTree.default.didLeaveNode(with: node)
                 self.removeFromSuperFlowController()
-                completion()
+                completion(true)
             }
 
         default:
-            return
+            completion(false)
         }
     }
 }

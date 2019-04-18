@@ -22,7 +22,7 @@ class ColorListFlowController: TabFlowController {
     weak var flowDelegate: TabBarFlowDelegate?
 
     private var context: RoutingContext?
-    private var colorDetailDismissCompletion: (() -> Void)?
+    private var colorDetailDismissCompletion: ((Bool) -> Void)?
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: colorListViewCtrl)
         navigationCtrl.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
@@ -59,7 +59,7 @@ class ColorListFlowController: TabFlowController {
         super.leave()
     }
 
-    private func showDetails(for color: UIColor, completion: (() -> Void)? = nil) {
+    private func showDetails(for color: UIColor, completion: ((Bool) -> Void)? = nil) {
         context = ["hex": color.hexString]
         colorDetailViewCtrl.viewModel = ColorDetailViewModel(color: color)
         CATransaction.begin()
@@ -67,7 +67,7 @@ class ColorListFlowController: TabFlowController {
             RoutingTree.default.didEnterNode(
                 with: RoutingEntry(identifier: .colorDetail, context: self.context, routable: self)
             )
-            completion?()
+            completion?(true)
         }
         navigationCtrl.pushViewController(colorDetailViewCtrl, animated: true)
         CATransaction.commit()
@@ -91,7 +91,7 @@ extension ColorListFlowController: ColorDetailViewControllerDelegate {
             with: RoutingEntry(identifier: .colorDetail, context: context, routable: self)
         )
         context = nil
-        colorDetailDismissCompletion?()
+        colorDetailDismissCompletion?(true)
         colorDetailDismissCompletion = nil
     }
 }
@@ -109,14 +109,15 @@ extension ColorListFlowController: Enterable {
         }
     }
 
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch node.identifier {
         case .colorDetail:
             if let parameters = node.context, let hexString = parameters["hex"] {
-                showDetails(for: UIColor(hex: hexString))
+                showDetails(for: UIColor(hex: hexString), completion: completion)
             }
+
         default:
-            return
+            completion(false)
         }
     }
 }
@@ -124,23 +125,17 @@ extension ColorListFlowController: Enterable {
 // MARK: - Leavable
 extension ColorListFlowController: Leavable {
     func canLeave(node: RoutingEntry) -> Bool {
-        switch node.identifier {
-        case .colorDetail:
-            return true
-
-        default:
-            return false
-        }
+        return node.identifier ~= .colorDetail
     }
 
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping () -> Void) {
+    func leave(node: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
         switch node.identifier {
         case .colorDetail:
             colorDetailDismissCompletion = completion
             navigationCtrl.popToRootViewController(animated: animated)
 
         default:
-            return
+            completion(false)
         }
     }
 }

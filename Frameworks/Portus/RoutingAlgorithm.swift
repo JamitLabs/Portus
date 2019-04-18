@@ -5,10 +5,6 @@
 
 import Foundation
 
-internal enum RoutingError: Error {
-    case destinationNotReachable
-}
-
 internal enum RoutingAlgorithm {
     internal static func computeRoutingInstructions(
         in routingTree: RoutingTree,

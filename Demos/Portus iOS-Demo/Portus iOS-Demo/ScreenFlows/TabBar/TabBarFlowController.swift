@@ -64,7 +64,6 @@ class TabBarFlowController: InitialFlowController {
         }
     }
 
-    // MARK: - Methods
     override func start(from window: UIWindow) {
         RoutingTree.default.didEnterSwitchableNode(
             with: entry,
@@ -94,27 +93,21 @@ extension TabBarFlowController: UITabBarControllerDelegate {
 // MARK: - Switchable
 extension TabBarFlowController: Switchable {
     func canSwitchTo(node: RoutingEntry) -> Bool {
-        switch node.identifier {
-        case .colorList, .bookmarks:
-            return true
-
-        default:
-            return false
-        }
+        return node.identifier ~= .colorList || node.identifier ~= .bookmarks
     }
 
-    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Routable) -> Void)) {
+    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch node.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
-            completion(colorListFlowCtrl)
+            completion(true)
 
         case .bookmarks:
             selectedViewController = bookmarksTabFlowCtrl.tabViewController
-            completion(bookmarksTabFlowCtrl)
+            completion(true)
 
         default:
-            return
+            completion(false)
         }
     }
 }
