@@ -18,13 +18,21 @@ public class RoutingTree {
         self.root = routingTree.root?.deepCopy()
     }
 
-    public func didEnterSwitchableNode(
-        with entry: RoutingEntry,
-        entriesOfManagedNodes: [RoutingEntry],
-        entryOfActiveNode: RoutingEntry
+    public func didEnterNode(withEntry entry: RoutingEntry) {
+        guard let root = root else {
+            return self.root = RoutingNode(entry: entry, isActive: true)
+        }
+
+        root.add(activeLeaf: RoutingNode(entry: entry, isActive: true))
+    }
+
+    public func didEnterSwitchNode(
+        withEntry entry: RoutingEntry,
+        andManagedNodeEntries managedNodeEntries: [RoutingEntry],
+        andActiveNodeEntry activeNodeEntry: RoutingEntry
     ) {
-        let children = entriesOfManagedNodes.map { entry in
-            RoutingNode(entry: entry, isActive: entry == entryOfActiveNode)
+        let children = managedNodeEntries.map { entry in
+            RoutingNode(entry: entry, isActive: entry == activeNodeEntry)
         }
 
         guard let root = root else {
@@ -34,16 +42,6 @@ public class RoutingTree {
         }
 
         root.findNode(for: entry)?.add(children: children)
-        print(root.description)
-    }
-
-    public func didEnterNode(with entry: RoutingEntry) {
-        guard let root = root else {
-            return self.root = RoutingNode(entry: entry, isActive: true)
-        }
-
-        root.add(activeLeaf: RoutingNode(entry: entry, isActive: true))
-        print(root.description)
     }
 
     public func didLeaveNode(with entry: RoutingEntry) {
@@ -52,19 +50,18 @@ public class RoutingTree {
         }
 
         node.removeNode()
-        print(root?.description ?? "")
     }
 
-    public func didSwitchToNode(with targetEntry: RoutingEntry, fromNodeWith originEntry: RoutingEntry) {
-        guard let originNode = root?.findNode(for: originEntry) else {
-            fatalError("[RoutingTree] Error: Origin Node \(originEntry.identifier.rawValue) not found.")
+    public func switchNode(withEntry entry: RoutingEntry, didSwitchToNodeWithEntry targetEntry: RoutingEntry) {
+        guard let node = root?.findNode(for: entry) else {
+            fatalError("[RoutingTree] Error: Node with identifier: \(entry.identifier.rawValue) not found.")
         }
 
-        originNode.changeActiveChild(toNodeWith: targetEntry)
-        print(root?.description ?? "")
+        node.changeActiveChild(toNodeWithEntry: targetEntry)
     }
 }
 
+// MARK: - CustomStringConvertible
 extension RoutingTree: CustomStringConvertible {
     public var description: String {
         var description: String = ""

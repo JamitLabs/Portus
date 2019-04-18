@@ -5,8 +5,6 @@
 
 import Foundation
 
-public typealias RoutingInstructions = [RoutingInstruction]
-
 public enum RoutingInstruction: CustomStringConvertible {
     case enter(entry: RoutingEntry, animated: Bool)
     case leave(entry: RoutingEntry, animated: Bool)

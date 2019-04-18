@@ -9,17 +9,11 @@
 import Portus
 import UIKit
 
-extension RoutingId {
-    static let bookmarks = RoutingId(rawValue: "bookmarks")
+extension RoutingID {
+    static let bookmarks = RoutingID(rawValue: "bookmarks")
 }
 
 class BookmarksTabFlowController: TabFlowController {
-    weak var flowDelegate: TabBarFlowDelegate?
-
-    var entry: RoutingEntry {
-        return RoutingEntry(identifier: .bookmarks, routable: self)
-    }
-
     private lazy var navigationCtrl: UINavigationController = {
         let navigationCtrl = UINavigationController(rootViewController: bookmarksTabViewCtrl)
         navigationCtrl.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
@@ -51,6 +45,13 @@ class BookmarksTabFlowController: TabFlowController {
 
 // MARK: - SecondTabViewControllerDelegate
 extension BookmarksTabFlowController: BookmarksTabViewControllerDelegate {}
+
+// MARK: - Routable
+extension BookmarksTabFlowController: Routable {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .bookmarks, routable: self)
+    }
+}
 
 // MARK: - Enterable
 extension BookmarksTabFlowController: Enterable {

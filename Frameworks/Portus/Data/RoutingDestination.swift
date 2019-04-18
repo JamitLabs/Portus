@@ -5,4 +5,4 @@
 
 import Foundation
 
-public typealias Path = [RoutingEntry]
+public typealias RoutingDestination = [RoutingEntry]

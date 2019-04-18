@@ -6,11 +6,6 @@
 import Foundation
 
 public class RoutingNode {
-    enum TraverseOrder {
-        case preOrder
-        case postOrder
-    }
-
     public var entry: RoutingEntry
     public var isActive: Bool
     public var parent: RoutingNode?
@@ -37,8 +32,19 @@ public class RoutingNode {
         children.forEach { add(child: $0) }
     }
 
+    public func add(activeLeaf: RoutingNode) {
+        let currentActiveLeaf = self.activeLeaf() ?? self
+
+        currentActiveLeaf.isActive = true
+        activeLeaf.isActive = true
+
+        currentActiveLeaf.add(child: activeLeaf)
+    }
+
     public func remove(child: RoutingNode) {
-        guard let index = children.firstIndex(where: { child == $0 }) else { return }
+        guard let index = children.firstIndex(where: { child == $0 }) else {
+            fatalError("[Routing Tree] Could not remove child with identifier: \(entry.identifier.rawValue)")
+        }
 
         children.remove(at: index)
     }
@@ -50,41 +56,25 @@ public class RoutingNode {
     public func activePath() -> [RoutingNode] {
         guard isActive else { return [] }
 
-        return [self] + (determineActiveChild()?.activePath() ?? [])
+        return [self] + (activeChild()?.activePath() ?? [])
     }
 
-    public func determineActiveChild() -> RoutingNode? {
+    public func activeChild() -> RoutingNode? {
         return children.first { $0.isActive }
     }
 
-    public func determineActiveLeaf() -> RoutingNode? {
+    public func activeLeaf() -> RoutingNode? {
         guard isActive else { return nil }
 
         return activePath().last
     }
 
-    public func changeActiveChild(toNodeWith entry: RoutingEntry) {
+    public func changeActiveChild(toNodeWithEntry entry: RoutingEntry) {
         guard children.firstIndex(where: { entry == $0.entry }) != nil else {
-            fatalError("[Routing Tree] Could not change active Child of \(self.entry.identifier.rawValue) to \(entry.identifier.rawValue)") }
+            fatalError("[Routing Tree] Could not change active child to \(entry.identifier.rawValue)")
+        }
 
         children.forEach { $0.isActive = entry == $0.entry }
-    }
-
-    public func add(activeLeaf: RoutingNode) {
-        let currentActiveLeaf = determineActiveLeaf() ?? self
-
-        currentActiveLeaf.isActive = true
-        activeLeaf.isActive = true
-
-        currentActiveLeaf.add(child: activeLeaf)
-    }
-
-    internal func traverse(order: TraverseOrder, onNodeVisit: (RoutingNode) -> Void) {
-        let sortedChildren = children.sorted { first, _ in !(first.isActive) }
-
-        if order == .preOrder { onNodeVisit(self) }
-        sortedChildren.forEach { $0.traverse(order: order, onNodeVisit: onNodeVisit) }
-        if order == .postOrder { onNodeVisit(self) }
     }
 
     public func findNode(for entry: RoutingEntry) -> RoutingNode? {
@@ -104,14 +94,6 @@ public class RoutingNode {
         return nil
     }
 
-    public func contains(entry: RoutingEntry) -> Bool {
-        return find { $0.entry == entry } != nil ? true : false
-    }
-
-    public static func == (lhs: RoutingNode, rhs: RoutingNode) -> Bool {
-        return lhs.entry == rhs.entry
-    }
-
     public func deepCopy() -> RoutingNode {
         var childrenCopies: [RoutingNode] = []
 
@@ -129,17 +111,28 @@ public class RoutingNode {
     }
 }
 
+// MARK: - Equatable
+extension RoutingNode: Equatable {
+    public static func == (lhs: RoutingNode, rhs: RoutingNode) -> Bool {
+        return lhs.entry == rhs.entry
+    }
+}
+
 // MARK: - CustomStringConvertible
 extension RoutingNode: CustomStringConvertible {
     public var description: String {
         var description = "\(entry.identifier.rawValue)\(isActive ? "*" : "")"
 
         if let context = entry.context {
-            description += " (" + context.keys.compactMap { key in "\(key):\(String(describing: context[key]))" }.joined(separator: ", ") + ")"
+            description += " ("
+            description += context.keys.compactMap { "\($0):\(context[$0] ?? "")" }.joined(separator: ", ")
+            description += ")"
         }
 
         if !children.isEmpty {
-            description += " [" + children.map { $0.description }.joined(separator: ", ") + "] "
+            description += " ["
+            description += children.map { $0.description }.joined(separator: ", ")
+            description += "] "
         }
 
         return description

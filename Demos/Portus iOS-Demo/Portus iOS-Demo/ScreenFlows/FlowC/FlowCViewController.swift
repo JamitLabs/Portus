@@ -27,7 +27,7 @@ class FlowCViewController: UIViewController {
     }
 
     @IBAction private func didTriggerButton(_ button: UIButton!) {
-        let destination: Path = {
+        let destination: RoutingDestination = {
             switch button.titleLabel?.text {
             case "A"?:
                 return RoutingTable.Static.a

@@ -10,17 +10,11 @@ import UIKit
 import Imperio
 import Portus
 
-extension RoutingId {
-    static let root = RoutingId(rawValue: "Root")
+extension RoutingID {
+    static let root = RoutingID(rawValue: "Root")
 }
 
-protocol TabBarFlowDelegate: AnyObject {}
-
 class TabBarFlowController: InitialFlowController {
-    var entry: RoutingEntry {
-        return RoutingEntry(identifier: .root, routable: self)
-    }
-
     private var tabBarTabFlowControllers: [TabFlowController] = [] {
         didSet {
             guard tabBarTabFlowControllers != oldValue else { return }
@@ -38,13 +32,11 @@ class TabBarFlowController: InitialFlowController {
 
     private lazy var colorListFlowCtrl: ColorListFlowController = {
         let colorListFlowCtrl = ColorListFlowController()
-        colorListFlowCtrl.flowDelegate = self
         return colorListFlowCtrl
     }()
 
     private lazy var bookmarksTabFlowCtrl: BookmarksTabFlowController = {
         let bookmarksTabFlowCtrl = BookmarksTabFlowController()
-        bookmarksTabFlowCtrl.flowDelegate = self
         return bookmarksTabFlowCtrl
     }()
 
@@ -56,37 +48,43 @@ class TabBarFlowController: InitialFlowController {
 
     private var selectedViewController: UIViewController! {
         didSet {
-            RoutingTree.default.didSwitchToNode(
-                with: (tabBarFlowController(for: selectedViewController) as! Routable).entry,
-                fromNodeWith: entry
+            RoutingTree.default.switchNode(
+                withEntry: entry,
+                didSwitchToNodeWithEntry: (tabBarFlowController(for: selectedViewController) as! Routable).entry
             )
             tabBarController.selectedViewController = selectedViewController
         }
     }
 
     override func start(from window: UIWindow) {
-        RoutingTree.default.didEnterSwitchableNode(
-            with: entry,
-            entriesOfManagedNodes: [
+        RoutingTree.default.didEnterSwitchNode(
+            withEntry: entry,
+            andManagedNodeEntries: [
                 colorListFlowCtrl.entry,
                 bookmarksTabFlowCtrl.entry
             ],
-            entryOfActiveNode: colorListFlowCtrl.entry
+            andActiveNodeEntry: colorListFlowCtrl.entry
         )
         window.rootViewController = tabBarController
         tabBarTabFlowControllers = [colorListFlowCtrl, bookmarksTabFlowCtrl]
     }
 }
 
-// MARK: - FlowDelegate
-extension TabBarFlowController: TabBarFlowDelegate {
-
-}
-
+// MARK: - UITabBarControllerDelegate
 extension TabBarFlowController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        shouldSelect viewController: UIViewController
+    ) -> Bool {
         selectedViewController = viewController
         return false
+    }
+}
+
+// MARK: - Routable
+extension TabBarFlowController: Routable {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .root, routable: self)
     }
 }
 

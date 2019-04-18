@@ -8,7 +8,7 @@ import Foundation
 internal enum RoutingAlgorithm {
     internal static func computeRoutingInstructions(
         in routingTree: RoutingTree,
-        to destination: Path,
+        to destination: RoutingDestination,
         and instructions: RoutingInstructions = [],
         completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
     ) {

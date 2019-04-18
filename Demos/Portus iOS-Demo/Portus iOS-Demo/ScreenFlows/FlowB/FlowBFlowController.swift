@@ -10,22 +10,18 @@ import UIKit
 import Imperio
 import Portus
 
-extension RoutingId {
-    static let b = RoutingId(rawValue: "b")
+extension RoutingID {
+    static let b = RoutingID(rawValue: "b")
 }
 
 protocol FlowBFlowDelegate: AnyObject {
-    func routeTo(destination: Path)
+    func routeTo(destination: RoutingDestination)
     func enterA()
     func enterB()
     func enterC()
 }
 
 class FlowBFlowController: FlowController {
-    var entry: RoutingEntry {
-        return RoutingEntry(identifier: .b, context: context, routable: self)
-    }
-
     private let storyboard = UIStoryboard(name: "FlowB", bundle: nil)
     private lazy var flowBViewCtrl: FlowBViewController = {
         let flowBViewCtrl = storyboard.instantiateViewController(withIdentifier: "FlowBViewController") as! FlowBViewController
@@ -44,7 +40,7 @@ class FlowBFlowController: FlowController {
     }
 
     override func start(from presentingViewController: UIViewController) {
-        RoutingTree.default.didEnterNode(with: entry)
+        RoutingTree.default.didEnterNode(withEntry: entry)
         presentingViewController.present(flowBViewCtrl, animated: animatePresentation) { [unowned self] in
             self.presentCompletion?(true)
         }
@@ -64,8 +60,15 @@ extension FlowBFlowController: FlowBFlowDelegate {
         Router.default.enter(node: RoutingTable.Dynamic.c)
     }
 
-    func routeTo(destination: Path) {
+    func routeTo(destination: RoutingDestination) {
         Router.default.route(to: destination, animated: Globals.animated)
+    }
+}
+
+// MARK: - Routable
+extension FlowBFlowController: Routable {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .b, context: context, routable: self)
     }
 }
 
@@ -105,7 +108,7 @@ extension FlowBFlowController: Enterable {
             flowCFlowCtrl.start(from: flowBViewCtrl)
 
         default:
-            return
+            completion(false)
         }
     }
 }

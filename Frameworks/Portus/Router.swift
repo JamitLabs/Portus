@@ -15,7 +15,7 @@ public class Router {
     }
 
     public func enter(node: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        guard let currentEnterable = routingTree.root?.determineActiveLeaf()?.entry.routable as? Enterable else {
+        guard let currentEnterable = routingTree.root?.activeLeaf()?.entry.routable as? Enterable else {
             completion?(false)
             return
         }
@@ -26,7 +26,7 @@ public class Router {
     }
 
     public func route(
-        to destination: Path,
+        to destination: RoutingDestination,
         animated: Bool = true,
         completion: ((Result<Void, RoutingError>) -> Void)? = nil
     ) {
@@ -64,15 +64,15 @@ extension Router {
     private func simulate(routingInstruction: RoutingInstruction, completion: @escaping () -> Void) {
         switch routingInstruction {
         case let .enter(entry, _):
-            routingTree.didEnterNode(with: entry)
+            routingTree.didEnterNode(withEntry: entry)
             completion()
 
         case let .leave(entry, _):
             routingTree.didLeaveNode(with: entry)
             completion()
 
-        case let .switchTo(targetEntry, originEntry, _):
-            routingTree.didSwitchToNode(with: targetEntry, fromNodeWith: originEntry)
+        case let .switchTo(targetEntry, entry, _):
+            routingTree.switchNode(withEntry: entry, didSwitchToNodeWithEntry: targetEntry)
             completion()
         }
     }
@@ -92,7 +92,7 @@ extension Router {
 
     private func execute(routingInstruction: RoutingInstruction, completion: @escaping (Bool) -> Void) {
         guard
-            let currentRoutable = routingTree.root?.determineActiveLeaf()?.entry.routable
+            let currentRoutable = routingTree.root?.activeLeaf()?.entry.routable
         else {
             return completion(false)
         }
@@ -101,22 +101,22 @@ extension Router {
         case let .enter(entry, animated):
             guard let enterable = currentRoutable as? Enterable else { return completion(false) }
 
-            enterable.enter(node: entry, animated: animated) { _ in
-                completion(true)
+            enterable.enter(node: entry, animated: animated) { success in
+                completion(success)
             }
 
         case let .leave(entry, animated):
             guard let leavable = currentRoutable as? Leavable else { return completion(false) }
 
-            leavable.leave(node: entry, animated: animated) { _ in
-                completion(true)
+            leavable.leave(node: entry, animated: animated) { success in
+                completion(success)
             }
 
         case let .switchTo(entry, origin, animated):
             guard let switchable = origin.routable as? Switchable else { return completion(false) }
 
-            switchable.switchTo(node: entry, animated: animated) { _ in
-                completion(true)
+            switchable.switchTo(node: entry, animated: animated) { success in
+                completion(success)
             }
         }
     }

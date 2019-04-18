@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct RoutingId: RawRepresentable, Equatable, Hashable {
+public struct RoutingID: RawRepresentable, Equatable, Hashable {
     public typealias RawValue = String
     public var rawValue: String
 

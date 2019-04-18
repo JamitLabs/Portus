@@ -9,18 +9,12 @@
 import Portus
 import UIKit
 
-extension RoutingId {
-    static let colorList = RoutingId(rawValue: "colorList")
-    static let colorDetail = RoutingId(rawValue: "colorDetail")
+extension RoutingID {
+    static let colorList = RoutingID(rawValue: "colorList")
+    static let colorDetail = RoutingID(rawValue: "colorDetail")
 }
 
 class ColorListFlowController: TabFlowController {
-    var entry: RoutingEntry {
-        return RoutingEntry(identifier: .colorList, routable: self)
-    }
-
-    weak var flowDelegate: TabBarFlowDelegate?
-
     private var context: RoutingContext?
     private var colorDetailDismissCompletion: ((Bool) -> Void)?
     private lazy var navigationCtrl: UINavigationController = {
@@ -65,7 +59,7 @@ class ColorListFlowController: TabFlowController {
         CATransaction.begin()
         CATransaction.setCompletionBlock { [unowned self] in
             RoutingTree.default.didEnterNode(
-                with: RoutingEntry(identifier: .colorDetail, context: self.context, routable: self)
+                withEntry: RoutingEntry(identifier: .colorDetail, context: self.context, routable: self)
             )
             completion?(true)
         }
@@ -81,6 +75,7 @@ extension ColorListFlowController: ColorListViewControllerDelegate {
     }
 }
 
+// MARK: - ColorDetailViewControllerDelegate
 extension ColorListFlowController: ColorDetailViewControllerDelegate {
     func actionButtonTriggered() {
         Router.default.route(to: RoutingTable.Static.bookmarks)
@@ -93,6 +88,13 @@ extension ColorListFlowController: ColorDetailViewControllerDelegate {
         context = nil
         colorDetailDismissCompletion?(true)
         colorDetailDismissCompletion = nil
+    }
+}
+
+// MARK: - Routable
+extension ColorListFlowController: Routable {
+    var entry: RoutingEntry {
+        return RoutingEntry(identifier: .colorList, routable: self)
     }
 }
 
