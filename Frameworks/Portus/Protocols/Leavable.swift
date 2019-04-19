@@ -6,6 +6,6 @@
 import Foundation
 
 public protocol Leavable: Routable {
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void)
-    func canLeave(node: RoutingEntry) -> Bool
+    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void)
+    func canLeaveNode(with entry: RoutingEntry) -> Bool
 }

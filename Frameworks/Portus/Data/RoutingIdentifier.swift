@@ -5,15 +5,17 @@
 
 import Foundation
 
-public struct RoutingID: RawRepresentable, Equatable, Hashable {
+public struct RoutingIdentifier: RawRepresentable, Equatable {
     public typealias RawValue = String
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
-    // MARK: Hashable
+// MARK: - Hashable
+extension RoutingIdentifier: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
     }

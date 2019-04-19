@@ -24,14 +24,14 @@ class BookmarksTabViewController: UIViewController {
     }
 
     @IBAction func modalFlowA() {
-        Router.default.enter(node: RoutingEntry(identifier: .a))
+        Router.default.enterNode(withEntry: RoutingEntry(identifier: .a))
     }
 
     @IBAction func modalFlowB() {
-        Router.default.enter(node: RoutingEntry(identifier: .b))
+        Router.default.enterNode(withEntry: RoutingEntry(identifier: .b))
     }
 
     @IBAction func modalFlowC() {
-        Router.default.enter(node: RoutingEntry(identifier: .c))
+        Router.default.enterNode(withEntry: RoutingEntry(identifier: .c))
     }
 }

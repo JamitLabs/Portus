@@ -9,9 +9,9 @@
 import Portus
 import UIKit
 
-extension RoutingID {
-    static let colorList = RoutingID(rawValue: "colorList")
-    static let colorDetail = RoutingID(rawValue: "colorDetail")
+extension RoutingIdentifier {
+    static let colorList = RoutingIdentifier(rawValue: "colorList")
+    static let colorDetail = RoutingIdentifier(rawValue: "colorDetail")
 }
 
 class ColorListFlowController: TabFlowController {
@@ -100,21 +100,10 @@ extension ColorListFlowController: Routable {
 
 // MARK: - Enterable
 extension ColorListFlowController: Enterable {
-    static func canEnter(node: RoutingEntry) -> Bool {
-        switch node.identifier {
+    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
+        switch entry.identifier {
         case .colorDetail:
-            guard let parameters = node.context, parameters["hex"] != nil else { return false }
-
-            return true
-        default:
-            return false
-        }
-    }
-
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
-        switch node.identifier {
-        case .colorDetail:
-            if let parameters = node.context, let hexString = parameters["hex"] {
+            if let parameters = entry.context, let hexString = parameters["hex"] {
                 showDetails(for: UIColor(hex: hexString), completion: completion)
             }
 
@@ -126,12 +115,12 @@ extension ColorListFlowController: Enterable {
 
 // MARK: - Leavable
 extension ColorListFlowController: Leavable {
-    func canLeave(node: RoutingEntry) -> Bool {
-        return node.identifier ~= .colorDetail
+    func canLeaveNode(with entry: RoutingEntry) -> Bool {
+        return entry.identifier ~= .colorDetail
     }
 
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
-        switch node.identifier {
+    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
+        switch entry.identifier {
         case .colorDetail:
             colorDetailDismissCompletion = completion
             navigationCtrl.popToRootViewController(animated: animated)

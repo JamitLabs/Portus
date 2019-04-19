@@ -14,17 +14,25 @@ public class Router {
         self.routingTree = routingTree
     }
 
-    public func enter(node: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+    public func enterNode(withEntry entry: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         guard let currentEnterable = routingTree.root?.activeLeaf()?.entry.routable as? Enterable else {
             completion?(false)
             return
         }
 
-        currentEnterable.enter(node: node, animated: animated) { success in
+        currentEnterable.enterNode(with: entry, animated: animated) { success in
             completion?(success)
         }
     }
 
+    /// Routes to a given destination
+    ///
+    /// - Parameters:
+    ///     - destination:  The destination to route to, defined as a sequence of routing entries `RoutingEntry`.
+    ///     - animated:     Set the value of this property to `true` if the intermediate transition steps to the
+    ///                     destination should be animated
+    ///     - completion:   Called when the routing succeded or failed with an error,
+    ///                     e.g., `RoutingError.destinationNotReachable`
     public func route(
         to destination: RoutingDestination,
         animated: Bool = true,
@@ -101,21 +109,21 @@ extension Router {
         case let .enter(entry, animated):
             guard let enterable = currentRoutable as? Enterable else { return completion(false) }
 
-            enterable.enter(node: entry, animated: animated) { success in
+            enterable.enterNode(with: entry, animated: animated) { success in
                 completion(success)
             }
 
         case let .leave(entry, animated):
             guard let leavable = currentRoutable as? Leavable else { return completion(false) }
 
-            leavable.leave(node: entry, animated: animated) { success in
+            leavable.leaveNode(with: entry, animated: animated) { success in
                 completion(success)
             }
 
         case let .switchTo(entry, origin, animated):
             guard let switchable = origin.routable as? Switchable else { return completion(false) }
 
-            switchable.switchTo(node: entry, animated: animated) { success in
+            switchable.switchToNode(with: entry, animated: animated) { success in
                 completion(success)
             }
         }

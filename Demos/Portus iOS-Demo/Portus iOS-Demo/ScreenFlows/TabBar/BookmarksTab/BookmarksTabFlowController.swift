@@ -9,8 +9,8 @@
 import Portus
 import UIKit
 
-extension RoutingID {
-    static let bookmarks = RoutingID(rawValue: "bookmarks")
+extension RoutingIdentifier {
+    static let bookmarks = RoutingIdentifier(rawValue: "bookmarks")
 }
 
 class BookmarksTabFlowController: TabFlowController {
@@ -55,15 +55,11 @@ extension BookmarksTabFlowController: Routable {
 
 // MARK: - Enterable
 extension BookmarksTabFlowController: Enterable {
-    static func canEnter(node: RoutingEntry) -> Bool {
-        return node.identifier ~= .a || node.identifier ~= .b || node.identifier ~= .c
-    }
-
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
-        switch node.identifier {
+    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
+        switch entry.identifier {
         case .a:
             let flowAFlowCtrl = FlowAFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )
@@ -72,7 +68,7 @@ extension BookmarksTabFlowController: Enterable {
 
         case .b:
             let flowBFlowCtrl = FlowBFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )
@@ -81,7 +77,7 @@ extension BookmarksTabFlowController: Enterable {
 
         case .c:
             let flowCFlowCtrl = FlowCFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )

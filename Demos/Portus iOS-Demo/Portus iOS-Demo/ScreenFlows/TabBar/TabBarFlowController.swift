@@ -10,8 +10,8 @@ import UIKit
 import Imperio
 import Portus
 
-extension RoutingID {
-    static let root = RoutingID(rawValue: "Root")
+extension RoutingIdentifier {
+    static let root = RoutingIdentifier(rawValue: "Root")
 }
 
 class TabBarFlowController: InitialFlowController {
@@ -90,12 +90,12 @@ extension TabBarFlowController: Routable {
 
 // MARK: - Switchable
 extension TabBarFlowController: Switchable {
-    func canSwitchTo(node: RoutingEntry) -> Bool {
-        return node.identifier ~= .colorList || node.identifier ~= .bookmarks
+    func canSwitchToNode(with entry: RoutingEntry) -> Bool {
+        return entry.identifier ~= .colorList || entry.identifier ~= .bookmarks
     }
 
-    func switchTo(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
-        switch node.identifier {
+    func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
+        switch entry.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
             completion(true)

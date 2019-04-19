@@ -43,19 +43,15 @@ internal enum RoutingAlgorithm {
             nextChunkOfInstructions += Array(origin.suffix(from: index)).reversed().compactMap { entry in
                 guard let leavable = entry.routable as? Leavable else { return nil }
 
-                return leavable.canLeave(node: entry) ? .leave(entry: entry, animated: true) : nil
+                return leavable.canLeaveNode(with: entry) ? .leave(entry: entry, animated: true) : nil
             }
 
             if let switchEntry = origin[try: index - 1], let switchable = switchEntry.routable as? Switchable {
-                guard switchable.canSwitchTo(node: destination[index]) else { return [] }
+                guard switchable.canSwitchToNode(with: destination[index]) else { return [] }
 
-                nextChunkOfInstructions.append(
-                    .switchTo(entry: destination[index], from: switchEntry, animated: true)
-                )
+                nextChunkOfInstructions.append(.switchTo(entry: destination[index], from: switchEntry, animated: true))
             } else if let enterEntry = destination[try: index] {
-                nextChunkOfInstructions.append(
-                    .enter(entry: enterEntry, animated: true)
-                )
+                nextChunkOfInstructions.append(.enter(entry: enterEntry, animated: true))
             }
 
             return nextChunkOfInstructions

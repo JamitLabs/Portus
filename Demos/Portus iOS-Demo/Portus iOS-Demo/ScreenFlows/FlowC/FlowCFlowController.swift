@@ -10,8 +10,8 @@ import UIKit
 import Imperio
 import Portus
 
-extension RoutingID {
-    static let c = RoutingID(rawValue: "c")
+extension RoutingIdentifier {
+    static let c = RoutingIdentifier(rawValue: "c")
 }
 
 protocol FlowCFlowDelegate: AnyObject {
@@ -49,15 +49,15 @@ class FlowCFlowController: FlowController {
 
 extension FlowCFlowController: FlowCFlowDelegate {
     func enterA() {
-        Router.default.enter(node: RoutingTable.Dynamic.a)
+        Router.default.enterNode(withEntry: RoutingTable.Dynamic.a)
     }
 
     func enterB() {
-        Router.default.enter(node: RoutingTable.Dynamic.b)
+        Router.default.enterNode(withEntry: RoutingTable.Dynamic.b)
     }
 
     func enterC() {
-        Router.default.enter(node: RoutingTable.Dynamic.c)
+        Router.default.enterNode(withEntry: RoutingTable.Dynamic.c)
     }
 
     func routeTo(destination: RoutingDestination) {
@@ -74,15 +74,11 @@ extension FlowCFlowController {
 
 // MARK: - Enterable
 extension FlowCFlowController: Enterable {
-    static func canEnter(node: RoutingEntry) -> Bool {
-        return node.identifier ~= .a || node.identifier ~= .b || node.identifier ~= .c
-    }
-
-    func enter(node: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
-        switch node.identifier {
+    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
+        switch entry.identifier {
         case .a:
             let flowAFlowCtrl = FlowAFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )
@@ -91,7 +87,7 @@ extension FlowCFlowController: Enterable {
 
         case .b:
             let flowBFlowCtrl = FlowBFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )
@@ -100,7 +96,7 @@ extension FlowCFlowController: Enterable {
 
         case .c:
             let flowCFlowCtrl = FlowCFlowController(
-                context: node.context,
+                context: entry.context,
                 animatePresentation: animated,
                 presentCompletion: completion
             )
@@ -115,17 +111,17 @@ extension FlowCFlowController: Enterable {
 
 // MARK: - Leavable
 extension FlowCFlowController: Leavable {
-    func canLeave(node: RoutingEntry) -> Bool {
-        return node.identifier ~= .c
+    func canLeaveNode(with entry: RoutingEntry) -> Bool {
+        return entry.identifier ~= .c
     }
 
-    func leave(node: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
-        switch node.identifier {
+    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void) {
+        switch entry.identifier {
         case .c:
             flowCViewCtrl.dismiss(animated: animated) { [weak self] in
                 guard let self = self else { return }
 
-                RoutingTree.default.didLeaveNode(with: node)
+                RoutingTree.default.didLeaveNode(with: entry)
                 self.removeFromSuperFlowController()
                 completion(true)
             }

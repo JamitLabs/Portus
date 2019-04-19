@@ -6,11 +6,11 @@
 import Foundation
 
 public struct RoutingEntry {
-    public var identifier: RoutingID
+    public var identifier: RoutingIdentifier
     public var context: RoutingContext?
     weak var routable: Routable?
 
-    public init(identifier: RoutingID, context: RoutingContext? = nil, routable: Routable? = nil) {
+    public init(identifier: RoutingIdentifier, context: RoutingContext? = nil, routable: Routable? = nil) {
         self.identifier = identifier
         self.context = context
         self.routable = routable
