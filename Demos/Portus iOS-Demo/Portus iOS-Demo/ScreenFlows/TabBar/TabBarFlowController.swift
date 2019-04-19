@@ -48,25 +48,22 @@ class TabBarFlowController: InitialFlowController {
 
     private var selectedViewController: UIViewController! {
         didSet {
+            tabBarController.selectedViewController = selectedViewController
             RoutingTree.default.switchNode(
                 withEntry: entry,
                 didSwitchToNodeWithEntry: (tabBarFlowController(for: selectedViewController) as! Routable).entry
             )
-            tabBarController.selectedViewController = selectedViewController
         }
     }
 
     override func start(from window: UIWindow) {
-        RoutingTree.default.didEnterSwitchNode(
-            withEntry: entry,
-            andManagedNodeEntries: [
-                colorListFlowCtrl.entry,
-                bookmarksTabFlowCtrl.entry
-            ],
-            andActiveNodeEntry: colorListFlowCtrl.entry
-        )
         window.rootViewController = tabBarController
         tabBarTabFlowControllers = [colorListFlowCtrl, bookmarksTabFlowCtrl]
+        RoutingTree.default.didEnterSwitchNode(
+            withEntry: entry,
+            andManagedNodeEntries: [colorListFlowCtrl.entry, bookmarksTabFlowCtrl.entry],
+            andActiveNodeEntry: colorListFlowCtrl.entry
+        )
     }
 }
 
@@ -98,11 +95,11 @@ extension TabBarFlowController: Switchable {
         switch entry.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
-            completion(true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
 
         case .bookmarks:
             selectedViewController = bookmarksTabFlowCtrl.tabViewController
-            completion(true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
 
         default:
             completion(false)
