@@ -22,7 +22,7 @@ public class Router {
     ///     - entry:        The destination to route to, defined as dynamic entry within the `RoutingTable`.
     ///     - animated:     Set the value of this property to `true` if intermediate transition steps to the
     ///                     destination should be animated
-    ///     - completion:   Called when the given destination is entered successfully or when the operation failed,
+    ///     - completion:   Called when the given destination is entered successfully or when the operation failed.
     public func enter(dynamicDestination entry: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         execute(routingInstruction: .enter(entry: entry, animated: animated)) { success in
             completion?(success)

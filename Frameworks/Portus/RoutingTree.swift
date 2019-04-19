@@ -6,6 +6,7 @@
 import Foundation
 
 public class RoutingTree {
+    /// The default routing tree, used to keep track of the screenflow within the app
     public static let `default`: RoutingTree = RoutingTree()
 
     internal var root: RoutingNode?
@@ -18,6 +19,11 @@ public class RoutingTree {
         self.root = routingTree.root?.deepCopy()
     }
 
+    /// Called to indicate that the node for the given entry got entered successfully.
+    /// The node is added as active leaf to the routing tree.
+    ///
+    /// - Parameters:
+    ///     - entry: The entry of the node that got entered.
     public func didEnterNode(withEntry entry: RoutingEntry) {
         guard let root = root else {
             return self.root = RoutingNode(entry: entry, isActive: true)
@@ -26,6 +32,13 @@ public class RoutingTree {
         root.add(activeLeaf: RoutingNode(entry: entry, isActive: true))
     }
 
+    /// Called to indicate that the switchable node for the given entry was entered.
+    /// The managed nodes are added as children of the switchable node.
+    ///
+    /// - Parameters:
+    ///     - entry: The entry of the switchable node that got entered.
+    ///     - managedNodeEntries: The entries of the nodes that are managed by the switchable node
+    ///     - activeNodeEntry: The entry of the node that is currently active
     public func didEnterSwitchNode(
         withEntry entry: RoutingEntry,
         andManagedNodeEntries managedNodeEntries: [RoutingEntry],
@@ -44,6 +57,11 @@ public class RoutingTree {
         root.findNode(for: entry)?.add(children: children)
     }
 
+    /// Called to indicate that the node for the given entry is left successfully.
+    /// The node is removed from the routing tree.
+    ///
+    /// - Parameters:
+    ///     - entry: The entry of the node that is left.
     public func didLeaveNode(with entry: RoutingEntry) {
         guard let node = root?.findNode(for: entry) else {
             fatalError("[RoutingTree] Error: Node \(entry.identifier.rawValue) not found.")
@@ -52,6 +70,11 @@ public class RoutingTree {
         node.removeNode()
     }
 
+    /// Called to indicate that the active node did change to the node identified by the given `targetEntry`.
+    ///
+    /// - Parameters:
+    ///     - entry: The entry of the switchable node that contains the node target node as a managed child
+    ///     - targetEntry: The entry of the node out of the managed nodes that got active.
     public func switchNode(withEntry entry: RoutingEntry, didSwitchToNodeWithEntry targetEntry: RoutingEntry) {
         guard let node = root?.findNode(for: entry) else {
             fatalError("[RoutingTree] Error: Node with identifier: \(entry.identifier.rawValue) not found.")
@@ -63,6 +86,7 @@ public class RoutingTree {
 
 // MARK: - CustomStringConvertible
 extension RoutingTree: CustomStringConvertible {
+    /// A short description of the node including all its children.
     public var description: String {
         var description: String = ""
         description += root?.description ?? ""
