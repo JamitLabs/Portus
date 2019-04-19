@@ -5,4 +5,5 @@
 
 import Foundation
 
-public typealias RoutingDestination = [RoutingEntry]
+public typealias StaticRoutingDestination = [RoutingEntry]
+public typealias DynamicRoutingDestination = RoutingEntry

@@ -42,7 +42,7 @@
 		8205609B217DE85000E23A81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8205609A217DE85000E23A81 /* Assets.xcassets */; };
 		8205609E217DE85000E23A81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8205609C217DE85000E23A81 /* LaunchScreen.storyboard */; };
 		821F374021CC051200A0FA94 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F373F21CC051200A0FA94 /* Globals.swift */; };
-		82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* RoutingTable.swift */; };
+		82EA969521A3195600EC7EAC /* RoutingTableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA969421A3195600EC7EAC /* RoutingTableExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,7 +97,7 @@
 		8205609D217DE85000E23A81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8205609F217DE85000E23A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821F373F21CC051200A0FA94 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		82EA969421A3195600EC7EAC /* RoutingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTable.swift; sourceTree = "<group>"; };
+		82EA969421A3195600EC7EAC /* RoutingTableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTableExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +189,7 @@
 		38F9AA8C2234F03200473C2D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				82EA969421A3195600EC7EAC /* RoutingTableExtension.swift */,
 				38F9AA8D2234F04200473C2D /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
@@ -250,7 +251,6 @@
 			children = (
 				38B2C8B52190C26B008483CA /* AppDelegate.swift */,
 				821F373F21CC051200A0FA94 /* Globals.swift */,
-				82EA969421A3195600EC7EAC /* RoutingTable.swift */,
 				38F9AA8C2234F03200473C2D /* Extensions */,
 				38B2C8BA2190C26B008483CA /* ScreenFlows */,
 				8205609A217DE85000E23A81 /* Assets.xcassets */,
@@ -380,7 +380,7 @@
 				38F9AA982235008F00473C2D /* ColorDetailViewController.swift in Sources */,
 				38B2C8C32190C26B008483CA /* AppDelegate.swift in Sources */,
 				386783A2223449CD0056D450 /* BookmarksTabFlowController.swift in Sources */,
-				82EA969521A3195600EC7EAC /* RoutingTable.swift in Sources */,
+				82EA969521A3195600EC7EAC /* RoutingTableExtension.swift in Sources */,
 				3867839E223448EC0056D450 /* TabFlowController.swift in Sources */,
 				38F9AA922234F4DA00473C2D /* ColorDataSource.swift in Sources */,
 				38B2C8CC2190C26B008483CA /* FlowAFlowController.swift in Sources */,

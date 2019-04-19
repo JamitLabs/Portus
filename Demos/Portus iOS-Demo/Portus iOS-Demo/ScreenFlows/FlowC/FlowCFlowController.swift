@@ -15,10 +15,8 @@ extension RoutingIdentifier {
 }
 
 protocol FlowCFlowDelegate: AnyObject {
-    func routeTo(destination: RoutingDestination)
-    func enterA()
-    func enterB()
-    func enterC()
+    func routeTo(staticDestination: StaticRoutingDestination)
+    func enter(dynamicDestination: DynamicRoutingDestination)
 }
 
 class FlowCFlowController: FlowController {
@@ -48,20 +46,12 @@ class FlowCFlowController: FlowController {
 }
 
 extension FlowCFlowController: FlowCFlowDelegate {
-    func enterA() {
-        Router.default.enterNode(withEntry: RoutingTable.Dynamic.a)
+    func enter(dynamicDestination: DynamicRoutingDestination) {
+        Router.default.enter(dynamicDestination: dynamicDestination)
     }
 
-    func enterB() {
-        Router.default.enterNode(withEntry: RoutingTable.Dynamic.b)
-    }
-
-    func enterC() {
-        Router.default.enterNode(withEntry: RoutingTable.Dynamic.c)
-    }
-
-    func routeTo(destination: RoutingDestination) {
-        Router.default.route(to: destination, animated: Globals.animated)
+    func routeTo(staticDestination: StaticRoutingDestination) {
+        Router.default.routeTo(staticDestination: staticDestination, animated: Globals.animated)
     }
 }
 

@@ -27,148 +27,148 @@ class FlowBViewController: UIViewController {
     }
 
     @IBAction private func didTriggerButton(_ button: UIButton!) {
-        let destination: RoutingDestination = {
+        let staticDestination: StaticRoutingDestination = {
             switch button.titleLabel?.text {
             case "A"?:
-                return RoutingTable.Static.a
+                return RoutingTable.StaticEntries.a
 
             case "B"?:
-                return RoutingTable.Static.b
+                return RoutingTable.StaticEntries.b
 
             case "C"?:
-                return RoutingTable.Static.c
+                return RoutingTable.StaticEntries.c
 
             case "AA"?:
-                return RoutingTable.Static.aa
+                return RoutingTable.StaticEntries.aa
 
             case "AB"?:
-                return RoutingTable.Static.ab
+                return RoutingTable.StaticEntries.ab
 
             case "AC"?:
-                return RoutingTable.Static.ac
+                return RoutingTable.StaticEntries.ac
 
             case "BA"?:
-                return RoutingTable.Static.ba
+                return RoutingTable.StaticEntries.ba
 
             case "BB"?:
-                return RoutingTable.Static.bb
+                return RoutingTable.StaticEntries.bb
 
             case "BC"?:
-                return RoutingTable.Static.bc
+                return RoutingTable.StaticEntries.bc
 
             case "CA"?:
-                return RoutingTable.Static.ca
+                return RoutingTable.StaticEntries.ca
 
             case "CB"?:
-                return RoutingTable.Static.cb
+                return RoutingTable.StaticEntries.cb
 
             case "CC"?:
-                return RoutingTable.Static.cc
+                return RoutingTable.StaticEntries.cc
 
             case "AAA"?:
-                return RoutingTable.Static.aaa
+                return RoutingTable.StaticEntries.aaa
 
             case "AAB"?:
-                return RoutingTable.Static.aab
+                return RoutingTable.StaticEntries.aab
 
             case "AAC"?:
-                return RoutingTable.Static.aac
+                return RoutingTable.StaticEntries.aac
 
             case "ABA"?:
-                return RoutingTable.Static.aba
+                return RoutingTable.StaticEntries.aba
 
             case "ABB"?:
-                return RoutingTable.Static.abb
+                return RoutingTable.StaticEntries.abb
 
             case "ABC"?:
-                return RoutingTable.Static.abc
+                return RoutingTable.StaticEntries.abc
 
             case "ACA"?:
-                return RoutingTable.Static.aca
+                return RoutingTable.StaticEntries.aca
 
             case "ACB"?:
-                return RoutingTable.Static.acb
+                return RoutingTable.StaticEntries.acb
 
             case "ACC"?:
-                return RoutingTable.Static.acc
+                return RoutingTable.StaticEntries.acc
 
             case "BAA"?:
-                return RoutingTable.Static.baa
+                return RoutingTable.StaticEntries.baa
 
             case "BAB"?:
-                return RoutingTable.Static.bab
+                return RoutingTable.StaticEntries.bab
 
             case "BAC"?:
-                return RoutingTable.Static.bac
+                return RoutingTable.StaticEntries.bac
 
             case "BBA"?:
-                return RoutingTable.Static.bba
+                return RoutingTable.StaticEntries.bba
 
             case "BBB"?:
-                return RoutingTable.Static.bbb
+                return RoutingTable.StaticEntries.bbb
 
             case "BBC"?:
-                return RoutingTable.Static.bbc
+                return RoutingTable.StaticEntries.bbc
 
             case "BCA"?:
-                return RoutingTable.Static.bca
+                return RoutingTable.StaticEntries.bca
 
             case "BCB"?:
-                return RoutingTable.Static.bcb
+                return RoutingTable.StaticEntries.bcb
 
             case "BCC"?:
-                return RoutingTable.Static.bcc
+                return RoutingTable.StaticEntries.bcc
 
             case "CAA"?:
-                return RoutingTable.Static.caa
+                return RoutingTable.StaticEntries.caa
 
             case "CAB"?:
-                return RoutingTable.Static.cab
+                return RoutingTable.StaticEntries.cab
 
             case "CAC"?:
-                return RoutingTable.Static.cac
+                return RoutingTable.StaticEntries.cac
 
             case "CBA"?:
-                return RoutingTable.Static.cba
+                return RoutingTable.StaticEntries.cba
 
             case "CBB"?:
-                return RoutingTable.Static.cbb
+                return RoutingTable.StaticEntries.cbb
 
             case "CBC"?:
-                return RoutingTable.Static.cbc
+                return RoutingTable.StaticEntries.cbc
 
             case "CCA"?:
-                return RoutingTable.Static.cca
+                return RoutingTable.StaticEntries.cca
 
             case "CCB"?:
-                return RoutingTable.Static.ccb
+                return RoutingTable.StaticEntries.ccb
 
             case "CCC"?:
-                return RoutingTable.Static.ccc
+                return RoutingTable.StaticEntries.ccc
 
             default:
-                return RoutingTable.Static.a
+                return RoutingTable.StaticEntries.a
             }
         }()
 
-        flowDelegate?.routeTo(destination: destination)
+        flowDelegate?.routeTo(staticDestination: staticDestination)
     }
 
     @IBAction func modalFlowA() {
-        flowDelegate?.enterA()
+        flowDelegate?.enter(dynamicDestination: RoutingTable.DynamicEntries.a)
     }
 
     @IBAction func modalFlowB() {
-        flowDelegate?.enterB()
+        flowDelegate?.enter(dynamicDestination: RoutingTable.DynamicEntries.b)
     }
 
     @IBAction func modalFlowC() {
-        flowDelegate?.enterC()
+        flowDelegate?.enter(dynamicDestination: RoutingTable.DynamicEntries.c)
     }
 
     @IBAction private func didTriggerColorButton(_ button: UIButton!) {
         flowDelegate?.routeTo(
-            destination: RoutingTable.Static.colorDetail(withHexString: button.titleLabel!.text!)
+            staticDestination: RoutingTable.StaticEntries.colorDetail(withHexString: button.titleLabel!.text!)
         )
     }
 }

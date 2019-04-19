@@ -78,7 +78,7 @@ extension ColorListFlowController: ColorListViewControllerDelegate {
 // MARK: - ColorDetailViewControllerDelegate
 extension ColorListFlowController: ColorDetailViewControllerDelegate {
     func actionButtonTriggered() {
-        Router.default.route(to: RoutingTable.Static.bookmarks)
+        Router.default.routeTo(staticDestination: RoutingTable.StaticEntries.bookmarks)
     }
 
     func viewDidDisappear(in viewController: ColorDetailViewController) {
