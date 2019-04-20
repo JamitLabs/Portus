@@ -5,17 +5,18 @@
 
 import Foundation
 
+/// Data structure to keep track of the screenflow within the app and used for routing computations.
 public class RoutingTree {
     /// The default routing tree, used to keep track of the screenflow within the app
     public static let `default`: RoutingTree = RoutingTree()
 
-    internal var root: RoutingNode?
+    var root: RoutingNode?
 
-    internal init(root: RoutingNode? = nil) {
+    init(root: RoutingNode? = nil) {
         self.root = root
     }
 
-    internal init(from routingTree: RoutingTree) {
+    init(from routingTree: RoutingTree) {
         self.root = routingTree.root?.deepCopy()
     }
 

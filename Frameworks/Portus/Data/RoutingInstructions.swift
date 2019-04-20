@@ -5,4 +5,5 @@
 
 import Foundation
 
+/// Typealias, representing a list of `RoutingInstruction`
 public typealias RoutingInstructions = [RoutingInstruction]

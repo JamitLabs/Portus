@@ -5,6 +5,8 @@
 
 import Foundation
 
+/// Classes conforming to `Routable` can be handled by the `Router`. Note that `Routables` can state their capabilities
+/// by conforming to the `Enterable`, `Leavable` or `Switchable` protocol.
 public protocol Routable: AnyObject {
     var entry: RoutingEntry { get }
 }

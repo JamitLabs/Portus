@@ -5,6 +5,8 @@
 
 import UIKit
 
+/// Enables routing to either static or dynamic routing destinations. The `default` instance uses the default
+/// `RoutingTree`
 public class Router {
     /// A default Router using the default RoutingTree
     public static let `default`: Router = Router(routingTree: RoutingTree.default)
@@ -19,10 +21,10 @@ public class Router {
     /// context and can be entered from anywhere.
     ///
     /// - Parameters:
-    ///     - entry:        The destination to route to, defined as dynamic entry within the `RoutingTable`.
-    ///     - animated:     Set the value of this property to `true` if intermediate transition steps to the
-    ///                     destination should be animated
-    ///     - completion:   Called when the given destination is entered successfully or when the operation failed.
+    ///     - entry: The destination to route to, defined as dynamic entry within the `RoutingTable`.
+    ///     - animated: Set the value of this property to `true` if intermediate transition steps to the
+    ///                 destination should be animated
+    ///     - completion: Called when the given destination is entered successfully or when the operation failed.
     public func enter(dynamicDestination entry: RoutingEntry, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         execute(routingInstruction: .enter(entry: entry, animated: animated)) { success in
             completion?(success)
@@ -32,11 +34,10 @@ public class Router {
     /// Routes to static destinations defined in the RoutingTable, i.e., destinations that depend on the current context
     ///
     /// - Parameters:
-    ///     - destination:  The destination to route to, defined as static entry within the `RoutingTable`.
-    ///     - animated:     Set the value of this property to `true` if intermediate transition steps to the
-    ///                     destination should be animated
-    ///     - completion:   Called when routing succeded or failed with an error,
-    ///                     e.g., `RoutingError.destinationNotReachable`
+    ///     - destination: The destination to route to, defined as static entry within the `RoutingTable`.
+    ///     - animated: Set the value of this property to `true` if intermediate transition steps to the
+    ///                 destination should be animated
+    ///     - completion: Called when routing succeded or failed with an error, e.g., `.destinationNotReachable`
     public func routeTo(
         staticDestination: StaticRoutingDestination,
         animated: Bool = true,
@@ -63,7 +64,7 @@ public class Router {
 
 // MARK: - Routing Instruction Simulation
 extension Router {
-    internal func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
+    func simulate(routingInstructions: RoutingInstructions, completion: @escaping () -> Void) {
         guard let firstRoutingInstruction = routingInstructions.first else { return completion() }
 
         simulate(routingInstruction: firstRoutingInstruction) { [weak self] in

@@ -5,8 +5,8 @@
 
 import Foundation
 
-internal enum RoutingAlgorithm {
-    internal static func computeRoutingInstructions(
+enum RoutingAlgorithm {
+    static func computeRoutingInstructions(
         in routingTree: RoutingTree,
         to destination: StaticRoutingDestination,
         and instructions: RoutingInstructions = [],
@@ -49,7 +49,9 @@ internal enum RoutingAlgorithm {
             if let switchEntry = origin[try: index - 1], let switchable = switchEntry.routable as? Switchable {
                 guard switchable.canSwitchToNode(with: destination[index]) else { return [] }
 
-                nextChunkOfInstructions.append(.switchTo(entry: destination[index], from: switchEntry, animated: true))
+                nextChunkOfInstructions.append(
+                    .switchTo(entry: destination[index], switchNodeEntry: switchEntry, animated: true)
+                )
             } else if let enterEntry = destination[try: index] {
                 nextChunkOfInstructions.append(.enter(entry: enterEntry, animated: true))
             }
