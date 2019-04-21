@@ -10,7 +10,7 @@ import Portus
 import UIKit
 
 extension RoutingIdentifier {
-    static let bookmarks = RoutingIdentifier(rawValue: "bookmarks")
+    static let bm = RoutingIdentifier(rawValue: "bookmarks")
 }
 
 class BookmarksTabFlowController: TabFlowController {
@@ -49,7 +49,7 @@ extension BookmarksTabFlowController: BookmarksTabViewControllerDelegate {}
 // MARK: - Routable
 extension BookmarksTabFlowController: Routable {
     var entry: RoutingEntry {
-        return RoutingEntry(identifier: .bookmarks, routable: self)
+        return RoutingEntry(identifier: .bm, routable: self)
     }
 }
 

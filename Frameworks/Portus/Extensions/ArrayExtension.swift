@@ -8,6 +8,6 @@ import Foundation
 extension Array where Element == RoutingIdentifier {
     /// Routing entry list definition shorthand
     public var entries: [RoutingEntry] {
-        return self.map { RoutingEntry(identifier: $0) }
+        return self.map { return RoutingEntry(identifier: $0) }
     }
 }

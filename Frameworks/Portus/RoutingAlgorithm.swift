@@ -6,17 +6,14 @@
 import Foundation
 
 enum RoutingAlgorithm {
-    static func computeRoutingInstructions(
-        in routingTree: RoutingTree,
+    static func computeNextRoutingInstructions(
         to destination: StaticRoutingDestination,
-        and instructions: RoutingInstructions = [],
         completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
     ) {
-        let router = Router(routingTree: routingTree)
-        let origin = Array(routingTree.root?.activePath() ?? []).map { $0.entry }
+        let origin = Array(RoutingTree.default.root?.activePath() ?? []).map { $0.entry }
 
         guard origin != destination else {
-            completion(.success(instructions))
+            completion(.success([]))
             return
         }
 
@@ -43,17 +40,21 @@ enum RoutingAlgorithm {
             nextChunkOfInstructions += Array(origin.suffix(from: index)).reversed().compactMap { entry in
                 guard let leavable = entry.routable as? Leavable else { return nil }
 
-                return leavable.canLeaveNode(with: entry) ? .leave(entry: entry, animated: true) : nil
+                return leavable.canLeaveNode(with: entry) ? .leave(entry: entry) : nil
             }
 
-            if let switchEntry = origin[try: index - 1], let switchable = switchEntry.routable as? Switchable {
-                guard switchable.canSwitchToNode(with: destination[index]) else { return [] }
+            if let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1], switchNode.children.count > 1 {
+                guard
+                    switchNode.children.map({ $0.entry.identifier }).contains(destination[index].identifier)
+                else {
+                    return []
+                }
 
                 nextChunkOfInstructions.append(
-                    .switchTo(entry: destination[index], switchNodeEntry: switchEntry, animated: true)
+                    .switchTo(entry: destination[index], switchNodeEntry: switchNode.entry)
                 )
             } else if let enterEntry = destination[try: index] {
-                nextChunkOfInstructions.append(.enter(entry: enterEntry, animated: true))
+                nextChunkOfInstructions.append(.enter(entry: enterEntry))
             }
 
             return nextChunkOfInstructions
@@ -63,13 +64,6 @@ enum RoutingAlgorithm {
             return completion(.failure(.destinationNotReachable))
         }
 
-        router.simulate(routingInstructions: nextChunkOfRoutingInstructions) {
-            computeRoutingInstructions(
-                in: routingTree,
-                to: destination,
-                and: instructions + nextChunkOfRoutingInstructions,
-                completion: completion
-            )
-        }
+        completion(.success(nextChunkOfRoutingInstructions))
     }
 }
