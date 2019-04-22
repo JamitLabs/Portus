@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Portus  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Portus  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Portus Docs</a> (98% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Portus Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Portus  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingEntry.html">RoutingEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingEntry/ManagedEntries.html">– ManagedEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingTree.html">RoutingTree</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingInstruction.html">RoutingInstruction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html">RoutingTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html#/s:6Portus12RoutingTableO13StaticEntriesO">– StaticEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html#/s:6Portus12RoutingTableO14DynamicEntriesO">– DynamicEntries</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Enterable.html">Enterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Leavable.html">Leavable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Routable.html">Routable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Switchable.html">Switchable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus25DynamicRoutingDestinationa">DynamicRoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p align="center">
+    <img src="https://raw.githubusercontent.com/JamitLabs/Portus/stable/Logo.png"
+      width=600>
+</p>
+
+<p align="center">
+    <a href="https://app.bitrise.io/app/7f97045d305e8481">
+        <img src="https://app.bitrise.io/app/7f97045d305e8481/status.svg?token=jW4_Lgs5ezNb-OlbhaE11Q&branch=stable"
+             alt="Build Status">
+    </a>
+    <a href="https://github.com/JamitLabs/Portus/releases">
+        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg"
+             alt="Version: 0.1.0">
+    </a>
+    <img src="https://img.shields.io/badge/Swift-4.2-FFAC45.svg"
+         alt="Swift: 4.2">
+    <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-FF69B4.svg"
+        alt="Platforms: iOS | macOS | tvOS | watchOS">
+    <a href="https://github.com/JamitLabs/Portus/blob/stable/LICENSE.md">
+        <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg"
+              alt="License: MIT">
+    </a>
+</p>
+
+<p align="center">
+    <a href="#installation">Installation</a>
+  • <a href="#usage">Usage</a>
+  • <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
+  • <a href="#contributing">Contributing</a>
+  • <a href="#license">License</a>
+</p>
+<h1 id='portus' class='heading'>Portus</h1>
+
+<p>TODO: Summarize the project goals here.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Installing via <a href="https://github.com/Carthage/Carthage#carthage">Carthage</a> &amp; <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a> are both supported.</p>
+
+<p>Support for SPM is currently not possible as this framework uses UIKit.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>Please have a look at the UsageExamples.playground for a complete list of features provided.
+Open the Playground from within the <code>.xcworkspace</code> in order for it to work.</p>
+
+<hr>
+<h4 id='features-overview' class='heading'>Features Overview</h4>
+
+<ul>
+<li><a href="#short-section">Short Section</a></li>
+<li>Sections Group
+
+<ul>
+<li><a href="#subsection1">SubSection1</a></li>
+<li><a href="#subsection2">SubSection2</a></li>
+</ul></li>
+</ul>
+
+<hr>
+<h3 id='short-section' class='heading'>Short Section</h3>
+
+<p>TODO: Add some usage information here.</p>
+<h3 id='sections-group' class='heading'>Sections Group</h3>
+
+<p>TODO: Summarize the section here.</p>
+<h4 id='subsection1' class='heading'>SubSection1</h4>
+
+<p>TODO: Add some usage information here.</p>
+<h4 id='subsection2' class='heading'>SubSection2</h4>
+
+<p>TODO: Add some usage information here.</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>See the file <a href="https://github.com/JamitLabs/MungoHealer/blob/stable/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>This library is released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>. See LICENSE for details.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/JamitLabs/Portus" target="_blank" rel="external">Cihat Gündüz</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

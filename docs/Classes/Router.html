@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Router Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Router" class="dashAnchor"></a>
+    <a title="Router Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Portus Docs</a> (98% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Portus Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Router Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoutingEntry.html">RoutingEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoutingEntry/ManagedEntries.html">– ManagedEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoutingTree.html">RoutingTree</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingInstruction.html">RoutingInstruction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingTable.html">RoutingTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingTable.html#/s:6Portus12RoutingTableO13StaticEntriesO">– StaticEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoutingTable.html#/s:6Portus12RoutingTableO14DynamicEntriesO">– DynamicEntries</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Enterable.html">Enterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Leavable.html">Leavable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Routable.html">Routable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Switchable.html">Switchable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/RoutingIdentifier.html">RoutingIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Portus25DynamicRoutingDestinationa">DynamicRoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Router</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Router</span></code></pre>
+
+                </div>
+              </div>
+            <p>Enables routing to either static or dynamic routing destinations. The <code>default</code> instance uses the default
+<code><a href="../Classes/RoutingTree.html">RoutingTree</a></code></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Portus6RouterC7defaultACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/default" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Portus6RouterC7defaultACvpZ">default</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A default Router using the default RoutingTree</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">let</span> <span class="p">`</span><span class="nv">default</span><span class="p">`:</span> <span class="kt">Router</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Portus6RouterC5enter18dynamicDestination8animated10completionyAA12RoutingEntryC_SbySbcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/enter(dynamicDestination:animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Portus6RouterC5enter18dynamicDestination8animated10completionyAA12RoutingEntryC_SbySbcSgtF">enter(dynamicDestination:animated:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enters a dynamic destination defined in the RoutingTable, i.e., a destination that is independent of the current
+context and can be entered from anywhere.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">enter</span><span class="p">(</span><span class="n">dynamicDestination</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Classes/RoutingEntry.html">RoutingEntry</a></span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dynamicDestination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The destination to route to, defined as dynamic entry within the <code><a href="../Enums/RoutingTable.html">RoutingTable</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set the value of this property to <code>true</code> if intermediate transition steps to the
+        destination should be animated</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the given destination is entered successfully or when the operation failed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Portus6RouterC7routeTo17staticDestination8animated20executedInstructions10completionySayAA12RoutingEntryCG_SbSayAA0K11InstructionOGys6ResultOyAnA0K5ErrorOGcSgtF"></a>
+                    <a name="//apple_ref/swift/Method/routeTo(staticDestination:animated:executedInstructions:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Portus6RouterC7routeTo17staticDestination8animated20executedInstructions10completionySayAA12RoutingEntryCG_SbSayAA0K11InstructionOGys6ResultOyAnA0K5ErrorOGcSgtF">routeTo(staticDestination:animated:executedInstructions:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Routes to static destinations defined in the RoutingTable, i.e., destinations that depend on the current context</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">routeTo</span><span class="p">(</span>
+    <span class="nv">staticDestination</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a></span><span class="p">,</span>
+    <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nv">executedInstructions</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/RoutingError.html">RoutingError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>staticDestination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The destination to route to, defined as static entry within the <code><a href="../Enums/RoutingTable.html">RoutingTable</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set the value of this property to <code>true</code> if intermediate transition steps to the
+        destination should be animated</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>executedInstructions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of routing instructions which have already been executed</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when routing succeded with all executed routing instructions or failed
+with an error, e.g., <code>.destinationNotReachable</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/JamitLabs/Portus" target="_blank" rel="external">Cihat Gündüz</a>. All rights reserved. (Last updated: 2019-04-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
