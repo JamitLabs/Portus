@@ -16,7 +16,7 @@ enum RoutingTable {
     }
 }
 
-class PortusTests: XCTestCase {
+class RoutingTests: XCTestCase {
     private let expectedRoutingInstructions1: RoutingInstructions = [
         .switchTo(entry: RoutingEntry(identifier: .node2), switchNodeEntry: RoutingEntry(identifier: .switchNode1)),
         .enter(entry: RoutingEntry(identifier: .switchNode3)),
@@ -105,7 +105,7 @@ class PortusTests: XCTestCase {
 }
 
 // MARK: - Helper
-extension PortusTests {
+extension RoutingTests {
     private func routeTo(
         staticDestination: StaticRoutingDestination,
         expectedRoutingInstructions: RoutingInstructions,

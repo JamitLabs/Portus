@@ -5,12 +5,27 @@
 
 import Foundation
 
+/// Data structure for represnting a node in the routing tree.
 class RoutingNode {
+    /// The entry that uniquely identifies the node, including routing identifier and context
     var entry: RoutingEntry
+
+    /// Flag indicating whether the node is contained within the active path
     var isActive: Bool
-    var parent: RoutingNode?
+
+    /// The parent node of the node if it exists, `nil` otherwise
+    weak var parent: RoutingNode?
+
+    /// A list of children of the node. If empty, the node is a leaf node
     private(set) var children: [RoutingNode]
 
+    /// Initializes a RoutingNode
+    ///
+    /// - Parameters:
+    ///     - entry: The entry that uniquely identifies the node
+    ///     - isActive: Flag indicating whether the node is contained within the active path
+    ///     - parent: The parent node of the node if it exists, `nil` otherwise
+    ///     - children: A list of children of the node. If empty, the node is a leaf node
     init(entry: RoutingEntry, isActive: Bool, parent: RoutingNode? = nil, children: [RoutingNode] = []) {
         self.entry = entry
         self.isActive = isActive
@@ -18,64 +33,101 @@ class RoutingNode {
         self.children = children
     }
 
+    /// Adds children to the node
+    ///
+    /// - Parameter children: The nodes that should be added as children to the node
+    func add(children: [RoutingNode]) {
+        children.forEach { add(child: $0) }
+    }
+
+    /// Adds a child to the node
+    ///
+    /// - Parameter child: The node that should be added as a child
     func add(child: RoutingNode) {
         children.append(child)
         child.parent = self
     }
 
-    func add(children: [RoutingNode]) {
-        children.forEach { add(child: $0) }
-    }
-
+    /// Adds an active leaf to the node, i.e., it looks for the current active leaf and adds the given node
+    /// as active child of the current active leaf
+    ///
+    /// - Parameter activeLeaf: The node that should be added as active leaf to the node
     func add(activeLeaf: RoutingNode) {
         let currentActiveLeaf = self.activeLeaf() ?? self
-
         currentActiveLeaf.isActive = true
         activeLeaf.isActive = true
-
         currentActiveLeaf.add(child: activeLeaf)
     }
 
+    /// Removes the given node from the node's children. If the given node is not contained in the node's children
+    /// this method does nothing
+    ///
+    /// - Parameter child: The child node that should be removed from the current node
     func remove(child: RoutingNode) {
         guard let index = children.firstIndex(where: { child == $0 }) else {
-            fatalError("[Routing Tree] Could not remove child with identifier: \(entry.identifier.rawValue)")
+            print("[Routing Tree] Could not remove child with identifier: \(entry.identifier.rawValue)")
+            return
         }
 
         children.remove(at: index)
     }
 
+    /// Removes the current node by removing it from its parent's children
     func removeNode() {
         parent?.remove(child: self)
     }
 
+    /// Determines the active path from the current node
+    ///
+    /// - Returns: A list of routing nodes representing the active path from the current node.
+    /// If the current node is not active this method returns an empty path.
     func activePath() -> [RoutingNode] {
         guard isActive else { return [] }
 
         return [self] + (activeChild()?.activePath() ?? [])
     }
 
+    /// Determines the active child of the node.
+    ///
+    /// - Returns: The first active child of the node if one exists, `nil` otherwise
     func activeChild() -> RoutingNode? {
         return children.first { $0.isActive }
     }
 
+    /// Determines the active leaf of the node
+    ///
+    /// - Returns: The active leaf of the node if one exists, `nil` otherwise.
     func activeLeaf() -> RoutingNode? {
         guard isActive else { return nil }
 
         return activePath().last
     }
 
+    /// Changes the active child of the node to the child associated with the given entry. If the given node is not
+    /// contained within the current node's children this method does nothing.
+    ///
+    /// - Parameter entry: The entry that uniquely identifies the child that should become active
     func changeActiveChild(toNodeWithEntry entry: RoutingEntry) {
         guard children.firstIndex(where: { entry == $0.entry }) != nil else {
-            fatalError("[Routing Tree] Could not change active child to \(entry.identifier.rawValue)")
+            print("[Routing Tree] Could not change active child to \(entry.identifier.rawValue)")
+            return
         }
 
         children.forEach { $0.isActive = entry == $0.entry }
     }
 
+    /// Recursively finds the first node that matches the given entry
+    ///
+    /// - Parameter entry: The entry of the node to seach for
+    /// - Returns: The node for the given entry if it exists, `nil` otherwise
     func findNode(for entry: RoutingEntry) -> RoutingNode? {
         return find { $0.entry == entry }
     }
 
+    /// Recursively finds the first node that satisfies the given predicate
+    ///
+    /// - Parameter isResult: The condition that must be satisfied by the result node
+    /// - Returns: The first node satisfying the given predicate, `nil` otherwise
     func find(isResult: (RoutingNode) -> Bool) -> RoutingNode? {
         guard !isResult(self) else { return self }
 
@@ -88,26 +140,11 @@ class RoutingNode {
 
         return nil
     }
-
-    func deepCopy() -> RoutingNode {
-        var childrenCopies: [RoutingNode] = []
-
-        let nodeCopy = RoutingNode(entry: entry, isActive: isActive, children: [])
-
-        for child in children {
-            let childCopy = child.deepCopy()
-            childCopy.parent = nodeCopy
-            childrenCopies.append(childCopy)
-        }
-
-        nodeCopy.children = childrenCopies
-
-        return nodeCopy
-    }
 }
 
 // MARK: - Equatable
 extension RoutingNode: Equatable {
+    /// Implementation of the `Equatable` protocol
     static func == (lhs: RoutingNode, rhs: RoutingNode) -> Bool {
         return lhs.entry == rhs.entry
     }

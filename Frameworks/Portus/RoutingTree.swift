@@ -16,10 +16,6 @@ public class RoutingTree {
         self.root = root
     }
 
-    init(from routingTree: RoutingTree) {
-        self.root = routingTree.root?.deepCopy()
-    }
-
     /// Called to indicate that the node for the given entry got entered successfully.
     /// The node is added as active leaf to the routing tree including its managed entries.
     ///

@@ -92,11 +92,11 @@ extension TabBarFlowController: Routable {
 extension TabBarFlowController: Switchable {
     func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch entry.identifier {
-        case .cl:
+        case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
 
-        case .bm:
+        case .bookmarks:
             selectedViewController = bookmarksTabFlowCtrl.tabViewController
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
 

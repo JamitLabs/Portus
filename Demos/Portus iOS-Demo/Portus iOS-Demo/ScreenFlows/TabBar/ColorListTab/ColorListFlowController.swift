@@ -10,7 +10,7 @@ import Portus
 import UIKit
 
 extension RoutingIdentifier {
-    static let cl = RoutingIdentifier(rawValue: "colorList")
+    static let colorList = RoutingIdentifier(rawValue: "colorList")
     static let colorDetail = RoutingIdentifier(rawValue: "colorDetail")
 }
 
@@ -94,7 +94,7 @@ extension ColorListFlowController: ColorDetailViewControllerDelegate {
 // MARK: - Routable
 extension ColorListFlowController: Routable {
     var entry: RoutingEntry {
-        return RoutingEntry(identifier: .cl, routable: self)
+        return RoutingEntry(identifier: .colorList, routable: self)
     }
 }
 
