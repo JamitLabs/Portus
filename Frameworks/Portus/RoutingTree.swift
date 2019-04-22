@@ -33,8 +33,12 @@ public class RoutingTree {
                 return
             }
 
-            root.add(activeLeaf: RoutingNode(entry: entry, isActive: true))
-            root.findNode(for: entry)?.add(children: children)
+            if let node = root.findNode(for: entry) {
+                node.add(children: children)
+            } else {
+                root.add(activeLeaf: RoutingNode(entry: entry, isActive: true))
+                root.findNode(for: entry)?.add(children: children)
+            }
         } else {
             guard let root = root else {
                 return self.root = RoutingNode(entry: entry, isActive: true)
