@@ -11,8 +11,12 @@ public class Router {
     /// A default Router using the default RoutingTree
     public static let `default`: Router = Router(routingTree: RoutingTree.default)
 
+    /// The routing tree used by the router
     private let routingTree: RoutingTree
 
+    /// Initializes a router instance for a given routing tree
+    ///
+    /// - Parameter routingTree: The routing tree
     init(routingTree: RoutingTree) {
         self.routingTree = routingTree
     }
@@ -79,6 +83,12 @@ public class Router {
 
 // MARK: - Routing Instruction Execution
 extension Router {
+    /// Recursively executes a given list of routing instructions on the routing tree
+    ///
+    /// - Parameters:
+    ///     - routingInstructions: The routing instructions to execute.
+    ///     - animated: `True` if the execution of the routing instructions should be animated
+    ///     - completion: Called when the execution of the given instructions succeeded or failed
     private func execute(
         routingInstructions: RoutingInstructions,
         animated: Bool,
@@ -97,6 +107,12 @@ extension Router {
         }
     }
 
+    /// Executes a given routing instruction on the routing tree
+    ///
+    /// - Parameters:
+    ///     - routingInstruction: The routing instruction to execute.
+    ///     - animated: `True` if the execution of the routing instruction should be animated
+    ///     - completion: Called when the execution of the given instruction either succeeded or failed
     private func execute(
         routingInstruction: RoutingInstruction,
         animated: Bool,

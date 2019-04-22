@@ -65,7 +65,8 @@ class PortusTests: XCTestCase {
     func testRouteToStaticDestinations() {
         let root = SwitchNode1()
         root.startIfNeeded()
-        let exp = expectation(description: "Routing successful.")
+
+        let exp = expectation(description: "Expect routing to succeed.")
 
         routeTo(
             staticDestination: RoutingTable.StaticEntries.staticDestination1,
@@ -109,7 +110,7 @@ extension PortusTests {
         staticDestination: StaticRoutingDestination,
         expectedRoutingInstructions: RoutingInstructions,
         completion: @escaping (Bool) -> Void
-        ) {
+    ) {
         Router.default.routeTo(
             staticDestination: staticDestination,
             animated: false
