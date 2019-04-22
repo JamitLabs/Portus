@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View ControllerA-->
+        <scene sceneID="w4F-7N-YtC">
+            <objects>
+                <viewController storyboardIdentifier="ViewControllerA" id="Wrb-OV-Apo" customClass="ViewControllerA" customModule="Portus_iOS_Demo2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oBE-tt-snC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="miA-ch-ltp">
+                                <rect key="frame" x="165.5" y="333" width="83" height="230"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-R8-1gk">
+                                        <rect key="frame" x="26.5" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="a"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="zyd-8U-ouI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-U4-feo">
+                                        <rect key="frame" x="26.5" y="50" width="30" height="30"/>
+                                        <state key="normal" title="b"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="Eh9-X6-buz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-g5-bOK">
+                                        <rect key="frame" x="26.5" y="100" width="30" height="30"/>
+                                        <state key="normal" title="c"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="reD-3C-CD1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-6i-rGV">
+                                        <rect key="frame" x="26.5" y="150" width="30" height="30"/>
+                                        <state key="normal" title="d"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="PZg-N8-MQW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhC-G7-uCF">
+                                        <rect key="frame" x="0.0" y="200" width="83" height="30"/>
+                                        <state key="normal" title="destination1"/>
+                                        <connections>
+                                            <action selector="destination1Triggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="gjR-Jf-cch"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-PT-1Z5">
+                                <rect key="frame" x="0.0" y="239" width="414" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="miA-ch-ltp" firstAttribute="centerY" secondItem="oBE-tt-snC" secondAttribute="centerY" id="9dm-6L-RYi"/>
+                            <constraint firstItem="I7e-HC-mmV" firstAttribute="trailing" secondItem="DpW-PT-1Z5" secondAttribute="trailing" id="JVj-Ex-Ctv"/>
+                            <constraint firstItem="miA-ch-ltp" firstAttribute="top" secondItem="DpW-PT-1Z5" secondAttribute="bottom" constant="40" id="JkN-N4-p0o"/>
+                            <constraint firstItem="miA-ch-ltp" firstAttribute="centerX" secondItem="oBE-tt-snC" secondAttribute="centerX" id="XdF-o8-Ouq"/>
+                            <constraint firstItem="DpW-PT-1Z5" firstAttribute="leading" secondItem="I7e-HC-mmV" secondAttribute="leading" id="YdJ-1M-1PD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I7e-HC-mmV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oES-rk-bbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="154"/>
+        </scene>
+    </scenes>
+</document>

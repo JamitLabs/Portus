@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View ControllerC-->
+        <scene sceneID="nvx-qc-WvI">
+            <objects>
+                <viewController storyboardIdentifier="ViewControllerC" id="Yq4-sY-PZ4" customClass="ViewControllerC" customModule="Portus_iOS_Demo2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ikN-NN-GEO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QqY-M3-jU5">
+                                <rect key="frame" x="192" y="358" width="30" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-6s-OqW">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="a"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Yq4-sY-PZ4" eventType="touchUpInside" id="myf-ee-UhZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lli-ST-0yO">
+                                        <rect key="frame" x="0.0" y="50" width="30" height="30"/>
+                                        <state key="normal" title="b"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Yq4-sY-PZ4" eventType="touchUpInside" id="Nmc-WX-zjj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AF-za-GHX">
+                                        <rect key="frame" x="0.0" y="100" width="30" height="30"/>
+                                        <state key="normal" title="c"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Yq4-sY-PZ4" eventType="touchUpInside" id="KGO-1x-qV4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ein-SG-4Mo">
+                                        <rect key="frame" x="0.0" y="150" width="30" height="30"/>
+                                        <state key="normal" title="d"/>
+                                        <connections>
+                                            <action selector="buttonTriggered:" destination="Yq4-sY-PZ4" eventType="touchUpInside" id="0XO-Px-STI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOp-O1-n82">
+                                <rect key="frame" x="0.0" y="264" width="414" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JOp-O1-n82" secondAttribute="trailing" id="DOa-kx-UUS"/>
+                            <constraint firstItem="QqY-M3-jU5" firstAttribute="top" secondItem="JOp-O1-n82" secondAttribute="bottom" constant="40" id="izI-5u-CiS"/>
+                            <constraint firstItem="QqY-M3-jU5" firstAttribute="centerY" secondItem="ikN-NN-GEO" secondAttribute="centerY" id="pLG-A9-cB1"/>
+                            <constraint firstItem="JOp-O1-n82" firstAttribute="leading" secondItem="ikN-NN-GEO" secondAttribute="leading" id="sGW-Ag-FPZ"/>
+                            <constraint firstItem="QqY-M3-jU5" firstAttribute="centerX" secondItem="ikN-NN-GEO" secondAttribute="centerX" id="wlR-rJ-Nmc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="czi-rv-j32"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AcT-EB-2Eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="178"/>
+        </scene>
+    </scenes>
+</document>
