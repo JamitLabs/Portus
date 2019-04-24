@@ -29,19 +29,23 @@ extension SecondTabViewController: Enterable {
     func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch entry.identifier {
         case .a:
-            let vcA = UIStoryboard(name: "ViewControllerA", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerA") as! ViewControllerA
+            let vcA = UIStoryboard(name: "ViewControllerA", bundle: nil)
+                .instantiateViewController(withIdentifier: "ViewControllerA") as! ViewControllerA
             present(vcA, animated: true) { RoutingTree.default.didEnterNode(withEntry: vcA.entry); completion(true) }
 
         case .b:
-            let vcB = UIStoryboard(name: "ViewControllerB", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerB") as! ViewControllerB
+            let vcB = UIStoryboard(name: "ViewControllerB", bundle: nil)
+                .instantiateViewController(withIdentifier: "ViewControllerB") as! ViewControllerB
             present(vcB, animated: true) { RoutingTree.default.didEnterNode(withEntry: vcB.entry); completion(true) }
 
         case .c:
-            let vcC = UIStoryboard(name: "ViewControllerC", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerC") as! ViewControllerC
+            let vcC = UIStoryboard(name: "ViewControllerC", bundle: nil)
+                .instantiateViewController(withIdentifier: "ViewControllerC") as! ViewControllerC
             present(vcC, animated: true) { RoutingTree.default.didEnterNode(withEntry: vcC.entry); completion(true) }
 
         case .d:
-            let vcD = UIStoryboard(name: "ViewControllerD", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerD") as! ViewControllerD
+            let vcD = UIStoryboard(name: "ViewControllerD", bundle: nil)
+                .instantiateViewController(withIdentifier: "ViewControllerD") as! ViewControllerD
             present(vcD, animated: true) { RoutingTree.default.didEnterNode(withEntry: vcD.entry); completion(true) }
 
         default:

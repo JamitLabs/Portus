@@ -15,19 +15,22 @@ extension RoutingIdentifier {
 
 class ThirdTabViewController: UIPageViewController {
     private lazy var firstPageViewController: PageAViewController = {
-        let vcA = UIStoryboard(name: "PageAViewController", bundle: nil).instantiateViewController(withIdentifier: "PageAViewController") as! PageAViewController
+        let vcA = UIStoryboard(name: "PageAViewController", bundle: nil)
+            .instantiateViewController(withIdentifier: "PageAViewController") as! PageAViewController
         vcA.view.backgroundColor = .brown
         return vcA
     }()
 
     private lazy var secondPageViewController: PageBViewController = {
-        let vcB = UIStoryboard(name: "PageBViewController", bundle: nil).instantiateViewController(withIdentifier: "PageBViewController") as! PageBViewController
+        let vcB = UIStoryboard(name: "PageBViewController", bundle: nil)
+            .instantiateViewController(withIdentifier: "PageBViewController") as! PageBViewController
         vcB.view.backgroundColor = .brown
         return vcB
     }()
 
     private lazy var thirdPageViewController: PageCViewController = {
-        let vcC = UIStoryboard(name: "PageCViewController", bundle: nil).instantiateViewController(withIdentifier: "PageCViewController") as! PageCViewController
+        let vcC = UIStoryboard(name: "PageCViewController", bundle: nil)
+            .instantiateViewController(withIdentifier: "PageCViewController") as! PageCViewController
         vcC.view.backgroundColor = .brown
         return vcC
     }()
@@ -49,7 +52,10 @@ class ThirdTabViewController: UIPageViewController {
 
 // MARK: - UIPageViewControllerDataSource
 extension ThirdTabViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
         guard
             let index = pages.firstIndex(of: viewController),
             pages.indices.contains(index - 1)
@@ -60,7 +66,10 @@ extension ThirdTabViewController: UIPageViewControllerDataSource {
         return pages[index - 1]
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController
+    ) -> UIViewController? {
         guard
             let index = pages.firstIndex(of: viewController),
             pages.indices.contains(index + 1)

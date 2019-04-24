@@ -110,8 +110,8 @@
 		3840627E226E462600B11DA5 /* PageC */ = {
 			isa = PBXGroup;
 			children = (
-				3840627F226E464400B11DA5 /* PageCViewController.storyboard */,
 				38406285226E469800B11DA5 /* PageCViewController.swift */,
+				3840627F226E464400B11DA5 /* PageCViewController.storyboard */,
 			);
 			path = PageC;
 			sourceTree = "<group>";

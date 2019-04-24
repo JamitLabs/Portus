@@ -10,7 +10,7 @@ import Foundation
 import Portus
 
 extension RoutingTable.StaticEntries {
-    static let destination1: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b, .b, .a, .a, .c, .a, .b].entries
+    static let destination1: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b, .a].entries
     static let destination2: StaticRoutingDestination = [.root, .favorites, .pageB, .c, .a, .c].entries
 }
 
