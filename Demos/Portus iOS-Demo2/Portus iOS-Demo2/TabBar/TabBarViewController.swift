@@ -44,6 +44,12 @@ class TabBarViewController: UITabBarController {
 
         RoutingTree.default.didEnterNode(withEntry: entry)
     }
+
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            RoutingMenu.showMenu()
+        }
+    }
 }
 
 // MARK: - UITabBarControllerDelegate
@@ -80,7 +86,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
 extension TabBarViewController: Switchable {
     func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void)) {
         switch entry.identifier {
-        case .bookmarks:
+        case .firstTab:
             selectedViewController = firstTabNavController
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: firstTabController.entry)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
@@ -90,7 +96,7 @@ extension TabBarViewController: Switchable {
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: secondTabController.entry)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
 
-        case .favorites:
+        case .thirdTab:
             selectedViewController = thirdTabNavController
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: thirdTabController.entry)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }

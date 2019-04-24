@@ -10,7 +10,7 @@ import Portus
 import UIKit
 
 extension RoutingIdentifier {
-    static let favorites = RoutingIdentifier(rawValue: "favorites")
+    static let thirdTab = RoutingIdentifier(rawValue: "thirdTab")
 }
 
 class ThirdTabViewController: UIPageViewController {
@@ -102,7 +102,7 @@ extension ThirdTabViewController: UIPageViewControllerDelegate {
 extension ThirdTabViewController: Routable {
     var entry: RoutingEntry {
         return RoutingEntry(
-            identifier: .favorites,
+            identifier: .thirdTab,
             routable: self,
             managedEntries: RoutingEntry.ManagedEntries(
                 entries: pages.map { ($0 as! Routable).entry },

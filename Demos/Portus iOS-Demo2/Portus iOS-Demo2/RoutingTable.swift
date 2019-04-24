@@ -10,8 +10,15 @@ import Foundation
 import Portus
 
 extension RoutingTable.StaticEntries {
-    static let destination1: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b, .a].entries
-    static let destination2: StaticRoutingDestination = [.root, .favorites, .pageB, .c, .a, .c].entries
+    static let root_FirstTab: StaticRoutingDestination = [.root, .firstTab].entries
+    static let root_SecondTab: StaticRoutingDestination = [.root, .secondTab].entries
+    static let root_ThirdTab: StaticRoutingDestination = [.root, .thirdTab].entries
+    static let root_SecondTab_A_B_C_D_D: StaticRoutingDestination = [.root, .secondTab, .a, .b, .c, .d, .d].entries
+    static let root_SecondTab_B_C_A_C_B_A: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b, .a].entries
+    static let root_ThirdTab_PageB_C_A_C: StaticRoutingDestination = [.root, .thirdTab, .pageB, .c, .a, .c].entries
+    static let root_ThirdTab_PageA: StaticRoutingDestination = [.root, .thirdTab, .pageA].entries
+    static let root_ThirdTab_PageB: StaticRoutingDestination = [.root, .thirdTab, .pageB].entries
+    static let root_ThirdTab_PageC: StaticRoutingDestination = [.root, .thirdTab, .pageC].entries
 }
 
 extension RoutingTable.DynamicEntries {

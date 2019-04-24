@@ -10,7 +10,7 @@ import Portus
 import UIKit
 
 extension RoutingIdentifier {
-    static let bookmarks = RoutingIdentifier(rawValue: "bookmarks")
+    static let firstTab = RoutingIdentifier(rawValue: "firstTab")
 }
 
 class FirstTabViewController: UIViewController {
@@ -23,6 +23,6 @@ class FirstTabViewController: UIViewController {
 
 // MARK: - Routable
 extension FirstTabViewController: Routable {
-    var entry: RoutingEntry { return RoutingEntry(identifier: .bookmarks, routable: self) }
+    var entry: RoutingEntry { return RoutingEntry(identifier: .firstTab, routable: self) }
 }
 

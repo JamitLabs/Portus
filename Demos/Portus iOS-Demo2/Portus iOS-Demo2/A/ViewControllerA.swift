@@ -19,10 +19,6 @@ class ViewControllerA: UIViewController {
 
         Router.default.enter(dynamicDestination: RoutingEntry(identifier: RoutingIdentifier(rawValue: title)))
     }
-
-    @IBAction func destination1Triggered(_ sender: Any) {
-        Router.default.routeTo(staticDestination: RoutingTable.StaticEntries.destination1)
-    }
 }
 
 // MARK: - Routable

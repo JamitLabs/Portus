@@ -19,47 +19,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="miA-ch-ltp">
-                                <rect key="frame" x="165.5" y="333" width="83" height="230"/>
+                                <rect key="frame" x="192" y="358" width="30" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-R8-1gk">
-                                        <rect key="frame" x="26.5" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="a"/>
                                         <connections>
                                             <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="zyd-8U-ouI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-U4-feo">
-                                        <rect key="frame" x="26.5" y="50" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="30" height="30"/>
                                         <state key="normal" title="b"/>
                                         <connections>
                                             <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="Eh9-X6-buz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hg0-g5-bOK">
-                                        <rect key="frame" x="26.5" y="100" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="30" height="30"/>
                                         <state key="normal" title="c"/>
                                         <connections>
                                             <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="reD-3C-CD1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-6i-rGV">
-                                        <rect key="frame" x="26.5" y="150" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="30" height="30"/>
                                         <state key="normal" title="d"/>
                                         <connections>
                                             <action selector="buttonTriggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="PZg-N8-MQW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhC-G7-uCF">
-                                        <rect key="frame" x="0.0" y="200" width="83" height="30"/>
-                                        <state key="normal" title="destination1"/>
-                                        <connections>
-                                            <action selector="destination1Triggered:" destination="Wrb-OV-Apo" eventType="touchUpInside" id="gjR-Jf-cch"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-PT-1Z5">
-                                <rect key="frame" x="0.0" y="239" width="414" height="54"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
