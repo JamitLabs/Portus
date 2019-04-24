@@ -24,8 +24,8 @@ class TabBarFlowController: InitialFlowController {
         }
     }
 
-    private lazy var tabBarController: UITabBarController = {
-        let tabBarController = UITabBarController()
+    private lazy var tabBarController: TabBarViewController = {
+        let tabBarController = TabBarViewController()
         tabBarController.delegate = self
         return tabBarController
     }()

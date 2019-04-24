@@ -65,6 +65,9 @@ extension RoutingTable.StaticEntries {
     static let cca = [.root, .bookmarks, .c, .c, .a].entries
     static let ccb = [.root, .bookmarks, .c, .c, .b].entries
     static let ccc = [.root, .bookmarks, .c, .c, .c].entries
+
+    static let abcaabbcc = [.root, .bookmarks, .a, .b, .c, .a, .a, .b, .b, .c, .c].entries
+    static let cabbc = [.root, .bookmarks, .c, .a, .b, .b, .c].entries
 }
 
 // Dynamic Routing Destinations

@@ -33,7 +33,7 @@
 		386EB1E6226E2C800021BBEE /* Portus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 386EB1E4226E2C800021BBEE /* Portus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		386EB1E9226E3A730021BBEE /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386EB1E8226E3A730021BBEE /* RoutingTable.swift */; };
 		38B1A77B2270C2F2003819D8 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1A77A2270C2F2003819D8 /* UIApplicationExtensions.swift */; };
-		38B1A77E2270C366003819D8 /* RoutingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1A77D2270C366003819D8 /* RoutingMenuViewController.swift */; };
+		38B1A77E2270C366003819D8 /* RoutingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1A77D2270C366003819D8 /* RoutingMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,7 +78,7 @@
 		386EB1E4226E2C800021BBEE /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		386EB1E8226E3A730021BBEE /* RoutingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTable.swift; sourceTree = "<group>"; };
 		38B1A77A2270C2F2003819D8 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
-		38B1A77D2270C366003819D8 /* RoutingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingMenuViewController.swift; sourceTree = "<group>"; };
+		38B1A77D2270C366003819D8 /* RoutingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +242,7 @@
 		38B1A77C2270C345003819D8 /* RoutingMenu */ = {
 			isa = PBXGroup;
 			children = (
-				38B1A77D2270C366003819D8 /* RoutingMenuViewController.swift */,
+				38B1A77D2270C366003819D8 /* RoutingMenu.swift */,
 			);
 			path = RoutingMenu;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 				386EB1D9226E1DFB0021BBEE /* ViewControllerC.swift in Sources */,
 				386EB1CC226E18420021BBEE /* ThirdTabViewController.swift in Sources */,
 				386EB1AF226E133D0021BBEE /* TabBarViewController.swift in Sources */,
-				38B1A77E2270C366003819D8 /* RoutingMenuViewController.swift in Sources */,
+				38B1A77E2270C366003819D8 /* RoutingMenu.swift in Sources */,
 				3840627A226E44BE00B11DA5 /* PageAViewController.swift in Sources */,
 				386EB1CF226E1CD90021BBEE /* ViewControllerA.swift in Sources */,
 				386EB1AD226E133D0021BBEE /* AppDelegate.swift in Sources */,
