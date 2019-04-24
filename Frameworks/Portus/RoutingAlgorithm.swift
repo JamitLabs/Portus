@@ -6,7 +6,13 @@
 import Foundation
 
 enum RoutingAlgorithm {
-    static func computeNextRoutingInstructions(
+    /// Routing algorithm computing the next chunk of routing instructions to a given destination.
+    ///
+    /// - Parameters:
+    ///     - destination: The destination to route to, defined as static entry within the `RoutingTable`.
+    ///     - completion: Called with the next chunk of routing instructions or an error that occured within routing.
+    ///                   An empty set of instructions indicates that the destination is reached.
+    static internal func computeNextRoutingInstructions(
         to destination: StaticRoutingDestination,
         completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
     ) {
@@ -43,7 +49,10 @@ enum RoutingAlgorithm {
                 return leavable.canLeaveNode(with: entry) ? .leave(entry: entry) : nil
             }
 
-            if let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1], switchNode.children.count > 1 {
+            if
+                let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1],
+                switchNode.children.count > 1
+            {
                 guard
                     switchNode.children.map({ $0.entry.identifier }).contains(destination[index].identifier)
                 else {

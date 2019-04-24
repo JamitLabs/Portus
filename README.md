@@ -32,18 +32,41 @@
 
 # Portus
 
-TODO: Summarize the project goals here.
+Portus provides an UIKit- and architecture independent routing framework that easily integrates with your iOS apps to enable enhanced features like in-app navigation or deeplinking.
 
 ## Installation
 
-Installing via [Carthage](https://github.com/Carthage/Carthage#carthage) & [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) are both supported.
+// TODO
 
-Support for SPM is currently not possible as this framework uses UIKit.
+## Overview
+
+Managing screenflow within an iOS application can quickly become complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions may enable navigation among multiple screens, dealing with hard-coded links suffers from the lack of context information that is mandatory for routing among screens. Portus tries to mitigate these issues by providing a defined framework for handling your apps' screenflow in a standardized way.
+
+Screens within an iOS application are arranged on a stack or presented in succession to provide different level of information. In addition, user interface components, like *navigation bars*, *tab bars* or *sliding menus* create different navigation paths, forming the app's navigation tree. Note that branching elements manage individual nodes, where each node corresponds to a screen within the application.
 
 ## Usage
 
-Please have a look at the UsageExamples.playground for a complete list of features provided.
-Open the Playground from within the `.xcworkspace` in order for it to work.
+Portus is based on three essential protocols, namely  `Enterable`, `Leavable` and `Switchable` that itself inherit form the `Routable` protocol.
+Individual objects of an application can conform to these protocols to state their routing capabilities and to define how individual nodes are entered, left or switched to:
+
+```
+protocol Routable: AnyObject {
+    var entry: RoutingEntry { get }
+}
+
+protocol Enterable: Routable {
+    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
+}
+
+protocol Leavable: Routable {
+    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void)
+    func canLeaveNode(with entry: RoutingEntry) -> Bool
+}
+
+protocol Switchable: Routable {
+    func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
+}
+```
 
 ---
 #### Features Overview

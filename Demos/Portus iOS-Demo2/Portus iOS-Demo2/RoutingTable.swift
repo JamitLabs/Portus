@@ -14,7 +14,7 @@ extension RoutingTable.StaticEntries {
     static let root_SecondTab: StaticRoutingDestination = [.root, .secondTab].entries
     static let root_ThirdTab: StaticRoutingDestination = [.root, .thirdTab].entries
     static let root_SecondTab_A_B_C_D_D: StaticRoutingDestination = [.root, .secondTab, .a, .b, .c, .d, .d].entries
-    static let root_SecondTab_B_C_A_C_B_A: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b, .a].entries
+    static let root_SecondTab_B_C_A_C_B_A: StaticRoutingDestination = [.root, .secondTab, .b, .c, .a, .c, .b].entries
     static let root_ThirdTab_PageB_C_A_C: StaticRoutingDestination = [.root, .thirdTab, .pageB, .c, .a, .c].entries
     static let root_ThirdTab_PageA: StaticRoutingDestination = [.root, .thirdTab, .pageA].entries
     static let root_ThirdTab_PageB: StaticRoutingDestination = [.root, .thirdTab, .pageB].entries

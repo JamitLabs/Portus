@@ -94,11 +94,11 @@ extension TabBarFlowController: Switchable {
         switch entry.identifier {
         case .colorList:
             selectedViewController = colorListFlowCtrl.tabViewController
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         case .bookmarks:
             selectedViewController = bookmarksTabFlowCtrl.tabViewController
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         default:
             completion(false)

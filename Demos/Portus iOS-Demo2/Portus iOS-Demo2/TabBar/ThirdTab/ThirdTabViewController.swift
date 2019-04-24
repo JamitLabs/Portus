@@ -122,7 +122,7 @@ extension ThirdTabViewController: Switchable {
                 withEntry: self.entry,
                 didSwitchToNodeWithEntry: firstPageViewController.entry
             )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         case .pageB:
             setViewControllers([secondPageViewController], direction: .forward, animated: false)
@@ -130,7 +130,7 @@ extension ThirdTabViewController: Switchable {
                 withEntry: self.entry,
                 didSwitchToNodeWithEntry: secondPageViewController.entry
             )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         case .pageC:
             setViewControllers([thirdPageViewController], direction: .forward, animated: false)
@@ -138,7 +138,7 @@ extension ThirdTabViewController: Switchable {
                 withEntry: self.entry,
                 didSwitchToNodeWithEntry: thirdPageViewController.entry
             )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         default:
             completion(false)

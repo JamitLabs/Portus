@@ -19,8 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EA-MS-5aG">
-                                <rect key="frame" x="192" y="433" width="30" height="30"/>
-                                <state key="normal" title="a"/>
+                                <rect key="frame" x="192" y="416.5" width="30" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="a">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="aTriggered:" destination="OWy-i2-Uzf" eventType="touchUpInside" id="n9V-3F-oQc"/>
                                 </connections>

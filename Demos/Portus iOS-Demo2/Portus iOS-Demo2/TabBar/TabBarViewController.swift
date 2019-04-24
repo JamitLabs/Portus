@@ -89,17 +89,17 @@ extension TabBarViewController: Switchable {
         case .firstTab:
             selectedViewController = firstTabNavController
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: firstTabController.entry)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         case .secondTab:
             selectedViewController = secondTabNavController
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: secondTabController.entry)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         case .thirdTab:
             selectedViewController = thirdTabNavController
             RoutingTree.default.switchNode(withEntry: self.entry, didSwitchToNodeWithEntry: thirdTabController.entry)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) }
+            animated ? DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { completion(true) } : completion(true)
 
         default:
             completion(false)
