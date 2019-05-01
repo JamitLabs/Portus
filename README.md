@@ -58,63 +58,125 @@ Finally, nodes are entered in different contexts. For instance, the background c
 
 ## Structure
 
-Portus is based on three protocols, namely  `Enterable`, `Leavable` and  `Switchable` that inherit from the `Routable` protocol.
-Individual objects of an application can conform to these protocols to state their routing capabilities and to define how individual nodes are entered, left or switched to:
+Portus uses three protocols, namely  `Enterable`, `Leavable` and  `Switchable` that inherit from the `Routable` protocol.
+Nodes can conform to these protocols and state their routing capabilities as well as whether they manage additional nodes.
 
+### Protocols
 
-Nodes within Portus are uniquely identified by a `RoutingEntry` that consists of a `RoutingId` combined with a `RoutingContext`. The context is necessary, sinceFor instance, it matters whether a detail screen that is capable of  to a detail page 
+#### `Routable`
 
-```
+Conforming to the `Routable` protocol is required to specify a node's structure. The protocol requires a `RoutingEntry` that consists of the `RoutingIdentifier` as well as the `RoutingContext` and whether additional nodes are managed by the node. The latter requires to also specify an `activeEntry` that represents the managed node that is currently active. Below you find the definition of the `Routable` protocol:
+
+```swift
 protocol Routable: AnyObject {
     var entry: RoutingEntry { get }
 }
+```
 
+#### `Enterable`
+
+In addition to `Routable`, nodes can state whether they can enter additional nodes using the `Enterable` protocol:
+
+```swift
 protocol Enterable: Routable {
-    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
-}
-
-protocol Leavable: Routable {
-    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -> Void)
-    func canLeaveNode(with entry: RoutingEntry) -> Bool
-}
-
-protocol Switchable: Routable {
-    func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -> Void))
+    func enterNode(
+        with entry: RoutingEntry, 
+        animated: Bool, 
+        completion: @escaping ((Bool) -> Void)
+    )
 }
 ```
 
-## Usage
+Enterables will receive the entry identifying the node to enter as well as wheter the entrance should be animated or not. Finally the node can indicate whether the entrance succeeded or failed by calling the completion. Note that calling the completion is mandatory.
 
----
-#### Features Overview
+#### `Leavable`
 
-- [Short Section](#short-section)
-- Sections Group
-- [SubSection1](#subsection1)
-- [SubSection2](#subsection2)
+ `Leavable` represents an additional routing capability. Routables conforming to this protocol can leave a node for a given entry. Similar to `Enterable` calling the completion is mandatory and notifies the routing framework whether the operation succeeded.
+ In addition, leavables can be asked whether they can leave a node for a given entry:
 
----
+```swift
+protocol Leavable: Routable {
+    func leaveNode(
+        with entry: RoutingEntry, 
+        animated: Bool, 
+        completion: @escaping (Bool) -> Void
+    )
+    func canLeaveNode(with entry: RoutingEntry) -> Bool
+}
+```
+
+#### `Switchable`
+
+Finally, nodes conforming to the `Switchable` protocol can determine one of their manage nodes to become active. Hence, nodes conforming to `Switchable` have to manage additional nodes.
+
+```swift
+protocol Switchable: Routable {
+    func switchToNode(
+        with entry: RoutingEntry, 
+        animated: Bool, 
+        completion: @escaping ((Bool) -> Void)
+    )
+}
+```
+
+Using above-stated protocols, nodes can be entered, left or become (in)active in a standardised way. Still, routing requires knowledge about the current state and hence requires a tree-based structure to keep track of the current screenflow. 
+
+### `RoutingTree`
+
+The `RoutingTree` is used by the `RoutingAlgorithm` to compute `RoutingInstructions` to either static or dynamic destinations. Note that the tree consists of individual nodes, where each  `RoutingNode` may contain children. Still only one of a node's children can be active at the same time. This characteristic is crucial to compute an `activePath` that corresponds to the origin any routing request will start from.
+
+The following operations can be performed on the `RoutingTree` and allow applications to provide information about when they enter, leave or switch to one of their managed nodes. This information is required by the `RoutingAlgorithm` to compute appropriate instructions to predefined destinations.
+
+```swift
+public func didEnterNode(withEntry entry: RoutingEntry)
+public func didLeaveNode(with entry: RoutingEntry)
+public func switchNode(
+    withEntry entry: RoutingEntry, 
+    didSwitchToNodeWithEntry targetEntry: RoutingEntry
+)
+```
+
+### `Router`
+
+The `Router` represents the main component of Portus and is used by applications to either request a route to a `StaticRoutingDestination`, i.e., a destination that is predefined in the `RoutingTable`, or to enter a `DynamicRoutingDestination`, i.e., a destination that does not depend on the current context and can be entered from everywhere. While *dynamic destinations* only consist of a single node, *static destinations* are represented by a list of nodes, where each list starts with the application's *root node*. Below you can find the signature of the operations as offered by the `Router`:
+
+```swift
+public func routeTo(
+    staticDestination: StaticRoutingDestination,
+    animated: Bool = true,
+    executedInstructions: RoutingInstructions = [],
+    completion: ((Result<RoutingInstructions, RoutingError>) -> Void)? = nil
+) {
+    ...
+}
+```
+
+```swift
+public func enter(
+    dynamicDestination entry: RoutingEntry, 
+    animated: Bool = true, 
+    completion: ((Bool) -> Void)? = nil
+) {
+    ...
+}
+```
+Note that both static- and dynamic destinations need to be predefined in the RoutingTable:
+
+```swift
+extension RoutingTable.StaticEntries {
+    ...
+}
+```
+
+```swift
+extension RoutingTable.DynamicEntries {
+    ...
+}
+```
 
 ## Installation
 
-// TODO
-
-### Short Section
-
-TODO: Add some usage information here.
-
-### Sections Group
-
-TODO: Summarize the section here.
-
-#### SubSection1
-
-TODO: Add some usage information here.
-
-#### SubSection2
-
-TODO: Add some usage information here.
-
+Installing via [Carthage](https://github.com/Carthage/Carthage#carthage) & [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) are both supported.
 
 ## Contributing
 
