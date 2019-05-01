@@ -32,22 +32,37 @@
 
 # Portus
 
-Portus provides an UIKit- and architecture independent routing framework that easily integrates with your iOS apps to enable enhanced features like in-app navigation or deeplinking.
+Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.
 
-## Installation
+## Motivation
 
-// TODO
+Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. *Portus* mitigate these issues and offers a defined framework for handling screenflow in a standardized way.
 
-## Overview
+Screens within iOS apps are arranged on a stack or presented in succession to provide different level of information. Combined with user interface components, like *sliding menus*, *navigation-* or *tab bars*, paths are established that form the app's navigation tree. Each node in the tree either corresponds to a screen within the application or a branch node that is respondible for managing individual nodes.
 
-Managing screenflow within an iOS application can quickly become complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions may enable navigation among multiple screens, dealing with hard-coded links suffers from the lack of context information that is mandatory for routing among screens. Portus tries to mitigate these issues by providing a defined framework for handling your apps' screenflow in a standardized way.
+## Goals and Requirements
 
-Screens within an iOS application are arranged on a stack or presented in succession to provide different level of information. In addition, user interface components, like *navigation bars*, *tab bars* or *sliding menus* create different navigation paths, forming the app's navigation tree. Note that branching elements manage individual nodes, where each node corresponds to a screen within the application.
+Development of this framework was driven by the following requirements:
 
-## Usage
+### UIKit-Independent:
 
-Portus is based on three essential protocols, namely  `Enterable`, `Leavable` and `Switchable` that itself inherit form the `Routable` protocol.
+First, the framework is designed to be independent of UIKit. This ensures that Portus does neither need to know about your app's view hierarchy nor about the relationship among view controllers. Rather the framework relies on a tree-based structure that consists of routing nodes, where each node states its routing capabilities by conforming to the `Enterable`, `Leavable` or `Switchable` protocol. Note that being independent of UIKit is crucial to meet the second requirement to be architectural independent.
+
+### Architectute-Independent:
+
+Second, Portus does not enforce an architectural pattern. Due to limitations of the *MVC* architecture, the community has come up with several alternatives, like *FlowControllers*, *Coordinators*, *MVVM*, *MVVM+RxSwift*. To seamlessly integrate with these architectures, we designed Portus to be architectural independent.
+
+### Context-Driven:
+
+Finally, nodes are entered in different contexts. For instance, the background color of a screen can differ depending on the value that is provided to the node. Hence, even though the requested node might already be open it might be necessary to reenter the node when the color value differs. With the combination of  `RoutingIdentifier` and `RoutingContext` nodes are uniquely identified.
+
+## Structure
+
+Portus is based on three protocols, namely  `Enterable`, `Leavable` and  `Switchable` that inherit from the `Routable` protocol.
 Individual objects of an application can conform to these protocols to state their routing capabilities and to define how individual nodes are entered, left or switched to:
+
+
+Nodes within Portus are uniquely identified by a `RoutingEntry` that consists of a `RoutingId` combined with a `RoutingContext`. The context is necessary, sinceFor instance, it matters whether a detail screen that is capable of  to a detail page 
 
 ```
 protocol Routable: AnyObject {
@@ -68,15 +83,21 @@ protocol Switchable: Routable {
 }
 ```
 
+## Usage
+
 ---
 #### Features Overview
 
 - [Short Section](#short-section)
 - Sections Group
-  - [SubSection1](#subsection1)
-  - [SubSection2](#subsection2)
+- [SubSection1](#subsection1)
+- [SubSection2](#subsection2)
 
 ---
+
+## Installation
+
+// TODO
 
 ### Short Section
 
