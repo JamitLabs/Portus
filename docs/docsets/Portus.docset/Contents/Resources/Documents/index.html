@@ -152,77 +152,120 @@
 </p>
 <h1 id='portus' class='heading'>Portus</h1>
 
-<p>Portus provides an UIKit- and architecture independent routing framework that easily integrates with your iOS apps to enable enhanced features like in-app navigation or deeplinking.</p>
+<p>Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.</p>
+<h2 id='motivation' class='heading'>Motivation</h2>
+
+<p>Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. <em>Portus</em> mitigate these issues and offers a defined framework for handling screenflow in a standardized way.</p>
+
+<p>Screens within iOS apps are arranged on a stack or presented in succession to provide different level of information. Combined with user interface components, like <em>sliding menus</em>, <em>navigation-</em> or <em>tab bars</em>, paths are established that form the app&rsquo;s navigation tree. Each node in the tree either corresponds to a screen within the application or a branch node that is respondible for managing individual nodes.</p>
+<h2 id='goals-and-requirements' class='heading'>Goals and Requirements</h2>
+
+<p>Development of this framework was driven by the following requirements:</p>
+<h3 id='uikit-independent' class='heading'>UIKit-Independent:</h3>
+
+<p>First, the framework is designed to be independent of UIKit. This ensures that Portus does neither need to know about your app&rsquo;s view hierarchy nor about the relationship among view controllers. Rather the framework relies on a tree-based structure that consists of routing nodes, where each node states its routing capabilities by conforming to the <code><a href="Protocols/Enterable.html">Enterable</a></code>, <code><a href="Protocols/Leavable.html">Leavable</a></code> or <code><a href="Protocols/Switchable.html">Switchable</a></code> protocol. Note that being independent of UIKit is crucial to meet the second requirement to be architectural independent.</p>
+<h3 id='architectute-independent' class='heading'>Architectute-Independent:</h3>
+
+<p>Second, Portus does not enforce an architectural pattern. Due to limitations of the <em>MVC</em> architecture, the community has come up with several alternatives, like <em>FlowControllers</em>, <em>Coordinators</em>, <em>MVVM</em>, <em>MVVM+RxSwift</em>. To seamlessly integrate with these architectures, we designed Portus to be architectural independent.</p>
+<h3 id='context-driven' class='heading'>Context-Driven:</h3>
+
+<p>Finally, nodes are entered in different contexts. For instance, the background color of a screen can differ depending on the value that is provided to the node. Hence, even though the requested node might already be open it might be necessary to reenter the node when the color value differs. With the combination of  <code><a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a></code> and <code><a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a></code> nodes are uniquely identified.</p>
+<h2 id='structure' class='heading'>Structure</h2>
+
+<p>Portus uses three protocols, namely  <code><a href="Protocols/Enterable.html">Enterable</a></code>, <code><a href="Protocols/Leavable.html">Leavable</a></code> and  <code><a href="Protocols/Switchable.html">Switchable</a></code> that inherit from the <code><a href="Protocols/Routable.html">Routable</a></code> protocol.
+Nodes can conform to these protocols and state their routing capabilities as well as whether they manage additional nodes.</p>
+<h3 id='protocols' class='heading'>Protocols</h3>
+<h4 id='code-routable-code' class='heading'><code><a href="Protocols/Routable.html">Routable</a></code></h4>
+
+<p>Conforming to the <code><a href="Protocols/Routable.html">Routable</a></code> protocol is required to specify a node&rsquo;s structure. The protocol requires a <code><a href="Classes/RoutingEntry.html">RoutingEntry</a></code> that consists of the <code><a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a></code> as well as the <code><a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a></code> and whether additional nodes are managed by the node. The latter requires to also specify an <code>activeEntry</code> that represents the managed node that is currently active. Below you find the definition of the <code><a href="Protocols/Routable.html">Routable</a></code> protocol:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Routable</span><span class="p">:</span> <span class="kt">AnyObject</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='code-enterable-code' class='heading'><code><a href="Protocols/Enterable.html">Enterable</a></code></h4>
+
+<p>In addition to <code><a href="Protocols/Routable.html">Routable</a></code>, nodes can state whether they can enter additional nodes using the <code><a href="Protocols/Enterable.html">Enterable</a></code> protocol:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Enterable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">enterNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Enterables will receive the entry identifying the node to enter as well as wheter the entrance should be animated or not. Finally the node can indicate whether the entrance succeeded or failed by calling the completion. Note that calling the completion is mandatory.</p>
+<h4 id='code-leavable-code' class='heading'><code><a href="Protocols/Leavable.html">Leavable</a></code></h4>
+
+<p><code><a href="Protocols/Leavable.html">Leavable</a></code> represents an additional routing capability. Routables conforming to this protocol can leave a node for a given entry. Similar to <code><a href="Protocols/Enterable.html">Enterable</a></code> calling the completion is mandatory and notifies the routing framework whether the operation succeeded.
+ In addition, leavables can be asked whether they can leave a node for a given entry:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Leavable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">leaveNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">canLeaveNode</span><span class="p">(</span><span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='code-switchable-code' class='heading'><code><a href="Protocols/Switchable.html">Switchable</a></code></h4>
+
+<p>Finally, nodes conforming to the <code><a href="Protocols/Switchable.html">Switchable</a></code> protocol can determine one of their manage nodes to become active. Hence, nodes conforming to <code><a href="Protocols/Switchable.html">Switchable</a></code> have to manage additional nodes.</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Switchable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">switchToNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Using above-stated protocols, nodes can be entered, left or become (in)active in a standardised way. Still, routing requires knowledge about the current state and hence requires a tree-based structure to keep track of the current screenflow. </p>
+<h3 id='code-routingtree-code' class='heading'><code><a href="Classes/RoutingTree.html">RoutingTree</a></code></h3>
+
+<p>The <code><a href="Classes/RoutingTree.html">RoutingTree</a></code> is used by the <code>RoutingAlgorithm</code> to compute <code><a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></code> to either static or dynamic destinations. Note that the tree consists of individual nodes, where each  <code>RoutingNode</code> may contain children. Still only one of a node&rsquo;s children can be active at the same time. This characteristic is crucial to compute an <code>activePath</code> that corresponds to the origin any routing request will start from.</p>
+
+<p>The following operations can be performed on the <code><a href="Classes/RoutingTree.html">RoutingTree</a></code> and allow applications to provide information about when they enter, leave or switch to one of their managed nodes. This information is required by the <code>RoutingAlgorithm</code> to compute appropriate instructions to predefined destinations.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">didEnterNode</span><span class="p">(</span><span class="n">withEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">didLeaveNode</span><span class="p">(</span><span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">switchNode</span><span class="p">(</span>
+    <span class="n">withEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+    <span class="n">didSwitchToNodeWithEntry</span> <span class="nv">targetEntry</span><span class="p">:</span> <span class="kt">RoutingEntry</span>
+<span class="p">)</span>
+</code></pre>
+<h3 id='code-router-code' class='heading'><code><a href="Classes/Router.html">Router</a></code></h3>
+
+<p>The <code><a href="Classes/Router.html">Router</a></code> represents the main component of Portus and is used by applications to either request a route to a <code><a href="Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a></code>, i.e., a destination that is predefined in the <code><a href="Enums/RoutingTable.html">RoutingTable</a></code>, or to enter a <code><a href="Typealiases.html#/s:6Portus25DynamicRoutingDestinationa">DynamicRoutingDestination</a></code>, i.e., a destination that does not depend on the current context and can be entered from everywhere. While <em>dynamic destinations</em> only consist of a single node, <em>static destinations</em> are represented by a list of nodes, where each list starts with the application&rsquo;s <em>root node</em>. Below you can find the signature of the operations as offered by the <code><a href="Classes/Router.html">Router</a></code>:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">routeTo</span><span class="p">(</span>
+    <span class="nv">staticDestination</span><span class="p">:</span> <span class="kt">StaticRoutingDestination</span><span class="p">,</span>
+    <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nv">executedInstructions</span><span class="p">:</span> <span class="kt">RoutingInstructions</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">RoutingInstructions</span><span class="p">,</span> <span class="kt">RoutingError</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">enter</span><span class="p">(</span>
+    <span class="n">dynamicDestination</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+    <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Note that both static- and dynamic destinations need to be predefined in the RoutingTable:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">RoutingTable</span><span class="o">.</span><span class="kt">StaticEntries</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">RoutingTable</span><span class="o">.</span><span class="kt">DynamicEntries</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
 <h2 id='installation' class='heading'>Installation</h2>
 
-<p>// TODO</p>
-<h2 id='overview' class='heading'>Overview</h2>
-
-<p>Managing screenflow within an iOS application can quickly become complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions may enable navigation among multiple screens, dealing with hard-coded links suffers from the lack of context information that is mandatory for routing among screens. Portus tries to mitigate these issues by providing a defined framework for handling your apps&rsquo; screenflow in a standardized way.</p>
-
-<p>Screens within an iOS application are arranged on a stack or presented in succession to provide different level of information. In addition, user interface components, like <em>navigation bars</em>, <em>tab bars</em> or <em>sliding menus</em> create different navigation paths, forming the app&rsquo;s navigation tree. Note that branching elements manage individual nodes, where each node corresponds to a screen within the application.</p>
-<h2 id='usage' class='heading'>Usage</h2>
-
-<p>Portus is based on three essential protocols, namely  <code><a href="Protocols/Enterable.html">Enterable</a></code>, <code><a href="Protocols/Leavable.html">Leavable</a></code> and <code><a href="Protocols/Switchable.html">Switchable</a></code> that itself inherit form the <code><a href="Protocols/Routable.html">Routable</a></code> protocol.
-Individual objects of an application can conform to these protocols to state their routing capabilities and to define how individual nodes are entered, left or switched to:</p>
-<pre class="highlight plaintext"><code>protocol Routable: AnyObject {
-    var entry: RoutingEntry { get }
-}
-
-protocol Enterable: Routable {
-    func enterNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -&gt; Void))
-}
-
-protocol Leavable: Routable {
-    func leaveNode(with entry: RoutingEntry, animated: Bool, completion: @escaping (Bool) -&gt; Void)
-    func canLeaveNode(with entry: RoutingEntry) -&gt; Bool
-}
-
-protocol Switchable: Routable {
-    func switchToNode(with entry: RoutingEntry, animated: Bool, completion: @escaping ((Bool) -&gt; Void))
-}
-</code></pre>
-
-<p>Please have a look at the UsageExamples.playground for a complete list of features provided.
-Open the Playground from within the <code>.xcworkspace</code> in order for it to work.</p>
-
-<p>Portus follows the three main goals:</p>
-
-<ul>
-<li>*
-*</li>
-</ul>
-<pre class="highlight plaintext"><code>func viewDidLoad() {
-
-}
-</code></pre>
-
-<hr>
-<h4 id='features-overview' class='heading'>Features Overview</h4>
-
-<ul>
-<li><a href="#short-section">Short Section</a></li>
-<li>Sections Group
-
-<ul>
-<li><a href="#subsection1">SubSection1</a></li>
-<li><a href="#subsection2">SubSection2</a></li>
-</ul></li>
-</ul>
-
-<hr>
-<h3 id='short-section' class='heading'>Short Section</h3>
-
-<p>TODO: Add some usage information here.</p>
-<h3 id='sections-group' class='heading'>Sections Group</h3>
-
-<p>TODO: Summarize the section here.</p>
-<h4 id='subsection1' class='heading'>SubSection1</h4>
-
-<p>TODO: Add some usage information here.</p>
-<h4 id='subsection2' class='heading'>SubSection2</h4>
-
-<p>TODO: Add some usage information here.</p>
+<p>Installing via <a href="https://github.com/Carthage/Carthage#carthage">Carthage</a> &amp; <a href="https://guides.cocoapods.org/using/getting-started.html">CocoaPods</a> are both supported.</p>
 <h2 id='contributing' class='heading'>Contributing</h2>
 
 <p>See the file <a href="https://github.com/JamitLabs/MungoHealer/blob/stable/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
@@ -233,8 +276,8 @@ Open the Playground from within the <code>.xcworkspace</code> in order for it to
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/JamitLabs/Portus" target="_blank" rel="external">Cihat Gündüz</a>. All rights reserved. (Last updated: 2019-04-24)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/JamitLabs/Portus" target="_blank" rel="external">Cihat Gündüz</a>. All rights reserved. (Last updated: 2019-07-01)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
