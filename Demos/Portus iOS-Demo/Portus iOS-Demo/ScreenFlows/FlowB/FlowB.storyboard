@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FlowB View Controller-->
+        <scene sceneID="h7T-FO-VnB">
+            <objects>
+                <viewController storyboardIdentifier="FlowBViewController" id="Ndl-xB-7ri" customClass="FlowBViewController" customModule="Portus_iOS_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8Q-Je-q0k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flow B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEC-BN-ycs">
+                                <rect key="frame" x="150" y="328" width="75" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3gr-LJ-7Bf">
+                                <rect key="frame" x="4" y="505" width="367" height="158"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-35-tOe">
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1i-0d-EcJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Flow A"/>
+                                                <connections>
+                                                    <action selector="modalFlowA" destination="Ndl-xB-7ri" eventType="touchUpInside" id="tcS-nA-FzO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-98-DvZ">
+                                                <rect key="frame" x="78" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Flow B"/>
+                                                <connections>
+                                                    <action selector="modalFlowB" destination="Ndl-xB-7ri" eventType="touchUpInside" id="o9Z-Qk-cmG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue0-OY-bP7">
+                                                <rect key="frame" x="155.5" y="0.0" width="47" height="30"/>
+                                                <state key="normal" title="Flow C"/>
+                                                <connections>
+                                                    <action selector="modalFlowC" destination="Ndl-xB-7ri" eventType="touchUpInside" id="Z24-3o-pPD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MK-X9-ATZ">
+                                                <rect key="frame" x="223.5" y="0.0" width="66" height="30"/>
+                                                <state key="normal" title="#2D376C"/>
+                                                <connections>
+                                                    <action selector="didTriggerColorButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="rXI-Gp-AvH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QI-X4-2c8">
+                                                <rect key="frame" x="302" y="0.0" width="65" height="30"/>
+                                                <state key="normal" title="#78E82D"/>
+                                                <connections>
+                                                    <action selector="didTriggerColorButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="w4T-C1-ang"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BZz-QJ-eeJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XQt-j9-Zag">
+                                        <rect key="frame" x="0.0" y="32" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngh-YC-Qaa">
+                                                <rect key="frame" x="0.0" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="kXj-8F-fBl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNx-V2-LXf">
+                                                <rect key="frame" x="31" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="B"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="O96-4X-FyK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jG9-eY-E51">
+                                                <rect key="frame" x="62" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="C"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="IxR-be-rda"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umk-1W-PRH">
+                                                <rect key="frame" x="93" y="0.0" width="26.5" height="30"/>
+                                                <state key="normal" title="AA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="jyf-bW-Jxj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knh-AB-qdP">
+                                                <rect key="frame" x="123.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="AB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="fSe-Rs-1fp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80K-gP-82N">
+                                                <rect key="frame" x="154.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="AC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="LL2-KN-yxI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5me-jv-GRx">
+                                                <rect key="frame" x="185.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="xLo-cC-f5E"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLi-H0-Ps2">
+                                                <rect key="frame" x="216.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="CZ3-yD-u3V"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlX-Pb-tzr">
+                                                <rect key="frame" x="247.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="7uu-s3-BhO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf2-g1-PYx">
+                                                <rect key="frame" x="278.5" y="0.0" width="26.5" height="30"/>
+                                                <state key="normal" title="CA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="wGs-hR-iud"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhS-bj-RwV">
+                                                <rect key="frame" x="309" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="CB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="rHr-vf-vOX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wj-Zp-3jO">
+                                                <rect key="frame" x="340" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="CC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="AxZ-Q3-hmz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-pq-jYg">
+                                        <rect key="frame" x="0.0" y="64" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSD-fX-0y5">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="AAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="i3t-pG-7hm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfy-e0-KMP">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="AAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="60x-Sj-QM5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-Qu-Bty">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="AAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="pau-u9-J8o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfn-aI-sGJ">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ABA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="mxA-VE-UFx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRy-Jv-oFb">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ABB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="FA2-vc-ige"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPK-Ze-0Dy">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ABC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="Usf-g4-XzC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buz-gW-gPV">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ACA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="RNb-mw-Dis"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgN-KT-Yxj">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ACB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="4pX-iT-5qw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOX-ar-qtw">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ACC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="s9Q-0R-yYZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pij-8h-3h0">
+                                        <rect key="frame" x="0.0" y="96" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-PA-fYw">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="IE9-bO-mRP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQ3-jl-vQn">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="xhe-fx-UgR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eap-6g-nOo">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="27a-AL-xic"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D50-dd-yAq">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BBA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="uLL-Gh-5LD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7T-2V-kqn">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BBB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="vW8-ju-Kw2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-UX-3zE">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BBC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="qKS-L3-a0W"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyC-Et-3om">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BCA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="enf-x0-oA9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-qg-hYA">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BCB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="ain-jT-j0f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gK-xY-Ssp">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BCC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="AyA-fE-Ru6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="D2c-Cg-teM">
+                                        <rect key="frame" x="0.0" y="128" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ea-pS-gCi">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="wAD-fL-GNu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ7-1B-AiT">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="Udw-hG-b22"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEb-dy-Ts6">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="V9R-yr-BY4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G80-Hy-Eey">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CBA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="GSu-p6-Fh6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgG-qP-PHQ">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CBB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="cjb-4J-mzE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX3-iY-IYt">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CBC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="zHs-gK-Nav"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eT-DP-qAb">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CCA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="xlU-YM-a2a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqK-BX-Pho">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CCB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="aIc-bi-Bnn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCI-Go-fA9">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CCC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="Ndl-xB-7ri" eventType="touchUpInside" id="J1N-zR-ltW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CXa-SA-nR1">
+                                <rect key="frame" x="16" y="40" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="R46-kn-pYy"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="animated"/>
+                                    <segment title="notAnimated"/>
+                                </segments>
+                                <connections>
+                                    <action selector="animationExtentValueChanged" destination="Ndl-xB-7ri" eventType="primaryActionTriggered" id="LLC-89-DHO"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-We-NVk">
+                                <rect key="frame" x="16" y="87" width="343" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="DRB-54-bFq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CXa-SA-nR1" firstAttribute="top" secondItem="InI-pj-KLc" secondAttribute="top" constant="20" id="7hd-WN-pRH"/>
+                            <constraint firstItem="CXa-SA-nR1" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="Cvi-lC-cYl"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="5yD-We-NVk" secondAttribute="trailing" constant="16" id="DOk-iv-buV"/>
+                            <constraint firstItem="HEC-BN-ycs" firstAttribute="centerX" secondItem="InI-pj-KLc" secondAttribute="centerX" id="HKL-Nf-dPX"/>
+                            <constraint firstItem="5yD-We-NVk" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="16" id="JL3-Cc-WCB"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="bottom" secondItem="3gr-LJ-7Bf" secondAttribute="bottom" constant="4" id="NDG-tt-YYo"/>
+                            <constraint firstItem="5yD-We-NVk" firstAttribute="top" secondItem="CXa-SA-nR1" secondAttribute="bottom" constant="20" id="Xyo-yV-obt"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="3gr-LJ-7Bf" secondAttribute="trailing" constant="4" id="YoS-v9-yfk"/>
+                            <constraint firstItem="HEC-BN-ycs" firstAttribute="centerY" secondItem="InI-pj-KLc" secondAttribute="centerY" id="g1J-gb-RGQ"/>
+                            <constraint firstItem="InI-pj-KLc" firstAttribute="trailing" secondItem="CXa-SA-nR1" secondAttribute="trailing" constant="16" id="oCW-Ma-402"/>
+                            <constraint firstItem="3gr-LJ-7Bf" firstAttribute="leading" secondItem="InI-pj-KLc" secondAttribute="leading" constant="4" id="wtP-MT-PAE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="InI-pj-KLc"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationExtentSegmentedControl" destination="CXa-SA-nR1" id="gZ0-ZT-cfu"/>
+                        <outlet property="currentPathLabel" destination="5yD-We-NVk" id="L6R-vg-Y7J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9U-b1-ABN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.4" y="100.29985007496252"/>
+        </scene>
+    </scenes>
+</document>

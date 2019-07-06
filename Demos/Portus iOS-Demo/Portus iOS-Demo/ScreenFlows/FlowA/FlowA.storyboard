@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FlowA View Controller-->
+        <scene sceneID="G32-dL-0ba">
+            <objects>
+                <viewController storyboardIdentifier="FlowAViewController" id="wTP-Wt-jdE" customClass="FlowAViewController" customModule="Portus_iOS_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gPX-Vb-4Bf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flow A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a40-SF-s4V">
+                                <rect key="frame" x="150" y="328" width="75.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UBc-EF-Nn2">
+                                <rect key="frame" x="4" y="505" width="367" height="158"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pEI-nt-IhL">
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8E-Ij-pLw">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Flow A"/>
+                                                <connections>
+                                                    <action selector="modalFlowA" destination="wTP-Wt-jdE" eventType="primaryActionTriggered" id="aZq-7x-WkN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA0-Gm-6j4">
+                                                <rect key="frame" x="78" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Flow B"/>
+                                                <connections>
+                                                    <action selector="modalFlowB" destination="wTP-Wt-jdE" eventType="primaryActionTriggered" id="z4i-rt-Wyv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOt-ib-LsV">
+                                                <rect key="frame" x="155.5" y="0.0" width="47" height="30"/>
+                                                <state key="normal" title="Flow C"/>
+                                                <connections>
+                                                    <action selector="modalFlowC" destination="wTP-Wt-jdE" eventType="touchUpInside" id="SYO-mV-wys"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vT6-vv-HAy">
+                                                <rect key="frame" x="223.5" y="0.0" width="66" height="30"/>
+                                                <state key="normal" title="#2D376C"/>
+                                                <connections>
+                                                    <action selector="didTriggerColorButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="jtG-S9-pLq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zor-CV-igW">
+                                                <rect key="frame" x="302" y="0.0" width="65" height="30"/>
+                                                <state key="normal" title="#78E82D"/>
+                                                <connections>
+                                                    <action selector="didTriggerColorButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="TIf-XV-cDP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="q6V-CQ-esC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gaJ-eY-4VL">
+                                        <rect key="frame" x="0.0" y="32" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-Rs-OlE">
+                                                <rect key="frame" x="0.0" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="A"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="cWs-XW-n9E"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kF-8A-1K6">
+                                                <rect key="frame" x="31" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="B"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="r1h-ug-RrM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE9-eW-NNO">
+                                                <rect key="frame" x="62" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="C"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="ysi-Hz-YHe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amb-nE-bDa">
+                                                <rect key="frame" x="93" y="0.0" width="26.5" height="30"/>
+                                                <state key="normal" title="AA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="e3X-dz-0rj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atS-HD-gOI">
+                                                <rect key="frame" x="123.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="AB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="jzq-2i-eSP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYd-Qy-lDm">
+                                                <rect key="frame" x="154.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="AC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="ZWg-LP-pFY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXg-bc-b5x">
+                                                <rect key="frame" x="185.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="pZF-Hn-ozT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DZ-hI-q3r">
+                                                <rect key="frame" x="216.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="pk6-vH-Xwi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vM-5B-pBY">
+                                                <rect key="frame" x="247.5" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="BC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="kK8-XQ-b7o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-Pn-GQV">
+                                                <rect key="frame" x="278.5" y="0.0" width="26.5" height="30"/>
+                                                <state key="normal" title="CA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="peC-M0-99Y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRi-I3-gJs">
+                                                <rect key="frame" x="309" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="CB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="yLP-0O-cw0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fih-Bt-Rsq">
+                                                <rect key="frame" x="340" y="0.0" width="27" height="30"/>
+                                                <state key="normal" title="CC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="01C-KJ-Yul"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IzN-cw-bNv">
+                                        <rect key="frame" x="0.0" y="64" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-2L-Bg2">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="AAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="cex-cM-EfS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIx-AF-EGd">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="AAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="q10-51-VNN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3K-1r-II8">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="AAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="zaI-Ri-VYe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-tY-edb">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ABA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="fcM-Rj-1je"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFS-CO-Tso">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ABB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="9N7-UZ-30f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-fa-SRK">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ABC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="Kfb-JM-Qrk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp0-2p-qmJ">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ACA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="lyI-IU-kKN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e31-xy-XqU">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="ACB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="IUO-h8-IPf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5y-A5-RdF">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="ACC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="OSy-Dr-pdr"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yzw-XC-eqv">
+                                        <rect key="frame" x="0.0" y="96" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18u-wn-dvs">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="Nac-lk-6uF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-D2-Cqz">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="mk9-sM-6c0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSo-sC-9Z5">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="WRz-Zs-gn3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XS-7e-VoV">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BBA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="7Sw-2e-B9C"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-G9-hcq">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BBB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="icM-Rd-9Ci"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86U-yC-t4H">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BBC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="eui-uY-x1M"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5y-O6-3qm">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BCA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="Gv9-TC-um1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHa-4d-2gs">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="BCB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="kiG-aj-ZLw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXF-TX-dKT">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="BCC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="jRI-hl-HwQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cLy-rq-3Rs">
+                                        <rect key="frame" x="0.0" y="128" width="367" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjd-qP-3l6">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CAA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="5WD-ij-FQD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dh-Sv-CqR">
+                                                <rect key="frame" x="41" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CAB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="Vs9-aa-QyT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C7-If-GaR">
+                                                <rect key="frame" x="82.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CAC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="7RS-Gv-A0a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeT-85-ZrY">
+                                                <rect key="frame" x="123.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CBA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="TeE-2m-OtS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-CR-v4V">
+                                                <rect key="frame" x="165" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CBB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="shg-Gk-rlx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcr-Il-DFy">
+                                                <rect key="frame" x="206" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CBC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="5yo-3u-eJ0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-KC-ftA">
+                                                <rect key="frame" x="247.5" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CCA"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="Y7R-Lf-Npn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulW-S2-3eC">
+                                                <rect key="frame" x="288.5" y="0.0" width="37.5" height="30"/>
+                                                <state key="normal" title="CCB"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="y0K-Kc-3a9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ni-eL-O9P">
+                                                <rect key="frame" x="330" y="0.0" width="37" height="30"/>
+                                                <state key="normal" title="CCC"/>
+                                                <connections>
+                                                    <action selector="didTriggerButton:" destination="wTP-Wt-jdE" eventType="touchUpInside" id="BzC-SI-tsz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pqh-Yc-dtB">
+                                <rect key="frame" x="16" y="50" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="Kid-iU-Q8S"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="animated"/>
+                                    <segment title="notAnimated"/>
+                                </segments>
+                                <connections>
+                                    <action selector="animationExtentValueChanged" destination="wTP-Wt-jdE" eventType="primaryActionTriggered" id="Aql-Qb-klW"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJN-b0-wbY">
+                                <rect key="frame" x="16" y="97" width="343" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9tH-ji-cmC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pqh-Yc-dtB" firstAttribute="leading" secondItem="Dpy-JN-JHi" secondAttribute="leading" constant="16" id="1MD-bv-SIS"/>
+                            <constraint firstItem="Dpy-JN-JHi" firstAttribute="trailing" secondItem="UBc-EF-Nn2" secondAttribute="trailing" constant="4" id="KsI-9U-XiZ"/>
+                            <constraint firstItem="a40-SF-s4V" firstAttribute="centerY" secondItem="Dpy-JN-JHi" secondAttribute="centerY" id="SSm-0n-qpo"/>
+                            <constraint firstItem="UBc-EF-Nn2" firstAttribute="leading" secondItem="Dpy-JN-JHi" secondAttribute="leading" constant="4" id="W1r-WT-ZMZ"/>
+                            <constraint firstItem="kJN-b0-wbY" firstAttribute="leading" secondItem="Dpy-JN-JHi" secondAttribute="leading" constant="16" id="fWZ-Q6-qu4"/>
+                            <constraint firstItem="Dpy-JN-JHi" firstAttribute="trailing" secondItem="kJN-b0-wbY" secondAttribute="trailing" constant="16" id="hGo-uD-xce"/>
+                            <constraint firstItem="Dpy-JN-JHi" firstAttribute="bottom" secondItem="UBc-EF-Nn2" secondAttribute="bottom" constant="4" id="hQb-tc-wDi"/>
+                            <constraint firstItem="Dpy-JN-JHi" firstAttribute="trailing" secondItem="pqh-Yc-dtB" secondAttribute="trailing" constant="16" id="k40-Vf-CoF"/>
+                            <constraint firstItem="a40-SF-s4V" firstAttribute="centerX" secondItem="Dpy-JN-JHi" secondAttribute="centerX" id="pDb-LN-gXx"/>
+                            <constraint firstItem="pqh-Yc-dtB" firstAttribute="top" secondItem="Dpy-JN-JHi" secondAttribute="top" constant="30" id="roU-cG-zXG"/>
+                            <constraint firstItem="kJN-b0-wbY" firstAttribute="top" secondItem="pqh-Yc-dtB" secondAttribute="bottom" constant="20" id="wgq-Oh-9my"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dpy-JN-JHi"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationExtentSegmentedControl" destination="pqh-Yc-dtB" id="7Wl-As-TSs"/>
+                        <outlet property="currentPathLabel" destination="kJN-b0-wbY" id="y42-zr-hDV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Koq-cd-BAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="-18.440779610194905"/>
+        </scene>
+    </scenes>
+</document>

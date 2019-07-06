@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Portus  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Portus  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Portus Docs</a> (98% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Portus Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Portus  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingEntry.html">RoutingEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingEntry/ManagedEntries.html">– ManagedEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RoutingTree.html">RoutingTree</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/RoutingError.html">RoutingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingInstruction.html">RoutingInstruction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html">RoutingTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html#/s:6Portus12RoutingTableO13StaticEntriesO">– StaticEntries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/RoutingTable.html#/s:6Portus12RoutingTableO14DynamicEntriesO">– DynamicEntries</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Enterable.html">Enterable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Leavable.html">Leavable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Routable.html">Routable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Switchable.html">Switchable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus25DynamicRoutingDestinationa">DynamicRoutingDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p align="center">
+    <img src="https://raw.githubusercontent.com/JamitLabs/Portus/stable/Logo.png"
+      width=600>
+</p>
+
+<p align="center">
+    <a href="https://github.com/JamitLabs/Portus/releases">
+        <img src="https://img.shields.io/badge/Version-1.0.0--alpha-blue.svg"
+             alt="Version: 1.0.0-alpha">
+    </a>
+    <img src="https://img.shields.io/badge/Swift-5.0-FFAC45.svg"
+         alt="Swift: 5.0">
+    <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20tvOS-FF69B4.svg"
+        alt="Platforms: iOS">
+    <a href="https://github.com/JamitLabs/Portus/blob/stable/LICENSE.md">
+        <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg"
+              alt="License: MIT">
+    </a>
+</p>
+
+<p align="center">
+    <a href="#installation">Installation</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#structure">Structure</a>
+    <a href="#examples">Examples</a>
+    <a href="#routing-algorithm">Routing Algorithm</a>
+    <a href="#improvements">Improvements</a>
+    <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
+    <a href="#license">License</a>
+</p>
+<h1 id='portus' class='heading'>Portus</h1>
+
+<p>Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Installation via <a href="https://github.com/Carthage/Carthage#carthage">Carthage</a> &amp; <a href="https://swift.org/package-manager/">SwiftPM</a> are both supported.</p>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Add the following to your Cartfile:</p>
+<pre class="highlight plaintext"><code>github "JamitLabs/Portus"
+</code></pre>
+<h2 id='motivation' class='heading'>Motivation</h2>
+
+<p>Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. <em>Portus</em> mitigate these issues and offers a defined framework for handling screenflow in a standardized way.</p>
+
+<p>Screens within iOS apps are arranged on a stack or presented in succession to provide different level of information. Combined with user interface components, like <em>sliding menus</em>, <em>navigation-</em> or <em>tab bars</em>, paths are established that form the app&rsquo;s navigation tree. Each node in the tree either corresponds to a screen within the application or a branch node that is respondible for managing individual nodes.</p>
+<h2 id='goals-and-requirements' class='heading'>Goals and Requirements</h2>
+
+<p>Development of this framework was driven by the following requirements:</p>
+<h3 id='uikit-independent' class='heading'>UIKit-Independent:</h3>
+
+<p>First, the framework is designed to be independent of UIKit. This ensures that Portus does neither need to know about your app&rsquo;s view hierarchy nor about the relationship among view controllers. Rather the framework relies on a tree-based structure that consists of routing nodes, where each node states its routing capabilities by conforming to the <code><a href="Protocols/Enterable.html">Enterable</a></code>, <code><a href="Protocols/Leavable.html">Leavable</a></code> or <code><a href="Protocols/Switchable.html">Switchable</a></code> protocol. Note that being independent of UIKit is crucial to meet the second requirement to be architectural independent.</p>
+<h3 id='architectute-independent' class='heading'>Architectute-Independent:</h3>
+
+<p>Second, Portus does not enforce an architectural pattern. Due to limitations of the <em>MVC</em> architecture, the community has come up with several alternatives, like <em>FlowControllers</em>, <em>Coordinators</em>, <em>MVVM</em>, <em>MVVM+RxSwift</em>. To seamlessly integrate with these architectures, we designed Portus to be architectural independent.</p>
+<h3 id='context-driven' class='heading'>Context-Driven:</h3>
+
+<p>Finally, nodes are entered in different contexts. For instance, the background color of a screen can differ depending on the value that is provided to the node. Hence, even though the requested node might already be open it might be necessary to reenter the node when the color value differs. With the combination of  <code><a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a></code> and <code><a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a></code> nodes are uniquely identified.</p>
+<h2 id='structure' class='heading'>Structure</h2>
+
+<p>Portus uses three protocols, namely  <code><a href="Protocols/Enterable.html">Enterable</a></code>, <code><a href="Protocols/Leavable.html">Leavable</a></code> and  <code><a href="Protocols/Switchable.html">Switchable</a></code> that inherit from the <code><a href="Protocols/Routable.html">Routable</a></code> protocol.
+Nodes can conform to these protocols and state their routing capabilities as well as whether they manage additional nodes.</p>
+<h3 id='protocols' class='heading'>Protocols</h3>
+<h4 id='code-routable-code' class='heading'><code><a href="Protocols/Routable.html">Routable</a></code></h4>
+
+<p>Conforming to the <code><a href="Protocols/Routable.html">Routable</a></code> protocol is required to specify a node&rsquo;s structure. The protocol requires a <code><a href="Classes/RoutingEntry.html">RoutingEntry</a></code> that consists of the <code><a href="Structs/RoutingIdentifier.html">RoutingIdentifier</a></code> as well as the <code><a href="Typealiases.html#/s:6Portus14RoutingContexta">RoutingContext</a></code> and whether additional nodes are managed by the node. The latter requires to also specify an <code>activeEntry</code> that represents the managed node that is currently active. Below you find the definition of the <code><a href="Protocols/Routable.html">Routable</a></code> protocol:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Routable</span><span class="p">:</span> <span class="kt">AnyObject</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='code-enterable-code' class='heading'><code><a href="Protocols/Enterable.html">Enterable</a></code></h4>
+
+<p>In addition to <code><a href="Protocols/Routable.html">Routable</a></code>, nodes can state whether they can enter additional nodes using the <code><a href="Protocols/Enterable.html">Enterable</a></code> protocol:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Enterable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">enterNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Enterables will receive the entry identifying the node to enter as well as wheter the entrance should be animated or not. Finally the node can indicate whether the entrance succeeded or failed by calling the completion. Note that calling the completion is mandatory.</p>
+<h4 id='code-leavable-code' class='heading'><code><a href="Protocols/Leavable.html">Leavable</a></code></h4>
+
+<p><code><a href="Protocols/Leavable.html">Leavable</a></code> represents an additional routing capability. Routables conforming to this protocol can leave a node for a given entry. Similar to <code><a href="Protocols/Enterable.html">Enterable</a></code> calling the completion is mandatory and notifies the routing framework whether the operation succeeded.
+ In addition, leavables can be asked whether they can leave a node for a given entry:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Leavable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">leaveNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">canLeaveNode</span><span class="p">(</span><span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='code-switchable-code' class='heading'><code><a href="Protocols/Switchable.html">Switchable</a></code></h4>
+
+<p>Finally, nodes conforming to the <code><a href="Protocols/Switchable.html">Switchable</a></code> protocol can determine one of their manage nodes to become active. Hence, nodes conforming to <code><a href="Protocols/Switchable.html">Switchable</a></code> have to manage additional nodes.</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">Switchable</span><span class="p">:</span> <span class="kt">Routable</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">switchToNode</span><span class="p">(</span>
+        <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+        <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> 
+        <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Using above-stated protocols, nodes can be entered, left or become (in)active in a standardised way. Still, routing requires knowledge about the current state and hence requires a tree-based structure to keep track of the current screenflow. </p>
+<h3 id='code-routingtree-code' class='heading'><code><a href="Classes/RoutingTree.html">RoutingTree</a></code></h3>
+
+<p>The <code><a href="Classes/RoutingTree.html">RoutingTree</a></code> is used by the <code>RoutingAlgorithm</code> to compute <code><a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></code> to either static or dynamic destinations. Note that the tree consists of individual nodes, where each <code>RoutingNode</code> may contain children. Still only one of a node&rsquo;s children can be active at the same time. This characteristic is crucial to compute an <code>activePath</code> that corresponds to the origin any routing request will start from.</p>
+
+<p>The following operations can be performed on the <code><a href="Classes/RoutingTree.html">RoutingTree</a></code> and allow applications to provide information about when they enter, leave or switch to one of their managed nodes. This information is required by the <code>RoutingAlgorithm</code> to compute appropriate instructions to predefined destinations.</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">didEnterNode</span><span class="p">(</span><span class="n">withEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">didLeaveNode</span><span class="p">(</span><span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">switchNode</span><span class="p">(</span>
+    <span class="n">withEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+    <span class="n">didSwitchToNodeWithEntry</span> <span class="nv">targetEntry</span><span class="p">:</span> <span class="kt">RoutingEntry</span>
+<span class="p">)</span>
+</code></pre>
+<h3 id='code-router-code' class='heading'><code><a href="Classes/Router.html">Router</a></code></h3>
+
+<p>The <code><a href="Classes/Router.html">Router</a></code> represents the main component of Portus and is used by applications to either request a route to a <code><a href="Typealiases.html#/s:6Portus24StaticRoutingDestinationa">StaticRoutingDestination</a></code>, i.e., a destination that is predefined in the <code><a href="Enums/RoutingTable.html">RoutingTable</a></code>, or to enter a <code><a href="Typealiases.html#/s:6Portus25DynamicRoutingDestinationa">DynamicRoutingDestination</a></code>, i.e., a destination that does not depend on the current context and can be entered from everywhere. While <em>dynamic destinations</em> only consist of a single node, <em>static destinations</em> are represented by a list of nodes, where each list starts with the application&rsquo;s <em>root node</em>. Below you can find the signature of the operations as offered by the <code><a href="Classes/Router.html">Router</a></code>:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">routeTo</span><span class="p">(</span>
+    <span class="nv">staticDestination</span><span class="p">:</span> <span class="kt">StaticRoutingDestination</span><span class="p">,</span>
+    <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nv">executedInstructions</span><span class="p">:</span> <span class="kt">RoutingInstructions</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">RoutingInstructions</span><span class="p">,</span> <span class="kt">RoutingError</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">enter</span><span class="p">(</span>
+    <span class="n">dynamicDestination</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">RoutingEntry</span><span class="p">,</span> 
+    <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="nv">completion</span><span class="p">:</span> <span class="p">((</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>To request a route, static- and dynamic destinations need to be predefined in the <code><a href="Enums/RoutingTable.html">RoutingTable</a></code>. The <code><a href="Enums/RoutingTable.html">RoutingTable</a></code> includes knowledge about all reachable destinations using the routing framework. For instance, when requiring a deeplink to a screen within your app, you add a static route, describing the screen&rsquo;s location relative to your app&rsquo;s routing tree. However, having to state static destinations in the <code><a href="Enums/RoutingTable.html">RoutingTable</a></code> at compile time does not mean that they can not adapt to context information known at runtime. Below examples includes both a static route to a <code>colorList</code> not requiring any parameters, as well as a route to the color details screen depending on a hexadecimal value representing the color that is shown in the details screen. This way, you can adapt static routes at runtime as soon as the required context information is known.</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">RoutingTable</span><span class="o">.</span><span class="kt">StaticEntries</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">colorList</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="o">.</span><span class="n">colorList</span><span class="p">]</span><span class="o">.</span><span class="n">entries</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">colorDetail</span><span class="p">(</span><span class="n">withHexString</span> <span class="nv">hexString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">RoutingEntry</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="kt">RoutingEntry</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="o">.</span><span class="n">root</span><span class="p">),</span>
+            <span class="kt">RoutingEntry</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="o">.</span><span class="n">colorList</span><span class="p">),</span>
+            <span class="kt">RoutingEntry</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="o">.</span><span class="n">colorDetail</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="p">[</span><span class="s">"hex"</span><span class="p">:</span> <span class="s">"</span><span class="se">\(</span><span class="n">hexString</span><span class="se">)</span><span class="s">"</span><span class="p">])</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>In comparison, dynamic routes represent a single destination that is reachable from everywhere within your app: </p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">RoutingTable</span><span class="o">.</span><span class="kt">DynamicEntries</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">a</span> <span class="o">=</span> <span class="kt">RoutingEntry</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="o">.</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='examples' class='heading'>Examples</h2>
+
+<p>We have included two demo applications, namely <code>Portus-iOS-Demo</code> and <code>Portus-iOS-Demo2</code> to demonstrate the framework&rsquo;s ability to deal with different architectures. The first demo application uses an architectural pattern called <a href="https://github.com/Flinesoft/Imperio">Imperio</a>, while the second sticks to the classic MVC approach. You can find visualizations of the example app&rsquo;s routing trees below:</p>
+
+<p>Illustration, visualizing the routing tree of the first demo application, namely <code>Portus-iOS-Demo</code>:</p>
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree1.png">
+</p>
+
+<p>Illustration, visualizing the routing tree of the second demo application, namely <code>Portus-iOS-Demo2</code>:</p>
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree2.png">
+</p>
+
+<p>To include a non-trival structure, we included a <code>PageViewController</code> in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the <code>RoutingMenu</code> as accessed using the device&rsquo;s shake-gesture.</p>
+<h2 id='routing-algorithm' class='heading'>Routing Algorithm</h2>
+
+<p>If you are interested in the underlying algorithm that is used by Portus to compute <code>RountingInstructions</code>, keep on reading. Otherwise, you may consider to skip this section.</p>
+
+<p>The key component of the RoutingAlgorithm is <code>computeNextRoutingInstructions(...)</code>. Using this method the <code><a href="Classes/Router.html">Router</a></code> computes the next chunk of routing instructions in an iterative process and executes them until the desired destination is reached. The signature of <code>computeNextRoutingInstructions(...)</code> is given as follows:</p>
+<pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">computeNextRoutingInstructions</span><span class="p">(</span>
+    <span class="n">to</span> <span class="nv">destination</span><span class="p">:</span> <span class="kt">StaticRoutingDestination</span><span class="p">,</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">RoutingInstructions</span><span class="p">,</span> <span class="kt">RoutingError</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Note that <code><a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></code> is a typealias for <code>[RoutingInstruction]</code>, where a single instruction corresponds to one of the following cases:
+    - <code>enter(entry: RoutingEntry)</code>: represents a node to be entered
+    - <code>leave(entry: RoutingEntry)</code>: represents a node to be left
+    - <code>switchTo(entry: RoutingEntry</code>, switchNodeEntry: RoutingEntry): represents a node to switch to</p>
+
+<p>Computing the next chunk of routing instructions involves completing the following steps:</p>
+
+<ol>
+<li><p>First, we need to check whether we are already at the destination. If this is the case, we are done and can return an empty list of instructions:</p>
+<pre class="highlight swift"><code><span class="k">guard</span> <span class="n">origin</span> <span class="o">!=</span> <span class="n">destination</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">completion</span><span class="p">(</span><span class="o">.</span><span class="nf">success</span><span class="p">([]))</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></li>
+<li><p>Otherwise, i.e., when the destination is not yet reached, we determine the first mismatch index, i.e., the first index from which on the origin and destination path differ. Using this index, we can handle <code>Leavables</code>, <code>Switchables</code> and <code>Enterables</code> respectively.</p>
+<pre class="highlight swift"><code> <span class="k">let</span> <span class="nv">firstMismatchIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">...</span> <span class="n">maxIndex</span> <span class="p">{</span>
+        <span class="k">guard</span>
+            <span class="k">let</span> <span class="nv">originEntry</span> <span class="o">=</span> <span class="n">origin</span><span class="p">[</span><span class="nv">try</span><span class="p">:</span> <span class="n">index</span><span class="p">],</span>
+            <span class="k">let</span> <span class="nv">destinationEntry</span> <span class="o">=</span> <span class="n">destination</span><span class="p">[</span><span class="nv">try</span><span class="p">:</span> <span class="n">index</span><span class="p">],</span>
+            <span class="n">originEntry</span> <span class="o">==</span> <span class="n">destinationEntry</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}()</span>
+</code></pre></li>
+<li><p>We need to ensure that all leavable nodes along the path starting from the node corresponding to the first mismatch index up to the active leaf that are not managed by their parent (as indicated by <code>isManagedByParent</code>) can be left. This way we can gurantee that the desired destination is reached from the current context. For each of these nodes we introduce a new routingInstruction using <code>.leave(entry: ...)</code>:</p>
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">leavingRoutingInstructions</span><span class="p">:</span> <span class="kt">RoutingInstructions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">let</span> <span class="nv">canLeaveCurrentContext</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="k">in</span> <span class="n">activePath</span><span class="o">.</span><span class="nf">suffix</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="nf">reversed</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">leavable</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">entry</span><span class="o">.</span><span class="n">routable</span> <span class="k">as?</span> <span class="kt">Leavable</span><span class="p">,</span> <span class="o">!</span><span class="n">node</span><span class="o">.</span><span class="n">isManagedByParent</span> <span class="k">else</span> <span class="p">{</span> <span class="k">continue</span> <span class="p">}</span>
+
+        <span class="k">guard</span> <span class="n">leavable</span><span class="o">.</span><span class="nf">canLeaveNode</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">entry</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">}</span>
+
+        <span class="n">leavingRoutingInstructions</span> <span class="o">+=</span> <span class="p">[</span><span class="o">.</span><span class="nf">leave</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">entry</span><span class="p">)]</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}()</span>
+
+<span class="k">guard</span> <span class="n">canLeaveCurrentContext</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">[]</span> <span class="p">}</span>
+<span class="k">guard</span> <span class="n">leavingRoutingInstructions</span><span class="o">.</span><span class="n">isEmpty</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="n">leavingRoutingInstructions</span> <span class="p">}</span>
+</code></pre></li>
+<li><p>Next, when all nodes could be left that do not match the destination path, we need to check whether the predecessor of the active leaf is <code><a href="Protocols/Switchable.html">Switchable</a></code> and contains the target node as one of its children. In this case, we can set the active child to the target node, by introducing a new routing instruction of the form <code>switchTo(...)</code>:</p>
+<pre class="highlight swift"><code><span class="k">if</span>
+    <span class="k">let</span> <span class="nv">switchNode</span> <span class="o">=</span> <span class="p">(</span><span class="kt">RoutingTree</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="n">root</span><span class="p">?</span><span class="o">.</span><span class="nf">activePath</span><span class="p">()</span> <span class="p">??</span> <span class="p">[])[</span><span class="nv">try</span><span class="p">:</span> <span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">switchNode</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="p">{</span>
+    <span class="k">guard</span> <span class="n">switchNode</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="nf">map</span><span class="p">({</span> <span class="nv">$0</span><span class="o">.</span><span class="n">entry</span><span class="o">.</span><span class="n">identifier</span> <span class="p">})</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">destination</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">identifier</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">[]</span> <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="o">.</span><span class="nf">switchTo</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="n">destination</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="nv">switchNodeEntry</span><span class="p">:</span> <span class="n">switchNode</span><span class="o">.</span><span class="n">entry</span><span class="p">)]</span>
+<span class="p">}</span>
+</code></pre></li>
+<li><p>Otherwise, if there is no <code><a href="Protocols/Switchable.html">Switchable</a></code> we simply enter the part of the destination path by introducing <code>.enter(entry: ...)</code>:</p>
+<pre class="highlight swift"><code><span class="k">if</span> <span class="k">let</span> <span class="nv">enterEntry</span> <span class="o">=</span> <span class="n">destination</span><span class="p">[</span><span class="nv">try</span><span class="p">:</span> <span class="n">index</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">.</span><span class="nf">enter</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="n">enterEntry</span><span class="p">)]</span>
+<span class="p">}</span>
+</code></pre></li>
+<li><p>Finally, if the algorithm returns the next chunk of instructions as computed above, or indicates that the destination is not reachable using the following Error: <code>destinationNotReachable</code></p></li>
+</ol>
+
+<p>To illustrate this procedure, consider the following example:</p>
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree3.png">
+</p>
+
+<ol>
+<li><p>Example:</p>
+
+<ul>
+<li>Origin: <code>.switchNode1</code>, <code>.node2</code>, <code>.switchNode3</code>, <code>.node12</code></li>
+<li>Destination: <code>.switchNode1</code>, <code>.node1</code>, <code>.node5</code>, <code>.node8</code></li>
+<li>Computed Instructions: 
+<code>.leave(.switchNode3)</code>
+<code>.switchTo(.node1, switchNode: .switchNode1)</code>
+<code>.enter(.node5)</code>
+<code>.enter(.node8)</code></li>
+</ul></li>
+<li><p>Example:</p>
+
+<ul>
+<li>Origin: <code>.switchNode1</code>, <code>.node1</code>, <code>.node5</code>, <code>.node8</code></li>
+<li>Destination: <code>.switchNode1</code>, <code>.switchNode2</code>, <code>.node4</code></li>
+<li>Computed Instructions: 
+<code>.leave(.node8)</code>
+<code>.leave(.node5)</code>
+<code>.switchTo(.switchNode2, switchNode: .switchNode1)</code>
+<code>.switchTo(.node4, switchNode: .switchNode2)</code></li>
+</ul></li>
+<li><p>Example:</p>
+
+<ul>
+<li>Origin: <code>.switchNode1</code>, <code>.switchNode2</code>, <code>.node4</code></li>
+<li>Destination: <code>.switchNode1</code>, <code>.node1</code>, <code>.node6</code>, <code>.node11</code></li>
+<li>Computed Instructions: 
+<code>.switchTo(.node1, switchNode: .switchNode1)</code>
+<code>.enter(.node6)</code>
+<code>.enter(.node11)</code></li>
+</ul></li>
+<li><p>Example:</p>
+
+<ul>
+<li>Origin: <code>.switchNode1</code>, <code>.node1</code>, <code>.node6</code>, <code>.node11</code></li>
+<li>Destination: <code>.switchNode1</code>, <code>.node2</code>, <code>.switchNode3</code>, <code>.node13</code></li>
+<li>Computed Instructions:
+<code>.leave(.node11)</code>
+<code>.leave(.node6)</code>
+<code>.switchTo(.node2, switchNode: .switchNode1)</code>
+<code>.enter(.switchNode3)</code></li>
+</ul></li>
+</ol>
+
+<p>Note that we have included Unit Tests based on the presented example to ensure that <code><a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></code> are properly computed by the <code>RoutingAlgorithm</code>. You can find them in <code>Portus/Tests/PortusTests</code>.</p>
+<h2 id='improvements' class='heading'>Improvements</h2>
+
+<p>The following issues/enhancements can be addressed in future revisions:</p>
+
+<ul>
+<li>[ ] Enhance the demo applications by including some fancy UI</li>
+<li>[ ] Enhance the framework by proving a visualization of the current routing tree that can be used for debugging purposes.</li>
+<li>[ ] Introduce different routing algorithms, other then the minimum route to destination.</li>
+<li>[ ] Route to a given destination within a single animation, i.e. without animating each step in between</li>
+<li>[ ] Simulate routing instructions before executing them. This way, developers using the framework can be informed that a destination is not reachable before execution.</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>This library is released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>. See LICENSE for details.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/JamitLabs/Portus" target="_blank" rel="external">Cihat Gündüz</a>. All rights reserved. (Last updated: 2019-07-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -7,22 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
+		3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */; };
+		3813E3AA225BBE74004C87F5 /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
+		3813E3AB225BBE77004C87F5 /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
+		3813E3AC225BBE7A004C87F5 /* Switchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44F2257C92C00BDE28A /* Switchable.swift */; };
+		3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892B936225A197500D3BDAA /* CollectionExtension.swift */; };
+		381B5FB3226CF99000410910 /* TestNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B5FB1226CF98D00410910 /* TestNodes.swift */; };
+		381B5FB4226CF99100410910 /* TestNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B5FB1226CF98D00410910 /* TestNodes.swift */; };
+		3821A44C2257C90D00BDE28A /* Leavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44B2257C90D00BDE28A /* Leavable.swift */; };
+		3821A44E2257C91800BDE28A /* Enterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44D2257C91800BDE28A /* Enterable.swift */; };
+		3821A4502257C92C00BDE28A /* Switchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A44F2257C92C00BDE28A /* Switchable.swift */; };
+		382F893A2268C1D900B9DCE3 /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F89392268C1D900B9DCE3 /* RoutingError.swift */; };
+		382F893B2268C1E700B9DCE3 /* RoutingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F89392268C1D900B9DCE3 /* RoutingError.swift */; };
+		384205512268DEF900098402 /* RoutingInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384205502268DEF900098402 /* RoutingInstructions.swift */; };
+		384205522268F23700098402 /* RoutingInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384205502268DEF900098402 /* RoutingInstructions.swift */; };
+		3854EA5A22341B0000BB9A0C /* RoutingIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5922341B0000BB9A0C /* RoutingIdentifier.swift */; };
+		3854EA5E22341B3500BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
+		3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5D22341B3500BB9A0C /* RoutingContext.swift */; };
+		3854EA6022341B4100BB9A0C /* RoutingIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA5922341B0000BB9A0C /* RoutingIdentifier.swift */; };
+		3854EA6322341B5F00BB9A0C /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6222341B5F00BB9A0C /* RoutingDestination.swift */; };
+		3854EA6622342EF300BB9A0C /* RoutingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* RoutingEntry.swift */; };
+		3854EA6722342EFF00BB9A0C /* RoutingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6522342EF300BB9A0C /* RoutingEntry.swift */; };
+		3854EA682234366600BB9A0C /* RoutingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3854EA6222341B5F00BB9A0C /* RoutingDestination.swift */; };
+		3870E6EB2230421E00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
+		3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */; };
+		387D3436226A2262005C36DE /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387D3435226A2262005C36DE /* RoutingTable.swift */; };
+		387D3437226A22F9005C36DE /* RoutingTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387D3435226A2262005C36DE /* RoutingTable.swift */; };
+		388BD43B226CB1EF0008FB7C /* RoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA967921A308D200EC7EAC /* RoutingTests.swift */; };
+		388BD43C226CB1F00008FB7C /* RoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EA967921A308D200EC7EAC /* RoutingTests.swift */; };
+		38917041223587E600E65114 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
+		3892B937225A197500D3BDAA /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892B936225A197500D3BDAA /* CollectionExtension.swift */; };
+		38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
+		38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ABA21C223527AE0007C133 /* ArrayExtension.swift */; };
+		38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C017EC22357F2A000F8B31 /* RoutingNode.swift */; };
+		82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
+		82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622BF621CB9BB000DC9C70 /* Routable.swift */; };
+		82622C0421CB9C2500DC9C70 /* RoutingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* RoutingTree.swift */; };
+		82622C0521CB9C2500DC9C70 /* RoutingTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0321CB9C2500DC9C70 /* RoutingTree.swift */; };
+		82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
+		82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82622C0621CB9C3B00DC9C70 /* Router.swift */; };
 		A102BD481F02355A000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD3E1F02355A000C6B38 /* Portus.framework */; };
-		A102BD661F023573000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD5D1F023573000C6B38 /* Portus.framework */; };
 		A102BD821F023582000C6B38 /* Portus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102BD791F023582000C6B38 /* Portus.framework */; };
-		A102BDB31F0238E8000C6B38 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A102BDB01F0238BD000C6B38 /* ExampleTests.swift */; };
-		A102BDB41F0238E8000C6B38 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A102BDB01F0238BD000C6B38 /* ExampleTests.swift */; };
-		A102BDB51F0238E9000C6B38 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A102BDB01F0238BD000C6B38 /* ExampleTests.swift */; };
-		A102BDCF1F023C73000C6B38 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDCE1F023C52000C6B38 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A102BDD01F023C73000C6B38 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDCD1F023C51000C6B38 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A102BDD11F023C7D000C6B38 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDCB1F023C4A000C6B38 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A102BDD21F023C7D000C6B38 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDCC1F023C4A000C6B38 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A102BDD31F023C81000C6B38 /* Nimble.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDC91F023C3E000C6B38 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A102BDD41F023C81000C6B38 /* Quick.framework in Carthage */ = {isa = PBXBuildFile; fileRef = A102BDCA1F023C3E000C6B38 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A102BDFF1F023E32000C6B38 /* Portus.h in Headers */ = {isa = PBXBuildFile; fileRef = A102BDFE1F023E13000C6B38 /* Portus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A102BE001F023E33000C6B38 /* Portus.h in Headers */ = {isa = PBXBuildFile; fileRef = A102BDFE1F023E13000C6B38 /* Portus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A102BE011F023E33000C6B38 /* Portus.h in Headers */ = {isa = PBXBuildFile; fileRef = A102BDFE1F023E13000C6B38 /* Portus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A102BE021F023E34000C6B38 /* Portus.h in Headers */ = {isa = PBXBuildFile; fileRef = A102BDFE1F023E13000C6B38 /* Portus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,13 +61,6 @@
 			remoteGlobalIDString = A102BD3D1F02355A000C6B38;
 			remoteInfo = Portus;
 		};
-		A102BD671F023573000C6B38 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A102BD351F02355A000C6B38 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A102BD5C1F023573000C6B38;
-			remoteInfo = "Portus macOS";
-		};
 		A102BD831F023582000C6B38 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A102BD351F02355A000C6B38 /* Project object */;
@@ -49,68 +70,39 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A102BDBD1F023B2B000C6B38 /* Carthage */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A102BDD31F023C81000C6B38 /* Nimble.framework in Carthage */,
-				A102BDD41F023C81000C6B38 /* Quick.framework in Carthage */,
-			);
-			name = Carthage;
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BDBF1F023B3E000C6B38 /* Carthage */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A102BDD11F023C7D000C6B38 /* Nimble.framework in Carthage */,
-				A102BDD21F023C7D000C6B38 /* Quick.framework in Carthage */,
-			);
-			name = Carthage;
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BDC01F023B47000C6B38 /* Carthage */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A102BDCF1F023C73000C6B38 /* Nimble.framework in Carthage */,
-				A102BDD01F023C73000C6B38 /* Quick.framework in Carthage */,
-			);
-			name = Carthage;
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		000E616F2086425500C0638C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0085926E2046FD1B00AB529F /* beak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beak.swift; sourceTree = "<group>"; };
+		3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingInstruction.swift; sourceTree = "<group>"; };
+		381B5FB1226CF98D00410910 /* TestNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNodes.swift; sourceTree = "<group>"; };
+		3821A44B2257C90D00BDE28A /* Leavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leavable.swift; sourceTree = "<group>"; };
+		3821A44D2257C91800BDE28A /* Enterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enterable.swift; sourceTree = "<group>"; };
+		3821A44F2257C92C00BDE28A /* Switchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switchable.swift; sourceTree = "<group>"; };
+		382F89392268C1D900B9DCE3 /* RoutingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingError.swift; sourceTree = "<group>"; };
+		384205502268DEF900098402 /* RoutingInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingInstructions.swift; sourceTree = "<group>"; };
+		3854EA5922341B0000BB9A0C /* RoutingIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingIdentifier.swift; sourceTree = "<group>"; };
+		3854EA5D22341B3500BB9A0C /* RoutingContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingContext.swift; sourceTree = "<group>"; };
+		3854EA6222341B5F00BB9A0C /* RoutingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingDestination.swift; sourceTree = "<group>"; };
+		3854EA6522342EF300BB9A0C /* RoutingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingEntry.swift; sourceTree = "<group>"; };
+		3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAlgorithm.swift; sourceTree = "<group>"; };
+		387D3435226A2262005C36DE /* RoutingTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTable.swift; sourceTree = "<group>"; };
+		3892B936225A197500D3BDAA /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		38ABA21C223527AE0007C133 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		38C017EC22357F2A000F8B31 /* RoutingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingNode.swift; sourceTree = "<group>"; };
 		82056067217DD00800E23A81 /* .projlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .projlint.yml; sourceTree = "<group>"; };
+		820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		820560AC217DE94F00E23A81 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		82622BF621CB9BB000DC9C70 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		82622C0321CB9C2500DC9C70 /* RoutingTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTree.swift; sourceTree = "<group>"; };
+		82622C0621CB9C3B00DC9C70 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		82EA967921A308D200EC7EAC /* RoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTests.swift; sourceTree = "<group>"; };
 		A102BD3E1F02355A000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A102BD471F02355A000C6B38 /* Portus-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Portus-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A102BD5D1F023573000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A102BD651F023573000C6B38 /* Portus-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Portus-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A102BD791F023582000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A102BD811F023582000C6B38 /* Portus-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Portus-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A102BD951F02358E000C6B38 /* Portus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Portus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A102BDA31F02387A000C6B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A102BDB01F0238BD000C6B38 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		A102BDB21F0238BD000C6B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A102BDB71F023A7D000C6B38 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		A102BDB81F023A8A000C6B38 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
-		A102BDB91F023A9A000C6B38 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
-		A102BDC91F023C3E000C6B38 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		A102BDCA1F023C3E000C6B38 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		A102BDCB1F023C4A000C6B38 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		A102BDCC1F023C4A000C6B38 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		A102BDCD1F023C51000C6B38 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
-		A102BDCE1F023C52000C6B38 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
 		A102BDD51F023CAA000C6B38 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A102BDFE1F023E13000C6B38 /* Portus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Portus.h; sourceTree = "<group>"; };
 		A15AD1201F0240C9004D7ED3 /* Portus.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Portus.podspec; sourceTree = "<group>"; };
@@ -134,21 +126,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A102BD591F023573000C6B38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD621F023573000C6B38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A102BD661F023573000C6B38 /* Portus.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A102BD751F023582000C6B38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,28 +141,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A102BD911F02358E000C6B38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		82056065217DCF0700E23A81 /* Globals */ = {
+		38ABA21E223528130007C133 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				38ABA21C223527AE0007C133 /* ArrayExtension.swift */,
+				3892B936225A197500D3BDAA /* CollectionExtension.swift */,
 			);
-			path = Globals;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		82056066217DCF1700E23A81 /* Models */ = {
+		38C017EA2235435B000F8B31 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				82622BF621CB9BB000DC9C70 /* Routable.swift */,
+				3821A44D2257C91800BDE28A /* Enterable.swift */,
+				3821A44B2257C90D00BDE28A /* Leavable.swift */,
+				3821A44F2257C92C00BDE28A /* Switchable.swift */,
 			);
-			path = Models;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		38C017EB22354391000F8B31 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				38C017EC22357F2A000F8B31 /* RoutingNode.swift */,
+				382F89392268C1D900B9DCE3 /* RoutingError.swift */,
+				3854EA6222341B5F00BB9A0C /* RoutingDestination.swift */,
+				3854EA6522342EF300BB9A0C /* RoutingEntry.swift */,
+				3854EA5922341B0000BB9A0C /* RoutingIdentifier.swift */,
+				3854EA5D22341B3500BB9A0C /* RoutingContext.swift */,
+				3802E83A2233DCC400BB27A0 /* RoutingInstruction.swift */,
+				384205502268DEF900098402 /* RoutingInstructions.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		A102BD341F02355A000C6B38 = {
@@ -194,7 +185,6 @@
 				A102BD9D1F02387A000C6B38 /* Frameworks */,
 				A102BDAE1F0238BD000C6B38 /* Tests */,
 				A102BDB61F023A6D000C6B38 /* RootFiles */,
-				A102BDBA1F023B06000C6B38 /* Carthage */,
 				A102BD3F1F02355A000C6B38 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -204,11 +194,8 @@
 			children = (
 				A102BD3E1F02355A000C6B38 /* Portus.framework */,
 				A102BD471F02355A000C6B38 /* Portus-iOS-Tests.xctest */,
-				A102BD5D1F023573000C6B38 /* Portus.framework */,
-				A102BD651F023573000C6B38 /* Portus-macOS-Tests.xctest */,
 				A102BD791F023582000C6B38 /* Portus.framework */,
 				A102BD811F023582000C6B38 /* Portus-tvOS-Tests.xctest */,
-				A102BD951F02358E000C6B38 /* Portus.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,8 +212,13 @@
 		A102BDA01F02387A000C6B38 /* Portus */ = {
 			isa = PBXGroup;
 			children = (
-				82056065217DCF0700E23A81 /* Globals */,
-				82056066217DCF1700E23A81 /* Models */,
+				82622C0621CB9C3B00DC9C70 /* Router.swift */,
+				387D3435226A2262005C36DE /* RoutingTable.swift */,
+				3870E6EA2230421E00BB5796 /* RoutingAlgorithm.swift */,
+				82622C0321CB9C2500DC9C70 /* RoutingTree.swift */,
+				38C017EA2235435B000F8B31 /* Protocols */,
+				38C017EB22354391000F8B31 /* Data */,
+				38ABA21E223528130007C133 /* Extensions */,
 			);
 			path = Portus;
 			sourceTree = "<group>";
@@ -252,7 +244,8 @@
 		A102BDAF1F0238BD000C6B38 /* PortusTests */ = {
 			isa = PBXGroup;
 			children = (
-				A102BDB01F0238BD000C6B38 /* ExampleTests.swift */,
+				381B5FB1226CF98D00410910 /* TestNodes.swift */,
+				82EA967921A308D200EC7EAC /* RoutingTests.swift */,
 			);
 			path = PortusTests;
 			sourceTree = "<group>";
@@ -271,100 +264,15 @@
 				82056067217DD00800E23A81 /* .projlint.yml */,
 				A102BDD51F023CAA000C6B38 /* .swiftlint.yml */,
 				0085926E2046FD1B00AB529F /* beak.swift */,
-				A102BDB71F023A7D000C6B38 /* Cartfile */,
-				A102BDB81F023A8A000C6B38 /* Cartfile.private */,
-				A102BDB91F023A9A000C6B38 /* Cartfile.resolved */,
+				820560AC217DE94F00E23A81 /* CHANGELOG.md */,
+				820560A9217DE90D00E23A81 /* CODE_OF_CONDUCT.md */,
+				820560A8217DE8FE00E23A81 /* CONTRIBUTING.md */,
 				A15AD1241F0262D1004D7ED3 /* LICENSE */,
-				A15AD1201F0240C9004D7ED3 /* Portus.podspec */,
 				A15AD1211F02447E004D7ED3 /* Package.swift */,
+				A15AD1201F0240C9004D7ED3 /* Portus.podspec */,
 				000E616F2086425500C0638C /* README.md */,
 			);
 			name = RootFiles;
-			sourceTree = "<group>";
-		};
-		A102BDBA1F023B06000C6B38 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDBB1F023B13000C6B38 /* Framework */,
-				A102BDBC1F023B18000C6B38 /* Tests */,
-			);
-			name = Carthage;
-			sourceTree = "<group>";
-		};
-		A102BDBB1F023B13000C6B38 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDC11F023BFC000C6B38 /* iOS */,
-				A102BDC21F023C00000C6B38 /* macOS */,
-				A102BDC41F023C0F000C6B38 /* tvOS */,
-				A102BDC31F023C08000C6B38 /* watchOS */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
-		A102BDBC1F023B18000C6B38 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDC71F023C2B000C6B38 /* iOS */,
-				A102BDC81F023C2F000C6B38 /* macOS */,
-				A102BDC61F023C27000C6B38 /* tvOS */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
-		A102BDC11F023BFC000C6B38 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A102BDC21F023C00000C6B38 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = macOS;
-			sourceTree = "<group>";
-		};
-		A102BDC31F023C08000C6B38 /* watchOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = watchOS;
-			sourceTree = "<group>";
-		};
-		A102BDC41F023C0F000C6B38 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = tvOS;
-			sourceTree = "<group>";
-		};
-		A102BDC61F023C27000C6B38 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDCE1F023C52000C6B38 /* Nimble.framework */,
-				A102BDCD1F023C51000C6B38 /* Quick.framework */,
-			);
-			name = tvOS;
-			sourceTree = "<group>";
-		};
-		A102BDC71F023C2B000C6B38 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDC91F023C3E000C6B38 /* Nimble.framework */,
-				A102BDCA1F023C3E000C6B38 /* Quick.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A102BDC81F023C2F000C6B38 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				A102BDCB1F023C4A000C6B38 /* Nimble.framework */,
-				A102BDCC1F023C4A000C6B38 /* Quick.framework */,
-			);
-			name = macOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,27 +286,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A102BD5A1F023573000C6B38 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A102BE001F023E33000C6B38 /* Portus.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A102BD761F023582000C6B38 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A102BE011F023E33000C6B38 /* Portus.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD921F02358E000C6B38 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A102BE021F023E34000C6B38 /* Portus.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +306,6 @@
 				A102BD3B1F02355A000C6B38 /* Headers */,
 				A102BD3C1F02355A000C6B38 /* Resources */,
 				A102BDD61F023D4A000C6B38 /* SwiftLint */,
-				82056068217DD23800E23A81 /* ProjLint */,
 			);
 			buildRules = (
 			);
@@ -432,7 +323,6 @@
 				A102BD431F02355A000C6B38 /* Sources */,
 				A102BD441F02355A000C6B38 /* Frameworks */,
 				A102BD451F02355A000C6B38 /* Resources */,
-				A102BDBD1F023B2B000C6B38 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -444,45 +334,6 @@
 			productReference = A102BD471F02355A000C6B38 /* Portus-iOS-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A102BD5C1F023573000C6B38 /* Portus macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A102BD6E1F023573000C6B38 /* Build configuration list for PBXNativeTarget "Portus macOS" */;
-			buildPhases = (
-				A102BD581F023573000C6B38 /* Sources */,
-				A102BD591F023573000C6B38 /* Frameworks */,
-				A102BD5A1F023573000C6B38 /* Headers */,
-				A102BD5B1F023573000C6B38 /* Resources */,
-				A102BDD71F023D5B000C6B38 /* SwiftLint */,
-				82056069217DD24800E23A81 /* ProjLint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Portus macOS";
-			productName = "Portus macOS";
-			productReference = A102BD5D1F023573000C6B38 /* Portus.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A102BD641F023573000C6B38 /* Portus macOS Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A102BD711F023573000C6B38 /* Build configuration list for PBXNativeTarget "Portus macOS Tests" */;
-			buildPhases = (
-				A102BD611F023573000C6B38 /* Sources */,
-				A102BD621F023573000C6B38 /* Frameworks */,
-				A102BD631F023573000C6B38 /* Resources */,
-				A102BDBF1F023B3E000C6B38 /* Carthage */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A102BD681F023573000C6B38 /* PBXTargetDependency */,
-			);
-			name = "Portus macOS Tests";
-			productName = "Portus macOSTests";
-			productReference = A102BD651F023573000C6B38 /* Portus-macOS-Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A102BD781F023582000C6B38 /* Portus tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A102BD8A1F023582000C6B38 /* Build configuration list for PBXNativeTarget "Portus tvOS" */;
@@ -492,7 +343,6 @@
 				A102BD761F023582000C6B38 /* Headers */,
 				A102BD771F023582000C6B38 /* Resources */,
 				A102BDD81F023D6C000C6B38 /* SwiftLint */,
-				8205606A217DD25500E23A81 /* ProjLint */,
 			);
 			buildRules = (
 			);
@@ -510,7 +360,6 @@
 				A102BD7D1F023582000C6B38 /* Sources */,
 				A102BD7E1F023582000C6B38 /* Frameworks */,
 				A102BD7F1F023582000C6B38 /* Resources */,
-				A102BDC01F023B47000C6B38 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -522,61 +371,33 @@
 			productReference = A102BD811F023582000C6B38 /* Portus-tvOS-Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A102BD941F02358E000C6B38 /* Portus watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A102BD9A1F02358E000C6B38 /* Build configuration list for PBXNativeTarget "Portus watchOS" */;
-			buildPhases = (
-				A102BD901F02358E000C6B38 /* Sources */,
-				A102BD911F02358E000C6B38 /* Frameworks */,
-				A102BD921F02358E000C6B38 /* Headers */,
-				A102BD931F02358E000C6B38 /* Resources */,
-				A102BDD91F023D80000C6B38 /* SwiftLint */,
-				8205606B217DD26700E23A81 /* ProjLint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Portus watchOS";
-			productName = "Portus watchOS";
-			productReference = A102BD951F02358E000C6B38 /* Portus.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A102BD351F02355A000C6B38 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = JamitLabs;
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Jamit Labs";
 				TargetAttributes = {
 					A102BD3D1F02355A000C6B38 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					A102BD461F02355A000C6B38 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
-					};
-					A102BD5C1F023573000C6B38 = {
-						CreatedOnToolsVersion = 9.0;
-					};
-					A102BD641F023573000C6B38 = {
-						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
 					};
 					A102BD781F023582000C6B38 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					A102BD801F023582000C6B38 = {
 						CreatedOnToolsVersion = 9.0;
-					};
-					A102BD941F02358E000C6B38 = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -586,6 +407,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A102BD341F02355A000C6B38;
 			productRefGroup = A102BD3F1F02355A000C6B38 /* Products */;
@@ -594,11 +416,8 @@
 			targets = (
 				A102BD3D1F02355A000C6B38 /* Portus iOS */,
 				A102BD461F02355A000C6B38 /* Portus iOS Tests */,
-				A102BD5C1F023573000C6B38 /* Portus macOS */,
-				A102BD641F023573000C6B38 /* Portus macOS Tests */,
 				A102BD781F023582000C6B38 /* Portus tvOS */,
 				A102BD801F023582000C6B38 /* Portus tvOS Tests */,
-				A102BD941F02358E000C6B38 /* Portus watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -612,20 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A102BD451F02355A000C6B38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD5B1F023573000C6B38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD631F023573000C6B38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -646,103 +451,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A102BD931F02358E000C6B38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		82056068217DD23800E23A81 /* ProjLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = ProjLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which projlint > /dev/null; then\n        projlint lint --xcode --timeout 2 --ignore-network-errors\n    else\n        echo \"warning: ProjLint not installed, download it from https://github.com/JamitLabs/ProjLint\"\n    fi\nfi\n";
-		};
-		82056069217DD24800E23A81 /* ProjLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = ProjLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which projlint > /dev/null; then\n        projlint lint --xcode --timeout 2 --ignore-network-errors\n    else\n        echo \"warning: ProjLint not installed, download it from https://github.com/JamitLabs/ProjLint\"\n    fi\nfi\n";
-		};
-		8205606A217DD25500E23A81 /* ProjLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = ProjLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which projlint > /dev/null; then\n        projlint lint --xcode --timeout 2 --ignore-network-errors\n    else\n        echo \"warning: ProjLint not installed, download it from https://github.com/JamitLabs/ProjLint\"\n    fi\nfi\n";
-		};
-		8205606B217DD26700E23A81 /* ProjLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = ProjLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which projlint > /dev/null; then\n        projlint lint --xcode --timeout 2 --ignore-network-errors\n    else\n        echo \"warning: ProjLint not installed, download it from https://github.com/JamitLabs/ProjLint\"\n    fi\nfi\n";
-		};
 		A102BDD61F023D4A000C6B38 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which swiftlint > /dev/null; then\n        swiftlint --quiet\n    else\n        echo \"warning: SwiftLint not installed, download it from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
-		};
-		A102BDD71F023D5B000C6B38 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -770,20 +482,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which swiftlint > /dev/null; then\n        swiftlint --quiet\n    else\n        echo \"warning: SwiftLint not installed, download it from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
-		A102BDD91F023D80000C6B38 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n    if which swiftlint > /dev/null; then\n        swiftlint --quiet\n    else\n        echo \"warning: SwiftLint not installed, download it from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -791,6 +489,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3802E83B2233DCC400BB27A0 /* RoutingInstruction.swift in Sources */,
+				387D3436226A2262005C36DE /* RoutingTable.swift in Sources */,
+				3821A4502257C92C00BDE28A /* Switchable.swift in Sources */,
+				3821A44E2257C91800BDE28A /* Enterable.swift in Sources */,
+				3854EA6622342EF300BB9A0C /* RoutingEntry.swift in Sources */,
+				3870E6EB2230421E00BB5796 /* RoutingAlgorithm.swift in Sources */,
+				3854EA5E22341B3500BB9A0C /* RoutingContext.swift in Sources */,
+				3854EA6322341B5F00BB9A0C /* RoutingDestination.swift in Sources */,
+				3821A44C2257C90D00BDE28A /* Leavable.swift in Sources */,
+				82622C0721CB9C3B00DC9C70 /* Router.swift in Sources */,
+				82622C0421CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
+				82622BF721CB9BB000DC9C70 /* Routable.swift in Sources */,
+				3854EA5A22341B0000BB9A0C /* RoutingIdentifier.swift in Sources */,
+				3892B937225A197500D3BDAA /* CollectionExtension.swift in Sources */,
+				38C017ED22357F2A000F8B31 /* RoutingNode.swift in Sources */,
+				384205512268DEF900098402 /* RoutingInstructions.swift in Sources */,
+				38ABA21D223527AE0007C133 /* ArrayExtension.swift in Sources */,
+				382F893A2268C1D900B9DCE3 /* RoutingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,22 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A102BDB31F0238E8000C6B38 /* ExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD581F023573000C6B38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD611F023573000C6B38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A102BDB41F0238E8000C6B38 /* ExampleTests.swift in Sources */,
+				381B5FB4226CF99100410910 /* TestNodes.swift in Sources */,
+				388BD43B226CB1EF0008FB7C /* RoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +523,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3854EA5F22341B3A00BB9A0C /* RoutingContext.swift in Sources */,
+				387D3437226A22F9005C36DE /* RoutingTable.swift in Sources */,
+				3854EA6722342EFF00BB9A0C /* RoutingEntry.swift in Sources */,
+				3813E3AC225BBE7A004C87F5 /* Switchable.swift in Sources */,
+				3813E3AB225BBE77004C87F5 /* Enterable.swift in Sources */,
+				3870E6EC22304BBF00BB5796 /* RoutingAlgorithm.swift in Sources */,
+				82622C0821CB9C3B00DC9C70 /* Router.swift in Sources */,
+				3802E83E2233DD4F00BB27A0 /* RoutingInstruction.swift in Sources */,
+				3813E3AA225BBE74004C87F5 /* Leavable.swift in Sources */,
+				82622C0521CB9C2500DC9C70 /* RoutingTree.swift in Sources */,
+				82622BF821CB9BB000DC9C70 /* Routable.swift in Sources */,
+				3854EA682234366600BB9A0C /* RoutingDestination.swift in Sources */,
+				3854EA6022341B4100BB9A0C /* RoutingIdentifier.swift in Sources */,
+				3813E3AD225BBE7E004C87F5 /* CollectionExtension.swift in Sources */,
+				38917041223587E600E65114 /* RoutingNode.swift in Sources */,
+				384205522268F23700098402 /* RoutingInstructions.swift in Sources */,
+				38ABA21F223528780007C133 /* ArrayExtension.swift in Sources */,
+				382F893B2268C1E700B9DCE3 /* RoutingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,14 +548,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A102BDB51F0238E9000C6B38 /* ExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A102BD901F02358E000C6B38 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				381B5FB3226CF99000410910 /* TestNodes.swift in Sources */,
+				388BD43C226CB1F00008FB7C /* RoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,11 +560,6 @@
 			isa = PBXTargetDependency;
 			target = A102BD3D1F02355A000C6B38 /* Portus iOS */;
 			targetProxy = A102BD491F02355A000C6B38 /* PBXContainerItemProxy */;
-		};
-		A102BD681F023573000C6B38 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A102BD5C1F023573000C6B38 /* Portus macOS */;
-			targetProxy = A102BD671F023573000C6B38 /* PBXContainerItemProxy */;
 		};
 		A102BD841F023582000C6B38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -922,7 +631,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -982,7 +691,7 @@
 				PRODUCT_NAME = Portus;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -992,18 +701,23 @@
 		A102BD531F02355A000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1011,18 +725,22 @@
 		A102BD541F02355A000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1030,14 +748,16 @@
 		A102BD561F02355A000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8DHP3ZYQ2N;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1045,100 +765,41 @@
 		A102BD571F02355A000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8DHP3ZYQ2N;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A102BD6F1F023573000C6B38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A102BD701F023573000C6B38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A102BD721F023573000C6B38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8DHP3ZYQ2N;
-				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		A102BD731F023573000C6B38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8DHP3ZYQ2N;
-				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		A102BD8B1F023582000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1147,19 +808,23 @@
 		A102BD8C1F023582000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1168,12 +833,14 @@
 		A102BD8E1F023582000C6B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
@@ -1182,58 +849,16 @@
 		A102BD8F1F023582000C6B38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DB7EUU9D79;
 				INFOPLIST_FILE = Tests/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamitlabs.$(TARGET_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:rfc1034identifier)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
-			};
-			name = Release;
-		};
-		A102BD9B1F02358E000C6B38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Debug;
-		};
-		A102BD9C1F02358E000C6B38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Frameworks/SupportingFiles/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -1267,24 +892,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A102BD6E1F023573000C6B38 /* Build configuration list for PBXNativeTarget "Portus macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A102BD6F1F023573000C6B38 /* Debug */,
-				A102BD701F023573000C6B38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A102BD711F023573000C6B38 /* Build configuration list for PBXNativeTarget "Portus macOS Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A102BD721F023573000C6B38 /* Debug */,
-				A102BD731F023573000C6B38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A102BD8A1F023582000C6B38 /* Build configuration list for PBXNativeTarget "Portus tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1299,15 +906,6 @@
 			buildConfigurations = (
 				A102BD8E1F023582000C6B38 /* Debug */,
 				A102BD8F1F023582000C6B38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A102BD9A1F02358E000C6B38 /* Build configuration list for PBXNativeTarget "Portus watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A102BD9B1F02358E000C6B38 /* Debug */,
-				A102BD9C1F02358E000C6B38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

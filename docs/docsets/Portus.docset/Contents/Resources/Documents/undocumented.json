@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/andreaslink/Development/Portus/Frameworks/Portus/Protocols/Routable.swift",
+      "line": 11,
+      "symbol": "Routable.entry",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/andreaslink/Development/Portus"
+}

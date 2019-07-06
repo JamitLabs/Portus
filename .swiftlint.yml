@@ -12,7 +12,6 @@ opt_in_rules:
 - empty_xctest_method
 - explicit_init
 - explicit_type_interface
-- extension_access_modifier
 - fallthrough
 - fatal_error_message
 - file_header
@@ -90,7 +89,7 @@ file_header:
   required_pattern: |
                     \/\/
                     \/\/  Created by [^\(\)\d\n]+ on \S{6,10}\.
-                    \/\/  Copyright © \d{4} JamitLabs\. All rights reserved\.
+                    \/\/  Copyright © \d{4} Jamit Labs\. All rights reserved\.
                     \/\/
 
 file_name:
