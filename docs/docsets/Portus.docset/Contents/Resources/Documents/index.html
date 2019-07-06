@@ -277,9 +277,17 @@ Nodes can conform to these protocols and state their routing capabilities as wel
 
 <p>We have included two demo applications, namely <code>Portus-iOS-Demo</code> and <code>Portus-iOS-Demo2</code> to demonstrate the framework&rsquo;s ability to deal with different architectures. The first demo application uses an architectural pattern called <a href="https://github.com/Flinesoft/Imperio">Imperio</a>, while the second sticks to the classic MVC approach. You can find visualizations of the example app&rsquo;s routing trees below:</p>
 
-<p><img src="graphs/tree1.png" alt="First Demo App Tree Visualization"></p>
+<p>Illustration, visualizing the routing tree of the first demo application, namely <code>Portus-iOS-Demo</code>:</p>
 
-<p><img src="graphs/tree2.png" alt="Second Demo App Tree Visualization"></p>
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree1.png">
+</p>
+
+<p>Illustration, visualizing the routing tree of the second demo application, namely <code>Portus-iOS-Demo2</code>:</p>
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree2.png">
+</p>
 
 <p>To include a non-trival structure, we included a <code>PageViewController</code> in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the <code>RoutingMenu</code> as accessed using the device&rsquo;s shake-gesture.</p>
 <h2 id='routing-algorithm-tl-dr' class='heading'>Routing Algorithm (TL;DR)</h2>
@@ -361,7 +369,9 @@ Nodes can conform to these protocols and state their routing capabilities as wel
 
 <p>To illustrate this procedure, consider the following example:</p>
 
-<p><img src="graphs/tree3.png" alt="Routing Algorithm Example Visualization"></p>
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree3.png">
+</p>
 
 <ol>
 <li><p>Example:</p>

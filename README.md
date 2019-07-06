@@ -191,11 +191,17 @@ We have included two demo applications, namely `Portus-iOS-Demo` and `Portus-iOS
 
 
 Illustration, visualizing the routing tree of the first demo application, namely `Portus-iOS-Demo`:
-![First Demo App Tree Visualization](graphs/tree1.png)
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree1.png">
+</p>
 
 
 Illustration, visualizing the routing tree of the second demo application, namely `Portus-iOS-Demo2`:
-![Second Demo App Tree Visualization](graphs/tree2.png)
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree2.png">
+</p>
 
 
 To include a non-trival structure, we included a `PageViewController` in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the `RoutingMenu` as accessed using the device's shake-gesture.
@@ -293,7 +299,9 @@ Computing the next chunk of routing instructions involves completing the followi
 
 To illustrate this procedure, consider the following example:
 
-![Routing Algorithm Example Visualization](graphs/tree3.png)
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree3.png">
+</p>
 
 1. Example:
     - Origin: `.switchNode1`, `.node2`, `.switchNode3`, `.node12`
