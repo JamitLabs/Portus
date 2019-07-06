@@ -189,9 +189,14 @@ extension RoutingTable.DynamicEntries {
 
 We have included two demo applications, namely `Portus-iOS-Demo` and `Portus-iOS-Demo2` to demonstrate the framework's ability to deal with different architectures. The first demo application uses an architectural pattern called [Imperio](https://github.com/Flinesoft/Imperio), while the second sticks to the classic MVC approach. You can find visualizations of the example app's routing trees below:
 
+
+Illustration, visualizing the routing tree of the first demo application, namely `Portus-iOS-Demo`:
 ![First Demo App Tree Visualization](graphs/tree1.png)
 
+
+Illustration, visualizing the routing tree of the second demo application, namely `Portus-iOS-Demo2`:
 ![Second Demo App Tree Visualization](graphs/tree2.png)
+
 
 To include a non-trival structure, we included a `PageViewController` in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the `RoutingMenu` as accessed using the device's shake-gesture.
 
