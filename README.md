@@ -22,7 +22,9 @@
     <a href="#installation">Installation</a>
     <a href="#motivation">Motivation</a>
     <a href="#structure">Structure</a>
-    <a href="#usage">Usage</a>
+    <a href="#examples">Examples</a>
+    <a href="#routing-algorithm">Routing Algorithm</a>
+    <a href="#improvements">Improvements</a>
     <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
     <a href="#license">License</a>
 </p>
@@ -30,6 +32,18 @@
 # Portus
 
 Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.
+
+## Installation
+
+Installation via [Carthage](https://github.com/Carthage/Carthage#carthage) & [SwiftPM](https://swift.org/package-manager/) are both supported.
+
+### Carthage
+
+Add the following to your Cartfile:
+
+``` Swift
+github "JamitLabs/Portus"
+```
 
 ## Motivation
 
@@ -185,7 +199,7 @@ extension RoutingTable.DynamicEntries {
 }
 ```
 
-## Demo Applications
+## Examples
 
 We have included two demo applications, namely `Portus-iOS-Demo` and `Portus-iOS-Demo2` to demonstrate the framework's ability to deal with different architectures. The first demo application uses an architectural pattern called [Imperio](https://github.com/Flinesoft/Imperio), while the second sticks to the classic MVC approach. You can find visualizations of the example app's routing trees below:
 
@@ -207,7 +221,7 @@ Illustration, visualizing the routing tree of the second demo application, namel
 To include a non-trival structure, we included a `PageViewController` in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the `RoutingMenu` as accessed using the device's shake-gesture.
 
 
-## Routing Algorithm (TL;DR)
+## Routing Algorithm
 
 If you are interested in the underlying algorithm that is used by Portus to compute `RountingInstructions`, keep on reading. Otherwise, you may consider to skip this section.
 
@@ -340,20 +354,15 @@ To illustrate this procedure, consider the following example:
 
 Note that we have included Unit Tests based on the presented example to ensure that `RoutingInstructions` are properly computed by the `RoutingAlgorithm`. You can find them in `Portus/Tests/PortusTests`.
 
-## Additional features/enhancements
+## Improvements
 
-The following issues/improvements can be addressed in future revisions:
+The following issues/enhancements can be addressed in future revisions:
 
 - [ ] Enhance the demo applications by including some fancy UI
 - [ ] Enhance the framework by proving a visualization of the current routing tree that can be used for debugging purposes.
 - [ ] Introduce different routing algorithms, other then the minimum route to destination.
 - [ ] Route to a given destination within a single animation, i.e. without animating each step in between
 - [ ] Simulate routing instructions before executing them. This way, developers using the framework can be informed that a destination is not reachable before execution.
-
-## Installation
-
-Installation via [Carthage](https://github.com/Carthage/Carthage#carthage) & [SwiftPM](https://swift.org/package-manager/) are both supported.
-
 
 ## License
 This library is released under the [MIT License](http://opensource.org/licenses/MIT). See LICENSE for details.

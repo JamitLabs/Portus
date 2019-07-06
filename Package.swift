@@ -1,21 +1,20 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
     name: "Portus",
+    platforms: [.iOS("8.0"), .tvOS("9.0")],
     products: [
         .library(name: "Portus", targets: ["Portus"])
     ],
     dependencies: [
-//        .package(url: "https://github.com/Flinesoft/HandySwift.git", .upToNextMajor(from: "2.5.0")),
-//        .package(url: "https://github.com/Flinesoft/HandyUIKit.git", .upToNextMajor(from: "1.6.0"))
+        .package(url: "https://github.com/Flinesoft/Imperio.git", .exact("3.0.2")),
     ],
     targets: [
         .target(
             name: "Portus",
             dependencies: [
-//                "HandySwift",
-//                "HandyUIKit"
+                "Imperio"
             ],
             path: "Frameworks/Portus",
             exclude: ["Frameworks/SupportingFiles"]
