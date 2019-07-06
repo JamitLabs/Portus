@@ -11,12 +11,13 @@ enum RoutingAlgorithm {
     /// - Parameters:
     ///     - destination: The destination to route to, defined as static entry within the `RoutingTable`.
     ///     - completion: Called with the next chunk of routing instructions or an error that occured within routing.
-    ///                   An empty set of instructions indicates that the destination is reached.
-    static internal func computeNextRoutingInstructions(
+    ///     An empty set of instructions indicates that the destination is reached.
+    internal static func computeNextRoutingInstructions( // swiftlint:disable:this cyclomatic_complexity
         to destination: StaticRoutingDestination,
         completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
     ) {
-        let origin = Array(RoutingTree.default.root?.activePath() ?? []).map { $0.entry }
+        let activePath = Array(RoutingTree.default.root?.activePath() ?? [])
+        let origin = activePath.map { $0.entry }
 
         guard origin != destination else {
             completion(.success([]))
@@ -24,9 +25,9 @@ enum RoutingAlgorithm {
         }
 
         let nextChunkOfRoutingInstructions: RoutingInstructions = {
-            var nextChunkOfInstructions: RoutingInstructions = []
-
             let maxIndex = max(origin.count, destination.count)
+
+            /// We need to determine the first mismatch index, i.e., the first index from which on the origin and destination path do not match
             let firstMismatchIndex: Int? = {
                 for index in 0 ... maxIndex {
                     guard
@@ -43,30 +44,44 @@ enum RoutingAlgorithm {
 
             guard let index = firstMismatchIndex else { return [] }
 
-            nextChunkOfInstructions += Array(origin.suffix(from: index)).reversed().compactMap { entry in
-                guard let leavable = entry.routable as? Leavable else { return nil }
+            /// Case 1: Handle Leavables
+            /// To guarantee that the desired destination is reachable from the current context, we only need to ensure that all leavable nodes along the path
+            /// starting from the node corresponding to the first mismatch index up to the active leaf that are not managed by their parent can be left.
+            /// This is determined by asking canLeaveNode(with: entry).
+            var leavingRoutingInstructions: RoutingInstructions = []
+            let canLeaveCurrentContext: Bool = {
+                for node in activePath.suffix(from: index).reversed() {
+                    guard let leavable = node.entry.routable as? Leavable, !node.isManagedByParent else { continue }
 
-                return leavable.canLeaveNode(with: entry) ? .leave(entry: entry) : nil
-            }
+                    guard leavable.canLeaveNode(with: node.entry) else { return false }
 
+                    leavingRoutingInstructions += [.leave(entry: node.entry)]
+                }
+
+                return true
+            }()
+
+            guard canLeaveCurrentContext else { return [] }
+            guard leavingRoutingInstructions.isEmpty else { return leavingRoutingInstructions }
+
+            /// Case 2: Handle Switchables
+            /// Check wether the predecessor of active leaf is Switchable and contains the target node as one of his children, in this case change
+            /// the active child to the target node
             if
                 let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1],
                 switchNode.children.count > 1
             {
-                guard
-                    switchNode.children.map({ $0.entry.identifier }).contains(destination[index].identifier)
-                else {
-                    return []
-                }
+                guard switchNode.children.map({ $0.entry.identifier }).contains(destination[index].identifier) else { return [] }
 
-                nextChunkOfInstructions.append(
-                    .switchTo(entry: destination[index], switchNodeEntry: switchNode.entry)
-                )
-            } else if let enterEntry = destination[try: index] {
-                nextChunkOfInstructions.append(.enter(entry: enterEntry))
+                return [.switchTo(entry: destination[index], switchNodeEntry: switchNode.entry)]
             }
 
-            return nextChunkOfInstructions
+            /// Case 3: Handle Enterables
+            if let enterEntry = destination[try: index] {
+                return [.enter(entry: enterEntry)]
+            }
+
+            return []
         }()
 
         guard !nextChunkOfRoutingInstructions.isEmpty else {

@@ -24,7 +24,7 @@ public class RoutingTree {
     public func didEnterNode(withEntry entry: RoutingEntry) {
         if let managedEntries = entry.managedEntries {
             let children = managedEntries.entries.map { entry in
-                RoutingNode(entry: entry, isActive: entry == managedEntries.activeEntry)
+                RoutingNode(entry: entry, isActive: entry == managedEntries.activeEntry, isManagedByParent: true)
             }
 
             guard let root = root else {

@@ -10,8 +10,11 @@ class RoutingNode {
     /// The entry that uniquely identifies the node, including routing identifier and context
     var entry: RoutingEntry
 
-    /// Flag indicating whether the node is contained within the active path
+    /// Flag indicating, whether the node is contained within the active path
     var isActive: Bool
+
+    /// Flag indicating, whether the node is managed by the parent node
+    var isManagedByParent: Bool
 
     /// The parent node of the node if it exists, `nil` otherwise
     weak var parent: RoutingNode?
@@ -26,9 +29,10 @@ class RoutingNode {
     ///     - isActive: Flag indicating whether the node is contained within the active path
     ///     - parent: The parent node of the node if it exists, `nil` otherwise
     ///     - children: A list of children of the node. If empty, the node is a leaf node
-    init(entry: RoutingEntry, isActive: Bool, parent: RoutingNode? = nil, children: [RoutingNode] = []) {
+    init(entry: RoutingEntry, isActive: Bool, isManagedByParent: Bool = false, parent: RoutingNode? = nil, children: [RoutingNode] = []) {
         self.entry = entry
         self.isActive = isActive
+        self.isManagedByParent = isManagedByParent
         self.parent = parent
         self.children = children
     }
@@ -40,10 +44,12 @@ class RoutingNode {
         children.forEach { add(child: $0) }
     }
 
-    /// Adds a child to the node
+    /// Adds the given child to the node if does not exist yet
     ///
     /// - Parameter child: The node that should be added as a child
     func add(child: RoutingNode) {
+        guard !children.contains(child) else { return }
+
         children.append(child)
         child.parent = self
     }
@@ -108,7 +114,7 @@ class RoutingNode {
     ///
     /// - Parameter entry: The entry that uniquely identifies the child that should become active
     func changeActiveChild(toNodeWithEntry entry: RoutingEntry) {
-        guard children.firstIndex(where: { entry == $0.entry }) != nil else {
+        guard children.firstIndex(where: { entry == $0.entry }) != nil else { // swiftlint:disable:this contains_over_first_not_nil
             print("[Routing Tree] Could not change active child to \(entry.identifier.rawValue)")
             return
         }
