@@ -7,7 +7,7 @@
 import Foundation
 import Portus
 
-extension RoutingIdentifier {
+extension RoutingIdentifier { // swiftlint:disable:this file_types_order
     static let node1 = RoutingIdentifier(rawValue: "node1")
     static let node2 = RoutingIdentifier(rawValue: "node2")
     static let node3 = RoutingIdentifier(rawValue: "node3")
@@ -111,7 +111,7 @@ class SwitchNode2: Switchable {
     }
 }
 
-class SwitchNode3: Switchable, Leavable {
+class SwitchNode3: Switchable, Leavable { // swiftlint:disable:this file_types_order
     private var started: Bool = false
     var entry: RoutingEntry {
         return RoutingEntry(

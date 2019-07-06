@@ -4,18 +4,14 @@
 </p>
 
 <p align="center">
-    <a href="https://app.bitrise.io/app/7f97045d305e8481">
-        <img src="https://app.bitrise.io/app/7f97045d305e8481/status.svg?token=jW4_Lgs5ezNb-OlbhaE11Q&branch=stable"
-             alt="Build Status">
-    </a>
     <a href="https://github.com/JamitLabs/Portus/releases">
-        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg"
-             alt="Version: 0.1.0">
+        <img src="https://img.shields.io/badge/Version-1.0.0--alpha-blue.svg"
+             alt="Version: 1.0.0-alpha">
     </a>
-    <img src="https://img.shields.io/badge/Swift-4.2-FFAC45.svg"
-         alt="Swift: 4.2">
-    <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-FF69B4.svg"
-        alt="Platforms: iOS | macOS | tvOS | watchOS">
+    <img src="https://img.shields.io/badge/Swift-5.0-FFAC45.svg"
+         alt="Swift: 5.0">
+    <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20tvOS-FF69B4.svg"
+        alt="Platforms: iOS">
     <a href="https://github.com/JamitLabs/Portus/blob/stable/LICENSE.md">
         <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg"
               alt="License: MIT">
@@ -24,10 +20,11 @@
 
 <p align="center">
     <a href="#installation">Installation</a>
-  • <a href="#usage">Usage</a>
-  • <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
-  • <a href="#contributing">Contributing</a>
-  • <a href="#license">License</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#structure">Structure</a>
+    <a href="#usage">Usage</a>
+    <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
+    <a href="#license">License</a>
 </p>
 
 # Portus
@@ -123,7 +120,7 @@ Using above-stated protocols, nodes can be entered, left or become (in)active in
 
 ### `RoutingTree`
 
-The `RoutingTree` is used by the `RoutingAlgorithm` to compute `RoutingInstructions` to either static or dynamic destinations. Note that the tree consists of individual nodes, where each  `RoutingNode` may contain children. Still only one of a node's children can be active at the same time. This characteristic is crucial to compute an `activePath` that corresponds to the origin any routing request will start from.
+The `RoutingTree` is used by the `RoutingAlgorithm` to compute `RoutingInstructions` to either static or dynamic destinations. Note that the tree consists of individual nodes, where each `RoutingNode` may contain children. Still only one of a node's children can be active at the same time. This characteristic is crucial to compute an `activePath` that corresponds to the origin any routing request will start from.
 
 The following operations can be performed on the `RoutingTree` and allow applications to provide information about when they enter, leave or switch to one of their managed nodes. This information is required by the `RoutingAlgorithm` to compute appropriate instructions to predefined destinations.
 
@@ -160,27 +157,202 @@ public func enter(
     ...
 }
 ```
-Note that both static- and dynamic destinations need to be predefined in the RoutingTable:
+To request a route, static- and dynamic destinations need to be predefined in the `RoutingTable`. The `RoutingTable` includes knowledge about all reachable destinations using the routing framework. For instance, when requiring a deeplink to a screen within your app, you add a static route, describing the screen's location relative to your app's routing tree. However, having to state static destinations in the `RoutingTable` at compile time does not mean that they can not adapt to context information known at runtime. Below examples includes both a static route to a `colorList` not requiring any parameters, as well as a route to the color details screen depending on a hexadecimal value representing the color that is shown in the details screen. This way, you can adapt static routes at runtime as soon as the required context information is known.
 
 ```swift
 extension RoutingTable.StaticEntries {
+    static let colorList = [.root, .colorList].entries
+    static func colorDetail(withHexString hexString: String) -> [RoutingEntry] {
+        return [
+            RoutingEntry(identifier: .root),
+            RoutingEntry(identifier: .colorList),
+            RoutingEntry(identifier: .colorDetail, context: ["hex": "\(hexString)"])
+        ]
+    }
+
     ...
 }
 ```
+
+In comparison, dynamic routes represent a single destination that is reachable from everywhere within your app: 
+
 
 ```swift
 extension RoutingTable.DynamicEntries {
+    static let a = RoutingEntry(identifier: .a)
+
     ...
 }
 ```
 
+## Demo Applications
+
+We have included two demo applications, namely `Portus-iOS-Demo` and `Portus-iOS-Demo2` to demonstrate the framework's ability to deal with different architectures. The first demo application uses an architectural pattern called [Imperio](https://github.com/Flinesoft/Imperio), while the second sticks to the classic MVC approach. You can find visualizations of the example app's routing trees below:
+
+
+Illustration, visualizing the routing tree of the first demo application, namely `Portus-iOS-Demo`:
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree1.png">
+</p>
+
+
+Illustration, visualizing the routing tree of the second demo application, namely `Portus-iOS-Demo2`:
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree2.png">
+</p>
+
+
+To include a non-trival structure, we included a `PageViewController` in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the `RoutingMenu` as accessed using the device's shake-gesture.
+
+
+## Routing Algorithm (TL;DR)
+
+If you are interested in the underlying algorithm that is used by Portus to compute `RountingInstructions`, keep on reading. Otherwise, you may consider to skip this section.
+
+The key component of the RoutingAlgorithm is `computeNextRoutingInstructions(...)`. Using this method the `Router` computes the next chunk of routing instructions in an iterative process and executes them until the desired destination is reached. The signature of `computeNextRoutingInstructions(...)` is given as follows:
+
+```swift
+internal static func computeNextRoutingInstructions(
+    to destination: StaticRoutingDestination,
+    completion: @escaping (Result<RoutingInstructions, RoutingError>) -> Void
+) {
+    ...
+}
+```
+
+Note that `RoutingInstructions` is a typealias for `[RoutingInstruction]`, where a single instruction corresponds to one of the following cases:
+    - `enter(entry: RoutingEntry)`: represents a node to be entered
+    - `leave(entry: RoutingEntry)`: represents a node to be left
+    - `switchTo(entry: RoutingEntry`, switchNodeEntry: RoutingEntry): represents a node to switch to
+
+Computing the next chunk of routing instructions involves completing the following steps:
+1. First, we need to check whether we are already at the destination. If this is the case, we are done and can return an empty list of instructions:
+    ```swift
+    guard origin != destination else {
+        completion(.success([]))
+        return
+    }
+    ```
+
+2. Otherwise, i.e., when the destination is not yet reached, we determine the first mismatch index, i.e., the first index from which on the origin and destination path differ. Using this index, we can handle `Leavables`, `Switchables` and `Enterables` respectively.
+
+    ```swift
+     let firstMismatchIndex: Int? = {
+        for index in 0 ... maxIndex {
+            guard
+                let originEntry = origin[try: index],
+                let destinationEntry = destination[try: index],
+                originEntry == destinationEntry
+            else {
+                return index
+            }
+        }
+
+        return nil
+    }()
+    ```
+
+3. We need to ensure that all leavable nodes along the path starting from the node corresponding to the first mismatch index up to the active leaf that are not managed by their parent (as indicated by `isManagedByParent`) can be left. This way we can gurantee that the desired destination is reached from the current context. For each of these nodes we introduce a new routingInstruction using `.leave(entry: ...)`:
+
+    ```swift
+    var leavingRoutingInstructions: RoutingInstructions = []
+    let canLeaveCurrentContext: Bool = {
+        for node in activePath.suffix(from: index).reversed() {
+            guard let leavable = node.entry.routable as? Leavable, !node.isManagedByParent else { continue }
+
+            guard leavable.canLeaveNode(with: node.entry) else { return false }
+
+            leavingRoutingInstructions += [.leave(entry: node.entry)]
+        }
+
+        return true
+    }()
+
+    guard canLeaveCurrentContext else { return [] }
+    guard leavingRoutingInstructions.isEmpty else { return leavingRoutingInstructions }
+    ```
+
+4. Next, when all nodes could be left that do not match the destination path, we need to check whether the predecessor of the active leaf is `Switchable` and contains the target node as one of its children. In this case, we can set the active child to the target node, by introducing a new routing instruction of the form `switchTo(...)`:
+
+    ```swift
+    if
+        let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1],
+        switchNode.children.count > 1
+    {
+        guard switchNode.children.map({ $0.entry.identifier }).contains(destination[index].identifier) else { return [] }
+
+        return [.switchTo(entry: destination[index], switchNodeEntry: switchNode.entry)]
+    }
+    ```
+
+5. Otherwise, if there is no `Switchable` we simply enter the part of the destination path by introducing `.enter(entry: ...)`:
+
+    ```swift
+    if let enterEntry = destination[try: index] {
+        return [.enter(entry: enterEntry)]
+    }
+    ```
+
+6. Finally, if the algorithm returns the next chunk of instructions as computed above, or indicates that the destination is not reachable using the following Error: `destinationNotReachable`
+
+To illustrate this procedure, consider the following example:
+
+<p align="center">
+  <img style="padding:5px;"" src="graphs/tree3.png">
+</p>
+
+1. Example:
+    - Origin: `.switchNode1`, `.node2`, `.switchNode3`, `.node12`
+    - Destination: `.switchNode1`, `.node1`, `.node5`, `.node8`
+    - Computed Instructions: 
+        `.leave(.switchNode3)`
+        `.switchTo(.node1, switchNode: .switchNode1)`
+        `.enter(.node5)`
+        `.enter(.node8)`
+
+2. Example:
+    - Origin: `.switchNode1`, `.node1`, `.node5`, `.node8`
+    - Destination: `.switchNode1`, `.switchNode2`, `.node4`
+    - Computed Instructions: 
+        `.leave(.node8)`
+        `.leave(.node5)`
+        `.switchTo(.switchNode2, switchNode: .switchNode1)`
+        `.switchTo(.node4, switchNode: .switchNode2)`
+
+3. Example:
+    - Origin: `.switchNode1`, `.switchNode2`, `.node4`
+    - Destination: `.switchNode1`, `.node1`, `.node6`, `.node11`
+    - Computed Instructions: 
+        `.switchTo(.node1, switchNode: .switchNode1)`
+        `.enter(.node6)`
+        `.enter(.node11)`
+
+4. Example:
+    - Origin: `.switchNode1`, `.node1`, `.node6`, `.node11`
+    - Destination: `.switchNode1`, `.node2`, `.switchNode3`, `.node13`
+    - Computed Instructions:
+        `.leave(.node11)`
+        `.leave(.node6)`
+        `.switchTo(.node2, switchNode: .switchNode1)`
+        `.enter(.switchNode3)`
+
+Note that we have included Unit Tests based on the presented example to ensure that `RoutingInstructions` are properly computed by the `RoutingAlgorithm`. You can find them in `Portus/Tests/PortusTests`.
+
+## Additional features/enhancements
+
+The following issues/improvements can be addressed in future revisions:
+
+- [ ] Enhance the demo applications by including some fancy UI
+- [ ] Enhance the framework by proving a visualization of the current routing tree that can be used for debugging purposes.
+- [ ] Introduce different routing algorithms, other then the minimum route to destination.
+- [ ] Route to a given destination within a single animation, i.e. without animating each step in between
+- [ ] Simulate routing instructions before executing them. This way, developers using the framework can be informed that a destination is not reachable before execution.
+
 ## Installation
 
-Installing via [Carthage](https://github.com/Carthage/Carthage#carthage) & [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) are both supported.
-
-## Contributing
-
-See the file [CONTRIBUTING.md](https://github.com/JamitLabs/MungoHealer/blob/stable/CONTRIBUTING.md).
+Installation via [Carthage](https://github.com/Carthage/Carthage#carthage) & [SwiftPM](https://swift.org/package-manager/) are both supported.
 
 
 ## License
