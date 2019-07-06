@@ -143,13 +143,23 @@
     <a href="#installation">Installation</a>
     <a href="#motivation">Motivation</a>
     <a href="#structure">Structure</a>
-    <a href="#usage">Usage</a>
+    <a href="#examples">Examples</a>
+    <a href="#routing-algorithm">Routing Algorithm</a>
+    <a href="#improvements">Improvements</a>
     <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
     <a href="#license">License</a>
 </p>
 <h1 id='portus' class='heading'>Portus</h1>
 
 <p>Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Installation via <a href="https://github.com/Carthage/Carthage#carthage">Carthage</a> &amp; <a href="https://swift.org/package-manager/">SwiftPM</a> are both supported.</p>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Add the following to your Cartfile:</p>
+<pre class="highlight plaintext"><code>github "JamitLabs/Portus"
+</code></pre>
 <h2 id='motivation' class='heading'>Motivation</h2>
 
 <p>Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. <em>Portus</em> mitigate these issues and offers a defined framework for handling screenflow in a standardized way.</p>
@@ -273,7 +283,7 @@ Nodes can conform to these protocols and state their routing capabilities as wel
     <span class="o">...</span>
 <span class="p">}</span>
 </code></pre>
-<h2 id='demo-applications' class='heading'>Demo Applications</h2>
+<h2 id='examples' class='heading'>Examples</h2>
 
 <p>We have included two demo applications, namely <code>Portus-iOS-Demo</code> and <code>Portus-iOS-Demo2</code> to demonstrate the framework&rsquo;s ability to deal with different architectures. The first demo application uses an architectural pattern called <a href="https://github.com/Flinesoft/Imperio">Imperio</a>, while the second sticks to the classic MVC approach. You can find visualizations of the example app&rsquo;s routing trees below:</p>
 
@@ -290,7 +300,7 @@ Nodes can conform to these protocols and state their routing capabilities as wel
 </p>
 
 <p>To include a non-trival structure, we included a <code>PageViewController</code> in the third tab of the second example app. The difficulty consists of keeping track of open paths when switching the active child of a switchable node. You can click through the sample app and open multiple screens each modifying the routing tree. Then, routes to static- as well as dynamic destinations are requested using the <code>RoutingMenu</code> as accessed using the device&rsquo;s shake-gesture.</p>
-<h2 id='routing-algorithm-tl-dr' class='heading'>Routing Algorithm (TL;DR)</h2>
+<h2 id='routing-algorithm' class='heading'>Routing Algorithm</h2>
 
 <p>If you are interested in the underlying algorithm that is used by Portus to compute <code>RountingInstructions</code>, keep on reading. Otherwise, you may consider to skip this section.</p>
 
@@ -420,9 +430,9 @@ Nodes can conform to these protocols and state their routing capabilities as wel
 </ol>
 
 <p>Note that we have included Unit Tests based on the presented example to ensure that <code><a href="Typealiases.html#/s:6Portus19RoutingInstructionsa">RoutingInstructions</a></code> are properly computed by the <code>RoutingAlgorithm</code>. You can find them in <code>Portus/Tests/PortusTests</code>.</p>
-<h2 id='additional-features-enhancements' class='heading'>Additional features/enhancements</h2>
+<h2 id='improvements' class='heading'>Improvements</h2>
 
-<p>The following issues/improvements can be addressed in future revisions:</p>
+<p>The following issues/enhancements can be addressed in future revisions:</p>
 
 <ul>
 <li>[ ] Enhance the demo applications by including some fancy UI</li>
@@ -431,9 +441,6 @@ Nodes can conform to these protocols and state their routing capabilities as wel
 <li>[ ] Route to a given destination within a single animation, i.e. without animating each step in between</li>
 <li>[ ] Simulate routing instructions before executing them. This way, developers using the framework can be informed that a destination is not reachable before execution.</li>
 </ul>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>Installation via <a href="https://github.com/Carthage/Carthage#carthage">Carthage</a> &amp; <a href="https://swift.org/package-manager/">SwiftPM</a> are both supported.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>This library is released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>. See LICENSE for details.</p>
