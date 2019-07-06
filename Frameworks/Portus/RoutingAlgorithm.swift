@@ -19,6 +19,7 @@ enum RoutingAlgorithm {
         let activePath = Array(RoutingTree.default.root?.activePath() ?? [])
         let origin = activePath.map { $0.entry }
 
+        // First, we need to check whether we are already at the destination. If so, no instructions are needed.
         guard origin != destination else {
             completion(.success([]))
             return
@@ -44,7 +45,7 @@ enum RoutingAlgorithm {
 
             guard let index = firstMismatchIndex else { return [] }
 
-            /// Case 1: Handle Leavables
+            /// [Case 1] Handle Leavables
             /// To guarantee that the desired destination is reachable from the current context, we only need to ensure that all leavable nodes along the path
             /// starting from the node corresponding to the first mismatch index up to the active leaf that are not managed by their parent can be left.
             /// This is determined by asking canLeaveNode(with: entry).
@@ -64,8 +65,8 @@ enum RoutingAlgorithm {
             guard canLeaveCurrentContext else { return [] }
             guard leavingRoutingInstructions.isEmpty else { return leavingRoutingInstructions }
 
-            /// Case 2: Handle Switchables
-            /// Check wether the predecessor of active leaf is Switchable and contains the target node as one of his children, in this case change
+            /// [Case 2] Handle Switchables
+            /// Check wether the predecessor of the active leaf is Switchable and contains the target node as one of his children, in this case change
             /// the active child to the target node
             if
                 let switchNode = (RoutingTree.default.root?.activePath() ?? [])[try: index - 1],
@@ -76,7 +77,7 @@ enum RoutingAlgorithm {
                 return [.switchTo(entry: destination[index], switchNodeEntry: switchNode.entry)]
             }
 
-            /// Case 3: Handle Enterables
+            /// [Case 3] Handle Enterables
             if let enterEntry = destination[try: index] {
                 return [.enter(entry: enterEntry)]
             }
