@@ -20,18 +20,18 @@
 
 <p align="center">
     <a href="#installation">Installation</a>
-    <a href="#motivation">Motivation</a>
-    <a href="#structure">Structure</a>
-    <a href="#examples">Examples</a>
-    <a href="#routing-algorithm">Routing Algorithm</a>
-    <a href="#improvements">Improvements</a>
-    <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
-    <a href="#license">License</a>
+  • <a href="#motivation">Motivation</a>
+  • <a href="#structure">Structure</a>
+  • <a href="#examples">Examples</a>
+  • <a href="#routing-algorithm">Routing Algorithm</a>
+  • <a href="#improvements">Improvements</a>
+  • <a href="https://github.com/JamitLabs/Portus/issues">Issues</a>
+  • <a href="#license">License</a>
 </p>
 
 # Portus
 
-Portus is an UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.
+Portus is a UIKit- and architecture independent routing framework that easily integrates with your iOS apps. Usage enables enhanced features like in-app navigation or deeplinks.
 
 ## Installation
 
@@ -47,7 +47,7 @@ github "JamitLabs/Portus"
 
 ## Motivation
 
-Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. *Portus* mitigate these issues and offers a defined framework for handling screenflow in a standardized way.
+Managing screenflow within iOS apps is complex, especially when dealing with advanced requirements like in-app navigation or deeplinks. Even though trivial solutions establish connections among screens, dealing with hard-coded links suffers from insufficient context information and scalabilty issues. *Portus* mitigates these issues and offers a defined framework for handling screen flow in a standardized way.
 
 Screens within iOS apps are arranged on a stack or presented in succession to provide different level of information. Combined with user interface components, like *sliding menus*, *navigation-* or *tab bars*, paths are established that form the app's navigation tree. Each node in the tree either corresponds to a screen within the application or a branch node that is respondible for managing individual nodes.
 
@@ -55,15 +55,15 @@ Screens within iOS apps are arranged on a stack or presented in succession to pr
 
 Development of this framework was driven by the following requirements:
 
-### UIKit-Independent:
+### UIKit Independence
 
-First, the framework is designed to be independent of UIKit. This ensures that Portus does neither need to know about your app's view hierarchy nor about the relationship among view controllers. Rather the framework relies on a tree-based structure that consists of routing nodes, where each node states its routing capabilities by conforming to the `Enterable`, `Leavable` or `Switchable` protocol. Note that being independent of UIKit is crucial to meet the second requirement to be architectural independent.
+First, the framework is designed to be independent of UIKit. This ensures that Portus does neither need to know about your app's view hierarchy nor about the relationship among view controllers. Rather the framework relies on a tree-based structure that consists of routing nodes, where each node states its routing capabilities by conforming to the `Enterable`, `Leavable` or `Switchable` protocol. Note that being independent of UIKit is crucial to meet the second requirement to be architecturally independent.
 
-### Architectute-Independent:
+### Architectural Independence
 
 Second, Portus does not enforce an architectural pattern. Due to limitations of the *MVC* architecture, the community has come up with several alternatives, like *FlowControllers*, *Coordinators*, *MVVM*, *MVVM+RxSwift*. To seamlessly integrate with these architectures, we designed Portus to be architectural independent.
 
-### Context-Driven:
+### Context-Driven
 
 Finally, nodes are entered in different contexts. For instance, the background color of a screen can differ depending on the value that is provided to the node. Hence, even though the requested node might already be open it might be necessary to reenter the node when the color value differs. With the combination of  `RoutingIdentifier` and `RoutingContext` nodes are uniquely identified.
 
@@ -103,7 +103,8 @@ Enterables will receive the entry identifying the node to enter as well as whete
 #### `Leavable`
 
  `Leavable` represents an additional routing capability. Routables conforming to this protocol can leave a node for a given entry. Similar to `Enterable` calling the completion is mandatory and notifies the routing framework whether the operation succeeded.
- In addition, leavables can be asked whether they can leave a node for a given entry:
+
+In addition, leavables can be asked whether they can leave a node for a given entry:
 
 ```swift
 protocol Leavable: Routable {
